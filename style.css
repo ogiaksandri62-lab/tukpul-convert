@@ -1,0 +1,120 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px;
+  background: #020617;
+  color: #fff;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #facc15;
+}
+
+.wa-btn {
+  background: #22c55e;
+  padding: 8px 14px;
+  border-radius: 6px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.rates {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+  gap: 15px;
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.rate-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,.05);
+}
+
+.convert-box {
+  max-width: 400px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,.08);
+}
+
+.convert-box h2 {
+  text-align: center;
+}
+
+select, input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5f5;
+}
+
+button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  background: #020617;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+#hasil {
+  margin-top: 15px;
+  background: #f1f5f9;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.steps {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.step {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 18px;
+  background: #020617;
+  color: #fff;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #020617;
+  color: #fff;
+  font-size: 14px;
+}
