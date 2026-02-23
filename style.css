@@ -190,3 +190,64 @@ details p { padding: 0 15px 15px; color: #64748b; font-size: 0.85rem; }
     opacity: 1;
     transform: scale(1.1);
 }
+/* --- Tambahkan Mulai Baris 193 --- */
+
+/* Sembunyikan form step agar tidak muncul semua sekaligus */
+.form-step { 
+    display: none; 
+}
+
+/* Tampilkan hanya step yang aktif */
+.form-step.active { 
+    display: block; 
+    animation: fadeIn 0.4s ease; 
+}
+
+/* Grid Provider (Telkomsel, Indosat, dll) */
+.provider-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 12px; 
+    margin-bottom: 20px; 
+}
+
+.provider-item { 
+    padding: 15px; 
+    border: 1px solid var(--border); 
+    border-radius: 12px; 
+    text-align: center; 
+    cursor: pointer; 
+    transition: 0.3s;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.provider-item.active { 
+    border-color: var(--primary); 
+    background: #f0f9ff; 
+    color: var(--primary); 
+}
+
+/* Titik Indikator Langkah */
+.step-indicator { 
+    display: flex; 
+    justify-content: center; 
+    gap: 10px; 
+    margin-bottom: 30px; 
+}
+
+.step { 
+    width: 40px; 
+    height: 6px; 
+    background: #e2e8f0; 
+    border-radius: 10px; 
+}
+
+.step.active { 
+    background: var(--primary); 
+}
+
+@keyframes fadeIn { 
+    from { opacity: 0; transform: translateY(10px); } 
+    to { opacity: 1; transform: translateY(0); } 
+}
