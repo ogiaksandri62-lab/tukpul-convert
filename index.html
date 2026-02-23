@@ -57,13 +57,23 @@
 
     <input type="number" id="nominal" placeholder="Nominal Pulsa (Rp)" required>
 
-    <select id="tujuan">
-      <option>DANA</option>
-      <option>OVO</option>
-      <option>GoPay</option>
-      <option>ShopeePay</option>
-      <option>Bank</option>
-    </select>
+    <select id="tujuan" required>
+    <option value="" disabled selected>Pilih Tujuan Pencairan</option>
+    <optgroup label="E-Wallet">
+        <option value="DANA">DANA</option>
+        <option value="OVO">OVO</option>
+        <option value="GoPay">GoPay</option>
+        <option value="ShopeePay">ShopeePay</option>
+    </optgroup>
+    <optgroup label="Bank Transfer">
+        <option value="BCA">BCA</option>
+        <option value="BRI">BRI</option>
+        <option value="BNI">BNI</option>
+        <option value="Mandiri">Mandiri</option>
+        <option value="SeaBank">SeaBank</option>
+    </optgroup>
+</select>
+
 
     <button type="submit">Hitung & Lanjut WA</button>
   </form>
