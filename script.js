@@ -1,42 +1,62 @@
-const rates = {
-    "Telkomsel": 0.86,
-    "XL/Axis": 0.87,
-    "Indosat": 0.89,
-    "Tri": 0.90
-};
+let currentRate = 0.85;
 
-const amountInput = document.getElementById('amount');
-const providerSelect = document.getElementById('provider');
-const resultDisplay = document.getElementById('result');
-
-function calculate() {
-    const provider = providerSelect.value;
-    const amount = amountInput.value || 0;
-    const rate = rates[provider];
-    const total = amount * rate;
+// Fungsi pindah halaman (Tombol Lanjut & Kembali)
+function nextStep(step) {
+    document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
     
-    resultDisplay.innerText = "Rp " + total.toLocaleString('id-ID');
-}
-
-amountInput.addEventListener('input', calculate);
-providerSelect.addEventListener('change', calculate);
-
-function sendToWA() {
-    const phone = "6289530922938"; 
-    const provider = providerSelect.value;
-    const amount = amountInput.value;
-    const result = resultDisplay.innerText;
-
-    if (amount < 50000) {
-        alert("Minimal convert di Tukpul Convert adalah 50.000");
-        return;
+    document.getElementById('step' + step).classList.add('active');
+    for(let i=1; i<=step; i++) {
+        document.getElementById('step' + i + '-dot').classList.add('active');
     }
 
-    const message = `Halo Admin Tukpul Convert, saya mau tukar pulsa:\n\n` +
-                    `• Provider: ${provider}\n` +
-                    `• Nominal: Rp ${parseInt(amount).toLocaleString('id-ID')}\n` +
-                    `• Saya Terima: ${result}\n\n` +
-                    `Mohon diproses ya Min, terima kasih.`;
-    
-    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+    // Mengambil data untuk ringkasan di Tahap 3
+    if(step === 3) {
+        const bank = document.getElementById('bank-name').value;
+        const norek = document.getElementById('acc-number').value;
+        const nama = document.getElementById('acc-name').value;
+        
+        document.getElementById('confirm-bank-info').innerText = bank + " - " + norek;
+        document.getElementById('confirm-name-info').innerText = "a.n " + nama;
+    }
+}
+
+// Menghitung uang otomatis saat nominal diisi
+document.getElementById('amount').addEventListener('input', function() {
+    const nominal = this.value;
+    const terima = nominal * currentRate;
+    document.getElementById('display-result').innerText = "Rp " + terima.toLocaleString('id-ID');
+    document.getElementById('final-amount').innerText = "Rp " + terima.toLocaleString('id-ID');
+});
+
+// Mengatur pilihan Provider (Telkomsel, Indosat, dll)
+document.querySelectorAll('.provider-item').forEach(item => {
+    item.addEventListener('click', function() {
+        document.querySelector('.provider-item.active').classList.remove('active');
+        this.classList.add('active');
+        currentRate = parseFloat(this.dataset.rate);
+        
+        // Update hitungan otomatis saat ganti provider
+        const event = new Event('input');
+        document.getElementById('amount').dispatchEvent(event);
+    });
+});
+
+// Fungsi Kirim Data ke WhatsApp
+function sendToWA() {
+    const provider = document.querySelector('.provider-item.active').innerText;
+    const nominal = document.getElementById('amount').value;
+    const bank = document.getElementById('bank-name').value;
+    const norek = document.getElementById('acc-number').value;
+    const nama = document.getElementById('acc-name').value;
+
+    const pesan = `Halo Admin Tukpul, saya mau convert:\n\n` +
+                  `Provider: ${provider}\n` +
+                  `Nominal: ${nominal}\n` +
+                  `Tujuan: ${bank}\n` +
+                  `No. Rek/HP: ${norek}\n` +
+                  `Atas Nama: ${nama}`;
+
+    // Gunakan nomor WA kamu di sini (628...)
+    window.open(`https://wa.me/6289530922938?text=${encodeURIComponent(pesan)}`, '_blank');
 }
