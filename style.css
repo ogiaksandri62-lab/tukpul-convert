@@ -1,75 +1,46 @@
-/* Update Form Jadi Keren */
-.convert-box {
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    max-width: 500px;
-    margin: -50px auto 40px;
-    position: relative;
-    border: 1px solid #f0f0f0;
-}
+* { box-sizing: border-box; font-family: sans-serif; }
+body { background: #f4f7f9; margin: 0; padding: 0; }
 
-.convert-box h2 {
-    text-align: center;
-    color: #1a2a6c;
-    font-size: 22px;
-    margin-bottom: 25px;
-    font-weight: 700;
-}
+/* Navbar */
+.navbar { background: #000814; padding: 15px; display: flex; justify-content: space-between; align-items: center; color: white; }
+.wa-btn { background: #25d366; color: white; text-decoration: none; padding: 8px 15px; border-radius: 5px; font-weight: bold; }
 
-.form-group {
-    margin-bottom: 20px;
-}
+/* Hero */
+.hero { text-align: center; padding: 40px 20px; background: white; }
 
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: #555;
-    font-size: 14px;
+/* Kartu Provider (BIAR GAK GEDE & BERANTAKAN) */
+.rates { 
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 15px; 
+    padding: 20px; 
+    max-width: 600px; 
+    margin: auto; 
 }
+.rate-card { 
+    background: white; 
+    padding: 15px; 
+    border-radius: 15px; 
+    text-align: center; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.rate-card img { 
+    width: 50px !important; 
+    height: 50px !important; 
+    object-fit: contain; 
+    margin-bottom: 10px; 
+}
+.rate-card h3 { margin: 5px 0; font-size: 16px; }
 
-input, select {
-    width: 100%;
-    padding: 12px 15px;
-    border: 2px solid #eee;
-    border-radius: 12px;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    background: #fdfdfd;
+/* Form Box */
+.convert-box { 
+    background: white; 
+    margin: 20px; 
+    padding: 25px; 
+    border-radius: 15px; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
 }
-
-input:focus, select:focus {
-    border-color: #ff4b2b;
-    outline: none;
-    background: #fff;
-    box-shadow: 0 0 10px rgba(255, 75, 43, 0.1);
-}
-
-button {
-    width: 100%;
-    padding: 15px;
-    background: linear-gradient(to right, #ff4b2b, #ff416c);
-    color: white;
-    border: none;
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: transform 0.2s;
-    box-shadow: 0 5px 15px rgba(255, 75, 108, 0.3);
-}
-
-button:active {
-    transform: scale(0.98);
-}  font-size: 14px;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #020617;
-  color: #fff;
-  font-size: 14px;
-}
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 14px; }
+input, select { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; }
+button { width: 100%; padding: 15px; background: #000814; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
