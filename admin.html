@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Panel - Rate</title>
+</head>
+<body style="font-family:Segoe UI;padding:40px">
+
+<h2>Dashboard Ubah Rate</h2>
+
+<div id="form"></div>
+
+<button onclick="save()">Simpan Rate</button>
+
+<script>
+let rates = {
+    Telkomsel: 0.86,
+    Axis: 0.88,
+    Tri: 0.89,
+    Indosat: 0.87,
+    Smartfren: 0.85
+};
+
+if(localStorage.getItem("rates")){
+    rates = JSON.parse(localStorage.getItem("rates"));
+}
+
+let form = document.getElementById("form");
+
+for(let key in rates){
+    form.innerHTML += `
+        <label>${key}</label><br>
+        <input type="number" step="0.01" id="${key}" value="${rates[key]}"><br><br>
+    `;
+}
+
+function save(){
+    for(let key in rates){
+        rates[key] = document.getElementById(key).value;
+    }
+    localStorage.setItem("rates",JSON.stringify(rates));
+    alert("Rate berhasil disimpan!");
+}
+</script>
+
+</body>
+</html>
