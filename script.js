@@ -1,8 +1,8 @@
 const rates = {
     "Telkomsel": 0.86,
     "XL/Axis": 0.87,
-    "Indosat": 0.88,
-    "Tri": 0.88
+    "Indosat": 0.89,
+    "Tri": 0.90
 };
 
 const amountInput = document.getElementById('amount');
@@ -22,21 +22,21 @@ amountInput.addEventListener('input', calculate);
 providerSelect.addEventListener('change', calculate);
 
 function sendToWA() {
-    const phone = "6289530922938"; // Nomor Anda
+    const phone = "6289530922938"; 
     const provider = providerSelect.value;
     const amount = amountInput.value;
     const result = resultDisplay.innerText;
 
     if (amount < 50000) {
-        alert("Minimal convert adalah 50.000");
+        alert("Minimal convert di Tukpul Convert adalah 50.000");
         return;
     }
 
-    const message = `Halo Admin ConvertX, saya mau convert pulsa:\n\n` +
-                    `- Provider: ${provider}\n` +
-                    `- Nominal: Rp ${parseInt(amount).toLocaleString('id-ID')}\n` +
-                    `- Terima Saldo: ${result}\n\n` +
-                    `Mohon instruksi selanjutnya.`;
+    const message = `Halo Admin Tukpul Convert, saya mau tukar pulsa:\n\n` +
+                    `• Provider: ${provider}\n` +
+                    `• Nominal: Rp ${parseInt(amount).toLocaleString('id-ID')}\n` +
+                    `• Saya Terima: ${result}\n\n` +
+                    `Mohon diproses ya Min, terima kasih.`;
     
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
 }
