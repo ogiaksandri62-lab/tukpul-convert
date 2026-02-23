@@ -1,87 +1,79 @@
-/* style.css - Minimalis Premium Tukpul Convert */
+:root {
+    --primary: #00d4ff;
+    --dark: #121212;
+    --card: #1e1e1e;
+    --text: #ffffff;
+}
+
 body {
-    font-family: 'Roboto', sans-serif;
     margin: 0;
-    padding: 0;
-    background: #f9f9f9;
-    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--dark);
+    color: var(--text);
 }
-header {
-    background: linear-gradient(90deg, #4e54c8, #8f94fb);
-    color: #fff;
-    padding: 40px 20px;
+
+.container { width: 85%; margin: auto; }
+
+nav {
+    padding: 20px 0;
+    border-bottom: 1px solid #333;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo { font-size: 1.5rem; font-weight: bold; }
+.logo span { color: var(--primary); }
+
+.nav-links { list-style: none; display: flex; gap: 20px; }
+.nav-links a { color: white; text-decoration: none; font-size: 0.9rem; }
+
+header { text-align: center; padding: 60px 0; }
+.highlight { color: var(--primary); }
+
+.convert-card {
+    background: var(--card);
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 450px;
+    margin: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 1px solid #333;
+}
+
+.input-group { margin-bottom: 20px; }
+label { display: block; margin-bottom: 8px; color: #bbb; }
+
+select, input {
+    width: 100%;
+    padding: 12px;
+    background: #2a2a2a;
+    border: 1px solid #444;
+    color: white;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.result-box {
+    background: rgba(0, 212, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
     text-align: center;
+    margin: 20px 0;
 }
-header h1 {margin:0; font-size:2.5em;}
-header p {margin-top:10px; font-size:1.2em;}
-main {max-width:800px; margin:0 auto; padding:40px 20px;}
-.section {
-    background:#fff;
-    padding:30px;
-    border-radius:10px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.05);
-    margin-bottom:30px;
+
+.btn-primary {
+    width: 100%;
+    padding: 15px;
+    background: var(--primary);
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
 }
-.section h2 {color:#4e54c8; margin-top:0;}
-.section p {line-height:1.6;}
-.whatsapp-button {
-    display:inline-block;
-    margin-top:15px;
-    padding:12px 25px;
-    background:#25D366;
-    color:#fff;
-    font-weight:bold;
-    border-radius:50px;
-    text-decoration:none;
-    transition:background 0.3s;
-}
-.whatsapp-button:hover {background:#1ebe57;}
-form input, form select, form textarea {
-    width:100%;
-    padding:12px;
-    margin:10px 0;
-    border-radius:8px;
-    border:1px solid #ccc;
-}
-form button {
-    width:100%;
-    padding:15px;
-    background:#4e54c8;
-    color:#fff;
-    border:none;
-    border-radius:50px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:background 0.3s;
-}
-form button:hover {background:#3b3fc1;}
-.testimonial {
-    padding:15px;
-    background:#f0f2ff;
-    border-left:4px solid #4e54c8;
-    border-radius:5px;
-    margin-bottom:10px;
-}
-.faq-item {margin-bottom:10px;}
-.question {
-    background:#4e54c8;
-    color:#fff;
-    padding:10px 15px;
-    border-radius:5px;
-    cursor:pointer;
-}
-.answer {
-    max-height:0;
-    overflow:hidden;
-    transition:max-height 0.3s ease;
-    background:#f0f2ff;
-    padding:0 15px;
-    border-radius:0 0 5px 5px;
-}
-.answer p {padding:10px 0; margin:0;}
-footer {
-    text-align:center;
-    padding:20px;
-    background:#333;
-    color:#fff;
-}
+
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0, 212, 255, 0.4); }
