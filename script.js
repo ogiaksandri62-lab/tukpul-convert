@@ -35,18 +35,23 @@ function showToast(message){
 }
 
 // Convert Function
+const ADMIN_WA = "6289530922938";
 const form = document.querySelector("form");
 
 if(form){
     form.addEventListener("submit", function(e){
         e.preventDefault();
 
-        const provider = document.getElementById("provider").value;
+        const providerSelect = document.getElementById("provider");
+        const providerText = providerSelect.options[providerSelect.selectedIndex].text;
+        const rate = providerSelect.value;
         const nominal = document.getElementById("nominal").value;
+        const rekening = document.querySelector("input[placeholder='Nomor Rekening / E-Wallet']").value;
+
         const resultBox = document.getElementById("hasil");
         const btn = document.querySelector(".submit-btn");
 
-        if(!provider || nominal <= 0){
+        if(!rate || nominal <= 0 || rekening === ""){
             showToast("Harap isi data dengan benar!");
             return;
         }
@@ -55,11 +60,34 @@ if(form){
         btn.innerText = "Memproses...";
 
         setTimeout(()=>{
-            let hasil = nominal * provider;
+            let hasil = nominal * rate;
             animateValue(resultBox, 0, hasil, 1000);
+
+            let pesan = `
+Halo Admin TukPul Convert
+
+Saya ingin convert pulsa:
+
+Provider: ${providerText}
+Nominal Pulsa: Rp ${Number(nominal).toLocaleString("id-ID")}
+Estimasi Diterima: Rp ${Number(hasil).toLocaleString("id-ID")}
+Rekening/E-Wallet: ${rekening}
+
+Mohon diproses 🙏
+`;
+
+            let encodedPesan = encodeURIComponent(pesan);
+            let urlWA = `https://wa.me/${ADMIN_WA}?text=${encodedPesan}`;
+
+            setTimeout(()=>{
+                window.open(urlWA, "_blank");
+            },800);
+
             btn.classList.remove("loading");
             btn.innerText = "Hitung & Convert";
-            showToast("Convert berhasil dihitung ✅");
+
+            showToast("Data siap dikirim ke WhatsApp 🚀");
+
         },1200);
     });
 }
