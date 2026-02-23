@@ -1,105 +1,202 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Tukpul Convert | Convert Pulsa Terpercaya</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TukPul Convert - Convert Pulsa Premium</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #fff;
+}
+
+header {
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+}
+
+header h1 {
+    font-weight: 700;
+    font-size: 24px;
+    background: linear-gradient(45deg, #00f2fe, #4facfe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 25px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #00f2fe;
+}
+
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    opacity: 0.8;
+    margin-bottom: 40px;
+}
+
+.hero button {
+    padding: 15px 40px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(45deg, #00f2fe, #4facfe);
+    color: #000;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.hero button:hover {
+    transform: scale(1.05);
+}
+
+.section {
+    padding: 80px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.card {
+    background: rgba(255,255,255,0.08);
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+form {
+    display: grid;
+    gap: 20px;
+}
+
+input, select {
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
+button.submit {
+    background: linear-gradient(45deg, #00f2fe, #4facfe);
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button.submit:hover {
+    transform: scale(1.05);
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #00f2fe;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    background: rgba(255,255,255,0.05);
+    margin-top: 50px;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+@media(max-width:768px){
+    .hero h2 {
+        font-size: 32px;
+    }
+}
+</style>
 </head>
 <body>
 
-<nav class="navbar">
-  <div class="logo">Tukpul<span>Convert</span></div>
-  <a href="https://wa.me/6289530922938" class="wa-btn">WhatsApp Admin</a>
-</nav>
+<header>
+    <h1>TukPul Convert</h1>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#convert">Convert</a>
+        <a href="#">Rate</a>
+        <a href="#">Kontak</a>
+    </nav>
+</header>
 
 <section class="hero">
-  <h1>Convert Pulsa Jadi Uang</h1>
-  <p>Proses Cepat • Rate Tinggi • Manual via WhatsApp</p>
+    <h2>Convert Pulsa Jadi Saldo & Uang</h2>
+    <p>Layanan convert pulsa terpercaya, cepat & rate tinggi.</p>
+    <button onclick="document.getElementById('convert').scrollIntoView({behavior:'smooth'})">Mulai Convert</button>
 </section>
 
-<section class="rates">
-    <div class="rate-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Telkomsel_2021_icon.svg" style="width: 50px; margin-bottom: 10px;">
-        <h3>Telkomsel</h3>
-        <p>Rate up to <b>85%</b></p>
+<section class="section" id="convert">
+    <div class="card">
+        <h2 style="margin-bottom:20px;">Form Convert Pulsa</h2>
+        <form onsubmit="hitungConvert(event)">
+            <select id="provider" required>
+                <option value="">Pilih Provider</option>
+                <option value="0.85">Telkomsel (Rate 85%)</option>
+                <option value="0.80">XL / Axis (Rate 80%)</option>
+                <option value="0.75">Tri (Rate 75%)</option>
+                <option value="0.90">Smartfren (Rate 90%)</option>
+            </select>
+
+            <input type="number" id="nominal" placeholder="Masukkan Nominal Pulsa" required>
+
+            <input type="text" placeholder="Nomor Rekening / E-Wallet" required>
+
+            <button class="submit" type="submit">Hitung & Convert</button>
+        </form>
+
+        <div class="result" id="hasil"></div>
     </div>
-
-    <div class="rate-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Indosat_Ooredoo_Hutchison_logo.svg" style="width: 50px; margin-bottom: 10px;">
-        <h3>Indosat</h3>
-        <p>Rate up to <b>88%</b></p>
-    </div>
-
-    <div class="rate-card">
-        <img src="https://upload.wikimedia.org/wikipedia/en/5/55/XL_Axiata_logo_2016.svg" style="width: 50px; margin-bottom: 10px;">
-        <h3>XL / Axis</h3>
-        <p>Rate up to <b>87%</b></p>
-    </div>
-
-    <div class="rate-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/3-logo.svg" style="width: 40px; margin-bottom: 10px;">
-        <h3>Tri</h3>
-        <p>Rate up to <b>90%</b></p>
-    </div>
-</section>
-
-  <h2>Form Convert Pulsa</h2>
-
-  <form id="convertForm">
-    <select id="provider" required>
-      <option value="">Pilih Provider</option>
-      <option value="Telkomsel">Telkomsel</option>
-      <option value="Indosat">Indosat</option>
-      <option value="XL / Axis">XL / Axis</option>
-      <option value="Tri">Tri</option>
-    </select>
-
-    <input type="number" id="nominal" placeholder="Nominal Pulsa (Rp)" required>
-
-    <select id="tujuan" required>
-    <option value="" disabled selected>Pilih Tujuan Pencairan</option>
-    <optgroup label="E-Wallet">
-        <option value="DANA">DANA</option>
-        <option value="OVO">OVO</option>
-        <option value="GoPay">GoPay</option>
-        <option value="ShopeePay">ShopeePay</option>
-    </optgroup>
-    <optgroup label="Bank Transfer">
-        <option value="BCA">BCA</option>
-        <option value="BRI">BRI</option>
-        <option value="BNI">BNI</option>
-        <option value="Mandiri">Mandiri</option>
-        <option value="SeaBank">SeaBank</option>
-    </optgroup>
-</select>
-
-
-    <button type="submit">Hitung & Lanjut WA</button>
-  </form>
-
-  <div id="hasil"></div>
-</section>
-
-<section class="steps">
-  <h2>Cara Convert Pulsa</h2>
-  <div class="step">1️⃣ Isi form</div>
-  <div class="step">2️⃣ Chat admin</div>
-  <div class="step">3️⃣ Kirim pulsa</div>
-  <div class="step">4️⃣ Dana cair</div>
 </section>
 
 <footer>
-  <p>© 2026 Tukpul Convert</p>
-  <p>Fast Respon WhatsApp</p>
+    © 2026 TukPul Convert - All Rights Reserved
 </footer>
 
-<script src="script.js"></script>
-</body>
-</html>  <p>© 2026 Tukpul Convert</p>
-  <p>Fast Respon WhatsApp</p>
-</footer>
+<script>
+function hitungConvert(e){
+    e.preventDefault();
+    let rate = document.getElementById("provider").value;
+    let nominal = document.getElementById("nominal").value;
+    let hasil = nominal * rate;
 
-<script src="script.js"></script>
+    document.getElementById("hasil").innerHTML =
+        "Estimasi Saldo Diterima: Rp " + hasil.toLocaleString("id-ID");
+}
+</script>
+
 </body>
 </html>
