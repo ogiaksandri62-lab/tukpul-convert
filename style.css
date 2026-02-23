@@ -1,45 +1,87 @@
-/* style.css - Landing Page Premium Tukpul Convert */
-* {box-sizing: border-box; margin:0; padding:0;}
-body {font-family: 'Roboto', sans-serif; background:#0a0a0a; color:#eee; scroll-behavior: smooth;}
-a {text-decoration:none;}
-
-/* Hero */
-.hero {height:100vh; background:linear-gradient(135deg,#ff4d4d,#ffb84d); display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; color:#fff; position:relative; overflow:hidden;}
-.hero h1 {font-size:4em; text-shadow:0 0 20px #fff;}
-.hero p {font-size:1.5em; margin-top:15px;}
-.hero .cta {margin-top:30px; padding:20px 50px; font-size:1.3em; font-weight:bold; color:#fff; border-radius:50px; background-color:#25D366; box-shadow:0 0 15px #25D366,0 0 30px #25D366; transition: all 0.3s;}
-.hero .cta:hover {transform: scale(1.1); box-shadow:0 0 25px #25D366,0 0 50px #25D366;}
-
-/* Sections */
-section {padding:60px 20px; max-width:1000px; margin:0 auto;}
-h2 {text-align:center; font-size:2.5em; color:#ff4d4d; margin-bottom:40px;}
-
-/* Services */
-.services {display:flex; flex-wrap:wrap; gap:20px; justify-content:center;}
-.card {background:#111; padding:30px; border-radius:20px; flex:1 1 250px; max-width:300px; text-align:center; box-shadow:0 8px 25px rgba(255,255,255,0.1); transition:transform 0.3s, box-shadow 0.3s;}
-.card:hover {transform:translateY(-10px); box-shadow:0 0 40px #ff4d4d;}
-
-/* Form */
-form input, form select, form textarea {width:100%; padding:15px; margin:10px 0; border-radius:12px; border:none; font-size:1em; background:#222; color:#fff;}
-form button {width:100%; padding:15px; background:linear-gradient(45deg,#ff4d4d,#ffb84d); border:none; border-radius:50px; font-size:1.2em; color:#fff; font-weight:bold; cursor:pointer; transition:all 0.3s; box-shadow:0 0 15px #ff4d4d,0 0 30px #ffb84d;}
-form button:hover {transform:scale(1.05);}
-
-/* Testimonials */
-.testimonials {overflow:hidden; position:relative;}
-.testimonial-container {display:flex; animation:slide 16s infinite;}
-.testimonial {flex:0 0 100%; padding:20px; background:#222; margin-right:20px; border-radius:15px; box-shadow:0 0 15px rgba(255,255,255,0.1);}
-@keyframes slide {0%,20%{transform:translateX(0);}25%,45%{transform:translateX(-100%);}50%,70%{transform:translateX(-200%);}75%,95%{transform:translateX(-300%);}}
-
-/* FAQ */
-.faq-item {margin-bottom:15px;}
-.question {cursor:pointer; padding:12px 20px; background:#ff4d4d; color:#fff; border-radius:15px; box-shadow:0 0 10px #ff4d4d;}
-.answer {max-height:0; overflow:hidden; transition:max-height 0.4s ease; background:#222; padding:0 20px; border-radius:0 0 15px 15px; margin-bottom:10px;}
-.answer p {padding:10px 0;}
-
-/* CTA Section */
-.cta-section {text-align:center; margin-top:40px;}
-.cta-section a {display:inline-block; padding:20px 50px; font-size:1.3em; font-weight:bold; color:#fff; border-radius:50px; background-color:#25D366; box-shadow:0 0 15px #25D366,0 0 30px #25D366; transition:all 0.3s;}
-.cta-section a:hover {transform:scale(1.1); box-shadow:0 0 30px #25D366,0 0 60px #25D366;}
-
-/* Footer */
-footer {text-align:center; padding:30px; background:#111; color:#fff; box-shadow:0 -5px 15px rgba(255,77,77,0.3);}
+/* style.css - Minimalis Premium Tukpul Convert */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9;
+    color: #333;
+}
+header {
+    background: linear-gradient(90deg, #4e54c8, #8f94fb);
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+header h1 {margin:0; font-size:2.5em;}
+header p {margin-top:10px; font-size:1.2em;}
+main {max-width:800px; margin:0 auto; padding:40px 20px;}
+.section {
+    background:#fff;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+    margin-bottom:30px;
+}
+.section h2 {color:#4e54c8; margin-top:0;}
+.section p {line-height:1.6;}
+.whatsapp-button {
+    display:inline-block;
+    margin-top:15px;
+    padding:12px 25px;
+    background:#25D366;
+    color:#fff;
+    font-weight:bold;
+    border-radius:50px;
+    text-decoration:none;
+    transition:background 0.3s;
+}
+.whatsapp-button:hover {background:#1ebe57;}
+form input, form select, form textarea {
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+form button {
+    width:100%;
+    padding:15px;
+    background:#4e54c8;
+    color:#fff;
+    border:none;
+    border-radius:50px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:background 0.3s;
+}
+form button:hover {background:#3b3fc1;}
+.testimonial {
+    padding:15px;
+    background:#f0f2ff;
+    border-left:4px solid #4e54c8;
+    border-radius:5px;
+    margin-bottom:10px;
+}
+.faq-item {margin-bottom:10px;}
+.question {
+    background:#4e54c8;
+    color:#fff;
+    padding:10px 15px;
+    border-radius:5px;
+    cursor:pointer;
+}
+.answer {
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.3s ease;
+    background:#f0f2ff;
+    padding:0 15px;
+    border-radius:0 0 5px 5px;
+}
+.answer p {padding:10px 0; margin:0;}
+footer {
+    text-align:center;
+    padding:20px;
+    background:#333;
+    color:#fff;
+}
