@@ -29,29 +29,73 @@
     <section class="convert-section">
         <div class="container">
             <div class="convert-card">
-                <h3>Kalkulator Konversi</h3>
-                <div class="input-group">
-                    <label>Pilih Provider</label>
-                    <select id="provider">
-                        <option value="Telkomsel">Telkomsel (Rate 0.85)</option>
-                        <option value="XL/Axis">XL/Axis (Rate 0.87)</option>
-                        <option value="Indosat">Indosat (Rate 0.89)</option>
-                        <option value="Tri">Tri (Rate 0.90)</option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label>Nominal Pulsa</label>
-                    <input type="number" id="amount" placeholder="Contoh: 100000">
-                </div>
-                <div class="result-box">
-                    <p>Uang yang Anda terima:</p>
-                    <h2 id="result">Rp 0</h2>
-                </div>
-                <button onclick="sendToWA()" class="btn-primary">
-                    <i class="fab fa-whatsapp"></i> Hubungi Admin Tukpul
-                </button>
+    <div class="step-indicator">
+        <span class="step active" id="step1-dot"></span>
+        <span class="step" id="step2-dot"></span>
+        <span class="step" id="step3-dot"></span>
+    </div>
+
+    <form id="convert-form">
+        <div class="form-step active" id="step1">
+            <h3 style="text-align: center; margin-bottom: 20px;">Convert Pulsa</h3>
+            <label>Pilih Provider</label>
+            <div class="provider-grid">
+                <div class="provider-item active" data-rate="0.85">Telkomsel</div>
+                <div class="provider-item" data-rate="0.80">Indosat</div>
+                <div class="provider-item" data-rate="0.82">XL/Axis</div>
+                <div class="provider-item" data-rate="0.75">Three</div>
             </div>
+            <div class="input-group">
+                <label>Nomor Pengirim</label>
+                <input type="number" id="phone" placeholder="0812xxxx">
+            </div>
+            <div class="input-group">
+                <label>Nominal Pulsa</label>
+                <input type="number" id="amount" placeholder="Contoh: 100000">
+            </div>
+            <div class="result-box">
+                <small>Est. Saldo Diterima</small>
+                <h2 id="display-result">Rp 0</h2>
+            </div>
+            <button type="button" class="btn-primary" onclick="nextStep(2)">Lanjut</button>
         </div>
+
+        <div class="form-step" id="step2">
+            <h3 style="text-align: center; margin-bottom: 20px;">Tujuan Transfer</h3>
+            <div class="input-group">
+                <label>Bank / E-Wallet</label>
+                <select id="bank-name">
+                    <option value="BCA">BCA</option>
+                    <option value="DANA">DANA</option>
+                    <option value="OVO">OVO</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label>Nomor Rekening / HP</label>
+                <input type="number" id="acc-number" placeholder="107977xxx">
+            </div>
+            <div class="input-group">
+                <label>Atas Nama</label>
+                <input type="text" id="acc-name" placeholder="Nama pemilik">
+            </div>
+            <button type="button" class="btn-primary" onclick="nextStep(3)">Tinjau Transaksi</button>
+            <p onclick="nextStep(1)" style="text-align:center; color:#64748b; cursor:pointer; margin-top:15px; font-size:0.8rem;">Kembali</p>
+        </div>
+
+        <div class="form-step" id="step3">
+            <h3 style="text-align: center; margin-bottom: 20px;">Konfirmasi</h3>
+            <div class="confirm-box">
+                <p>Total Diterima</p>
+                <h2 id="final-amount" style="color: var(--primary);">Rp 0</h2>
+                <p id="confirm-bank-info" style="font-weight:bold;"></p>
+                <p id="confirm-name-info"></p>
+            </div>
+            <button type="button" class="btn-primary" onclick="sendToWA()">Hubungi Via WhatsApp</button>
+            <p onclick="nextStep(2)" style="text-align:center; color:#64748b; cursor:pointer; margin-top:15px; font-size:0.8rem;">Kembali</p>
+        </div>
+    </form>
+</div>
+
     </section>
     <section class="container features-section">
         <h2 class="section-title">Mengapa Harus di Tukpul?</h2>
