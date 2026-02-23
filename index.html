@@ -3,112 +3,129 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tukpul Convert - Landing Page Premium</title>
+<title>Tukpul Convert - Jasa Convert Pulsa</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <style>
-/* Reset & Base */
-* {box-sizing: border-box; margin: 0; padding: 0;}
-body {font-family: 'Roboto', sans-serif; background: #0a0a0a; color: #eee; scroll-behavior: smooth;}
-a {text-decoration: none;}
-
-/* Hero Section */
-.hero {
-    height: 100vh;
-    background: linear-gradient(135deg, #ff4d4d, #ffb84d);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9;
+    color: #333;
+}
+header {
+    background: linear-gradient(90deg, #4e54c8, #8f94fb);
     color: #fff;
-    position: relative;
-    overflow: hidden;
-}
-.hero h1 {
-    font-size: 4em;
-    text-shadow: 0 0 20px #fff;
-}
-.hero p {
-    font-size: 1.5em;
-    margin-top: 15px;
-}
-.hero .cta {
-    margin-top: 30px;
-    padding: 20px 50px;
-    font-size: 1.3em;
-    font-weight: bold;
-    color: #fff;
-    border-radius: 50px;
-    background-color: #25D366;
-    box-shadow: 0 0 15px #25D366, 0 0 30px #25D366;
-    transition: all 0.3s;
-}
-.hero .cta:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 25px #25D366, 0 0 50px #25D366;
-}
-
-/* Sections */
-section {padding: 60px 20px; max-width: 1000px; margin: 0 auto;}
-h2 {text-align: center; font-size: 2.5em; color: #ff4d4d; margin-bottom: 40px;}
-
-/* Service Cards */
-.services {display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;}
-.card {
-    background: #111; padding: 30px; border-radius: 20px;
-    flex: 1 1 250px; max-width: 300px;
+    padding: 40px 20px;
     text-align: center;
-    box-shadow: 0 8px 25px rgba(255,255,255,0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
 }
-.card:hover {transform: translateY(-10px); box-shadow: 0 0 40px #ff4d4d;}
-
-/* Form */
+header h1 {margin:0; font-size:2.5em;}
+header p {margin-top:10px; font-size:1.2em;}
+main {max-width:800px; margin:0 auto; padding:40px 20px;}
+.section {background:#fff; padding:30px; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.05); margin-bottom:30px;}
+.section h2 {color:#4e54c8; margin-top:0;}
+.section p {line-height:1.6;}
+.whatsapp-button {
+    display:inline-block;
+    margin-top:15px;
+    padding:12px 25px;
+    background:#25D366;
+    color:#fff;
+    font-weight:bold;
+    border-radius:50px;
+    text-decoration:none;
+    transition:background 0.3s;
+}
+.whatsapp-button:hover {background:#1ebe57;}
 form input, form select, form textarea {
-    width: 100%; padding: 15px; margin: 10px 0;
-    border-radius: 12px; border: none; font-size: 1em;
-    background: #222; color: #fff;
+    width:100%; padding:12px; margin:10px 0; border-radius:8px; border:1px solid #ccc;
 }
 form button {
-    width: 100%; padding: 15px;
-    background: linear-gradient(45deg,#ff4d4d,#ffb84d);
-    border: none; border-radius: 50px;
-    font-size: 1.2em; color: #fff; font-weight: bold;
-    cursor: pointer; transition: all 0.3s;
-    box-shadow: 0 0 15px #ff4d4d,0 0 30px #ffb84d;
+    width:100%; padding:15px; background:#4e54c8; color:#fff; border:none; border-radius:50px; font-weight:bold; cursor:pointer; transition:background 0.3s;
 }
-form button:hover {transform: scale(1.05);}
+form button:hover {background:#3b3fc1;}
+.testimonial {padding:15px; background:#f0f2ff; border-left:4px solid #4e54c8; border-radius:5px; margin-bottom:10px;}
+.faq-item {margin-bottom:10px;}
+.question {background:#4e54c8; color:#fff; padding:10px 15px; border-radius:5px; cursor:pointer;}
+.answer {max-height:0; overflow:hidden; transition:max-height 0.3s ease; background:#f0f2ff; padding:0 15px; border-radius:0 0 5px 5px;}
+.answer p {padding:10px 0; margin:0;}
+footer {text-align:center; padding:20px; background:#333; color:#fff;}
+</style>
+</head>
+<body>
 
-/* Testimonials slider */
-.testimonials {overflow: hidden; position: relative;}
-.testimonial-container {
-    display: flex;
-    animation: slide 16s infinite;
-}
-.testimonial {
-    flex: 0 0 100%;
-    padding: 20px;
-    background: #222;
-    margin-right: 20px;
-    border-radius: 15px;
-    box-shadow: 0 0 15px rgba(255,255,255,0.1);
-}
-@keyframes slide {
-    0%,20%{transform: translateX(0);}
-    25%,45%{transform: translateX(-100%);}
-    50%,70%{transform: translateX(-200%);}
-    75%,95%{transform: translateX(-300%);}
-}
+<header>
+    <h1>Tukpul Convert</h1>
+    <p>Jasa Convert Pulsa Terpercaya & Cepat</p>
+</header>
 
-/* FAQ */
-.faq-item {margin-bottom: 15px;}
-.question {
-    cursor: pointer;
-    padding: 12px 20px;
-    background: #ff4d4d;
-    color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 0 10px #ff4d4d;
+<main>
+
+<div class="section">
+    <h2>Layanan Kami</h2>
+    <p>Tukpul Convert menyediakan jasa convert pulsa dengan proses cepat, aman, dan terpercaya. Ubah pulsa menjadi saldo digital atau pembayaran lainnya dengan mudah.</p>
+    <a href="https://wa.me/6289530922938" target="_blank" class="whatsapp-button">Hubungi via WhatsApp</a>
+</div>
+
+<div class="section">
+    <h2>Form Convert Pulsa</h2>
+    <form onsubmit="submitForm(event)">
+        <input type="text" name="name" placeholder="Nama Lengkap" required>
+        <input type="tel" name="phone" placeholder="Nomor HP" required>
+        <input type="number" name="amount" placeholder="Jumlah Pulsa" required>
+        <select name="operator" required>
+            <option value="">Pilih Operator</option>
+            <option value="Telkomsel">Telkomsel</option>
+            <option value="Indosat">Indosat</option>
+            <option value="XL">XL</option>
+            <option value="Tri">Tri</option>
+            <option value="Axis">Axis</option>
+        </select>
+        <textarea name="note" rows="3" placeholder="Catatan tambahan"></textarea>
+        <button type="submit">Kirim</button>
+    </form>
+</div>
+
+<div class="section">
+    <h2>Testimoni Pelanggan</h2>
+    <div class="testimonial"><p>"Proses cepat dan terpercaya. Tukpul Convert sangat membantu!" – <strong>Andi</strong></p></div>
+    <div class="testimonial"><p>"Layanan ramah dan mudah. Sangat recommended!" – <strong>Siti</strong></p></div>
+</div>
+
+<div class="section faq">
+    <h2>FAQ</h2>
+    <div class="faq-item">
+        <div class="question">Bagaimana cara convert pulsa?</div>
+        <div class="answer"><p>Cukup isi form convert pulsa atau hubungi admin via WhatsApp, lalu tunggu konfirmasi.</p></div>
+    </div>
+    <div class="faq-item">
+        <div class="question">Apakah aman menggunakan layanan ini?</div>
+        <div class="answer"><p>Ya, semua transaksi dijamin aman dan terpercaya.</p></div>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    &copy; 2026 Tukpul Convert. Semua hak cipta dilindungi.
+</footer>
+
+<script>
+document.querySelectorAll('.faq .question').forEach(q => {
+    q.addEventListener('click', () => {
+        const ans = q.nextElementSibling;
+        ans.style.maxHeight = ans.style.maxHeight ? null : ans.scrollHeight + 'px';
+    });
+});
+function submitForm(e) {
+    e.preventDefault();
+    alert("Formulir berhasil dikirim! Admin akan menghubungi Anda segera via WhatsApp.");
+    e.target.reset();
+}
+</script>
+
+</body>
+</html>    box-shadow: 0 0 10px #ff4d4d;
 }
 .answer {
     max-height: 0; overflow: hidden;
