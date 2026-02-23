@@ -1,114 +1,99 @@
-/* ============================= */
-/* TUKPUL CONVERT PREMIUM STYLE */
-/* ============================= */
-
-:root{
-    --primary: #00f2fe;
-    --secondary: #4facfe;
-    --dark: #0f2027;
-    --light: #ffffff;
-    --glass: rgba(255,255,255,0.08);
-    --shadow: 0 10px 40px rgba(0,0,0,0.4);
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
 }
 
 body{
-    margin:0;
-    font-family:'Poppins',sans-serif;
-    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-    color:white;
-    transition:0.4s ease;
-}
-
-body.light{
-    background: linear-gradient(135deg,#f5f7fa,#c3cfe2);
-    color:#222;
-}
-
-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 60px;
-    background:rgba(255,255,255,0.05);
-    backdrop-filter:blur(15px);
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
-
-.logo{
-    font-weight:700;
-    font-size:24px;
-    background:linear-gradient(45deg,var(--primary),var(--secondary));
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    margin-left:25px;
-    transition:0.3s;
-}
-
-nav a:hover{
-    color:var(--primary);
-}
-
-.toggle-mode{
-    cursor:pointer;
-    padding:8px 15px;
-    border-radius:20px;
-    border:1px solid var(--primary);
+background:linear-gradient(135deg,#0f172a,#1e293b);
+color:white;
 }
 
 .hero{
-    text-align:center;
-    padding:120px 20px;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:radial-gradient(circle at top,#1e293b,#0f172a);
 }
 
-.hero h1{
-    font-size:52px;
-    margin-bottom:20px;
+.glass{
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(20px);
+padding:50px;
+border-radius:20px;
+box-shadow:0 15px 40px rgba(0,0,0,0.4);
 }
 
-.hero p{
-    opacity:0.8;
-    margin-bottom:40px;
+.btn-gold{
+display:inline-block;
+margin-top:20px;
+padding:15px 35px;
+border-radius:50px;
+background:linear-gradient(135deg,#facc15,#f59e0b);
+color:black;
+text-decoration:none;
+font-weight:600;
+transition:0.3s;
 }
 
-.btn-primary{
-    padding:15px 40px;
-    border:none;
-    border-radius:30px;
-    background:linear-gradient(45deg,var(--primary),var(--secondary));
-    font-weight:600;
-    cursor:pointer;
-    transition:0.3s;
+.btn-gold:hover{
+transform:scale(1.05);
 }
 
-.btn-primary:hover{
-    transform:scale(1.08);
-    box-shadow:0 10px 30px rgba(0,242,254,0.5);
+.trust{
+padding:60px 20px;
+text-align:center;
 }
 
-.section{
-    padding:80px 20px;
-    max-width:1100px;
-    margin:auto;
+.trust-box h3{
+margin:15px;
+font-weight:400;
 }
 
-.card{
-    background:var(--glass);
-    padding:40px;
-    border-radius:20px;
-    backdrop-filter:blur(20px);
-    box-shadow:var(--shadow);
-    transition:0.4s;
+.calculator{
+padding:100px 20px;
+display:flex;
+justify-content:center;
 }
 
-.card:hover{
-    transform:translateY(-5px);
+.calculator input,
+.calculator select{
+width:250px;
+padding:15px;
+margin:10px;
+border-radius:10px;
+border:none;
+}
+
+.calculator button{
+padding:15px 25px;
+border-radius:10px;
+border:none;
+cursor:pointer;
+background:#facc15;
+color:black;
+font-weight:600;
+transition:0.3s;
+}
+
+.calculator button:hover{
+background:#f59e0b;
+}
+
+.btn-wa{
+margin-top:20px;
+background:#25D366 !important;
+color:white !important;
+}
+
+footer{
+text-align:center;
+padding:30px;
+opacity:0.7;
+}    transform:translateY(-5px);
 }
 
 form{
