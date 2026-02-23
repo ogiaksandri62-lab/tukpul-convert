@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ConvertX - Jasa Convert Pulsa Premium</title>
+    <title>Tukpul Convert - Jasa Convert Pulsa Premium</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <nav>
         <div class="container navbar">
-            <div class="logo">Convert<span>X</span></div>
+            <div class="logo">Tukpul<span> Convert</span></div>
             <ul class="nav-links">
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Rate</a></li>
+                <li><a href="#rate">Rate</a></li>
                 <li><a href="admin.html">Login Admin</a></li>
             </ul>
         </div>
@@ -21,34 +21,34 @@
 
     <header>
         <div class="container hero">
-            <h1>Ubah Pulsa Jadi Saldo <span class="highlight">E-Wallet & Bank</span></h1>
-            <p>Proses kilat, rate tertinggi, dan layanan premium 24/7.</p>
+            <h1>Tukar Pulsa Jadi Uang <span class="highlight">Tanpa Ribet</span></h1>
+            <p>Layanan Tukpul Convert hadir dengan rate tinggi dan proses otomatis secepat kilat.</p>
         </div>
     </header>
 
     <section class="convert-section">
         <div class="container">
             <div class="convert-card">
-                <h3>Form Konversi Pulsa</h3>
+                <h3>Kalkulator Konversi</h3>
                 <div class="input-group">
                     <label>Pilih Provider</label>
                     <select id="provider">
-                        <option value="Telkomsel">Telkomsel (Rate 0.80)</option>
-                        <option value="XL/Axis">XL/Axis (Rate 0.78)</option>
-                        <option value="Indosat">Indosat (Rate 0.77)</option>
-                        <option value="Tri">Tri (Rate 0.82)</option>
+                        <option value="Telkomsel">Telkomsel (Rate 0.85)</option>
+                        <option value="XL/Axis">XL/Axis (Rate 0.87)</option>
+                        <option value="Indosat">Indosat (Rate 0.89)</option>
+                        <option value="Tri">Tri (Rate 0.90)</option>
                     </select>
                 </div>
                 <div class="input-group">
                     <label>Nominal Pulsa</label>
-                    <input type="number" id="amount" placeholder="Min. 50.000">
+                    <input type="number" id="amount" placeholder="Contoh: 100000">
                 </div>
                 <div class="result-box">
-                    <p>Anda Menerima:</p>
+                    <p>Uang yang Anda terima:</p>
                     <h2 id="result">Rp 0</h2>
                 </div>
                 <button onclick="sendToWA()" class="btn-primary">
-                    <i class="fab fa-whatsapp"></i> Tukar Sekarang
+                    <i class="fab fa-whatsapp"></i> Hubungi Admin Tukpul
                 </button>
             </div>
         </div>
