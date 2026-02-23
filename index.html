@@ -3,112 +3,55 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TukPul Convert - Convert Pulsa Premium</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
+<title>Premium Convert Pulsa</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-body {
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    color: #fff;
-}
+<header class="hero">
+    <div class="glass">
+        <h1>Premium Convert Pulsa</h1>
+        <p>Layanan convert pulsa profesional dengan rate tinggi & proses cepat.</p>
+        <a href="#calculator" class="btn-gold">Mulai Sekarang</a>
+    </div>
+</header>
 
-header {
-    padding: 20px 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(10px);
-    position: sticky;
-    top: 0;
-}
+<section class="trust">
+    <div class="container">
+        <div class="trust-box">
+            <h3>✔ Proses 5-10 Menit</h3>
+            <h3>✔ Transfer Aman</h3>
+            <h3>✔ Rate Tinggi</h3>
+            <h3>✔ Support 24 Jam</h3>
+        </div>
+    </div>
+</section>
 
-header h1 {
-    font-weight: 700;
-    font-size: 24px;
-    background: linear-gradient(45deg, #00f2fe, #4facfe);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+<section id="calculator" class="calculator">
+    <div class="glass container">
+        <h2>Simulasi Convert Pulsa</h2>
 
-nav a {
-    color: #fff;
-    text-decoration: none;
-    margin-left: 25px;
-    transition: 0.3s;
-}
+        <input type="number" id="amount" placeholder="Masukkan nominal pulsa">
 
-nav a:hover {
-    color: #00f2fe;
-}
+        <select id="provider"></select>
 
-.hero {
-    text-align: center;
-    padding: 100px 20px;
-}
+        <button onclick="calculate()">Hitung Estimasi</button>
 
-.hero h2 {
-    font-size: 48px;
-    margin-bottom: 20px;
-}
+        <h3 id="result"></h3>
 
-.hero p {
-    opacity: 0.8;
-    margin-bottom: 40px;
-}
+        <button id="waBtn" class="btn-wa" onclick="sendWhatsApp()" style="display:none;">
+            Lanjut via WhatsApp
+        </button>
+    </div>
+</section>
 
-.hero button {
-    padding: 15px 40px;
-    border: none;
-    border-radius: 30px;
-    background: linear-gradient(45deg, #00f2fe, #4facfe);
-    color: #000;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s;
-}
+<footer>
+    © 2026 Premium Convert Pulsa | WhatsApp: 089530922938
+</footer>
 
-.hero button:hover {
-    transform: scale(1.05);
-}
-
-.section {
-    padding: 80px 20px;
-    max-width: 1100px;
-    margin: auto;
-}
-
-.card {
-    background: rgba(255,255,255,0.08);
-    padding: 40px;
-    border-radius: 20px;
-    backdrop-filter: blur(15px);
-    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-}
-
-form {
-    display: grid;
-    gap: 20px;
-}
-
-input, select {
-    padding: 15px;
-    border-radius: 10px;
-    border: none;
-    outline: none;
-}
-
-button.submit {
-    background: linear-gradient(45deg, #00f2fe, #4facfe);
-    border: none;
-    padding: 15px;
-    border-radius: 10px;
+<script src="script.js"></script>
+</body>
+</html>    border-radius: 10px;
     font-weight: 600;
     cursor: pointer;
     transition: 0.3s;
