@@ -125,6 +125,23 @@ function submitForm(e) {
 </script>
 
 </body>
+</html></footer>
+
+<script>
+document.querySelectorAll('.faq .question').forEach(q => {
+    q.addEventListener('click', () => {
+        const ans = q.nextElementSibling;
+        ans.style.maxHeight = ans.style.maxHeight ? null : ans.scrollHeight + 'px';
+    });
+});
+function submitForm(e) {
+    e.preventDefault();
+    alert("Formulir berhasil dikirim! Admin akan menghubungi Anda segera via WhatsApp.");
+    e.target.reset();
+}
+</script>
+
+</body>
 </html>    box-shadow: 0 0 10px #ff4d4d;
 }
 .answer {
