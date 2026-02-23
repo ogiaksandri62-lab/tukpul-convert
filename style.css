@@ -77,3 +77,75 @@ select, input {
 }
 
 .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0, 212, 255, 0.4); }
+/* --- KODE TAMBAHAN UNTUK FITUR BARU --- */
+
+.section-title { 
+    text-align: center; 
+    color: var(--primary); 
+    margin: 40px 0 20px; 
+    font-size: 1.5rem; 
+}
+
+/* Styling Fitur */
+.features-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+    gap: 15px; 
+    margin-bottom: 40px;
+}
+.feature-item { 
+    background: var(--card); 
+    padding: 20px; 
+    border-radius: 12px; 
+    text-align: center; 
+    border: 1px solid #333; 
+}
+.feature-item i { font-size: 2rem; color: var(--primary); margin-bottom: 10px; }
+.feature-item h3 { font-size: 1rem; margin-bottom: 5px; }
+.feature-item p { font-size: 0.8rem; color: #aaa; }
+
+/* Styling Kominfo & Trust */
+.legal-badge { 
+    background: #0f172a; 
+    padding: 20px; 
+    border-radius: 15px; 
+    display: flex; 
+    align-items: center; 
+    gap: 20px; 
+    border-left: 5px solid var(--primary); 
+    margin: 20px 0 40px; 
+}
+.legal-badge img { width: 50px; height: auto; }
+.legal-badge p { font-size: 0.85rem; line-height: 1.5; text-align: left; }
+
+/* Styling Testimoni */
+.testi-container { 
+    display: flex; 
+    gap: 15px; 
+    overflow-x: auto; 
+    padding-bottom: 20px; 
+    scrollbar-width: none; 
+}
+.testi-card { 
+    min-width: 250px; 
+    background: var(--card); 
+    padding: 20px; 
+    border-radius: 12px; 
+    border: 1px solid #333; 
+}
+.testi-card p { font-style: italic; font-size: 0.85rem; color: #ccc; }
+.testi-card span { display: block; margin-top: 15px; color: var(--primary); font-weight: bold; font-size: 0.8rem; }
+
+/* Styling FAQ */
+.faq-item { margin-bottom: 10px; text-align: left; }
+details { background: var(--card); border-radius: 10px; border: 1px solid #333; }
+summary { padding: 15px; font-weight: bold; cursor: pointer; outline: none; }
+details p { padding: 0 15px 15px; color: #aaa; font-size: 0.85rem; }
+
+/* Logo Partners */
+.logo-flex img { 
+    height: 25px; 
+    filter: grayscale(1) brightness(1.5); 
+    transition: 0.3s; 
+}
+.logo-flex img:hover { filter: grayscale(0) brightness(1); }
