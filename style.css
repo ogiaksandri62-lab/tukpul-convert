@@ -1,46 +1,120 @@
-* { box-sizing: border-box; font-family: sans-serif; }
-body { background: #f4f7f9; margin: 0; padding: 0; }
-
-/* Navbar */
-.navbar { background: #000814; padding: 15px; display: flex; justify-content: space-between; align-items: center; color: white; }
-.wa-btn { background: #25d366; color: white; text-decoration: none; padding: 8px 15px; border-radius: 5px; font-weight: bold; }
-
-/* Hero */
-.hero { text-align: center; padding: 40px 20px; background: white; }
-
-/* Kartu Provider (BIAR GAK GEDE & BERANTAKAN) */
-.rates { 
-    display: grid; 
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 15px; 
-    padding: 20px; 
-    max-width: 600px; 
-    margin: auto; 
+* {
+  box-sizing: border-box;
 }
-.rate-card { 
-    background: white; 
-    padding: 15px; 
-    border-radius: 15px; 
-    text-align: center; 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-.rate-card img { 
-    width: 50px !important; 
-    height: 50px !important; 
-    object-fit: contain; 
-    margin-bottom: 10px; 
-}
-.rate-card h3 { margin: 5px 0; font-size: 16px; }
 
-/* Form Box */
-.convert-box { 
-    background: white; 
-    margin: 20px; 
-    padding: 25px; 
-    border-radius: 15px; 
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f8fafc;
+  color: #0f172a;
 }
-.form-group { margin-bottom: 15px; }
-.form-group label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 14px; }
-input, select { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; }
-button { width: 100%; padding: 15px; background: #000814; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px;
+  background: #020617;
+  color: #fff;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #facc15;
+}
+
+.wa-btn {
+  background: #22c55e;
+  padding: 8px 14px;
+  border-radius: 6px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.rates {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+  gap: 15px;
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.rate-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,.05);
+}
+
+.convert-box {
+  max-width: 400px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,.08);
+}
+
+.convert-box h2 {
+  text-align: center;
+}
+
+select, input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5f5;
+}
+
+button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  background: #020617;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+#hasil {
+  margin-top: 15px;
+  background: #f1f5f9;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.steps {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.step {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 18px;
+  background: #020617;
+  color: #fff;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #020617;
+  color: #fff;
+  font-size: 14px;
+}
