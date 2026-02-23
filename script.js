@@ -1,114 +1,59 @@
-// =======================================
-// TUKPUL CONVERT - PREMIUM FINAL SCRIPT
-// =======================================
+let rates = {
+    Telkomsel: 0.86,
+    Axis: 0.88,
+    Tri: 0.89,
+    Indosat: 0.87,
+    Smartfren: 0.85
+};
 
-// Nomor Admin WhatsApp
-const ADMIN_WA = "6289530922938";
-
-// =======================
-// SMOOTH SCROLL
-// =======================
-document.querySelectorAll("a[href^='#']").forEach(anchor => {
-    anchor.addEventListener("click", function(e){
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute("href"));
-        if(target){
-            target.scrollIntoView({behavior:"smooth"});
-        }
-    });
-});
-
-// =======================
-// DARK / LIGHT MODE
-// =======================
-const toggle = document.querySelector(".toggle-mode");
-if(toggle){
-    toggle.addEventListener("click", ()=>{
-        document.body.classList.toggle("light");
-        showToast("Mode berhasil diganti 🔥");
-    });
+if(localStorage.getItem("rates")){
+    rates = JSON.parse(localStorage.getItem("rates"));
 }
 
-// =======================
-// TOAST NOTIFICATION
-// =======================
-function showToast(message){
-    let toast = document.createElement("div");
-    toast.className = "toast";
-    toast.innerText = message;
-    document.body.appendChild(toast);
-
-    setTimeout(()=>toast.classList.add("show"),100);
-
-    setTimeout(()=>{
-        toast.classList.remove("show");
-        setTimeout(()=>toast.remove(),300);
-    },3000);
+function loadProviders(){
+    let select = document.getElementById("provider");
+    select.innerHTML = "";
+    for(let key in rates){
+        select.innerHTML += `<option value="${rates[key]}">${key} (${rates[key]})</option>`;
+    }
 }
+loadProviders();
 
-// =======================
-// ANIMATE COUNTER
-// =======================
-function animateValue(obj, start, end, duration){
-    let startTime = null;
+let finalAmount = 0;
+let selectedProvider = "";
 
-    function animation(currentTime){
-        if(!startTime) startTime = currentTime;
-        const progress = Math.min((currentTime - startTime)/duration,1);
-        const value = Math.floor(progress*(end-start)+start);
+function calculate(){
+    let amount = document.getElementById("amount").value;
+    let provider = document.getElementById("provider");
+    let rate = provider.value;
+    selectedProvider = provider.options[provider.selectedIndex].text;
 
-        obj.innerHTML = "Estimasi Saldo Diterima: Rp " + 
-                        value.toLocaleString("id-ID");
-
-        if(progress < 1){
-            requestAnimationFrame(animation);
-        }
+    if(amount <= 0){
+        document.getElementById("result").innerHTML="Masukkan nominal valid.";
+        return;
     }
 
-    requestAnimationFrame(animation);
+    finalAmount = amount * rate;
+
+    document.getElementById("result").innerHTML=
+    "Estimasi diterima: Rp "+ finalAmount.toLocaleString("id-ID");
+
+    document.getElementById("waBtn").style.display="inline-block";
 }
 
-// =======================
-// FORM CONVERT + AUTO WA
-// =======================
-const form = document.querySelector("form");
+function sendWhatsApp(){
+    let amount = document.getElementById("amount").value;
 
-if(form){
-    form.addEventListener("submit", function(e){
-        e.preventDefault();
+    let message = `Halo Admin, saya ingin convert pulsa:
 
-        const providerSelect = document.getElementById("provider");
-        const providerText = providerSelect.options[providerSelect.selectedIndex]?.text;
-        const rate = providerSelect.value;
+Provider: ${selectedProvider}
+Nominal Pulsa: Rp ${parseInt(amount).toLocaleString("id-ID")}
+Estimasi Diterima: Rp ${finalAmount.toLocaleString("id-ID")}
 
-        const nominal = document.getElementById("nominal").value;
-        const rekeningInput = document.querySelector("input[placeholder='Nomor Rekening / E-Wallet']");
-        const rekening = rekeningInput ? rekeningInput.value : "";
+Mohon diproses.`;
 
-        const resultBox = document.getElementById("hasil");
-        const btn = document.querySelector(".submit-btn");
-
-        // VALIDASI
-        if(!rate || nominal <= 0 || rekening.trim() === ""){
-            showToast("Harap isi semua data dengan benar!");
-            return;
-        }
-
-        btn.classList.add("loading");
-        btn.innerText = "Memproses...";
-
-        setTimeout(()=>{
-
-            let hasil = nominal * rate;
-
-            // Animasi hasil
-            animateValue(resultBox, 0, hasil, 1000);
-
-            // Format pesan WhatsApp
-            let pesan = 
-`Halo Admin TukPul Convert
-
-Saya ingin convert pulsa:
+    window.open("https://wa.me/6289530922938?text="+encodeURIComponent(message));
+}Saya ingin convert pulsa:
 
 Provider: ${providerText}
 Nominal Pulsa: Rp ${Number(nominal).toLocaleString("id-ID")}
