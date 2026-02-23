@@ -1,17 +1,26 @@
-// ==============================
-// TUKPUL CONVERT PREMIUM SCRIPT
-// ==============================
+// =======================================
+// TUKPUL CONVERT - PREMIUM FINAL SCRIPT
+// =======================================
 
-// Smooth Scroll
+// Nomor Admin WhatsApp
+const ADMIN_WA = "6289530922938";
+
+// =======================
+// SMOOTH SCROLL
+// =======================
 document.querySelectorAll("a[href^='#']").forEach(anchor => {
     anchor.addEventListener("click", function(e){
         e.preventDefault();
-        document.querySelector(this.getAttribute("href"))
-            .scrollIntoView({behavior:"smooth"});
+        const target = document.querySelector(this.getAttribute("href"));
+        if(target){
+            target.scrollIntoView({behavior:"smooth"});
+        }
     });
 });
 
-// Dark / Light Mode
+// =======================
+// DARK / LIGHT MODE
+// =======================
 const toggle = document.querySelector(".toggle-mode");
 if(toggle){
     toggle.addEventListener("click", ()=>{
@@ -20,22 +29,48 @@ if(toggle){
     });
 }
 
-// Toast Notification
+// =======================
+// TOAST NOTIFICATION
+// =======================
 function showToast(message){
     let toast = document.createElement("div");
-    toast.classList.add("toast");
+    toast.className = "toast";
     toast.innerText = message;
     document.body.appendChild(toast);
 
     setTimeout(()=>toast.classList.add("show"),100);
+
     setTimeout(()=>{
         toast.classList.remove("show");
         setTimeout(()=>toast.remove(),300);
     },3000);
 }
 
-// Convert Function
-const ADMIN_WA = "6289530922938";
+// =======================
+// ANIMATE COUNTER
+// =======================
+function animateValue(obj, start, end, duration){
+    let startTime = null;
+
+    function animation(currentTime){
+        if(!startTime) startTime = currentTime;
+        const progress = Math.min((currentTime - startTime)/duration,1);
+        const value = Math.floor(progress*(end-start)+start);
+
+        obj.innerHTML = "Estimasi Saldo Diterima: Rp " + 
+                        value.toLocaleString("id-ID");
+
+        if(progress < 1){
+            requestAnimationFrame(animation);
+        }
+    }
+
+    requestAnimationFrame(animation);
+}
+
+// =======================
+// FORM CONVERT + AUTO WA
+// =======================
 const form = document.querySelector("form");
 
 if(form){
@@ -43,16 +78,19 @@ if(form){
         e.preventDefault();
 
         const providerSelect = document.getElementById("provider");
-        const providerText = providerSelect.options[providerSelect.selectedIndex].text;
+        const providerText = providerSelect.options[providerSelect.selectedIndex]?.text;
         const rate = providerSelect.value;
+
         const nominal = document.getElementById("nominal").value;
-        const rekening = document.querySelector("input[placeholder='Nomor Rekening / E-Wallet']").value;
+        const rekeningInput = document.querySelector("input[placeholder='Nomor Rekening / E-Wallet']");
+        const rekening = rekeningInput ? rekeningInput.value : "";
 
         const resultBox = document.getElementById("hasil");
         const btn = document.querySelector(".submit-btn");
 
-        if(!rate || nominal <= 0 || rekening === ""){
-            showToast("Harap isi data dengan benar!");
+        // VALIDASI
+        if(!rate || nominal <= 0 || rekening.trim() === ""){
+            showToast("Harap isi semua data dengan benar!");
             return;
         }
 
@@ -60,11 +98,15 @@ if(form){
         btn.innerText = "Memproses...";
 
         setTimeout(()=>{
+
             let hasil = nominal * rate;
+
+            // Animasi hasil
             animateValue(resultBox, 0, hasil, 1000);
 
-            let pesan = `
-Halo Admin TukPul Convert
+            // Format pesan WhatsApp
+            let pesan = 
+`Halo Admin TukPul Convert
 
 Saya ingin convert pulsa:
 
@@ -73,12 +115,12 @@ Nominal Pulsa: Rp ${Number(nominal).toLocaleString("id-ID")}
 Estimasi Diterima: Rp ${Number(hasil).toLocaleString("id-ID")}
 Rekening/E-Wallet: ${rekening}
 
-Mohon diproses 🙏
-`;
+Mohon diproses 🙏`;
 
             let encodedPesan = encodeURIComponent(pesan);
             let urlWA = `https://wa.me/${ADMIN_WA}?text=${encodedPesan}`;
 
+            // Buka WhatsApp
             setTimeout(()=>{
                 window.open(urlWA, "_blank");
             },800);
@@ -90,19 +132,4 @@ Mohon diproses 🙏
 
         },1200);
     });
-}
-
-// Animasi Counter
-function animateValue(obj, start, end, duration){
-    let startTime = null;
-    function animation(currentTime){
-        if(!startTime) startTime = currentTime;
-        const progress = Math.min((currentTime - startTime)/duration,1);
-        const value = Math.floor(progress*(end-start)+start);
-        obj.innerHTML = "Estimasi Saldo Diterima: Rp " + value.toLocaleString("id-ID");
-        if(progress < 1){
-            requestAnimationFrame(animation);
-        }
-    }
-    requestAnimationFrame(animation);
 }
