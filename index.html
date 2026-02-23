@@ -46,33 +46,51 @@
 
   <h2>Form Convert Pulsa</h2>
 
-  <form id="convertForm">
-    <select id="provider" required>
-      <option value="">Pilih Provider</option>
-      <option value="Telkomsel">Telkomsel</option>
-      <option value="Indosat">Indosat</option>
-      <option value="XL / Axis">XL / Axis</option>
-      <option value="Tri">Tri</option>
-    </select>
+  <section class="convert-box">
+    <h2>Form Convert Pulsa</h2>
+    <form id="convertForm">
+        <div class="form-group">
+            <label>Pilih Operator</label>
+            <select id="provider" required>
+                <option value="" disabled selected>Pilih Provider...</option>
+                <option value="Telkomsel">Telkomsel</option>
+                <option value="Indosat">Indosat</option>
+                <option value="XL / Axis">XL / Axis</option>
+                <option value="Tri">Tri</option>
+            </select>
+        </div>
 
-    <input type="number" id="nominal" placeholder="Nominal Pulsa (Rp)" required>
+        <div class="form-group">
+            <label>Nominal Pulsa (Rp)</label>
+            <input type="number" id="nominal" placeholder="Contoh: 100000" required>
+        </div>
 
-    <select id="tujuan" required>
-    <option value="" disabled selected>Pilih Tujuan Pencairan</option>
-    <optgroup label="E-Wallet">
-        <option value="DANA">DANA</option>
-        <option value="OVO">OVO</option>
-        <option value="GoPay">GoPay</option>
-        <option value="ShopeePay">ShopeePay</option>
-    </optgroup>
-    <optgroup label="Bank Transfer">
-        <option value="BCA">BCA</option>
-        <option value="BRI">BRI</option>
-        <option value="BNI">BNI</option>
-        <option value="Mandiri">Mandiri</option>
-        <option value="SeaBank">SeaBank</option>
-    </optgroup>
-</select>
+        <div class="form-group">
+            <label>Tujuan Pencairan</label>
+            <select id="tujuan" required>
+                <option value="" disabled selected>Pilih Bank/E-Wallet...</option>
+                <optgroup label="E-Wallet">
+                    <option value="DANA">DANA</option>
+                    <option value="OVO">OVO</option>
+                    <option value="GoPay">GoPay</option>
+                    <option value="ShopeePay">ShopeePay</option>
+                </optgroup>
+                <optgroup label="Bank Transfer">
+                    <option value="BCA">BCA</option>
+                    <option value="BRI">BRI</option>
+                    <option value="BNI">BNI</option>
+                    <option value="Mandiri">Mandiri</option>
+                    <option value="SeaBank">SeaBank</option>
+                </optgroup>
+            </select>
+        </div>
+
+        <button type="submit">Hitung & Tukar Sekarang</button>
+        
+        <div id="hasil"></div>
+    </form>
+</section>
+
 
 
     <button type="submit">Hitung & Lanjut WA</button>
