@@ -158,3 +158,35 @@ details p { padding: 0 15px 15px; color: #64748b; font-size: 0.85rem; }
 /* Logos */
 .logo-flex { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; padding: 20px 0; }
 .logo-flex img { height: 22px; filter: grayscale(1); opacity: 0.6; }
+/* Styling Tambahan Metode Pencairan */
+.partner-section {
+    padding-bottom: 50px;
+    margin-top: 20px;
+}
+
+.logo-flex {
+    background: var(--card); /* Putih bersih sesuai mode terang */
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid var(--border); /* Garis tipis halus */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.logo-flex img {
+    height: 25px; /* Menyamakan tinggi logo agar rapi */
+    width: auto;
+    filter: grayscale(0.3); /* Kesan profesional */
+    opacity: 0.8;
+    transition: 0.3s ease;
+}
+
+.logo-flex img:hover {
+    filter: grayscale(0);
+    opacity: 1;
+    transform: scale(1.1);
+}
