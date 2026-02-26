@@ -24,7 +24,7 @@
         .provider.active { border: 2px solid #1D4ED8; background: #f0f7ff; }
         .provider span { font-weight: 600; font-size: 14px; color: #333; }
         
-        input, select { width: 100%; padding: 13px; border-radius: 12px; border: 1px solid #ddd; margin-bottom: 15px; box-sizing: border-box; font-family: inherit; }
+        input, select { width: 100%; padding: 13px; border-radius: 12px; border: 1px solid #ddd; margin-bottom: 15px; box-sizing: border-box; font-family: inherit; font-size: 14px; }
         button { width: 100%; padding: 15px; border: none; border-radius: 14px; background: #1D4ED8; color: white; font-weight: 600; cursor: pointer; font-size: 16px; transition: 0.3s; }
         button:hover { background: #1e40af; }
         .estimasi { background: #f1f5f9; padding: 15px; border-radius: 12px; margin-bottom: 15px; text-align: center; border: 1px dashed #cbd5e1; }
@@ -44,25 +44,25 @@
         <h3 style="margin: 0 0 15px; font-size: 18px;">Pilih Provider</h3>
         <div class="providers">
             <div class="provider" onclick="pilihProvider(this, 'Telkomsel', 0.82)">
-                <img src="Telkomsel_2021_icon.svg" alt="Telkomsel">
+                <img src="Telkomsel_2021_icon.svg">
                 <span>Telkomsel</span>
             </div>
             <div class="provider" onclick="pilihProvider(this, 'Indosat', 0.80)">
-                <img src="im3-ooredoo-logo-png_seeklogo-326756.png" alt="Indosat">
+                <img src="im3-ooredoo-logo-png_seeklogo-326756.png">
                 <span>Indosat</span>
             </div>
             <div class="provider" onclick="pilihProvider(this, 'XL/Axis', 0.78)">
-                <img src="1771848312305.png" alt="XL Axis">
+                <img src="1771848312305.png">
                 <span>XL / Axis</span>
             </div>
             <div class="provider" onclick="pilihProvider(this, 'Three', 0.75)">
-                <img src="1771848121156.png" alt="Three">
+                <img src="1771848121156.png">
                 <span>Three</span>
             </div>
         </div>
 
-        <input type="number" id="nomor" placeholder="Nomor Pengirim (Contoh: 0812...)">
-        <input type="text" id="nominal" placeholder="Nominal Pulsa (Min: 30.000)">
+        <input type="number" id="nomor" placeholder="Nomor Pengirim (08xxxx)">
+        <input type="text" id="nominal" placeholder="Nominal Pulsa">
         
         <div class="estimasi">
             <span>Estimasi Diterima:</span><br>
@@ -80,7 +80,6 @@
             <option value="DANA">DANA</option>
             <option value="OVO">OVO</option>
             <option value="GoPay">GoPay</option>
-            <option value="ShopeePay">ShopeePay</option>
             <option value="Bank">Transfer Bank</option>
         </select>
         <input type="text" id="rekening" placeholder="Nomor Rekening / HP">
@@ -88,18 +87,16 @@
         
         <div id="error2" class="error"></div>
         <button onclick="nextStep(3)">Tinjau Transaksi</button>
-        <p style="text-align:center; margin-top:10px;"><a href="#" onclick="location.reload()" style="color:#666; font-size:12px; text-decoration:none;"> Kembali</a></p>
+        <p style="text-align:center; margin-top:10px;"><a href="#" onclick="location.reload()" style="color:#666; font-size:12px; text-decoration:none;">Kembali</a></p>
     </div>
 </div>
 
 <script>
     let selectedProvider = "";
     let rate = 0;
-
     const nominalInput = document.getElementById("nominal");
     const hasilText = document.getElementById("hasil");
 
-    // Fungsi Pilih Provider
     function pilihProvider(el, nama, r) {
         document.querySelectorAll(".provider").forEach(p => p.classList.remove("active"));
         el.classList.add("active");
@@ -108,52 +105,52 @@
         hitung();
     }
 
-    // Format Rupiah Otomatis
     nominalInput.addEventListener("input", function() {
         let angka = this.value.replace(/\D/g, "");
-        if (angka) {
-            this.value = parseInt(angka).toLocaleString("id-ID");
-        } else {
-            this.value = "";
-        }
+        this.value = angka ? parseInt(angka).toLocaleString("id-ID") : "";
         hitung();
     });
 
-    // Kalkulasi Hasil
     function hitung() {
         let val = nominalInput.value.replace(/\./g, "");
-        if (!val || !rate || val < 1000) { 
-            hasilText.innerText = "Rp -"; 
-            return; 
-        }
+        if (!val || !rate) { hasilText.innerText = "Rp -"; return; }
         let total = Math.floor(val * rate);
         hasilText.innerText = "Rp " + total.toLocaleString("id-ID");
     }
 
-    // Navigasi Antar Step
     function nextStep(step) {
-        const error1 = document.getElementById("error1");
-        
         if (step === 2) {
-            const nomor = document.getElementById("nomor").value;
-            const nominal = nominalInput.value;
-
-            if (!selectedProvider) {
-                error1.innerText = "Silakan pilih provider dulu!";
+            const n = document.getElementById("nomor").value;
+            if (!selectedProvider || n.length < 10 || !nominalInput.value) {
+                document.getElementById("error1").innerText = "Lengkapi data dengan benar!";
                 return;
             }
-            if (nomor.length < 10) {
-                error1.innerText = "Nomor pengirim tidak valid!";
-                return;
-            }
-            if (nominal.replace(/\./g, "") < 30000) {
-                error1.innerText = "Minimal convert Rp 30.000";
-                return;
-            }
-
-            error1.innerText = "";
             document.getElementById("step1").classList.add("hidden");
             document.getElementById("step2").classList.remove("hidden");
+        } 
+        else if (step === 3) {
+            const tj = document.getElementById("tujuan").value;
+            const rek = document.getElementById("rekening").value;
+            const nm = document.getElementById("nama").value;
+
+            if (!tj || !rek || !nm) {
+                document.getElementById("error2").innerText = "Lengkapi data tujuan!";
+                return;
+            }
+
+            const noWA = "6289530922938"; 
+            const pesan = `Halo Admin, saya mau convert pulsa:%0A%0A` +
+                          `*Data Transaksi*%0A` +
+                          `• Provider: ${selectedProvider}%0A` +
+                          `• No. Pengirim: ${document.getElementById("nomor").value}%0A` +
+                          `• Nominal: ${nominalInput.value}%0A` +
+                          `• Estimasi Terima: ${hasilText.innerText}%0A%0A` +
+                          `*Tujuan Transfer*%0A` +
+                          `• Metode: ${tj}%0A` +
+                          `• No. Rek/HP: ${rek}%0A` +
+                          `• Atas Nama: ${nm}`;
+
+            window.open(`https://wa.me/${6289530922938}?text=${pesan}`, '_blank');
         }
     }
 </script>
