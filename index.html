@@ -77,25 +77,26 @@
                 <img src="1771848121156.png" alt="Three" style="width: 40px; height: auto; display: block; margin: 0 auto 5px;">
                 Three
             </div>
-                        <div class="input-group">
+                                <div class="input-group" style="display: block; width: 100%;">
             <label>Nomor Pengirim</label>
-            <input type="number" id="sender-number" placeholder="0812xxxx">
+            <input type="number" id="sender-number" placeholder="0812xxxx" style="width: 100%; box-sizing: border-box;">
         </div>
 
-        <div class="input-group">
+        <div class="input-group" style="display: block; width: 100%; margin-top: 15px;">
             <label>Nominal Pulsa</label>
-            <input type="number" id="amount" placeholder="Contoh: 100000">
+            <input type="number" id="amount" placeholder="Contoh: 100000" style="width: 100%; box-sizing: border-box;">
         </div>
 
+        <div class="input-group" style="display: block; width: 100%; margin-top: 15px;">
+            <label>Nomor Rekening / HP</label>
+            <input type="number" id="acc-number" placeholder="107977xxx" style="width: 100%; box-sizing: border-box;">
+        </div>
 
+        <div class="input-group" style="display: block; width: 100%; margin-top: 15px;">
+            <label>Atas Nama</label>
+            <input type="text" id="acc-name" placeholder="Nama pemilik" style="width: 100%; box-sizing: border-box;">
+        </div>
 
-            <div class="input-group">
-                <label>Nomor Rekening / HP</label>
-                <input type="number" id="acc-number" placeholder="107977xxx">
-            </div>
-            <div class="input-group">
-                <label>Atas Nama</label>
-                <input type="text" id="acc-name" placeholder="Nama pemilik">
             </div>
             <button type="button" class="btn-primary" onclick="nextStep(3)">Tinjau Transaksi</button>
             <p onclick="nextStep(1)" style="text-align:center; color:#64748b; cursor:pointer; margin-top:15px; font-size:0.8rem;">Kembali</p>
