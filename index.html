@@ -213,78 +213,105 @@ Estimasi Diterima: <b id="hasil">Rp -</b>
 
 <script>
 let selectedProvider="";
-let rate=0;
+<script>
+    // 1. Inisialisasi Variabel Global
+    let selectedProvider = "";
+    let rate = 0;
 
-function pilihProvider(el,nama,r){
-document.querySelectorAll(".provider").forEach(p=>p.classList.remove("active"));
-el.classList.add("active");
-selectedProvider=nama;
-rate=r;
-hitung();
-}
+    // 2. Definisi Elemen DOM (Penting agar tidak error)
+    const nominalInput = document.getElementById("nominal");
+    const hasilText = document.getElementById("hasil");
+    const error1 = document.getElementById("error1");
+    const error2 = document.getElementById("error2");
+    const step1 = document.getElementById("step1");
+    const step2 = document.getElementById("step2");
+    const step3 = document.getElementById("step3");
+    const s1 = document.getElementById("s1");
+    const s2 = document.getElementById("s2");
+    const s3 = document.getElementById("s3");
+    const nomor = document.getElementById("nomor");
+    const nominal = document.getElementById("nominal"); // variabel bantu
+    const tujuan = document.getElementById("tujuan");
+    const rekening = document.getElementById("rekening");
+    const nama = document.getElementById("nama");
+    const summary = document.getElementById("summary");
 
-document.getElementById("nominal").addEventListener("input",function(){
-let angka=this.value.replace(/\D/g,'');
-this.value=angka.replace(/\B(?=(\d{3})+(?!\d))/g,".");
-hitung();
-});
+    // 3. Fungsi Pilih Provider
+    function pilihProvider(el, namaProvider, r) {
+        document.querySelectorAll(".provider").forEach(p => p.classList.remove("active"));
+        el.classList.add("active");
+        selectedProvider = namaProvider;
+        rate = r;
+        hitung();
+    }
 
-function hitung(){
-let nominal=document.getElementById("nominal").value.replace(/\./g,'');
-if(!nominal || !rate){hasil.innerText="Rp -";return;}
-let total=Math.floor(nominal*rate);
-if(!nominal.value || !rate){hasil.innerText="Rp -";return;}
+    // 4. Format Input Ribuan (Auto-format)
+    nominalInput.addEventListener("input", function() {
+        let angka = this.value.replace(/\D/g, "");
+        this.value = angka.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        hitung();
+    });
 
-function nextStep(step){
+    // 5. Fungsi Hitung Estimasi
+    function hitung() {
+        let val = nominalInput.value.replace(/\./g, "");
+        if (!val || !rate) {
+            hasilText.innerText = "Rp -";
+            return;
+        }
+        let total = Math.floor(val * rate);
+        hasilText.innerText = "Rp " + total.toLocaleString("id-ID");
+    }
 
-if(step==2){
-if(!selectedProvider || !nomor.value || !nominal.value){
-error1.innerText="Lengkapi semua data dulu!";
-return;
-}
-error1.innerText="";
-step1.classList.add("hidden");
-step2.classList.remove("hidden");
-s1.classList.remove("active");
-s2.classList.add("active");
-}
+    // 6. Fungsi Navigasi Step
+    function nextStep(step) {
+        if (step == 2) {
+            if (!selectedProvider || !nomor.value || !nominal.value) {
+                error1.innerText = "Lengkapi semua data dulu!";
+                return;
+            }
+            error1.innerText = "";
+            step1.classList.add("hidden");
+            step2.classList.remove("hidden");
+            s1.classList.remove("active");
+            s2.classList.add("active");
+        }
 
-if(step==3){
-if(!tujuan.value || !rekening.value || !nama.value){
-error2.innerText="Lengkapi semua data tujuan!";
-return;
-}
-error2.innerText="";
-step2.classList.add("hidden");
-step3.classList.remove("hidden");
-s2.classList.remove("active");
-s3.classList.add("active");
+        if (step == 3) {
+            if (!tujuan.value || !rekening.value || !nama.value) {
+                error2.innerText = "Lengkapi semua data tujuan!";
+                return;
+            }
+            error2.innerText = "";
+            step2.classList.add("hidden");
+            step3.classList.remove("hidden");
+            s2.classList.remove("active");
+            s3.classList.add("active");
 
-summary.innerHTML=`
-<p><b>Provider:</b> ${selectedProvider}</p>
-<p><b>Nomor:</b> ${nomor.value}</p>
-<p><b>Nominal:</b> Rp ${nominal.value}</p>
-<p><b>Diterima:</b> ${hasil.innerText}</p>
-<p><b>Tujuan:</b> ${tujuan.value}</p>
-<p><b>Rekening:</b> ${rekening.value}</p>
-<p><b>Nama:</b> ${nama.value}</p>
-`;
-}
-}
+            summary.innerHTML = `
+                <p><b>Provider:</b> ${selectedProvider}</p>
+                <p><b>Nomor:</b> ${nomor.value}</p>
+                <p><b>Nominal:</b> Rp ${nominal.value}</p>
+                <p><b>Diterima:</b> ${hasilText.innerText}</p>
+                <p><b>Tujuan:</b> ${tujuan.value}</p>
+                <p><b>Rekening:</b> ${rekening.value}</p>
+                <p><b>Nama:</b> ${nama.value}</p>
+            `;
+        }
+    }
 
-function kirimWA(){
-    let text = `Halo Admin Tukpul Convert
+    // 7. Fungsi Kirim WhatsApp
+    function kirimWA() {
+        let text = `Halo Admin Tukpul Convert
 
 Provider: ${selectedProvider}
 Nomor: ${nomor.value}
 Nominal: Rp ${nominal.value}
-Diterima: ${hasil.innerText}
+Diterima: ${hasilText.innerText}
 Tujuan: ${tujuan.value}
 Rekening: ${rekening.value}
 Nama: ${nama.value}`;
 
-    window.open("https://wa.me/6289530922938?text=" + encodeURIComponent(text));
-}
-
-</body>
-</html>
+        window.open("https://wa.me/6289530922938?text=" + encodeURIComponent(text));
+    }
+</script>
