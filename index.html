@@ -147,19 +147,26 @@
                 return;
             }
 
-            const noWA = "6289530922938"; 
-            const pesan = `Halo Admin, saya mau convert pulsa:%0A%0A` +
-                          `*Data Transaksi*%0A` +
-                          `• Provider: ${selectedProvider}%0A` +
-                          `• No. Pengirim: ${document.getElementById("nomor").value}%0A` +
-                          `• Nominal: ${nominalInput.value}%0A` +
-                          `• Estimasi Terima: ${hasilText.innerText}%0A%0A` +
-                          `*Tujuan Transfer*%0A` +
-                          `• Metode: ${tj}%0A` +
-                          `• No. Rek/HP: ${rek}%0A` +
-                          `• Atas Nama: ${nm}`;
+                    const noWA = "6289530922938"; 
+        const pesanTeks = `Halo Admin, saya mau convert pulsa:
 
-            window.open(`https://wa.me/${6289530922938}?text=${pesan}`, '_blank');
+*Data Transaksi*
+• Provider: ${selectedProvider}
+• No. Pengirim: ${document.getElementById("nomor").value}
+• Nominal: ${nominalInput.value}
+• Estimasi Terima: ${hasilText.innerText}
+
+*Tujuan Transfer*
+• Metode: ${tj}
+• No. Rek/HP: ${rek}
+• Atas Nama: ${nm}`;
+
+        // Gunakan format HTTPS agar APK tidak error UNKNOWN_URL_SCHEME
+        const linkWA = "https://wa.me/" + noWA + "?text=" + encodeURIComponent(pesanTeks);
+        
+        // Membuka link di browser eksternal agar aman di APK
+        window.location.assign(linkWA);
+
         }
     }
 </script>
