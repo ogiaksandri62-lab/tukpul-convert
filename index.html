@@ -95,15 +95,40 @@ button:disabled{background:#9ca3af;}
     padding:12px;
     border-radius:10px;
     margin-bottom:15px;
+.brand{
+  text-align:center;
+  margin-bottom:20px;
 }
-</style>
+
+.brand img{
+  width:70px;
+  margin-bottom:10px;
+}
+
+.brand h2{
+  margin:5px 0;
+  color:#1D4ED8;
+}
+
+.brand p{
+  font-size:13px;
+  color:#666;
+}
+
+.input-kecil{
+  max-width:280px;
+  margin:8px auto 15px auto;
+  display:block;
+}
 </head>
 <body>
 
 <div class="container">
-<h2>Convert Pulsa</h2>
-
-<div class="step">
+<div class="brand">
+  <img src="logo.png" alt="Tukpul Convert">
+  <h2>TUKPUL CONVERT</h2>
+  <p>Jasa Convert Pulsa ke DANA & Bank</p>
+</div>
 <div id="s1" class="active"></div>
 <div id="s2"></div>
 <div id="s3"></div>
@@ -119,10 +144,8 @@ button:disabled{background:#9ca3af;}
 <div class="provider" onclick="pilihProvider(this,'XL/Axis',0.78)">XL/Axis</div>
 <div class="provider" onclick="pilihProvider(this,'Three',0.75)">Three</div>
 </div>
-
-<input type="text" id="nomor" placeholder="Nomor Pengirim 08xxxx">
-<input type="text" id="nominal" placeholder="Nominal Pulsa">
-
+<input type="text" id="nomor" placeholder="Nomor Pengirim 08xxxx" class="input-kecil">
+<input type="text" id="nominal" placeholder="Nominal Pulsa" class="input-kecil">
 <div class="estimasi">
 Estimasi Diterima: <b id="hasil">Rp -</b>
 </div>
@@ -160,7 +183,25 @@ Estimasi Diterima: <b id="hasil">Rp -</b>
 
 <button class="secondary" onclick="kirimWA()">Kirim via WhatsApp</button>
 </div>
+<div class="faq">
+  <h3>FAQ</h3>
+  <div class="faq-box">
+    <b>Berapa rate convert?</b>
+    <p>Rate berbeda tiap provider.</p>
+  </div>
+  <div class="faq-box">
+    <b>Berapa lama proses?</b>
+    <p>5–15 menit setelah pulsa masuk.</p>
+  </div>
+</div>
 
+<div class="testimoni">
+  <h3>Testimoni</h3>
+  <div class="testi-box">
+    ⭐⭐⭐⭐⭐
+    <p>"Proses cepat dan aman!" – Andi</p>
+  </div>
+</div>
 </div>
 
 <script>
