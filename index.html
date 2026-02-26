@@ -200,7 +200,7 @@ Estimasi Diterima: <b id="hasil">Rp -</b>
   <div class="testi-box">
     ⭐⭐⭐⭐⭐
     <p>"Proses cepat dan aman!" – Andi</p>
-  203 </div>
+  
 204 </div>
 
 <!-- FAQ MULAI DI SINI -->
@@ -233,8 +233,7 @@ function hitung(){
 let nominal=document.getElementById("nominal").value.replace(/\./g,'');
 if(!nominal || !rate){hasil.innerText="Rp -";return;}
 let total=Math.floor(nominal*rate);
-hasil.innerText="Rp "+total.toLocaleString("id-ID");
-}
+if(!nominal.value || !rate){hasil.innerText="Rp -";return;}
 
 function nextStep(step){
 
@@ -274,7 +273,7 @@ summary.innerHTML=`
 }
 
 function kirimWA(){
-let text = `Halo Admin Tukpul Convert
+    let text = `Halo Admin Tukpul Convert
 
 Provider: ${selectedProvider}
 Nomor: ${nomor.value}
@@ -284,9 +283,8 @@ Tujuan: ${tujuan.value}
 Rekening: ${rekening.value}
 Nama: ${nama.value}`;
 
-window.open("https://wa.me/6289530922938?text="+encodeURIComponent(text));
+    window.open("https://wa.me/6289530922938?text=" + encodeURIComponent(text));
 }
-</script>
 
 </body>
 </html>
