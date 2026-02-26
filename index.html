@@ -57,62 +57,58 @@
     </div>
 
     <form id="convert-form">
-                <div class="form-step active" id="step1">
-            <h3 style="text-align: center; margin-bottom: 20px;">Pilih Provider</h3>
-                    <div class="form-step active" id="step1">
+                        <div class="form-step active" id="step1">
             <h3 style="text-align: center; margin-bottom: 20px;">Pilih Provider</h3>
             <div class="provider-grid">
                 <div class="provider-item" onclick="selectProvider('Telkomsel', 0.85)">
-                    <img src="icon-telkomsel-terbaru.png" alt="Telkomsel" style="width: 40px; height: auto;">
+                    <img src="icon-telkomsel-terbaru.png" alt="Telkomsel" style="width: 40px;">
                     <span>Telkomsel</span>
                 </div>
                 <div class="provider-item" onclick="selectProvider('Indosat', 0.80)">
-                    <img src="im3-ooredoo-logo-png_seeklogo-326756.png" alt="Indosat" style="width: 40px; height: auto;">
+                    <img src="im3-ooredoo-logo-png_seeklogo-326756.png" alt="Indosat" style="width: 40px;">
                     <span>Indosat</span>
                 </div>
                 <div class="provider-item" onclick="selectProvider('XL', 0.82)">
-                    <img src="1771848312305.png" alt="XL" style="width: 40px; height: auto;">
+                    <img src="1771848312305.png" alt="XL" style="width: 40px;">
                     <span>XL/Axis</span>
                 </div>
                 <div class="provider-item" onclick="selectProvider('Three', 0.75)">
-                    <img src="1771848121156.png" alt="Three" style="width: 40px; height: auto;">
+                    <img src="1771848121156.png" alt="Three" style="width: 40px;">
                     <span>Three</span>
                 </div>
             </div>
         </div>
 
-                </div>
-            </div>
-        </div>
-
         <div class="form-step" id="step2" style="display: none;">
-            <div class="input-group">
-                <label>Nomor Pengirim</label>
-                <input type="number" id="sender-number" placeholder="0812xxxx">
+            <div class="input-group" style="display: block; width: 100%; margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 5px; font-weight: bold;">Nomor Pengirim</label>
+                <input type="number" id="sender-number" placeholder="0812xxxx" style="width: 100%; box-sizing: border-box; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
             </div>
-            <div class="input-group">
-                <label>Nominal Pulsa</label>
-                <input type="number" id="amount" placeholder="Contoh: 100000" oninput="calculateRate()">
+
+            <div class="input-group" style="display: block; width: 100%; margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 5px; font-weight: bold;">Nominal Pulsa</label>
+                <input type="number" id="amount" placeholder="Contoh: 100000" oninput="calculateRate()" style="width: 100%; box-sizing: border-box; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
             </div>
+
             <div id="rate-display" style="background: #f0f7ff; padding: 15px; border-radius: 10px; margin: 15px 0; text-align: center; border: 1px dashed #00add8;">
-                <p style="font-size: 12px; color: #666;">Estimasi Saldo Diterima:</p>
+                <p style="font-size: 12px; color: #666; margin: 0;">Estimasi Saldo Diterima:</p>
                 <h2 id="est-receive" style="color: #00add8; margin: 5px 0;">Rp 0</h2>
             </div>
-            <div class="input-group">
-                <label>Nomor Rekening / HP</label>
-                <input type="number" id="acc-number" placeholder="Nomor tujuan">
+
+            <div class="input-group" style="display: block; width: 100%; margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 5px; font-weight: bold;">Nomor Rekening / HP</label>
+                <input type="number" id="acc-number" placeholder="Nomor tujuan" style="width: 100%; box-sizing: border-box; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
             </div>
-            <div class="input-group">
-                <label>Atas Nama</label>
-                <input type="text" id="acc-name" placeholder="Nama pemilik">
+
+            <div class="input-group" style="display: block; width: 100%; margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 5px; font-weight: bold;">Atas Nama</label>
+                <input type="text" id="acc-name" placeholder="Nama pemilik" style="width: 100%; box-sizing: border-box; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
             </div>
-            <button type="button" class="btn-primary" onclick="nextStep(3)">Tinjau Transaksi</button>
+
+            <button type="button" class="btn-primary" onclick="nextStep(3)" style="width: 100%; padding: 15px; background: #00add8; color: #fff; border: none; border-radius: 10px; font-weight: bold;">Tinjau Transaksi</button>
             <p onclick="nextStep(1)" style="text-align: center; color: #666; cursor: pointer; margin-top: 15px;">Kembali</p>
         </div>
 
-        <div class="form-step" id="step3" style="display: none;">
-            <h3 style="text-align: center; margin-bottom: 20px;">Konfirmasi</h3>
-            <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
                 <p style="font-size: 14px; color: #64748b;">Total Diterima:</p>
                 <h2 id="final-amount" style="color: #00add8;">Rp 0</h2>
                 <hr style="margin: 15px 0; border: 0; border-top: 1px solid #e2e8f0;">
