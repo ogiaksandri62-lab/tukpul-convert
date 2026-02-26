@@ -88,22 +88,33 @@
             <div class="input-group" style="display: block; width: 100%; margin-bottom: 15px;">
                 <label style="display: block; margin-bottom: 5px; font-weight: bold;">Nominal Pulsa</label>
                 <input type="number" id="amount" placeholder="Contoh: 100000" oninput="calculateRate()" style="width: 100%; box-sizing: border-box; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
-            </div>
+                    <div class="input-group" style="display: block; width: 100%; margin-bottom: 15px;">
+            <label style="display: block; margin-bottom: 5px; font-weight: bold;">Pilih Tujuan (Bank/E-Wallet)</label>
+            <select id="bank-type" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd; background: #fff; font-size: 16px;">
+                <option value="DANA">DANA</option>
+                <option value="OVO">OVO</option>
+                <option value="GOPAY">GOPAY</option>
+                <option value="LINKAJA">LINKAJA</option>
+                <option value="BCA">BCA</option>
+                <option value="BNI">BNI</option>
+                <option value="BRI">BRI</option>
+                <option value="MANDIRI">MANDIRI</option>
+            </select>
+        </div>
 
-            <div id="rate-display" style="background: #f0f7ff; padding: 15px; border-radius: 10px; margin: 15px 0; text-align: center; border: 1px dashed #00add8;">
-                <p style="font-size: 12px; color: #666; margin: 0;">Estimasi Saldo Diterima:</p>
-                <h2 id="est-receive" style="color: #00add8; margin: 5px 0;">Rp 0</h2>
-            </div>
+        <div class="input-group" style="display: block; width: 100%; margin-bottom: 15px;">
+            <label style="display: block; margin-bottom: 5px; font-weight: bold;">Nomor Rekening / HP</label>
+            <input type="number" id="acc-number" placeholder="Contoh: 0812 / 123456" style="width: 100%; box-sizing: border-box; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+        </div>
 
-            <div class="input-group" style="display: block; width: 100%; margin-bottom: 15px;">
-                <label style="display: block; margin-bottom: 5px; font-weight: bold;">Nomor Rekening / HP</label>
-                <input type="number" id="acc-number" placeholder="Nomor tujuan" style="width: 100%; box-sizing: border-box; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
-            </div>
+        <div class="input-group" style="display: block; width: 100%; margin-bottom: 20px;">
+            <label style="display: block; margin-bottom: 5px; font-weight: bold;">Atas Nama</label>
+            <input type="text" id="acc-name" placeholder="Nama pemilik rekening" style="width: 100%; box-sizing: border-box; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+        </div>
 
-            <div class="input-group" style="display: block; width: 100%; margin-bottom: 20px;">
-                <label style="display: block; margin-bottom: 5px; font-weight: bold;">Atas Nama</label>
-                <input type="text" id="acc-name" placeholder="Nama pemilik" style="width: 100%; box-sizing: border-box; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
-            </div>
+        <button type="button" class="btn-primary" onclick="nextStep(3)" style="width: 100%; padding: 15px; background: #00add8; color: white; border: none; border-radius: 10px; font-weight: bold; cursor: pointer;">Tinjau Transaksi</button>
+        <p onclick="nextStep(1)" style="text-align: center; color: #666; cursor: pointer; margin-top: 15px;">Kembali</p>
+
 
             <button type="button" class="btn-primary" onclick="nextStep(3)" style="width: 100%; padding: 15px; background: #00add8; color: #fff; border: none; border-radius: 10px; font-weight: bold;">Tinjau Transaksi</button>
             <p onclick="nextStep(1)" style="text-align: center; color: #666; cursor: pointer; margin-top: 15px;">Kembali</p>
