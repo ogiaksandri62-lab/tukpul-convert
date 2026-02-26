@@ -8,6 +8,9 @@
     <style>
         body { font-family: 'Poppins', sans-serif; background: linear-gradient(135deg, #e0f2fe, #fdfbf4); margin: 0; padding: 20px; }
         .container { max-width: 420px; margin: auto; }
+        .brand { text-align: center; margin-bottom: 25px; margin-top: 10px; }
+        .brand h2 { color: #1D4ED8; margin: 0; font-size: 24px; text-transform: uppercase; letter-spacing: 1px; }
+        .brand p { color: #666; font-size: 13px; margin: 5px 0 0; }
         .card { background: #fff; border-radius: 20px; padding: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); margin-bottom: 20px; }
         .hidden { display: none; }
         
@@ -15,115 +18,77 @@
         .provider { 
             padding: 15px 5px; border-radius: 14px; border: 1px solid #eee; text-align: center; 
             cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 8px; background: #fff;
+            transition: all 0.2s ease;
         }
         .provider img { height: 40px; width: auto; object-fit: contain; }
-        .provider.active { border-color: #1D4ED8; background: #f0f7ff; }
+        .provider.active { border: 2px solid #1D4ED8; background: #f0f7ff; }
+        .provider span { font-weight: 600; font-size: 14px; color: #333; }
         
-        input, select { width: 100%; padding: 13px; border-radius: 12px; border: 1px solid #ddd; margin-bottom: 15px; box-sizing: border-box; }
-        button { width: 100%; padding: 15px; border: none; border-radius: 14px; background: #1D4ED8; color: white; font-weight: 600; cursor: pointer; }
-        .estimasi { background: #f1f5f9; padding: 12px; border-radius: 10px; margin-bottom: 15px; text-align: center; }
-        .error { color: red; font-size: 13px; margin-bottom: 10px; }
+        input, select { width: 100%; padding: 13px; border-radius: 12px; border: 1px solid #ddd; margin-bottom: 15px; box-sizing: border-box; font-family: inherit; }
+        button { width: 100%; padding: 15px; border: none; border-radius: 14px; background: #1D4ED8; color: white; font-weight: 600; cursor: pointer; font-size: 16px; transition: 0.3s; }
+        button:hover { background: #1e40af; }
+        .estimasi { background: #f1f5f9; padding: 15px; border-radius: 12px; margin-bottom: 15px; text-align: center; border: 1px dashed #cbd5e1; }
+        .estimasi b { color: #1D4ED8; font-size: 18px; }
+        .error { color: #dc2626; font-size: 13px; margin-bottom: 10px; text-align: center; font-weight: 500; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <div class="brand">
-        <h2 style="text-align:center; color:#1D4ED8; margin-top:20px;">TUKPUL CONVERT</h2>
-        <p style="text-align:center; font-size:13px; color:#666; margin-bottom:20px;">Jasa Convert Pulsa ke DANA & Bank</p>
+        <h2>TUKPUL CONVERT</h2>
+        <p>Jasa Convert Pulsa ke DANA & Bank</p>
     </div>
 
     <div id="step1" class="card">
-        <h3 style="margin-bottom:15px;">Pilih Provider</h3>
+        <h3 style="margin: 0 0 15px; font-size: 18px;">Pilih Provider</h3>
         <div class="providers">
             <div class="provider" onclick="pilihProvider(this, 'Telkomsel', 0.82)">
-                <img src="Telkomsel_2021_icon.svg">
+                <img src="Telkomsel_2021_icon.svg" alt="Telkomsel">
                 <span>Telkomsel</span>
             </div>
             <div class="provider" onclick="pilihProvider(this, 'Indosat', 0.80)">
-                <img src="im3-ooredoo-logo-png_seeklogo-326756.png">
+                <img src="im3-ooredoo-logo-png_seeklogo-326756.png" alt="Indosat">
                 <span>Indosat</span>
             </div>
             <div class="provider" onclick="pilihProvider(this, 'XL/Axis', 0.78)">
-                <img src="1771848312305.png">
-                <span>XL/Axis</span>
+                <img src="1771848312305.png" alt="XL Axis">
+                <span>XL / Axis</span>
             </div>
             <div class="provider" onclick="pilihProvider(this, 'Three', 0.75)">
-                <img src="1771848121156.png">
+                <img src="1771848121156.png" alt="Three">
                 <span>Three</span>
             </div>
         </div>
 
-        <input type="number" id="nomor" placeholder="Nomor Pengirim 08xxxx">
-        <input type="text" id="nominal" placeholder="Nominal Pulsa">
-        <div class="estimasi">Estimasi Diterima: <b id="hasil">Rp -</b></div>
+        <input type="number" id="nomor" placeholder="Nomor Pengirim (Contoh: 0812...)">
+        <input type="text" id="nominal" placeholder="Nominal Pulsa (Min: 30.000)">
+        
+        <div class="estimasi">
+            <span>Estimasi Diterima:</span><br>
+            <b id="hasil">Rp -</b>
+        </div>
+        
         <div id="error1" class="error"></div>
         <button onclick="nextStep(2)">Lanjut</button>
     </div>
 
     <div id="step2" class="card hidden">
-        <h3>Data Tujuan</h3>
+        <h3 style="margin: 0 0 15px; font-size: 18px;">Data Tujuan</h3>
         <select id="tujuan">
-            <option value="">Pilih Tujuan</option>
-            <option>DANA</option>
-            <option>OVO</option>
-            <option>GoPay</option>
-            <option>Bank Transfer</option>
+            <option value="">Pilih Metode Penarikan</option>
+            <option value="DANA">DANA</option>
+            <option value="OVO">OVO</option>
+            <option value="GoPay">GoPay</option>
+            <option value="ShopeePay">ShopeePay</option>
+            <option value="Bank">Transfer Bank</option>
         </select>
         <input type="text" id="rekening" placeholder="Nomor Rekening / HP">
-        <input type="text" id="nama" placeholder="Atas Nama">
+        <input type="text" id="nama" placeholder="Atas Nama Pemilik">
+        
         <div id="error2" class="error"></div>
         <button onclick="nextStep(3)">Tinjau Transaksi</button>
-    </div>
-</div>
-
-<script>
-    // Paste kode script (let selectedProvider, function pilihProvider, dst) kamu di sini
-</script>
-
-</body>
-</html>
-
-    <div class="estimasi">Estimasi Diterima: <b id="hasil">Rp -</b></div>
-    <div id="error1" class="error"></div>
-    <button onclick="nextStep(2)">Lanjut</button>
-  </div> ```
-
-### Mengapa ini penting?
-1.  **Judul Kembali:** Kode `<div class="brand">` di atas adalah yang menampilkan nama "TUKPUL CONVERT" yang sempat hilang.
-2.  **Tombol Normal:** Tombol "Lanjut" butuh berada di dalam `<div id="step1" class="card">`. Di kodemu yang lama, penutup `</div>` berantakan sehingga tombol berada di luar kotak dan fungsinya terputus.
-3.  **Tidak Double:** Dengan kode ini, tidak akan ada lagi logo Indosat atau XL yang muncul dua kali di bawah kotak utama.
-
-Pastikan juga di bagian CSS (baris 44), kamu sudah menghapus teks nyasar `14px; background: #1D4ED8...` yang sempat merusak tampilan tombol.
-
-Apakah judulnya sudah muncul kembali sekarang?
-
-        <input type="number" id="nomor" placeholder="Nomor Pengirim 08xxxx">
-        <input type="text" id="nominal" placeholder="Nominal Pulsa">
-        <div class="estimasi">Estimasi Diterima: <b id="hasil">Rp -</b></div>
-        <div id="error1" class="error"></div>
-        <button onclick="nextStep(2)">Lanjut</button>
-    </div>
-
-    <div id="step2" class="card hidden">
-        <h3>Data Tujuan</h3>
-        <select id="tujuan">
-            <option value="">Pilih Tujuan</option>
-            <option>DANA</option>
-            <option>OVO</option>
-            <option>GoPay</option>
-            <option>Bank Transfer</option>
-        </select>
-        <input type="text" id="rekening" placeholder="Nomor Rekening / HP">
-        <input type="text" id="nama" placeholder="Atas Nama">
-        <div id="error2" class="error"></div>
-        <button onclick="nextStep(3)">Tinjau Transaksi</button>
-    </div>
-
-    <div id="step3" class="card hidden">
-        <h3>Konfirmasi</h3>
-        <div id="summary"></div>
-        <button class="secondary" onclick="kirimWA()">Kirim via WhatsApp</button>
+        <p style="text-align:center; margin-top:10px;"><a href="#" onclick="location.reload()" style="color:#666; font-size:12px; text-decoration:none;"> Kembali</a></p>
     </div>
 </div>
 
@@ -134,6 +99,7 @@ Apakah judulnya sudah muncul kembali sekarang?
     const nominalInput = document.getElementById("nominal");
     const hasilText = document.getElementById("hasil");
 
+    // Fungsi Pilih Provider
     function pilihProvider(el, nama, r) {
         document.querySelectorAll(".provider").forEach(p => p.classList.remove("active"));
         el.classList.add("active");
@@ -142,48 +108,53 @@ Apakah judulnya sudah muncul kembali sekarang?
         hitung();
     }
 
+    // Format Rupiah Otomatis
     nominalInput.addEventListener("input", function() {
         let angka = this.value.replace(/\D/g, "");
-        this.value = angka.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        if (angka) {
+            this.value = parseInt(angka).toLocaleString("id-ID");
+        } else {
+            this.value = "";
+        }
         hitung();
     });
 
+    // Kalkulasi Hasil
     function hitung() {
         let val = nominalInput.value.replace(/\./g, "");
-        if (!val || !rate) { hasilText.innerText = "Rp -"; return; }
+        if (!val || !rate || val < 1000) { 
+            hasilText.innerText = "Rp -"; 
+            return; 
+        }
         let total = Math.floor(val * rate);
         hasilText.innerText = "Rp " + total.toLocaleString("id-ID");
     }
 
+    // Navigasi Antar Step
     function nextStep(step) {
-        if (step == 2) {
-            if (!selectedProvider || !document.getElementById("nomor").value || !nominalInput.value) {
-                document.getElementById("error1").innerText = "Lengkapi data dulu!";
+        const error1 = document.getElementById("error1");
+        
+        if (step === 2) {
+            const nomor = document.getElementById("nomor").value;
+            const nominal = nominalInput.value;
+
+            if (!selectedProvider) {
+                error1.innerText = "Silakan pilih provider dulu!";
                 return;
             }
+            if (nomor.length < 10) {
+                error1.innerText = "Nomor pengirim tidak valid!";
+                return;
+            }
+            if (nominal.replace(/\./g, "") < 30000) {
+                error1.innerText = "Minimal convert Rp 30.000";
+                return;
+            }
+
+            error1.innerText = "";
             document.getElementById("step1").classList.add("hidden");
             document.getElementById("step2").classList.remove("hidden");
         }
-        if (step == 3) {
-            if (!document.getElementById("tujuan").value || !document.getElementById("rekening").value || !document.getElementById("nama").value) {
-                document.getElementById("error2").innerText = "Lengkapi data tujuan!";
-                return;
-            }
-            document.getElementById("step2").classList.add("hidden");
-            document.getElementById("step3").classList.remove("hidden");
-            
-            document.getElementById("summary").innerHTML = `
-                <p><b>Provider:</b> ${selectedProvider}</p>
-                <p><b>Nominal:</b> Rp ${nominalInput.value}</p>
-                <p><b>Tujuan:</b> ${document.getElementById("tujuan").value}</p>
-                <p><b>Nama:</b> ${document.getElementById("nama").value}</p>
-            `;
-        }
-    }
-
-    function kirimWA() {
-        let text = `Halo Admin Tukpul Convert\nProvider: ${selectedProvider}\nNominal: ${nominalInput.value}\nTujuan: ${document.getElementById("tujuan").value}\nNama: ${document.getElementById("nama").value}`;
-        window.open("https://wa.me/6289530922938?text=" + encodeURIComponent(text));
     }
 </script>
 
