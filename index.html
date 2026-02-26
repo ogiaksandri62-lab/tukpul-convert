@@ -57,61 +57,66 @@
     </div>
 
     <form id="convert-form">
-        <div class="form-step active" id="step1">
-            <h3 style="text-align: center; margin-bottom: 20px;">Convert Pulsa</h3>
-            <label>Pilih Provider</label>
-                                    <div class="provider-grid">
-            <div class="provider-item active" data-rate="0.85">
-                <img src="icon-telkomsel-terbaru.png" alt="Telkomsel" style="width: 40px; height: auto; display: block; margin: 0 auto 5px;">
-                Telkomsel
+                <div class="form-step active" id="step1">
+            <h3 style="text-align: center; margin-bottom: 20px;">Pilih Provider</h3>
+            <div class="provider-grid">
+                <div class="provider-item" onclick="selectProvider('Telkomsel', 0.85)">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Telkomsel_2021_logo.svg" alt="Telkomsel">
+                    <span>Telkomsel</span>
+                </div>
+                <div class="provider-item" onclick="selectProvider('Indosat', 0.80)">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Indosat_Ooredoo_logo.svg" alt="Indosat">
+                    <span>Indosat</span>
+                </div>
+                <div class="provider-item" onclick="selectProvider('XL', 0.82)">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/XL_logo_2016.svg" alt="XL">
+                    <span>XL/Axis</span>
+                </div>
+                <div class="provider-item" onclick="selectProvider('Three', 0.75)">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Three_Logo.svg" alt="Three">
+                    <span>Three</span>
+                </div>
             </div>
-            <div class="provider-item" data-rate="0.80">
-                <img src="im3-ooredoo-logo-png_seeklogo-326756.png" alt="Indosat" style="width: 40px; height: auto; display: block; margin: 0 auto 5px;">
-                Indosat
-            </div>
-            <div class="provider-item" data-rate="0.82">
-                <img src="1771848312305.png" alt="XL/Axis" style="width: 40px; height: auto; display: block; margin: 0 auto 5px;">
-                XL/Axis
-            </div>
-            <div class="provider-item" data-rate="0.75">
-                <img src="1771848121156.png" alt="Three" style="width: 40px; height: auto; display: block; margin: 0 auto 5px;">
-                Three
-            </div>
-                                <div class="input-group" style="display: block; width: 100%;">
-            <label>Nomor Pengirim</label>
-            <input type="number" id="sender-number" placeholder="0812xxxx" style="width: 100%; box-sizing: border-box;">
         </div>
 
-        <div class="input-group" style="display: block; width: 100%; margin-top: 15px;">
-            <label>Nominal Pulsa</label>
-            <input type="number" id="amount" placeholder="Contoh: 100000" style="width: 100%; box-sizing: border-box;">
-        </div>
-
-        <div class="input-group" style="display: block; width: 100%; margin-top: 15px;">
-            <label>Nomor Rekening / HP</label>
-            <input type="number" id="acc-number" placeholder="107977xxx" style="width: 100%; box-sizing: border-box;">
-        </div>
-
-        <div class="input-group" style="display: block; width: 100%; margin-top: 15px;">
-            <label>Atas Nama</label>
-            <input type="text" id="acc-name" placeholder="Nama pemilik" style="width: 100%; box-sizing: border-box;">
-        </div>
-
+        <div class="form-step" id="step2" style="display: none;">
+            <div class="input-group">
+                <label>Nomor Pengirim</label>
+                <input type="number" id="sender-number" placeholder="0812xxxx">
+            </div>
+            <div class="input-group">
+                <label>Nominal Pulsa</label>
+                <input type="number" id="amount" placeholder="Contoh: 100000" oninput="calculateRate()">
+            </div>
+            <div id="rate-display" style="background: #f0f7ff; padding: 15px; border-radius: 10px; margin: 15px 0; text-align: center; border: 1px dashed #00add8;">
+                <p style="font-size: 12px; color: #666;">Estimasi Saldo Diterima:</p>
+                <h2 id="est-receive" style="color: #00add8; margin: 5px 0;">Rp 0</h2>
+            </div>
+            <div class="input-group">
+                <label>Nomor Rekening / HP</label>
+                <input type="number" id="acc-number" placeholder="Nomor tujuan">
+            </div>
+            <div class="input-group">
+                <label>Atas Nama</label>
+                <input type="text" id="acc-name" placeholder="Nama pemilik">
             </div>
             <button type="button" class="btn-primary" onclick="nextStep(3)">Tinjau Transaksi</button>
-            <p onclick="nextStep(1)" style="text-align:center; color:#64748b; cursor:pointer; margin-top:15px; font-size:0.8rem;">Kembali</p>
+            <p onclick="nextStep(1)" style="text-align: center; color: #666; cursor: pointer; margin-top: 15px;">Kembali</p>
         </div>
 
-        <div class="form-step" id="step3">
+        <div class="form-step" id="step3" style="display: none;">
             <h3 style="text-align: center; margin-bottom: 20px;">Konfirmasi</h3>
-            <div class="confirm-box">
-                <p>Total Diterima</p>
-                <h2 id="final-amount" style="color: var(--primary);">Rp 0</h2>
-                <p id="confirm-bank-info" style="font-weight:bold;"></p>
+            <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                <p style="font-size: 14px; color: #64748b;">Total Diterima:</p>
+                <h2 id="final-amount" style="color: #00add8;">Rp 0</h2>
+                <hr style="margin: 15px 0; border: 0; border-top: 1px solid #e2e8f0;">
+                <p id="confirm-bank-info" style="font-weight: bold;"></p>
                 <p id="confirm-name-info"></p>
             </div>
-            <button type="button" class="btn-primary" onclick="sendToWA()">Hubungi Via WhatsApp</button>
-            <p onclick="nextStep(2)" style="text-align:center; color:#64748b; cursor:pointer; margin-top:15px; font-size:0.8rem;">Kembali</p>
+            <button type="button" class="btn-primary" onclick="sendToWA()" style="margin-top: 20px;">Hubungi Via WhatsApp</button>
+            <p onclick="nextStep(2)" style="text-align: center; color: #64748b; cursor: pointer; margin-top: 15px;">Kembali</p>
+        </div>
+
         </div>
     </form>
 </div>
