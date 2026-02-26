@@ -25,15 +25,14 @@
   text-align: center; 
   cursor: pointer; 
   display: flex;
-  flex-direction: column; /* Logo di atas, teks di bawah */
+  flex-direction: column;
   align-items: center;
   gap: 8px;
-  font-weight: 600;
-  transition: 0.2s;
+  background: #fff;
 }
 
 .provider img {
-  height: 40px; /* Ukuran tinggi logo agar seragam */
+  height: 40px;
   width: auto;
   object-fit: contain;
 }
@@ -42,13 +41,14 @@
   border-color: #1D4ED8; 
   background: #f0f7ff; 
 }
- 14px; background: #1D4ED8; color: white; font-weight: 600; cursor: pointer; }
-        button.secondary { background: #3b82f6; margin-top: 10px; }
-        .error { color: red; font-size: 13px; margin-bottom: 10px; }
-        .estimasi { background: #f1f5f9; padding: 12px; border-radius: 10px; margin-bottom: 15px; text-align: center; }
+
+/* Kode untuk elemen lainnya */
+input, select { width: 100%; padding: 13px; border-radius: 12px; border: 1px solid #ddd; margin-bottom: 15px; box-sizing: border-box; }
+button { width: 100%; padding: 15px; border: none; border-radius: 14px; background: #1D4ED8; color: white; font-weight: 600; cursor: pointer; }
+.estimasi { background: #f1f5f9; padding: 12px; border-radius: 10px; margin-bottom: 15px; text-align: center; }
+
     </style>
 </head>
-
 
 <div class="providers">
   <div class="provider" onclick="pilihProvider(this, 'Telkomsel', 0.82)">
@@ -72,11 +72,6 @@
   </div>
 </div>
 
-
-  <div class="provider" onclick="pilihProvider(this, 'Indosat', 0.80)">
-    <img src="im3-ooredoo-logo-png_seeklogo-326756.png" alt="Indosat">
-    <span>Indosat</span>
-  </div>
 
   <div class="provider" onclick="pilihProvider(this, 'XL/Axis', 0.78)">
     <img src="1771848312305.png" alt="XL/Axis">
