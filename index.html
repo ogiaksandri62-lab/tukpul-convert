@@ -11,9 +11,26 @@
         h2 { text-align: center; color: #1D4ED8; }
         .card { background: #fff; border-radius: 20px; padding: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); margin-bottom: 20px; }
         .hidden { display: none; }
-        .providers { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 15px; }
-        .provider { padding: 14px; border-radius: 14px; border: 1px solid #eee; text-align: center; cursor: pointer; font-weight: 600; transition: 0.2s; }
-        .provider.active { border-color: #1D4ED8; background: #ecfdf5; }
+        ..provider { 
+  padding: 15px 5px; /* Sedikit lebih tinggi untuk ruang gambar */
+  border-radius: 14px; 
+  border: 1px solid #eee; 
+  text-align: center; 
+  cursor: pointer; 
+  font-weight: 600; /* Agar teks lebih jelas */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px; /* Jarak antara gambar dan teks */
+}
+
+/* Tambahkan ini di bawah .provider */
+.provider img {
+  height: 35px; /* Atur tinggi logo */
+  width: auto;
+  object-fit: contain;
+}
+
         input, select { width: 100%; padding: 13px; border-radius: 12px; border: 1px solid #ddd; margin-bottom: 15px; box-sizing: border-box; }
         button { width: 100%; padding: 15px; border: none; border-radius: 14px; background: #1D4ED8; color: white; font-weight: 600; cursor: pointer; }
         button.secondary { background: #3b82f6; margin-top: 10px; }
@@ -32,11 +49,27 @@
     <div id="step1" class="card">
         <h3>Pilih Provider</h3>
         <div class="providers">
-            <div class="provider" onclick="pilihProvider(this, 'Telkomsel', 0.82)">Telkomsel</div>
-            <div class="provider" onclick="pilihProvider(this, 'Indosat', 0.80)">Indosat</div>
-            <div class="provider" onclick="pilihProvider(this, 'XL/Axis', 0.78)">XL/Axis</div>
-            <div class="provider" onclick="pilihProvider(this, 'Three', 0.75)">Three</div>
-        </div>
+  <div class="provider" onclick="pilihProvider(this, 'Telkomsel', 0.82)">
+    <img src="Telkomsel_2021_icon.svg" alt="Telkomsel">
+    <span>Telkomsel</span>
+  </div>
+
+  <div class="provider" onclick="pilihProvider(this, 'Indosat', 0.80)">
+    <img src="im3-ooredoo-logo-png_seeklogo-326756.png" alt="Indosat">
+    <span>Indosat</span>
+  </div>
+
+  <div class="provider" onclick="pilihProvider(this, 'XL/Axis', 0.78)">
+    <img src="1771848312305.png" alt="XL/Axis">
+    <span>XL/Axis</span>
+  </div>
+
+  <div class="provider" onclick="pilihProvider(this, 'Three', 0.75)">
+    <img src="1771848121156.png" alt="Three">
+    <span>Three</span>
+  </div>
+</div>
+
         <input type="number" id="nomor" placeholder="Nomor Pengirim 08xxxx">
         <input type="text" id="nominal" placeholder="Nominal Pulsa">
         <div class="estimasi">Estimasi Diterima: <b id="hasil">Rp -</b></div>
