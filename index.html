@@ -11,24 +11,35 @@
         h2 { text-align: center; color: #1D4ED8; }
         .card { background: #fff; border-radius: 20px; padding: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); margin-bottom: 20px; }
         .hidden { display: none; }
-        ..provider { 
-  padding: 15px 5px; /* Sedikit lebih tinggi untuk ruang gambar */
+        .providers { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 12px; 
+  margin-bottom: 15px; 
+}
+
+.provider { 
+  padding: 15px 5px; 
   border-radius: 14px; 
   border: 1px solid #eee; 
   text-align: center; 
   cursor: pointer; 
-  font-weight: 600; /* Agar teks lebih jelas */
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px; /* Jarak antara gambar dan teks */
+  gap: 8px;
+  font-weight: 600;
 }
 
-/* Tambahkan ini di bawah .provider */
 .provider img {
-  height: 35px; /* Atur tinggi logo */
+  height: 40px;
   width: auto;
   object-fit: contain;
+}
+
+.provider.active { 
+  border-color: #1D4ED8; 
+  background: #f0f7ff; 
 }
 
         input, select { width: 100%; padding: 13px; border-radius: 12px; border: 1px solid #ddd; margin-bottom: 15px; box-sizing: border-box; }
@@ -49,6 +60,7 @@
     <div id="step1" class="card">
         <h3>Pilih Provider</h3>
         <div class="providers">
+  <<div class="providers">
   <div class="provider" onclick="pilihProvider(this, 'Telkomsel', 0.82)">
     <img src="Telkomsel_2021_icon.svg" alt="Telkomsel">
     <span>Telkomsel</span>
@@ -68,6 +80,8 @@
     <img src="1771848121156.png" alt="Three">
     <span>Three</span>
   </div>
+</div>
+
 </div>
 
         <input type="number" id="nomor" placeholder="Nomor Pengirim 08xxxx">
