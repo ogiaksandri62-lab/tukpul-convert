@@ -11,7 +11,8 @@
         h2 { text-align: center; color: #1D4ED8; }
         .card { background: #fff; border-radius: 20px; padding: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); margin-bottom: 20px; }
         .hidden { display: none; }
-        .providers { 
+        /* Baris 14 ke bawah */
+.providers { 
   display: grid; 
   grid-template-columns: 1fr 1fr; 
   gap: 12px; 
@@ -22,60 +23,46 @@
   padding: 15px 5px; 
   border-radius: 14px; 
   border: 1px solid #eee; 
-  text-align: center; 
-  cursor: pointer; 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  background: #fff;
-}
-
-.provider img {
-  height: 40px;
-  width: auto;
-  object-fit: contain;
-}
-
-.provider.active { 
-  border-color: #1D4ED8; 
-  background: #f0f7ff; 
-}
-
-/* Kode untuk elemen lainnya */
-input, select { width: 100%; padding: 13px; border-radius: 12px; border: 1px solid #ddd; margin-bottom: 15px; box-sizing: border-box; }
-button { width: 100%; padding: 15px; border: none; border-radius: 14px; background: #1D4ED8; color: white; font-weight: 600; cursor: pointer; }
-.estimasi { background: #f1f5f9; padding: 12px; border-radius: 10px; margin-bottom: 15px; text-align: center; }
-
-    </style>
-</head>
-
-<div class="providers">
-  <div class="provider" onclick="pilihProvider(this, 'Telkomsel', 0.82)">
-    <img src="Telkomsel_2021_icon.svg">
-    <span>Telkomsel</span>
+  <div class="container">
+  <div class="brand">
+    <h2 style="text-align:center; color:#1D4ED8; margin-top:20px;">TUKPUL CONVERT</h2>
+    <p style="text-align:center; font-size:13px; color:#666; margin-bottom:20px;">Jasa Convert Pulsa ke DANA & Bank</p>
   </div>
 
-  <div class="provider" onclick="pilihProvider(this, 'Indosat', 0.80)">
-    <img src="im3-ooredoo-logo-png_seeklogo-326756.png">
-    <span>Indosat</span>
-  </div>
+  <div id="step1" class="card">
+    <h3 style="margin-bottom:15px;">Pilih Provider</h3>
+    <div class="providers">
+      <div class="provider" onclick="pilihProvider(this, 'Telkomsel', 0.82)">
+        <img src="Telkomsel_2021_icon.svg">
+        <span>Telkomsel</span>
+      </div>
+      <div class="provider" onclick="pilihProvider(this, 'Indosat', 0.80)">
+        <img src="im3-ooredoo-logo-png_seeklogo-326756.png">
+        <span>Indosat</span>
+      </div>
+      <div class="provider" onclick="pilihProvider(this, 'XL/Axis', 0.78)">
+        <img src="1771848312305.png">
+        <span>XL/Axis</span>
+      </div>
+      <div class="provider" onclick="pilihProvider(this, 'Three', 0.75)">
+        <img src="1771848121156.png">
+        <span>Three</span>
+      </div>
+    </div> <input type="number" id="nomor" placeholder="Nomor Pengirim 08xxxx">
+    <input type="text" id="nominal" placeholder="Nominal Pulsa">
+    <div class="estimasi">Estimasi Diterima: <b id="hasil">Rp -</b></div>
+    <div id="error1" class="error"></div>
+    <button onclick="nextStep(2)">Lanjut</button>
+  </div> ```
 
-  <div class="provider" onclick="pilihProvider(this, 'XL/Axis', 0.78)">
-    <img src="1771848312305.png">
-    <span>XL/Axis</span>
-  </div>
+### Mengapa ini penting?
+1.  **Judul Kembali:** Kode `<div class="brand">` di atas adalah yang menampilkan nama "TUKPUL CONVERT" yang sempat hilang.
+2.  **Tombol Normal:** Tombol "Lanjut" butuh berada di dalam `<div id="step1" class="card">`. Di kodemu yang lama, penutup `</div>` berantakan sehingga tombol berada di luar kotak dan fungsinya terputus.
+3.  **Tidak Double:** Dengan kode ini, tidak akan ada lagi logo Indosat atau XL yang muncul dua kali di bawah kotak utama.
 
-  <div class="provider" onclick="pilihProvider(this, 'Three', 0.75)">
-    <img src="1771848121156.png">
-    <span>Three</span>
-  </div>
-</div>
+Pastikan juga di bagian CSS (baris 44), kamu sudah menghapus teks nyasar `14px; background: #1D4ED8...` yang sempat merusak tampilan tombol.
 
-
-  
-
-</div>
+Apakah judulnya sudah muncul kembali sekarang?
 
         <input type="number" id="nomor" placeholder="Nomor Pengirim 08xxxx">
         <input type="text" id="nominal" placeholder="Nominal Pulsa">
