@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tukpul Convert</title>
+<title>Tukpul Convert Pro</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 body{
     font-family:'Poppins',sans-serif;
-    background:#f4f6f9;
+    background:linear-gradient(135deg,#e0f2fe,#f0fdf4);
     margin:0;
 }
 .container{
@@ -16,44 +16,44 @@ body{
     margin:auto;
     padding:20px;
 }
-h2{
-    text-align:center;
-    margin-bottom:10px;
-}
+h2{text-align:center;}
 .step{
     display:flex;
     justify-content:center;
     margin:15px 0 25px;
 }
 .step div{
-    width:30px;
-    height:6px;
-    background:#ddd;
-    margin:0 5px;
-    border-radius:10px;
+    width:30px;height:6px;background:#ddd;
+    margin:0 5px;border-radius:10px;
+    transition:0.3s;
 }
-.step .active{
-    background:#10B981;
-}
+.step .active{background:#10B981;}
 .card{
     background:#fff;
-    border-radius:18px;
+    border-radius:20px;
     padding:20px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.06);
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    animation:fade 0.4s ease;
+}
+@keyframes fade{
+    from{opacity:0;transform:translateY(10px);}
+    to{opacity:1;transform:translateY(0);}
 }
 .providers{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:15px;
+    gap:12px;
 }
 .provider{
-    padding:15px;
+    padding:14px;
     border-radius:14px;
     border:1px solid #eee;
     text-align:center;
     cursor:pointer;
     font-weight:600;
+    transition:0.2s;
 }
+.provider:hover{transform:scale(1.05);}
 .provider.active{
     border-color:#10B981;
     background:#ecfdf5;
@@ -76,11 +76,19 @@ button{
     font-size:16px;
     cursor:pointer;
 }
-button.secondary{
-    background:#3b82f6;
+button.secondary{background:#3b82f6;}
+button:disabled{background:#9ca3af;}
+.error{
+    color:red;
+    font-size:13px;
+    margin-bottom:10px;
 }
-button:hover{
-    opacity:0.9;
+.hidden{display:none;}
+.summary{
+    background:#f8fafc;
+    padding:15px;
+    border-radius:12px;
+    margin-bottom:15px;
 }
 .estimasi{
     background:#f1f5f9;
@@ -88,27 +96,152 @@ button:hover{
     border-radius:10px;
     margin-bottom:15px;
 }
-.hidden{
-    display:none;
-}
-.summary{
-    background:#f8fafc;
-    padding:15px;
-    border-radius:12px;
-    margin-bottom:15px;
-}
 </style>
 </head>
 <body>
 
 <div class="container">
-
 <h2>Convert Pulsa</h2>
 
 <div class="step">
 <div id="s1" class="active"></div>
 <div id="s2"></div>
 <div id="s3"></div>
+</div>
+
+<!-- STEP 1 -->
+<div id="step1" class="card">
+
+<h3>Pilih Provider</h3>
+<div class="providers">
+<div class="provider" onclick="pilihProvider(this,'Telkomsel',0.82)">Telkomsel</div>
+<div class="provider" onclick="pilihProvider(this,'Indosat',0.80)">Indosat</div>
+<div class="provider" onclick="pilihProvider(this,'XL/Axis',0.78)">XL/Axis</div>
+<div class="provider" onclick="pilihProvider(this,'Three',0.75)">Three</div>
+</div>
+
+<input type="text" id="nomor" placeholder="Nomor Pengirim 08xxxx">
+<input type="text" id="nominal" placeholder="Nominal Pulsa">
+
+<div class="estimasi">
+Estimasi Diterima: <b id="hasil">Rp -</b>
+</div>
+
+<div id="error1" class="error"></div>
+
+<button onclick="nextStep(2)">Lanjut</button>
+</div>
+
+<!-- STEP 2 -->
+<div id="step2" class="card hidden">
+
+<select id="tujuan">
+<option value="">Pilih Tujuan</option>
+<option>DANA</option>
+<option>OVO</option>
+<option>GoPay</option>
+<option>SAKUKU</option>
+<option>Bank Transfer</option>
+</select>
+
+<input type="text" id="rekening" placeholder="Nomor Rekening / HP">
+<input type="text" id="nama" placeholder="Atas Nama">
+
+<div id="error2" class="error"></div>
+
+<button onclick="nextStep(3)">Tinjau Transaksi</button>
+</div>
+
+<!-- STEP 3 -->
+<div id="step3" class="card hidden">
+<h3>Konfirmasi</h3>
+
+<div class="summary" id="summary"></div>
+
+<button class="secondary" onclick="kirimWA()">Kirim via WhatsApp</button>
+</div>
+
+</div>
+
+<script>
+let selectedProvider="";
+let rate=0;
+
+function pilihProvider(el,nama,r){
+document.querySelectorAll(".provider").forEach(p=>p.classList.remove("active"));
+el.classList.add("active");
+selectedProvider=nama;
+rate=r;
+hitung();
+}
+
+document.getElementById("nominal").addEventListener("input",function(){
+let angka=this.value.replace(/\D/g,'');
+this.value=angka.replace(/\B(?=(\d{3})+(?!\d))/g,".");
+hitung();
+});
+
+function hitung(){
+let nominal=document.getElementById("nominal").value.replace(/\./g,'');
+if(!nominal || !rate){hasil.innerText="Rp -";return;}
+let total=Math.floor(nominal*rate);
+hasil.innerText="Rp "+total.toLocaleString("id-ID");
+}
+
+function nextStep(step){
+
+if(step==2){
+if(!selectedProvider || !nomor.value || !nominal.value){
+error1.innerText="Lengkapi semua data dulu!";
+return;
+}
+error1.innerText="";
+step1.classList.add("hidden");
+step2.classList.remove("hidden");
+s1.classList.remove("active");
+s2.classList.add("active");
+}
+
+if(step==3){
+if(!tujuan.value || !rekening.value || !nama.value){
+error2.innerText="Lengkapi semua data tujuan!";
+return;
+}
+error2.innerText="";
+step2.classList.add("hidden");
+step3.classList.remove("hidden");
+s2.classList.remove("active");
+s3.classList.add("active");
+
+summary.innerHTML=`
+<p><b>Provider:</b> ${selectedProvider}</p>
+<p><b>Nomor:</b> ${nomor.value}</p>
+<p><b>Nominal:</b> Rp ${nominal.value}</p>
+<p><b>Diterima:</b> ${hasil.innerText}</p>
+<p><b>Tujuan:</b> ${tujuan.value}</p>
+<p><b>Rekening:</b> ${rekening.value}</p>
+<p><b>Nama:</b> ${nama.value}</p>
+`;
+}
+}
+
+function kirimWA(){
+let text=`Halo Admin Tukpul Convert
+
+Provider: ${selectedProvider}
+Nomor: ${nomor.value}
+Nominal: Rp ${nominal.value}
+Diterima: ${hasil.innerText}
+Tujuan: ${tujuan.value}
+Rekening: ${rekening.value}
+Nama: ${nama.value}`;
+
+window.open("https://wa.me/628XXXXXXXXXX?text="+encodeURIComponent(text));
+}
+</script>
+
+</body>
+</html><div id="s3"></div>
 </div>
 
 <!-- STEP 1 -->
