@@ -20,19 +20,33 @@
         .provider span { font-weight: 600; font-size: 14px; color: #333; }
         
         /* Bagian ini yang memperbaiki bar input kamu */
-        input, select { 
-            width: 100%; 
-            padding: 13px; 
-            border-radius: 12px; 
-            border: 1px solid #ddd; 
-            margin-bottom: 15px; 
-            font-size: 14px; 
-            box-sizing: border-box; 
-            display: block;
+                input, select { 
+            width: 100% !important; 
+            padding: 12px !important; 
+            border-radius: 12px !important; 
+            border: 1px solid #ddd !important; 
+            margin-bottom: 20px !important; /* Jarak antar bar agar tidak tumpuk */
+            font-size: 14px !important; 
+            box-sizing: border-box !important; 
+            display: block !important;
+            height: 48px !important; /* Supaya bar tidak gepeng */
+            background-color: white !important;
         }
 
-        button { width: 100%; padding: 15px; border: none; border-radius: 14px; background: #1d4ed8; color: white; font-weight: bold; cursor: pointer; font-size: 16px; }
-        button:hover { background: #1e40af; }
+        button { 
+            width: 100% !important; 
+            padding: 15px !important; 
+            border: none !important; 
+            border-radius: 14px !important; 
+            background: #1d4ed8 !important; /* Kembalikan warna biru */
+            color: white !important; 
+            font-weight: bold !important; 
+            cursor: pointer !important; 
+            font-size: 16px !important;
+            margin-top: 10px !important;
+            display: block !important;
+        }
+
         .estimasi { background: #f1f5f9; padding: 15px; border-radius: 12px; margin-bottom: 15px; text-align: center; border: 1px dashed #cbd5e1; }
         .estimasi b { color: #1d4ed8; font-size: 18px; }
         .error { color: #dc2626; font-size: 13px; margin-bottom: 10px; text-align: center; font-weight: 500; }
