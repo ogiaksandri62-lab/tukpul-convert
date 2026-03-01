@@ -250,4 +250,42 @@ details p { padding: 0 15px 15px; color: #64748b; font-size: 0.85rem; }
 @keyframes fadeIn { 
     from { opacity: 0; transform: translateY(10px); } 
     to { opacity: 1; transform: translateY(0); } 
+/* Ganti mulai baris 253 dengan ini */
+.rate-list-modern {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 10px 0;
 }
+
+.rate-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.rate-box {
+    background-color: #f1f5f9; 
+    color: #0066FF;           
+    padding: 6px 16px;
+    border-radius: 10px;      
+    font-weight: 800;
+    min-width: 50px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.rate-box.best {
+    background-color: #0066FF; 
+    color: #ffffff;           
+    box-shadow: 0 4px 10px rgba(0, 102, 255, 0.25);
+}
+
+.provider-name {
+    font-weight: 600;
+    color: #334155;
+    font-size: 15px;
+}
+
