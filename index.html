@@ -221,7 +221,7 @@
         // Membuka link di browser eksternal agar aman di APK
         window.location.assign(linkWA);
 
-        // --- KODE BERSIH AGAR TOMBOL BERFUNGSI KEMBALI ---
+        // --- 1. DATA & FUNGSI RIWAYAT (BARIS 224) ---
 const barData = [
     {no: "08778****92", op: "XL / Axis", icon: "1771848312305.png", rp: "Rp947.000"},
     {no: "08136****16", op: "Telkomsel", icon: "https://upload.wikimedia.org/wikipedia/commons/b/bc/Telkomsel_2021_icon.svg", rp: "Rp470.000"},
@@ -242,7 +242,7 @@ function rotateBar() {
         setTimeout(() => {
             const item = barData[currentIdx];
             iconEl.src = item.icon;
-            // WAJIB PAKAI TANDA BACKTICK ( ` )
+            // WAJIB: Gunakan backtick ( ` ) agar tombol tidak macet
             textEl.innerHTML = `${item.no} Berhasil Convert ${item.op} <span style="font-weight: bold; color: #25d366;">${item.rp}</span>`;
             container.style.opacity = '1';
             currentIdx = (currentIdx + 1) % barData.length;
@@ -257,6 +257,13 @@ function openHistory() {
 function closeHistory() {
     document.getElementById('historyModal').style.display = 'none';
 }
+</script>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  .active { border: 2px solid #2563eb !important; background-color: #f0f7ff; }
+</style>
 
 </body>
 </html>
