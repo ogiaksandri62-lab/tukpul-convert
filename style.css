@@ -110,17 +110,26 @@ select:focus, input:focus { border-color: var(--primary); background: #fff; }
 
 .btn-primary:hover { background: #008eb0; transform: translateY(-2px); }
 
-/* Fitur & Section Baru */
-.section-title { text-align: center; color: var(--text); margin: 40px 0 20px; font-size: 1.4rem; }
-
-.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
-.feature-item { 
-    background: var(--card); 
-    padding: 20px; 
-    border-radius: 15px; 
-    text-align: center; 
-    border: 1px solid var(--border);
+.rate-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 20px;
 }
+.rate-item {
+    background: var(--card); /* Mengikuti warna di baris 118 */
+    border: 1px solid var(--border); /* Mengikuti warna di baris 122 */
+    padding: 12px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.rate-item span:last-child {
+    font-weight: 800;
+    color: var(--primary); /* Mengikuti warna di baris 124 */
+}
+
 .feature-item i { font-size: 2rem; color: var(--primary); margin-bottom: 10px; }
 .feature-item p { font-size: 0.8rem; color: #64748b; }
 
