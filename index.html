@@ -3,47 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tukpul Convert</title>
+    <title>Tukpul Convert - Tukar Pulsa Jadi Uang</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Poppins', sans-serif; background: linear-gradient(135deg, #e0f2fe, #fdfbf4); margin: 0; padding: 20px; }
-        .container { max-width: 500px; margin: auto; width: 100%; box-sizing: border-box; }
-        .brand { text-align: center; margin-bottom: 25px; margin-top: 10px; }
-        .brand h2 { color: #1d4ed8; margin: 0; font-size: 24px; text-transform: uppercase; letter-spacing: 1px; }
-        .brand p { color: #666; font-size: 13px; margin: 5px 0 0; }
-        .card { background: #fff; border-radius: 20px; padding: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); margin-bottom: 20px; width: 100%; box-sizing: border-box; }
+        :root { --primary: #1d4ed8; --secondary: #3b82f6; --bg: #f8fafc; }
+        body { font-family: 'Poppins', sans-serif; background: var(--bg); margin: 0; padding: 15px; color: #334155; }
+        .container { max-width: 500px; margin: auto; }
+        
+        /* Header & Brand */
+        .brand { text-align: center; margin-bottom: 25px; }
+        .brand h2 { color: var(--primary); margin: 0; font-size: 26px; font-weight: 700; }
+        .brand p { color: #64748b; font-size: 13px; margin: 5px 0; }
+
+        /* Card Style */
+        .card { background: #fff; border-radius: 24px; padding: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); margin-bottom: 20px; }
         .hidden { display: none; }
-        .providers { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 15px 0; }
+        
+        /* Section Titles */
+        .section-title { font-size: 16px; font-weight: 700; margin-bottom: 15px; display: block; color: #1e293b; }
+
+        /* Provider Grid */
+        .providers { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
         .provider {
-            padding: 15px 5px; border-radius: 14px; border: 1px solid #eee; text-align: center;
-            cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 8px; background: #fff;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            padding: 15px; border-radius: 16px; border: 2px solid #f1f5f9; text-align: center;
+            cursor: pointer; transition: all 0.3s ease; background: #fff;
         }
-        .provider:active { transform: scale(0.92); }
-        .provider img { height: 40px; width: auto; object-fit: contain; }
-        .provider.active { 
-            border: 2px solid #1d4ed8 !important; 
-            background: #f0f7ff !important; 
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(29, 78, 216, 0.1);
-        }
+        .provider img { height: 35px; margin-bottom: 8px; }
+        .provider span { font-size: 13px; font-weight: 600; display: block; }
+        .provider.active { border-color: var(--primary); background: #eff6ff; transform: translateY(-3px); }
+
+        /* Inputs */
         input, select { 
-            width: 100%; padding: 12px; border-radius: 12px; border: 1px solid #ddd; 
-            margin-bottom: 20px; font-size: 14px; box-sizing: border-box; display: block;
-            height: 48px; background-color: white;
+            width: 100%; padding: 14px; border-radius: 12px; border: 1px solid #e2e8f0; 
+            margin-bottom: 15px; font-size: 14px; box-sizing: border-box; outline: none;
         }
-        button { 
-            width: 100%; padding: 15px; border: none; border-radius: 14px; 
-            background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 100%); 
-            color: white; font-weight: bold; cursor: pointer; font-size: 16px;
-            margin-top: 10px; display: block; transition: all 0.2s ease;
+        input:focus { border-color: var(--secondary); }
+
+        /* Buttons */
+        .btn-primary { 
+            width: 100%; padding: 16px; border: none; border-radius: 14px; 
+            background: linear-gradient(135deg, var(--primary), var(--secondary)); 
+            color: white; font-weight: 700; cursor: pointer; font-size: 16px;
             box-shadow: 0 4px 15px rgba(29, 78, 216, 0.3);
-            border-bottom: 4px solid #1e40af;
         }
-        button:active { transform: translateY(2px); border-bottom: 0px solid; }
-        .estimasi { background: #f1f5f9; padding: 15px; border-radius: 12px; margin-bottom: 15px; text-align: center; border: 1px dashed #cbd5e1; }
-        .estimasi b { color: #1d4ed8; font-size: 18px; }
-        .error { color: #dc2626; font-size: 13px; margin-bottom: 10px; text-align: center; font-weight: 500; }
+
+        /* Mengapa Harus Kami */
+        .features { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+        .feature-item { background: #fff; padding: 15px; border-radius: 15px; text-align: center; font-size: 12px; border: 1px solid #f1f5f9; }
+        .feature-item i { font-size: 20px; display: block; margin-bottom: 5px; }
+
+        /* Testimoni */
+        .testi-container { overflow-x: auto; display: flex; gap: 10px; padding-bottom: 10px; scroll-snap-type: x mandatory; }
+        .testi-card { min-width: 250px; background: #fff; padding: 15px; border-radius: 15px; scroll-snap-align: start; border: 1px solid #f1f5f9; }
+        .testi-user { font-weight: 700; font-size: 13px; margin-bottom: 5px; display: block; }
+        .testi-text { font-size: 12px; color: #64748b; font-style: italic; }
+
+        /* FAQ Accordion */
+        .faq-item { margin-bottom: 8px; border-radius: 10px; overflow: hidden; border: 1px solid #e2e8f0; }
+        .faq-question { background: #fff; padding: 12px 15px; font-size: 13px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; }
+        .faq-answer { background: #f8fafc; padding: 12px 15px; font-size: 12px; display: none; border-top: 1px solid #e2e8f0; }
+
+        .estimasi { background: #f8fafc; padding: 15px; border-radius: 12px; text-align: center; margin-bottom: 15px; border: 1px dashed #cbd5e1; }
+        .estimasi b { color: var(--primary); font-size: 20px; }
     </style>
 </head>
 <body>
@@ -51,161 +72,161 @@
 <div class="container">
     <div class="brand">
         <h2>TUKPUL CONVERT</h2>
-        <p>Layanan convert pulsa tercepat dengan rate tertinggi!</p>
-        
-        <div onclick="openHistory()" style="max-width: 500px; margin: 15px auto; padding: 12px 15px; background: white; border-radius: 12px; display: flex; align-items: center; gap: 10px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #eee;">
-            <div style="width: 10px; height: 10px; background: #25d366; border-radius: 50%; box-shadow: 0 0 8px #25d366;"></div>
-            <img id="bar-icon" src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Telkomsel_2021_icon.svg" style="width: 25px;">
-            <p id="bar-text" style="margin: 0; font-size: 12px; flex: 1; font-weight: 500; color: #333;">Memuat data...</p>
-            <span style="font-size: 10px; color: #999;">Lihat Semua ></span>
-        </div>
+        <p>Solusi Tukar Pulsa Jadi Saldo E-Wallet & Bank</p>
     </div>
 
     <div id="step1" class="card">
-        <h3 style="margin: 0 0 15px; font-size: 18px;">Pilih Provider</h3>
+        <span class="section-title">Pilih Provider</span>
         <div class="providers">
             <div class="provider" onclick="pilihProvider(this, 'Telkomsel', 0.85)">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Telkomsel_2021_icon.svg">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Telkomsel_2021_icon.svg" alt="Tsel">
                 <span>Telkomsel</span>
             </div>
-            <div class="provider" onclick="pilihProvider(this, 'Indosat', 0.87)">
-                <img src="im3-ooredoo-logo-png_seeklogo-326756.png">
+            <div class="provider" onclick="pilihProvider(this, 'Indosat', 0.80)">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Indosat_Ooredoo_logo.svg" alt="Isat">
                 <span>Indosat</span>
             </div>
-            <div class="provider" onclick="pilihProvider(this, 'XL/Axis', 0.87)">
-                <img src="1771848312305.png">
+            <div class="provider" onclick="pilihProvider(this, 'XL/Axis', 0.82)">
+                <img src="https://upload.wikimedia.org/wikipedia/id/3/30/Logo_XL_Axiata_2016.svg" alt="XL">
                 <span>XL / Axis</span>
             </div>
-            <div class="provider" onclick="pilihProvider(this, 'Three', 0.89)">
-                <img src="1771848121156.png">
-                <span>Three</span>
+            <div class="provider" onclick="pilihProvider(this, 'Three', 0.85)">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Three_Logo.svg" alt="3">
+                <span>Three (3)</span>
             </div>
         </div>
 
-        <input type="number" id="nomor" placeholder="Nomor Pengirim (08xxxx)">
-        <input type="text" id="nominal" placeholder="Nominal Pulsa">
+        <input type="number" id="nomor" placeholder="Nomor Pengirim (Contoh: 0812...)">
+        <input type="text" id="nominal" placeholder="Nominal Pulsa (Min 30.000)">
         
         <div class="estimasi">
-            <span>Estimasi Diterima:</span><br>
-            <b id="hasil">Rp -</b>
+            <span style="font-size: 12px;">Saldo yang akan diterima:</span><br>
+            <b id="hasil">Rp 0</b>
         </div>
         
-        <div id="error1" class="error"></div>
-        <button onclick="nextStep(2)">Lanjut</button>
+        <button class="btn-primary" onclick="nextStep(2)">Lanjut Sekarang</button>
+    </div>
+
+    <span class="section-title">Mengapa Tukpul Convert?</span>
+    <div class="features">
+        <div class="feature-item">⚡ <b>Proses 5 Menit</b><br>Cepat & Anti Ribet</div>
+        <div class="feature-item">📈 <b>Rate Tinggi</b><br>Potongan Terkecil</div>
+        <div class="feature-item">🛡️ <b>Aman & Legal</b><br>Terpercaya Sejak 2023</div>
+        <div class="feature-item">🎧 <b>CS 24/7</b><br>Siap Bantu Kapanpun</div>
+    </div>
+
+    <span class="section-title">Apa Kata Mereka?</span>
+    <div class="testi-container">
+        <div class="testi-card">
+            <span class="testi-user">Rian S. ⭐⭐⭐⭐⭐</span>
+            <p class="testi-text">"Gila sih, convert 500rb telkomsel gak nyampe 3 menit langsung cair ke DANA. Recommended!"</p>
+        </div>
+        <div class="testi-card">
+            <span class="testi-user">Andini Putri ⭐⭐⭐⭐⭐</span>
+            <p class="testi-text">"Rate-nya paling tinggi dibanding tempat lain. CS-nya juga ramah banget pas ditanya."</p>
+        </div>
+        <div class="testi-card">
+            <span class="testi-user">Budi Tech ⭐⭐⭐⭐</span>
+            <p class="testi-text">"Awalnya ragu, tapi ternyata beneran amanah. Langsung masuk ke Rekening BRI."</p>
+        </div>
+    </div>
+
+    <span class="section-title">Pertanyaan Umum (FAQ)</span>
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">Berapa minimal convert? <span>+</span></div>
+        <div class="faq-answer">Minimal tukar pulsa di Tukpul Convert adalah Rp 30.000.</div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">Berapa lama prosesnya? <span>+</span></div>
+        <div class="faq-answer">Proses normal memakan waktu 3-10 menit setelah pulsa kami terima.</div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">Apakah ini aman? <span>+</span></div>
+        <div class="faq-answer">Sangat aman. Kami adalah jasa profesional yang sudah menangani ribuan transaksi setiap bulannya.</div>
     </div>
 
     <div id="step2" class="card hidden">
-        <h3 style="margin: 0 0 15px; font-size: 18px;">Data Tujuan</h3>
+        <span class="section-title">Detail Pengiriman Saldo</span>
         <select id="tujuan">
             <option value="">Pilih Metode Penarikan</option>
             <option value="DANA">DANA</option>
             <option value="OVO">OVO</option>
-            <option value="GoPay">GoPay</option>
+            <option value="GOPAY">GOPAY</option>
             <option value="SHOPEEPAY">SHOPEEPAY</option>
-            <option value="LINKAJA">LINKAJA</option>
-            <option value="BANK BCA">BCA</option>
-            <option value="BANK BRI">BRI</option>
+            <option value="BANK BCA">BANK BCA</option>
+            <option value="BANK BRI">BANK BRI</option>
         </select>
         <input type="text" id="rekening" placeholder="Nomor Rekening / HP">
         <input type="text" id="nama" placeholder="Atas Nama Pemilik">
         
-        <div id="error2" class="error"></div>
-        <button onclick="nextStep(3)">Tinjau Transaksi</button>
-        <p style="text-align:center; margin-top:10px;"><a href="#" onclick="location.reload()" style="color:#666; font-size:12px; text-decoration:none;">Kembali</a></p>
+        <button class="btn-primary" onclick="nextStep(3)">Konfirmasi & Hubungi Admin</button>
+        <p style="text-align:center;"><a href="#" onclick="location.reload()" style="font-size:12px; color:#64748b;">Kembali</a></p>
     </div>
 </div>
 
 <script>
     let selectedProvider = "";
     let rate = 0;
-    const nominalInput = document.getElementById("nominal");
-    const hasilText = document.getElementById("hasil");
 
-    // Fungsi Pilih Provider
     function pilihProvider(el, nama, r) {
-        document.querySelectorAll(".provider").forEach(p => p.classList.remove("active"));
-        el.classList.add("active");
+        document.querySelectorAll('.provider').forEach(p => p.classList.remove('active'));
+        el.classList.add('active');
         selectedProvider = nama;
         rate = r;
         hitung();
     }
 
-    // Format Rupiah saat ngetik
-    nominalInput.addEventListener("input", function() {
-        let angka = this.value.replace(/\D/g, "");
-        this.value = angka ? parseInt(angka).toLocaleString("id-ID") : "";
+    document.getElementById('nominal').addEventListener('input', function(e) {
+        let val = this.value.replace(/\D/g, '');
+        this.value = val ? parseInt(val).toLocaleString('id-ID') : '';
         hitung();
     });
 
     function hitung() {
-        let val = nominalInput.value.replace(/\./g, "");
-        if (!val || !rate) { hasilText.innerText = "Rp -"; return; }
-        let total = Math.floor(val * rate);
-        hasilText.innerText = "Rp " + total.toLocaleString("id-ID");
+        let val = document.getElementById('nominal').value.replace(/\./g, '');
+        if(val && rate) {
+            let total = Math.floor(val * rate);
+            document.getElementById('hasil').innerText = "Rp " + total.toLocaleString('id-ID');
+        } else {
+            document.getElementById('hasil').innerText = "Rp 0";
+        }
     }
 
-    // Fungsi Navigasi & WhatsApp
-    function nextStep(step) {
-        if (step === 2) {
-            const n = document.getElementById("nomor").value;
-            if (!selectedProvider || n.length < 10 || !nominalInput.value) {
-                document.getElementById("error1").innerText = "Pilih provider & isi data dengan benar!";
-                return;
-            }
-            document.getElementById("step1").classList.add("hidden");
-            document.getElementById("step2").classList.remove("hidden");
-        } 
-        else if (step === 3) {
-            const tj = document.getElementById("tujuan").value;
-            const rek = document.getElementById("rekening").value;
-            const nm = document.getElementById("nama").value;
+    function toggleFaq(el) {
+        const answer = el.nextElementSibling;
+        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+    }
 
-            if (!tj || !rek || !nm) {
-                document.getElementById("error2").innerText = "Lengkapi data tujuan!";
+    function nextStep(step) {
+        if(step === 2) {
+            let nomor = document.getElementById('nomor').value;
+            let nominal = document.getElementById('nominal').value;
+            if(!selectedProvider || nomor.length < 10 || !nominal) {
+                alert("Mohon pilih provider dan isi data dengan benar!");
                 return;
             }
+            document.getElementById('step1').classList.add('hidden');
+            document.getElementById('step2').classList.remove('hidden');
+            window.scrollTo(0,0);
+        } else if(step === 3) {
+            let tj = document.getElementById('tujuan').value;
+            let rek = document.getElementById('rekening').value;
+            let nm = document.getElementById('nama').value;
+            if(!tj || !rek || !nm) { alert("Lengkapi data tujuan!"); return; }
 
             const noWA = "6289530922938"; 
-            const pesanTeks = `Halo Admin, saya mau convert pulsa:
+            const pesan = `Halo Tukpul Convert, saya ingin tukar pulsa:
+            
+Provider: ${selectedProvider}
+Nomor: ${document.getElementById('nomor').value}
+Nominal: ${document.getElementById('nominal').value}
+Terima ke: ${tj}
+No. Rek/HP: ${rek}
+Atas Nama: ${nm}`;
 
-*Data Transaksi*
-• Provider: ${selectedProvider}
-• No. Pengirim: ${document.getElementById("nomor").value}
-• Nominal: ${nominalInput.value}
-• Estimasi Terima: ${hasilText.innerText}
-
-*Tujuan Transfer*
-• Metode: ${tj}
-• No. Rek/HP: ${rek}
-• Atas Nama: ${nm}`;
-
-            const linkWA = "https://wa.me/" + noWA + "?text=" + encodeURIComponent(pesanTeks);
-            window.location.assign(linkWA);
+            window.location.href = "https://wa.me/" + noWA + "?text=" + encodeURIComponent(pesan);
         }
     }
-
-    // Riwayat Berjalan
-    const barData = [
-        {no: "08778****92", op: "XL / Axis", icon: "1771848312305.png", rp: "Rp947.000"},
-        {no: "08136****16", op: "Telkomsel", icon: "https://upload.wikimedia.org/wikipedia/commons/b/bc/Telkomsel_2021_icon.svg", rp: "Rp470.000"},
-        {no: "08964****46", op: "Three", icon: "1771848121156.png", rp: "Rp20.000"}
-    ];
-    let currentIdx = 0;
-
-    function rotateBar() {
-        const iconEl = document.getElementById('bar-icon');
-        const textEl = document.getElementById('bar-text');
-        if (iconEl && textEl) {
-            const item = barData[currentIdx];
-            iconEl.src = item.icon;
-            textEl.innerHTML = `${item.no} Berhasil Convert ${item.op} <span style="font-weight: bold; color: #25d366;">${item.rp}</span>`;
-            currentIdx = (currentIdx + 1) % barData.length;
-        }
-    }
-    setInterval(rotateBar, 4000);
-    rotateBar(); // Jalankan sekali saat start
-
-    function openHistory() { alert("Fitur riwayat akan segera hadir!"); }
 </script>
 
 </body>
