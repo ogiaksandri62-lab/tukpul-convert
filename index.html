@@ -234,14 +234,29 @@ let currentIdx = 0;
 function rotateBar() {
     const iconEl = document.getElementById('bar-icon');
     const textEl = document.getElementById('bar-text');
-    if(iconEl && textEl) {
-        const item = barData[currentIdx];
-        iconEl.src = item.icon;
-        textEl.innerHTML = `${item.no} Berhasil Convert ${item.op} <span style="font-weight: bold; color: #25d366;">${item.rp}</span>`;
+    const container = iconEl ? iconEl.parentElement : null;
 
-        currentIdx = (currentIdx + 1) % barData.length;
+    if (iconEl && textEl && container) {
+        // Efek menghilang (Fade Out)
+        container.style.opacity = '0';
+        container.style.transition = 'opacity 0.5s ease';
+
+        setTimeout(() => {
+            const item = barData[currentIdx];
+            iconEl.src = item.icon;
+            // Gunakan tanda backtick ( ` ) agar variabel terbaca
+            textEl.innerHTML = `${item.no} Berhasil Convert ${item.op} <span style="font-weight: bold; color: #25d366;">${item.rp}</span>`;
+            
+            // Efek muncul kembali (Fade In)
+            container.style.opacity = '1';
+            currentIdx = (currentIdx + 1) % barData.length;
+        }, 500);
     }
 }
+
+// Ganti setiap 4 detik (4000ms) agar gerakan terlihat jelas
+setInterval(rotateBar, 4000);
+
 setInterval(rotateBar, 5000);
 
 function openHistory() {
