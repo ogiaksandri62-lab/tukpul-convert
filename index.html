@@ -52,11 +52,29 @@
         .faq-question { padding: 10px; font-size: 12px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; }
         .faq-answer { padding: 10px; font-size: 11px; display: none; background: #fff; }
 
-        .estimasi { background: #f8fafc; padding: 15px; border-radius: 12px; text-align: center; margin-bottom: 15px; border: 1px dashed #cbd5e1; }
-        .estimasi b { color: var(--primary); font-size: 20px; }
-    </style>
-</head>
-<body>
+            /* Ganti baris 55-60 dengan ini */
+    .testi-container {
+        display: flex;
+        gap: 15px;
+        overflow-x: auto;
+        padding: 10px 5px 20px;
+        scrollbar-width: none;
+        scroll-snap-type: x mandatory;
+    }
+    .testi-container::-webkit-scrollbar { display: none; }
+    
+    .testi-card {
+        min-width: 260px; 
+        background: #ffffff; 
+        padding: 15px; 
+        border-radius: 20px; 
+        border: 1px solid #e2e8f0; 
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        scroll-snap-align: start;
+        transition: transform 0.3s ease;
+    }
+    .testi-card:hover { transform: scale(1.02); border-color: #3b82f6; }
+
 
 <div class="container">
     <div class="brand">
@@ -90,11 +108,33 @@
             <input type="text" id="nominal" placeholder="Nominal Pulsa">
             
             <div class="estimasi">
-                <span style="font-size: 12px;">Diterima:</span><br>
-                <b id="hasil">Rp 0</b>
+                <span class="section-title">Apa Kata Pelanggan?</span>
+<div class="testi-container">
+    <div class="testi-card">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+            <img src="https://ui-avatars.com/api/?name=Rian+Saputra&background=0D8ABC&color=fff" style="width: 40px; border-radius: 50%;">
+            <div>
+                <b style="font-size: 13px; display: block;">Rian Saputra</b>
+                <span style="color: #fbbf24; font-size: 10px;">⭐⭐⭐⭐⭐</span>
             </div>
-            
-            <button class="btn-primary" onclick="nextStep(2)">Lanjut Sekarang</button>
+        </div>
+        <p style="margin: 0; font-size: 11px; line-height: 1.5; color: #475569;">"Gila sih, convert Telkomsel 500rb cuma butuh 3 menit langsung landing ke DANA. CS-nya fast respon!"</p>
+        <span style="display: block; margin-top: 10px; font-size: 9px; color: #94a3b8;">✓ Terverifikasi</span>
+    </div>
+
+    <div class="testi-card">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+            <img src="https://ui-avatars.com/api/?name=Siti+Aminah&background=F43F5E&color=fff" style="width: 40px; border-radius: 50%;">
+            <div>
+                <b style="font-size: 13px; display: block;">Siti Aminah</b>
+                <span style="color: #fbbf24; font-size: 10px;">⭐⭐⭐⭐⭐</span>
+            </div>
+        </div>
+        <p style="margin: 0; font-size: 11px; line-height: 1.5; color: #475569;">"Rate-nya paling tinggi se-Indonesia kayaknya. Adminnya ramah banget diajarin sampe paham. Mantap!"</p>
+        <span style="display: block; margin-top: 10px; font-size: 9px; color: #94a3b8;">✓ Terverifikasi</span>
+    </div>
+</div>
+
         </div>
 
         <span class="section-title">Mengapa Harus Kami?</span>
