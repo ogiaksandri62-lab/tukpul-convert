@@ -221,7 +221,7 @@
         // Membuka link di browser eksternal agar aman di APK
         window.location.assign(linkWA);
 
-        // --- KODE BERSIH AGAR TOMBOL BERFUNGSI ---
+        // --- KODE BERSIH AGAR TOMBOL BERFUNGSI KEMBALI ---
 const barData = [
     {no: "08778****92", op: "XL / Axis", icon: "1771848312305.png", rp: "Rp947.000"},
     {no: "08136****16", op: "Telkomsel", icon: "https://upload.wikimedia.org/wikipedia/commons/b/bc/Telkomsel_2021_icon.svg", rp: "Rp470.000"},
@@ -242,7 +242,7 @@ function rotateBar() {
         setTimeout(() => {
             const item = barData[currentIdx];
             iconEl.src = item.icon;
-            // Menggunakan BACKTICK ( ` ) agar tidak error
+            // WAJIB PAKAI TANDA BACKTICK ( ` )
             textEl.innerHTML = `${item.no} Berhasil Convert ${item.op} <span style="font-weight: bold; color: #25d366;">${item.rp}</span>`;
             container.style.opacity = '1';
             currentIdx = (currentIdx + 1) % barData.length;
@@ -254,150 +254,9 @@ setInterval(rotateBar, 4000);
 function openHistory() {
     document.getElementById('historyModal').style.display = 'flex';
 }
-
 function closeHistory() {
     document.getElementById('historyModal').style.display = 'none';
 }
-
-</script>
-<script src="https://cdn.tailwindcss.com"></script>
-
-<section class="py-10 px-4 max-w-4xl mx-auto mt-10">
-    <div class="text-center mb-8">
-        <h2 style="color: #1d4ed8; font-weight: bold; font-size: 24px;">Mengapa Harus Tukpul Convert?</h2>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div class="bg-white p-6 rounded-2xl shadow-sm text-center border-b-4 border-blue-600">
-            <h3 class="font-bold text-blue-600">Proses Kilat</h3>
-            <p class="text-xs text-gray-500 mt-2">Hanya butuh 3-5 menit saldo langsung cair.</p>
-        </div>
-        <div class="bg-white p-6 rounded-2xl shadow-sm text-center border-b-4 border-blue-600">
-            <h3 class="font-bold text-blue-600">Rate Tertinggi</h3>
-            <p class="text-xs text-gray-500 mt-2">Potongan paling rendah dibanding yang lain.</p>
-        </div>
-        <div class="bg-white p-6 rounded-2xl shadow-sm text-center border-b-4 border-blue-600">
-            <h3 class="font-bold text-blue-600">Aman</h3>
-            <p class="text-xs text-gray-500 mt-2">Terpercaya dengan ribuan transaksi sukses.</p>
-        </div>
-    </div>
-</section>
-
-<section class="py-10 px-4 max-w-4xl mx-auto">
-    <h2 class="text-center font-bold mb-6" style="color: #1d4ed8;">Apa Kata Mereka?</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="bg-white p-4 rounded-lg italic shadow-sm text-sm border-l-4 border-blue-500">
-            "Beneran cepet bgt, gapake ribet adminnya ramah."
-            <span class="block mt-2 font-bold not-italic text-blue-600">- Rizky, Jakarta</span>
-        </div>
-        <div class="bg-white p-4 rounded-lg italic shadow-sm text-sm border-l-4 border-blue-500">
-            "Rate-nya mantap, gak nyesel convert di sini."
-            <span class="block mt-2 font-bold not-italic text-blue-600">- Siska, Bandung</span>
-        </div>
-    </div>
-</section>
-
-<section class="py-10 px-4 max-w-4xl mx-auto mb-20">
-    <h2 class="text-center font-bold mb-6" style="color: #1d4ed8;">FAQ (Tanya Jawab)</h2>
-    <div class="space-y-3">
-        <details class="bg-white p-4 rounded-lg shadow-sm cursor-pointer">
-            <summary class="font-bold text-sm">Minimal convert berapa?</summary>
-            <p class="mt-2 text-xs text-gray-600">Minimal penukaran adalah Rp 30.000 pulsa.</p>
-        </details>
-        <details class="bg-white p-4 rounded-lg shadow-sm cursor-pointer">
-            <summary class="font-bold text-sm">Bisa cair ke mana saja?</summary>
-            <p class="mt-2 text-xs text-gray-600">Bisa ke DANA, OVO, GoPay, ShopeePay, dan seluruh Bank Indonesia.</p>
-        </details>
-    </div>
-<div onclick="openHistory()" style="max-width: 500px; margin: 15px auto; padding: 12px 15px; background: white; border-radius: 12px; display: flex; align-items: center; gap: 10px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #eee;">
-    <div style="width: 10px; height: 10px; background: #25d366; border-radius: 50%; box-shadow: 0 0 8px #25d366;"></div>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Telkomsel_2021_icon.svg" style="width: 25px;">
-    <p style="margin: 0; font-size: 12px; flex: 1; font-weight: 500; color: #333;">08217****72 <span style="font-weight: normal; color: #666;">Berhasil Convert Telkomsel</span> <span style="font-weight: bold; color: #25d366;">Rp38.000</span></p>
-    <span style="font-size: 10px; color: #999;">Lihat Semua ></span>
-</div>
-
-<a href="https://wa.me/6289530922938?text=Halo%20Admin,%20saya%20ingin%20tanya%20tentang%20convert%20pulsa" 
-   target="_blank" 
-   style="position: fixed; bottom: 20px; right: 20px; background-color: #25d366; color: white; border-radius: 50px; padding: 12px 20px; display: flex; align-items: center; justify-content: center; box-shadow: 2px 5px 15px rgba(0,0,0,0.2); z-index: 9999; text-decoration: none; font-weight: bold; font-family: sans-serif; font-size: 14px;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA" style="width: 20px; margin-right: 8px;">
-    Chat Admin
-</a>
-<div id="notification-toast" style="position: fixed; bottom: 80px; left: 20px; background: white; padding: 12px 15px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); display: flex; align-items: center; gap: 10px; transform: translateX(-150%); transition: all 0.5s ease; z-index: 10000; border-left: 4px solid #25d366; max-width: 250px;">
-    <div style="background: #f0fdf4; padding: 8px; border-radius: 50%;">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="#25d366"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-    </div>
-    <div>
-        <p id="notif-text" style="margin: 0; font-size: 12px; color: #333; font-weight: 500; font-family: sans-serif;"></p>
-        <p style="margin: 0; font-size: 10px; color: #999; font-family: sans-serif;">Baru saja</p>
-    </div>
-</div>
-
-<script>
-    const messages = [
-            const messages = [
-        "Seseorang baru saja tukar Telkomsel 100rb", "Transfer DANA 50rb berhasil dikirim", "Seseorang baru saja tukar XL 200rb", "Transfer OVO 150rb sukses", "Indosat 50rb berhasil di-convert", "Seseorang baru saja tukar Three 30rb", "Transfer GoPay 75rb berhasil", "Seseorang baru saja tukar Telkomsel 500rb", "Transfer ShopeePay 120rb sukses", "Indosat 25rb baru saja diproses",
-        "Transfer BCA 1.000.000 sukses dikirim", "Seseorang baru saja tukar XL 150rb ke BRI", "Transfer Mandiri 250rb sukses", "Seseorang baru saja tukar Three 50rb ke DANA", "Smartfren 100rb berhasil di-convert", "Transfer BNI 300rb berhasil", "Seseorang baru saja tukar Telkomsel 400rb", "Transfer OVO 20rb sukses", "XL 80rb berhasil dikirim ke GoPay", "Indosat 150rb sukses ke DANA",
-        "Seseorang baru saja tukar Telkomsel 10rb", "Transfer DANA 15rb sukses", "Seseorang baru saja tukar XL 500rb", "Transfer BCA 450rb berhasil", "Indosat 100rb sukses ke ShopeePay", "Seseorang baru saja tukar Three 200rb", "Transfer Mandiri 180rb sukses", "XL 45rb berhasil dikirim ke OVO", "Seseorang baru saja tukar Telkomsel 75rb", "Transfer BRI 65rb berhasil",
-        "Seseorang baru saja tukar Smartfren 50rb", "Transfer GoPay 40rb sukses", "Seseorang baru saja tukar XL 1.000.000", "Transfer BCA 900rb berhasil", "Indosat 30rb sukses ke DANA", "Seseorang baru saja tukar Telkomsel 250rb", "Transfer OVO 220rb sukses", "Three 150rb berhasil di-convert", "Transfer BNI 130rb berhasil", "Seseorang baru saja tukar XL 60rb",
-        "Seseorang baru saja tukar Telkomsel 350rb", "Transfer DANA 310rb sukses", "Indosat 55rb sukses ke BRI", "Seseorang baru saja tukar Three 25rb", "Transfer GoPay 20rb berhasil", "Seseorang baru saja tukar XL 400rb", "Transfer BCA 360rb sukses", "Smartfren 200rb berhasil ke Mandiri", "Seseorang baru saja tukar Telkomsel 120rb", "Transfer OVO 100rb sukses",
-        "Seseorang baru saja tukar XL 15rb", "Transfer ShopeePay 12rb sukses", "Indosat 500rb sukses ke BCA", "Seseorang baru saja tukar Three 40rb", "Transfer DANA 35rb berhasil", "Seseorang baru saja tukar Telkomsel 800rb", "Transfer BRI 720rb sukses", "XL 100rb berhasil dikirim ke GoPay", "Seseorang baru saja tukar Indosat 70rb", "Transfer Mandiri 60rb sukses",
-        "Seseorang baru saja tukar Telkomsel 20rb", "Transfer OVO 17rb berhasil", "Seseorang baru saja tukar Three 500rb", "Transfer BCA 440rb sukses", "XL 250rb sukses ke ShopeePay", "Seseorang baru saja tukar Indosat 45rb", "Transfer DANA 40rb sukses", "Seseorang baru saja tukar Telkomsel 90rb", "Transfer BNI 80rb berhasil", "Smartfren 30rb sukses ke OVO",
-        "Seseorang baru saja tukar XL 700rb", "Transfer BRI 630rb sukses", "Indosat 120rb sukses ke DANA", "Seseorang baru saja tukar Three 85rb", "Transfer GoPay 75rb berhasil", "Seseorang baru saja tukar Telkomsel 150rb", "Transfer BCA 135rb sukses", "XL 30rb berhasil dikirim ke OVO", "Seseorang baru saja tukar Indosat 200rb", "Transfer Mandiri 175rb sukses",
-        "Seseorang baru saja tukar Telkomsel 60rb", "Transfer DANA 54rb berhasil", "Seseorang baru saja tukar Three 100rb", "Transfer OVO 90rb sukses", "XL 55rb sukses ke ShopeePay", "Seseorang baru saja tukar Indosat 300rb", "Transfer BCA 270rb sukses", "Seseorang baru saja tukar Smartfren 75rb", "Transfer BNI 65rb berhasil", "Three 15rb sukses ke GoPay",
-        "Seseorang baru saja tukar Telkomsel 1.500.000", "Transfer BRI 1.350.000 sukses", "XL 180rb sukses ke DANA", "Seseorang baru saja tukar Indosat 90rb", "Transfer Mandiri 80rb berhasil", "Seseorang baru saja tukar Three 60rb", "Transfer OVO 50rb sukses", "Telkomsel 45rb berhasil ke DANA", "Seseorang baru saja tukar XL 95rb", "Transfer GoPay 85rb sukses"
-    ];
-
-    ];
-
-    const toast = document.getElementById('notification-toast');
-    const notifText = document.getElementById('notif-text');
-
-    function showNotif() {
-        const randomMsg = messages[Math.floor(Math.random() * messages.length)];
-        notifText.innerText = randomMsg;
-        toast.style.transform = "translateX(0)";
-        setTimeout(() => { toast.style.transform = "translateX(-150%)"; }, 4000);
-    }
-
-    setInterval(showNotif, 12000); // Muncul tiap 9 detik
-    setTimeout(showNotif, 5000);  // Muncul pertama kali di detik ke-4
-</script>
-<div id="historyModal" style="display:none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 99999; align-items: flex-end;">
-    <div style="background: white; width: 100%; height: 80%; border-radius: 25px 25px 0 0; display: flex; flex-direction: column; overflow: hidden; animation: slideUp 0.3s ease;">
-        <div style="width: 40px; height: 5px; background: #ddd; border-radius: 10px; margin: 15px auto; cursor: pointer;" onclick="closeHistory()"></div>
-        <h3 style="text-align: center; margin: 0 0 15px 0; color: #333; font-size: 16px;">Riwayat Convert Hari Ini</h3>
-        
-        <div style="flex: 1; overflow-y: auto; padding: 0 15px 20px 15px;" id="historyList">
-            </div>
-        
-        <button onclick="closeHistory()" style="margin: 15px; background: #f5f5f5 !important; color: #333 !important; border-bottom: none !important;">Tutup</button>
-    </div>
-</div>
-
-<style>
-@keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
-.history-item { display: flex; align-items: center; gap: 12px; padding: 12px; border-bottom: 1px solid #f9f9f9; }
-</style>
-
-<script>
-function openHistory() {
-    const list = document.getElementById('historyList');
-    list.innerHTML = ''; 
-    const data = [
-        {no: "08232****96", op: "Telkomsel", icon: "https://upload.wikimedia.org/wikipedia/commons/b/bc/Telkomsel_2021_icon.svg", rp: "Rp875.000", time: "2 menit yang lalu"},
-        {no: "08778****92", op: "XL", icon: "1771848312305.png", rp: "Rp947.000", time: "5 Menit yang lalu"},
-        {no: "08136****16", op: "Telkomsel", icon: "https://upload.wikimedia.org/wikipedia/commons/b/bc/Telkomsel_2021_icon.svg", rp: "Rp470.000", time: "28 menit yang lalu"},
-        {no: "08964****46", op: "Tri", icon: "1771848121156.png", rp: "Rp20.000", time: "34 menit yang lalu"},
-        {no: "08122****99", op: "Telkomsel", icon: "https://upload.wikimedia.org/wikipedia/commons/b/bc/Telkomsel_2021_icon.svg", rp: "Rp94.000", time: "1 jam yang lalu"},
-        {no: "08318****52", op: "XL", icon: "1771848312305.png", rp: "Rp48.000", time: "2 jam yang lalu"},
-        {no: "08951****60", op: "Tri", icon: "1771848121156.png", rp: "Rp49.000", time: "3 jam yang lalu"}
-    ];
-    data.forEach(item => {
-        list.innerHTML += `<div class="history-item"><img src="${item.icon}" style="width: 28px;"><div style="flex: 1;"><p style="margin: 0; font-size: 13px; font-weight: bold; color: #333;">${item.no} <span style="font-weight: normal; color: #666;">Berhasil Convert ${item.op}</span></p><p style="margin: 0; font-size: 11px; color: #25d366; font-weight: bold;">${item.rp} <span style="font-weight: normal; color: #999; margin-left: 5px;">• ${item.time}</span></p></div></div>`;
-    });
-    document.getElementById('historyModal').style.display = 'flex';
-}
-function closeHistory() { document.getElementById('historyModal').style.display = 'none'; }
-</script>
 
 </body>
 </html>
