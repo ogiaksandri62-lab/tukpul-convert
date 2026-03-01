@@ -234,13 +234,30 @@ let currentIdx = 0;
 function rotateBar() {
     const iconEl = document.getElementById('bar-icon');
     const textEl = document.getElementById('bar-text');
-    // Mencari wadah putih bar-nya untuk efek memudar
+    // Mencari wadah putih bar untuk memberikan efek transisi halus
     const container = iconEl ? iconEl.closest('div[onclick="openHistory()"]') : null;
 
     if (iconEl && textEl && container) {
-        // Efek menghilang perlahan (Fade Out)
+        // Efek memudar keluar (Fade Out) seperti di video
         container.style.opacity = '0';
         container.style.transition = 'opacity 0.5s ease';
+
+        setTimeout(() => {
+            const item = barData[currentIdx];
+            iconEl.src = item.icon;
+            
+            // MENGGUNAKAN BACKTICK ( ` ) - Baris 240
+            textEl.innerHTML = `${item.no} Berhasil Convert ${item.op} <span style="font-weight: bold; color: #25d366;">${item.rp}</span>`;
+            
+            // Efek memudar masuk (Fade In)
+            container.style.opacity = '1';
+            currentIdx = (currentIdx + 1) % barData.length;
+        }, 500);
+    }
+}
+
+// Menjalankan pergantian otomatis setiap 4 detik
+setInterval(rotateBar, 4000);
 
         setTimeout(() => {
             const item = barData[currentIdx];
