@@ -250,42 +250,49 @@ details p { padding: 0 15px 15px; color: #64748b; font-size: 0.85rem; }
 @keyframes fadeIn { 
     from { opacity: 0; transform: translateY(10px); } 
     to { opacity: 1; transform: translateY(0); } 
-/* Ganti mulai baris 253 dengan ini */
 .rate-list-modern {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding: 10px 0;
+    display: block; /* Pastikan dia mengambil ruang penuh */
+    width: 100%;
+    margin: 15px 0;
 }
 
 .rate-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid #f0f0f0;
-}
-
-.rate-box {
-    background-color: #f1f5f9; 
-    color: #0066FF;           
-    padding: 6px 16px;
-    border-radius: 10px;      
-    font-weight: 800;
-    min-width: 50px;
-    text-align: center;
-    font-size: 15px;
+    padding: 12px 15px; /* Tambah padding biar lebih lega */
+    margin-bottom: 8px;
+    background: #fff; /* Latar putih agar bersih */
+    border-radius: 12px;
+    border: 1px solid #f1f5f9; /* Garis tipis biar rapi */
 }
 
 .rate-box.best {
-    background-color: #0066FF; 
-    color: #ffffff;           
-    box-shadow: 0 4px 10px rgba(0, 102, 255, 0.25);
+    background-color: #0066FF !important; /* Biru solid */
+    color: #ffffff !important;           /* Teks putih */
+    box-shadow: 0 4px 10px rgba(0, 102, 255, 0.3);
 }
 
-.provider-name {
-    font-weight: 600;
-    color: #334155;
-    font-size: 15px;
 }
 
+    display: flex;
+    align-items: center;
+}
+
+.rate-box {
+    background-color: #f1f5f9; /* Kotak abu muda */
+    color: #0066FF;           /* Angka biru */
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 14px;
+    min-width: 45px;
+    text-align: center;
+}
+
+/* Kotak Biru untuk Three */
+.rate-box.best {
+    background-color: #0066FF !important; 
+    color: #ffffff !important;           
+    box-shadow: 0 3px 8px rgba(0, 102, 255, 0.2);
+}
