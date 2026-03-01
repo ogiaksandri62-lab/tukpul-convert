@@ -238,6 +238,7 @@ function rotateBar() {
         const item = barData[currentIdx];
         iconEl.src = item.icon;
         textEl.innerHTML = `${item.no} Berhasil Convert ${item.op} <span style="font-weight: bold; color: #25d366;">${item.rp}</span>`;
+
         currentIdx = (currentIdx + 1) % barData.length;
     }
 }
