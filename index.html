@@ -267,7 +267,13 @@
             <p class="mt-2 text-xs text-gray-600">Bisa ke DANA, OVO, GoPay, ShopeePay, dan seluruh Bank Indonesia.</p>
         </details>
     </div>
-</section>
+<div onclick="openHistory()" style="max-width: 500px; margin: 15px auto; padding: 12px 15px; background: white; border-radius: 12px; display: flex; align-items: center; gap: 10px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #eee;">
+    <div style="width: 10px; height: 10px; background: #25d366; border-radius: 50%; box-shadow: 0 0 8px #25d366;"></div>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Telkomsel_2021_icon.svg" style="width: 25px;">
+    <p style="margin: 0; font-size: 12px; flex: 1; font-weight: 500; color: #333;">08217****72 <span style="font-weight: normal; color: #666;">Berhasil Convert Telkomsel</span> <span style="font-weight: bold; color: #25d366;">Rp38.000</span></p>
+    <span style="font-size: 10px; color: #999;">Lihat Semua ></span>
+</div>
+
 <a href="https://wa.me/6289530922938?text=Halo%20Admin,%20saya%20ingin%20tanya%20tentang%20convert%20pulsa" 
    target="_blank" 
    style="position: fixed; bottom: 20px; right: 20px; background-color: #25d366; color: white; border-radius: 50px; padding: 12px 20px; display: flex; align-items: center; justify-content: center; box-shadow: 2px 5px 15px rgba(0,0,0,0.2); z-index: 9999; text-decoration: none; font-weight: bold; font-family: sans-serif; font-size: 14px;">
@@ -307,6 +313,41 @@
 
     setInterval(showNotif, 12000); // Muncul tiap 12 detik
     setTimeout(showNotif, 5000);  // Muncul pertama kali di detik ke-5
+</script>
+<div id="historyModal" style="display:none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 99999; align-items: flex-end;">
+    <div style="background: white; width: 100%; height: 80%; border-radius: 25px 25px 0 0; display: flex; flex-direction: column; overflow: hidden; animation: slideUp 0.3s ease;">
+        <div style="width: 40px; height: 5px; background: #ddd; border-radius: 10px; margin: 15px auto; cursor: pointer;" onclick="closeHistory()"></div>
+        <h3 style="text-align: center; margin: 0 0 15px 0; color: #333; font-size: 16px;">Riwayat Convert Hari Ini</h3>
+        
+        <div style="flex: 1; overflow-y: auto; padding: 0 15px 20px 15px;" id="historyList">
+            </div>
+        
+        <button onclick="closeHistory()" style="margin: 15px; background: #f5f5f5 !important; color: #333 !important; border-bottom: none !important;">Tutup</button>
+    </div>
+</div>
+
+<style>
+@keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+.history-item { display: flex; align-items: center; gap: 12px; padding: 12px; border-bottom: 1px solid #f9f9f9; }
+</style>
+
+<script>
+function openHistory() {
+    const list = document.getElementById('historyList');
+    list.innerHTML = ''; 
+    const data = [
+        {no: "08136****16", op: "Telkomsel", icon: "https://upload.wikimedia.org/wikipedia/commons/b/bc/Telkomsel_2021_icon.svg", rp: "Rp470.000", time: "28 menit yang lalu"},
+        {no: "08964****46", op: "Tri", icon: "https://upload.wikimedia.org/wikipedia/commons/a/a4/Tri_logo.svg", rp: "Rp2.000", time: "34 menit yang lalu"},
+        {no: "08122****99", op: "Telkomsel", icon: "https://upload.wikimedia.org/wikipedia/commons/b/bc/Telkomsel_2021_icon.svg", rp: "Rp94.000", time: "1 jam yang lalu"},
+        {no: "08318****52", op: "XL", icon: "https://upload.wikimedia.org/wikipedia/commons/a/ad/Logo_XL_Axiata_2016.svg", rp: "Rp48.000", time: "2 jam yang lalu"},
+        {no: "08951****60", op: "Tri", icon: "https://upload.wikimedia.org/wikipedia/commons/a/a4/Tri_logo.svg", rp: "Rp49.000", time: "3 jam yang lalu"}
+    ];
+    data.forEach(item => {
+        list.innerHTML += `<div class="history-item"><img src="${item.icon}" style="width: 28px;"><div style="flex: 1;"><p style="margin: 0; font-size: 13px; font-weight: bold; color: #333;">${item.no} <span style="font-weight: normal; color: #666;">Berhasil Convert ${item.op}</span></p><p style="margin: 0; font-size: 11px; color: #25d366; font-weight: bold;">${item.rp} <span style="font-weight: normal; color: #999; margin-left: 5px;">• ${item.time}</span></p></div></div>`;
+    });
+    document.getElementById('historyModal').style.display = 'flex';
+}
+function closeHistory() { document.getElementById('historyModal').style.display = 'none'; }
 </script>
 
 </body>
