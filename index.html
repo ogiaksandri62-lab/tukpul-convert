@@ -292,13 +292,19 @@
 
 <script>
     const messages = [
-        "Seseorang baru saja tukar Telkomsel 100rb",
-        "Telkomsel 900rb berhasil di-convert",
-        "Transfer DANA 50rb berhasil dikirim",
-        "Seseorang baru saja tukar XL 200rb",
-        "Transfer OVO 150rb sukses",
-        "Indosat 50rb berhasil di-convert",
-        "Seseorang baru saja tukar Three 30rb"
+            const messages = [
+        "Seseorang baru saja tukar Telkomsel 100rb", "Transfer DANA 50rb berhasil dikirim", "Seseorang baru saja tukar XL 200rb", "Transfer OVO 150rb sukses", "Indosat 50rb berhasil di-convert", "Seseorang baru saja tukar Three 30rb", "Transfer GoPay 75rb berhasil", "Seseorang baru saja tukar Telkomsel 500rb", "Transfer ShopeePay 120rb sukses", "Indosat 25rb baru saja diproses",
+        "Transfer BCA 1.000.000 sukses dikirim", "Seseorang baru saja tukar XL 150rb ke BRI", "Transfer Mandiri 250rb sukses", "Seseorang baru saja tukar Three 50rb ke DANA", "Smartfren 100rb berhasil di-convert", "Transfer BNI 300rb berhasil", "Seseorang baru saja tukar Telkomsel 400rb", "Transfer OVO 20rb sukses", "XL 80rb berhasil dikirim ke GoPay", "Indosat 150rb sukses ke DANA",
+        "Seseorang baru saja tukar Telkomsel 10rb", "Transfer DANA 15rb sukses", "Seseorang baru saja tukar XL 500rb", "Transfer BCA 450rb berhasil", "Indosat 100rb sukses ke ShopeePay", "Seseorang baru saja tukar Three 200rb", "Transfer Mandiri 180rb sukses", "XL 45rb berhasil dikirim ke OVO", "Seseorang baru saja tukar Telkomsel 75rb", "Transfer BRI 65rb berhasil",
+        "Seseorang baru saja tukar Smartfren 50rb", "Transfer GoPay 40rb sukses", "Seseorang baru saja tukar XL 1.000.000", "Transfer BCA 900rb berhasil", "Indosat 30rb sukses ke DANA", "Seseorang baru saja tukar Telkomsel 250rb", "Transfer OVO 220rb sukses", "Three 150rb berhasil di-convert", "Transfer BNI 130rb berhasil", "Seseorang baru saja tukar XL 60rb",
+        "Seseorang baru saja tukar Telkomsel 350rb", "Transfer DANA 310rb sukses", "Indosat 55rb sukses ke BRI", "Seseorang baru saja tukar Three 25rb", "Transfer GoPay 20rb berhasil", "Seseorang baru saja tukar XL 400rb", "Transfer BCA 360rb sukses", "Smartfren 200rb berhasil ke Mandiri", "Seseorang baru saja tukar Telkomsel 120rb", "Transfer OVO 100rb sukses",
+        "Seseorang baru saja tukar XL 15rb", "Transfer ShopeePay 12rb sukses", "Indosat 500rb sukses ke BCA", "Seseorang baru saja tukar Three 40rb", "Transfer DANA 35rb berhasil", "Seseorang baru saja tukar Telkomsel 800rb", "Transfer BRI 720rb sukses", "XL 100rb berhasil dikirim ke GoPay", "Seseorang baru saja tukar Indosat 70rb", "Transfer Mandiri 60rb sukses",
+        "Seseorang baru saja tukar Telkomsel 20rb", "Transfer OVO 17rb berhasil", "Seseorang baru saja tukar Three 500rb", "Transfer BCA 440rb sukses", "XL 250rb sukses ke ShopeePay", "Seseorang baru saja tukar Indosat 45rb", "Transfer DANA 40rb sukses", "Seseorang baru saja tukar Telkomsel 90rb", "Transfer BNI 80rb berhasil", "Smartfren 30rb sukses ke OVO",
+        "Seseorang baru saja tukar XL 700rb", "Transfer BRI 630rb sukses", "Indosat 120rb sukses ke DANA", "Seseorang baru saja tukar Three 85rb", "Transfer GoPay 75rb berhasil", "Seseorang baru saja tukar Telkomsel 150rb", "Transfer BCA 135rb sukses", "XL 30rb berhasil dikirim ke OVO", "Seseorang baru saja tukar Indosat 200rb", "Transfer Mandiri 175rb sukses",
+        "Seseorang baru saja tukar Telkomsel 60rb", "Transfer DANA 54rb berhasil", "Seseorang baru saja tukar Three 100rb", "Transfer OVO 90rb sukses", "XL 55rb sukses ke ShopeePay", "Seseorang baru saja tukar Indosat 300rb", "Transfer BCA 270rb sukses", "Seseorang baru saja tukar Smartfren 75rb", "Transfer BNI 65rb berhasil", "Three 15rb sukses ke GoPay",
+        "Seseorang baru saja tukar Telkomsel 1.500.000", "Transfer BRI 1.350.000 sukses", "XL 180rb sukses ke DANA", "Seseorang baru saja tukar Indosat 90rb", "Transfer Mandiri 80rb berhasil", "Seseorang baru saja tukar Three 60rb", "Transfer OVO 50rb sukses", "Telkomsel 45rb berhasil ke DANA", "Seseorang baru saja tukar XL 95rb", "Transfer GoPay 85rb sukses"
+    ];
+
     ];
 
     const toast = document.getElementById('notification-toast');
@@ -311,8 +317,8 @@
         setTimeout(() => { toast.style.transform = "translateX(-150%)"; }, 4000);
     }
 
-    setInterval(showNotif, 12000); // Muncul tiap 12 detik
-    setTimeout(showNotif, 5000);  // Muncul pertama kali di detik ke-5
+    setInterval(showNotif, 12000); // Muncul tiap 9 detik
+    setTimeout(showNotif, 5000);  // Muncul pertama kali di detik ke-4
 </script>
 <div id="historyModal" style="display:none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 99999; align-items: flex-end;">
     <div style="background: white; width: 100%; height: 80%; border-radius: 25px 25px 0 0; display: flex; flex-direction: column; overflow: hidden; animation: slideUp 0.3s ease;">
