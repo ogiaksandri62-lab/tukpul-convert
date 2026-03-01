@@ -273,6 +273,39 @@
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA" style="width: 20px; margin-right: 8px;">
     Chat Admin
 </a>
+<div id="notification-toast" style="position: fixed; bottom: 80px; left: 20px; background: white; padding: 12px 15px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); display: flex; align-items: center; gap: 10px; transform: translateX(-150%); transition: all 0.5s ease; z-index: 10000; border-left: 4px solid #25d366; max-width: 250px;">
+    <div style="background: #f0fdf4; padding: 8px; border-radius: 50%;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#25d366"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+    </div>
+    <div>
+        <p id="notif-text" style="margin: 0; font-size: 12px; color: #333; font-weight: 500; font-family: sans-serif;"></p>
+        <p style="margin: 0; font-size: 10px; color: #999; font-family: sans-serif;">Baru saja</p>
+    </div>
+</div>
+
+<script>
+    const messages = [
+        "Seseorang baru saja tukar Telkomsel 100rb",
+        "Transfer DANA 50rb berhasil dikirim",
+        "Seseorang baru saja tukar XL 200rb",
+        "Transfer OVO 150rb sukses",
+        "Indosat 50rb berhasil di-convert",
+        "Seseorang baru saja tukar Three 30rb"
+    ];
+
+    const toast = document.getElementById('notification-toast');
+    const notifText = document.getElementById('notif-text');
+
+    function showNotif() {
+        const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+        notifText.innerText = randomMsg;
+        toast.style.transform = "translateX(0)";
+        setTimeout(() => { toast.style.transform = "translateX(-150%)"; }, 4000);
+    }
+
+    setInterval(showNotif, 12000); // Muncul tiap 12 detik
+    setTimeout(showNotif, 5000);  // Muncul pertama kali di detik ke-5
+</script>
 
 </body>
 </html>
