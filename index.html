@@ -52,6 +52,12 @@
         .step-text b { font-size: 13px; display: block; margin-bottom: 2px; }
         .step-text span { font-size: 11px; color: #64748b; }
 
+        /* --- FAQ Tambahan --- */
+        .faq-item { background: #fff; border-radius: 15px; margin: 0 15px 10px; border: 1px solid #f1f5f9; overflow: hidden; }
+        .faq-question { width: 100%; padding: 15px; background: none; border: none; text-align: left; font-size: 13px; font-weight: 700; color: #1e293b; cursor: pointer; display: flex; justify-content: space-between; }
+        .faq-answer { padding: 0 15px; max-height: 0; overflow: hidden; transition: 0.3s ease-out; font-size: 11px; color: #64748b; line-height: 1.6; }
+        .faq-item.active .faq-answer { max-height: 100px; padding-bottom: 15px; }
+
         /* --- FOOTER --- */
         footer { background: #fff; padding: 40px 20px; border-top: 1px solid #e2e8f0; text-align: center; margin-top: 40px; }
         .footer-logo { font-size: 20px; font-weight: 800; color: var(--primary); margin-bottom: 10px; display: block; }
@@ -87,15 +93,15 @@
                     <span>Telkomsel</span>
                 </div>
                 <div class="provider" onclick="pilihProvider(this, 'Indosat', 0.87)">
-                    <img src="im3-ooredoo-logo-png_seeklogo-326756.png" alt="Isat">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Indosat_Ooredoo_logo.svg" alt="Isat">
                     <span>Indosat</span>
                 </div>
                 <div class="provider" onclick="pilihProvider(this, 'XL/Axis', 0.88)">
-                    <img src="1771848312305.png" alt="XL">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/5/52/XL_Axiata_logo_2016.svg" alt="XL">
                     <span>XL / Axis</span>
                 </div>
                 <div class="provider" onclick="pilihProvider(this, 'Three', 0.89)">
-                    <img src="1771848121156.png" alt="3">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/3-three.svg" alt="3">
                     <span>Three</span>
                 </div>
             </div>
@@ -136,6 +142,20 @@
                 <div class="step-num">3</div>
                 <div class="step-text"><b>Cairkan Saldo</b><span>Uang cair ke rekening Anda!</span></div>
             </div>
+        </div>
+
+        <span class="section-title">Pertanyaan Umum (FAQ)</span>
+        <div class="faq-item">
+            <button class="faq-question">Berapa lama prosesnya? <span>+</span></button>
+            <div class="faq-answer">Proses cair rata-rata 3-5 menit setelah pulsa kami terima.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">Berapa minimal convert? <span>+</span></button>
+            <div class="faq-answer">Minimal penukaran pulsa adalah Rp 30.000.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">Apakah ada biaya admin? <span>+</span></button>
+            <div class="faq-answer">Gratis biaya transfer untuk semua E-Wallet!</div>
         </div>
     </div>
 
@@ -212,6 +232,15 @@
             window.location.href = "https://wa.me/" + noWA + "?text=" + encodeURIComponent(pesan);
         }
     }
+
+    // JS untuk FAQ
+    document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+            const faqItem = button.parentElement;
+            faqItem.classList.toggle('active');
+            button.querySelector('span').innerText = faqItem.classList.contains('active') ? '-' : '+';
+        });
+    });
 </script>
 
 </body>
