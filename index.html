@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tukpul Convert - Cepat, Aman Dan Rate Tinggi! </title>
+    <title>Tukpul Convert - Cepat, Aman Dan Rate Tinggi!</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root { --primary: #1d4ed8; --secondary: #3b82f6; --success: #25d366; --bg: #f8fafc; }
-        body { font-family: 'Poppins', sans-serif; background: var(--bg); margin: 0; padding: 0; color: #334155; overflow-x: hidden; }
+        body { font-family: 'Poppins', sans-serif; background: var(--bg); margin: 0; padding: 0; color: #334155; }
         .container { max-width: 500px; margin: auto; padding-bottom: 20px; }
 
         /* --- RUNNING TEXT --- */
@@ -22,7 +22,7 @@
         .admin-status { font-size: 11px; margin-top: 10px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 5px; }
         .dot { width: 8px; height: 8px; background: #25d366; border-radius: 50%; display: inline-block; box-shadow: 0 0 8px #25d366; }
 
-        /* --- CARD --- */
+        /* --- CARD UTAMA --- */
         .card { background: #fff; border-radius: 24px; padding: 25px 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); margin: 0 15px 25px; position: relative; z-index: 10; }
         .section-title { font-size: 15px; font-weight: 700; margin: 25px 20px 12px; display: block; color: #1e293b; }
         
@@ -32,48 +32,59 @@
         .provider span { font-size: 12px; font-weight: 700; display: block; }
         .provider.active { border-color: var(--primary); background: #eff6ff; transform: scale(1.03); }
 
-        /* --- INPUTS --- */
-        input, select { width: 100%; padding: 15px; border-radius: 15px; border: 1px solid #e2e8f0; margin-bottom: 15px; font-size: 14px; box-sizing: border-box; outline: none; background: #fcfcfc; }
+        input { width: 100%; padding: 15px; border-radius: 15px; border: 1px solid #e2e8f0; margin-bottom: 15px; font-size: 14px; box-sizing: border-box; outline: none; background: #fcfcfc; }
         .estimasi { background: #f1f5f9; padding: 15px; border-radius: 15px; text-align: center; margin-bottom: 20px; border: 1px dashed #cbd5e1; }
         .estimasi b { color: var(--primary); font-size: 24px; }
-        .btn-primary { width: 100%; padding: 18px; border: none; border-radius: 18px; background: linear-gradient(135deg, #1d4ed8, #3b82f6); color: white; font-weight: 700; cursor: pointer; font-size: 16px; box-shadow: 0 8px 20px rgba(29, 78, 216, 0.3); }
+        .btn-primary { width: 100%; padding: 18px; border: none; border-radius: 18px; background: linear-gradient(135deg, #1d4ed8, #3b82f6); color: white; font-weight: 700; cursor: pointer; font-size: 16px; }
 
-        /* --- NEW MINIMALIST TABLE RATE (Gambar 2 Style) --- */
-        .rate-table { background: #fff; border-radius: 24px; padding: 10px 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin: 0 15px; }
-        .rate-table table { width: 100%; border-collapse: collapse; }
-        .rate-table td { padding: 16px 0; border-bottom: 1px solid #f1f5f9; font-weight: 700; font-size: 14px; color: #334155; }
-        .rate-table tr:last-child td { border-bottom: none; }
+        /* --- TAMPILAN RATE (SESUAI GAMBAR 2) --- */
+        .rate-box { 
+            background: #ffffff; 
+            border-radius: 25px; 
+            margin: 0 15px; 
+            padding: 5px 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .rate-row { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 18px 0; 
+            border-bottom: 1px solid #f1f5f9; 
+        }
+        .rate-row:last-child { border-bottom: none; }
         
-        /* Ikon Panah Biru */
-        .provider-name::before {
+        .provider-text { 
+            font-weight: 700; 
+            font-size: 15px; 
+            color: #334155; 
+            display: flex; 
+            align-items: center; 
+        }
+        /* Simbol Panah Biru */
+        .provider-text::before { 
             content: "➜"; 
-            color: var(--primary); 
-            margin-right: 12px;
-            font-size: 12px;
-            vertical-align: middle;
+            color: #2563eb; 
+            margin-right: 12px; 
+            font-size: 13px; 
         }
         
-        .rate-val { color: var(--primary); font-weight: 800; text-align: right; font-size: 18px; }
+        .rate-number { 
+            color: #2563eb; 
+            font-weight: 800; 
+            font-size: 20px; 
+        }
 
-        /* --- CARA KERJA --- */
+        /* --- FOOTER & LAINNYA --- */
         .how-to { padding: 0 15px; }
         .step-box { display: flex; align-items: center; gap: 15px; margin-bottom: 12px; background: #fff; padding: 15px; border-radius: 18px; border: 1px solid #f1f5f9; }
-        .step-num { background: var(--primary); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; flex-shrink: 0; font-size: 12px; }
-        .step-text b { font-size: 13px; display: block; margin-bottom: 2px; }
+        .step-num { background: var(--primary); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 12px; }
+        .step-text b { font-size: 13px; display: block; }
         .step-text span { font-size: 11px; color: #64748b; }
 
-        /* --- FAQ --- */
-        .faq-item { background: #fff; border-radius: 15px; margin: 0 15px 10px; border: 1px solid #f1f5f9; overflow: hidden; }
-        .faq-question { width: 100%; padding: 15px; background: none; border: none; text-align: left; font-size: 13px; font-weight: 700; color: #1e293b; cursor: pointer; display: flex; justify-content: space-between; }
-        .faq-answer { padding: 0 15px; max-height: 0; overflow: hidden; transition: 0.3s ease-out; font-size: 11px; color: #64748b; line-height: 1.6; }
-        .faq-item.active .faq-answer { max-height: 100px; padding-bottom: 15px; }
-
-        /* --- FOOTER --- */
-        footer { background: #fff; padding: 40px 20px; border-top: 1px solid #e2e8f0; text-align: center; margin-top: 40px; }
-        .footer-logo { font-size: 20px; font-weight: 800; color: var(--primary); margin-bottom: 10px; display: block; }
-        .footer-info { font-size: 11px; color: #94a3b8; line-height: 1.8; margin-bottom: 20px; }
-        
-        .floating-wa { position: fixed; bottom: 25px; right: 20px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1000; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); text-decoration: none; font-size: 28px; }
+        footer { background: #fff; padding: 30px 20px; border-top: 1px solid #e2e8f0; text-align: center; margin-top: 40px; }
+        .footer-logo { font-size: 18px; font-weight: 800; color: var(--primary); }
+        .floating-wa { position: fixed; bottom: 25px; right: 20px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1000; font-size: 28px; text-decoration: none; }
         .hidden { display: none; }
     </style>
 </head>
@@ -88,13 +99,13 @@
 <div class="container">
     <div class="brand">
         <div class="badge-top">⭐ LAYANAN TERPERCAYA #1</div>
-        <h1>Platform Konversi Pulsa Terpercaya: Cepat, Aman, dan Rate Tertinggi.</h1>
+        <h1>Platform Konversi Pulsa Terpercaya</h1>
         <div class="admin-status"><span class="dot"></span> Admin Online ( 08:00 - 03:45 WIB )</div>
     </div>
 
     <div id="step1_container">
         <div class="card">
-            <span style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 15px; display: block;">1. Pilih Provider</span>
+            <span style="font-size: 13px; font-weight: 700; margin-bottom: 15px; display: block;">1. Pilih Provider</span>
             <div class="providers">
                 <div class="provider" onclick="pilihProvider(this, 'Telkomsel', 0.85)">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Telkomsel_2021_icon.svg" alt="Tsel">
@@ -114,12 +125,12 @@
                 </div>
             </div>
 
-            <span style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 10px; display: block;">2. Isi Nominal</span>
+            <span style="font-size: 13px; font-weight: 700; margin-bottom: 10px; display: block;">2. Isi Nominal</span>
             <input type="number" id="nomor" placeholder="Nomor HP Pengirim (08...)">
             <input type="text" id="nominal" placeholder="Nominal Pulsa (Contoh: 100.000)">
             
             <div class="estimasi">
-                <span style="font-size: 11px; color: #64748b; font-weight: 600;">Saldo yang Anda terima:</span><br>
+                <span style="font-size: 11px; color: #64748b;">Saldo yang Anda terima:</span><br>
                 <b id="hasil">Rp 0</b>
             </div>
             
@@ -127,20 +138,30 @@
         </div>
 
         <span class="section-title">Rate Hari Ini</span>
-        <div class="rate-table">
-            <table>
-                <tr><td class="provider-name">Telkomsel</td><td class="rate-val">0.85</td></tr>
-                <tr><td class="provider-name">Indosat</td><td class="rate-val">0.87</td></tr>
-                <tr><td class="provider-name">XL / Axis</td><td class="rate-val">0.88</td></tr>
-                <tr><td class="provider-name">Three</td><td class="rate-val">0.89</td></tr>
-            </table>
+        <div class="rate-box">
+            <div class="rate-row">
+                <div class="provider-text">Telkomsel</div>
+                <div class="rate-number">0.85</div>
+            </div>
+            <div class="rate-row">
+                <div class="provider-text">Indosat</div>
+                <div class="rate-number">0.87</div>
+            </div>
+            <div class="rate-row">
+                <div class="provider-text">XL / Axis</div>
+                <div class="rate-number">0.88</div>
+            </div>
+            <div class="rate-row">
+                <div class="provider-text">Three</div>
+                <div class="rate-number">0.89</div>
+            </div>
         </div>
 
         <span class="section-title">Cara Kerja</span>
         <div class="how-to">
             <div class="step-box">
                 <div class="step-num">1</div>
-                <div class="step-text"><b>Isi Form & Hitung</b><span>Pilih provider & masukkan nominal.</span></div>
+                <div class="step-text"><b>Isi Form</b><span>Pilih provider & masukkan nominal.</span></div>
             </div>
             <div class="step-box">
                 <div class="step-num">2</div>
@@ -151,28 +172,11 @@
                 <div class="step-text"><b>Cairkan Saldo</b><span>Uang cair ke rekening Anda!</span></div>
             </div>
         </div>
-
-        <span class="section-title">Pertanyaan Umum (FAQ)</span>
-        <div class="faq-item">
-            <button class="faq-question">Berapa lama prosesnya? <span>+</span></button>
-            <div class="faq-answer">Proses cair rata-rata 3-5 menit setelah pulsa kami terima.</div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question">Berapa minimal convert? <span>+</span></button>
-            <div class="faq-answer">Minimal penukaran pulsa adalah Rp 30.000.</div>
-        </div>
     </div>
 
     <div id="step2" class="card hidden" style="margin-top: 60px;">
-        <h3 style="margin-top:0; font-size:18px; color: var(--primary);">Detail Pencairan</h3>
-        <select id="tujuan">
-            <option value="">Pilih Bank / E-Wallet</option>
-            <option value="DANA">DANA</option>
-            <option value="OVO">OVO</option>
-            <option value="GOPAY">GOPAY</option>
-            <option value="BCA">BANK BCA</option>
-            <option value="BRI">BANK BRI</option>
-        </select>
+        <h3 style="color: var(--primary);">Detail Pencairan</h3>
+        <input type="text" id="tujuan" placeholder="Pilih Bank / E-Wallet">
         <input type="text" id="rekening" placeholder="Nomor Rekening / HP">
         <input type="text" id="nama" placeholder="Atas Nama Pemilik">
         <button class="btn-primary" onclick="nextStep(3)">Konfirmasi & Tukar</button>
@@ -181,7 +185,7 @@
 
     <footer>
         <span class="footer-logo">TUKPUL CONVERT</span>
-        <p class="footer-info">© 2026 Tukpul Convert. All Rights Reserved.</p>
+        <p style="font-size: 11px; color: #94a3b8;">© 2026 Tukpul Convert. All Rights Reserved.</p>
     </footer>
 </div>
 
@@ -216,15 +220,6 @@
             window.location.href = "https://wa.me/" + noWA + "?text=" + encodeURIComponent(pesan);
         }
     }
-    document.querySelectorAll('.faq-question').forEach(button => {
-        button.addEventListener('click', () => {
-            const faqItem = button.parentElement;
-            faqItem.classList.toggle('active');
-            button.querySelector('span').innerText = faqItem.classList.contains('active') ? '-' : '+';
-        });
-    });
 </script>
-
 </body>
 </html>
-
