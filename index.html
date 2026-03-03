@@ -67,9 +67,59 @@
 
         .floating-wa { position: fixed; bottom: 25px; right: 20px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1000; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); text-decoration: none; font-size: 28px; }
         .hidden { display: none; }
+
+        /* --- NOTIFIKASI TRANSAKSI BARU --- */
+        #notif-container {
+            position: fixed;
+            bottom: 25px;
+            left: 15px;
+            width: 260px;
+            background: white;
+            border-radius: 12px;
+            padding: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            z-index: 1001;
+            font-family: 'Poppins', sans-serif;
+            border-left: 4px solid var(--primary);
+            transition: all 0.5s ease;
+            opacity: 0;
+            transform: translateX(-50px);
+            pointer-events: none;
+        }
+        #notif-container.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .notif-icon {
+            width: 35px;
+            height: 35px;
+            background: #eff6ff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-size: 10px;
+            font-weight: 800;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+        .notif-body { font-size: 11px; color: #334155; line-height: 1.3; }
+        .notif-body b { color: #000; }
+        .notif-time { font-size: 9px; color: #94a3b8; display: block; margin-top: 2px; }
     </style>
 </head>
 <body>
+
+<div id="notif-container">
+    <div class="notif-icon" id="notif-icon">PULSA</div>
+    <div class="notif-body">
+        <span id="notif-text">Menunggu data...</span>
+        <span class="notif-time" id="notif-time">Baru saja</span>
+    </div>
+</div>
 
 <div class="running-text">
     <div class="marquee-content">
@@ -260,7 +310,49 @@
             button.querySelector('span').innerText = faqItem.classList.contains('active') ? '-' : '+';
         });
     });
+
+    // --- LOGIKA NOTIFIKASI TRANSAKSI ---
+    const dataTransaksi = [
+        { hp: "0812****882", op: "T-SEL", nominal: "150.000", waktu: "Baru saja" },
+        { hp: "0877****102", op: "XL", nominal: "500.000", waktu: "2 menit yang lalu" },
+        { hp: "0895****441", op: "THREE", nominal: "45.000", waktu: "5 menit yang lalu" },
+        { hp: "0852****990", op: "ISAT", nominal: "210.000", waktu: "7 menit yang lalu" },
+        { hp: "0813****123", op: "T-SEL", nominal: "1.200.000", waktu: "10 menit yang lalu" }
+    ];
+
+    let notifIndex = 0;
+    const notifBox = document.getElementById('notif-container');
+
+    function showNewNotif() {
+        // Hilangkan notif lama
+        notifBox.classList.remove('active');
+
+        setTimeout(() => {
+            const data = dataTransaksi[notifIndex];
+            document.getElementById('notif-icon').innerText = data.op;
+            document.getElementById('notif-text').innerHTML = `<b>${data.hp}</b> Berhasil Convert ${data.op} Rp${data.nominal}`;
+            document.getElementById('notif-time').innerText = data.waktu;
+
+            // Munculkan notif baru
+            notifBox.classList.add('active');
+
+            // Index selanjutnya
+            notifIndex = (notifIndex + 1) % dataTransaksi.length;
+
+            // Sembunyikan setelah 5 detik
+            setTimeout(() => {
+                notifBox.classList.remove('active');
+            }, 5000);
+
+        }, 600);
+    }
+
+    // Jalankan pertama kali
+    setTimeout(showNewNotif, 3000);
+    // Ulangi setiap 10 detik
+    setInterval(showNewNotif, 10000);
+
 </script>
 
 </body>
-    </html>
+</html>
