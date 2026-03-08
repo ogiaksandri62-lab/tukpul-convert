@@ -311,10 +311,11 @@
         });
     });
 
-    // --- LOGIKA NOTIFIKASI TRANSAKSI ---
+    // --- LOGIKA NOTIFIKASI TRANSAKSI BARU (SUDAH DIPERBAIKI) ---
     const dataTransaksi = [
         { hp: "0812****882", op: "T-SEL", nominal: "150.000", waktu: "Baru saja" },
         { hp: "0877****102", op: "XL", nominal: "500.000", waktu: "2 menit yang lalu" },
+        { hp: "0822****563", op: "T-SEL", nominal: "974.000", waktu: "3 menit yang lalu" },
         { hp: "0895****441", op: "THREE", nominal: "45.000", waktu: "5 menit yang lalu" },
         { hp: "0852****990", op: "ISAT", nominal: "210.000", waktu: "7 menit yang lalu" },
         { hp: "0813****123", op: "T-SEL", nominal: "1.200.000", waktu: "10 menit yang lalu" }
@@ -324,7 +325,6 @@
     const notifBox = document.getElementById('notif-container');
 
     function showNewNotif() {
-        // Hilangkan notif lama
         notifBox.classList.remove('active');
 
         setTimeout(() => {
@@ -333,25 +333,17 @@
             document.getElementById('notif-text').innerHTML = `<b>${data.hp}</b> Berhasil Convert ${data.op} Rp${data.nominal}`;
             document.getElementById('notif-time').innerText = data.waktu;
 
-            // Munculkan notif baru
             notifBox.classList.add('active');
-
-            // Index selanjutnya
             notifIndex = (notifIndex + 1) % dataTransaksi.length;
 
-            // Sembunyikan setelah 5 detik
             setTimeout(() => {
                 notifBox.classList.remove('active');
             }, 5000);
-
         }, 600);
     }
 
-    // Jalankan pertama kali
     setTimeout(showNewNotif, 3000);
-    // Ulangi setiap 10 detik
     setInterval(showNewNotif, 10000);
-
 </script>
 
 </body>
