@@ -6,20 +6,30 @@
     <title>Tukpul Convert - Jasa Convert Pulsa Rate Tinggi!</title>
 <link rel="icon" href="/favicon.png">
     <meta name="google-site-verification" content="FCw9zkMfRO2UmQs-p4uL9Q6s6vL4PeAUZQXZRbEsHxQ" />
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17887360187"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17887360187"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'AW-17887360187');
+
+  // Fungsi tracking konversi
+  function gtag_report_conversion(url) {
+    var callback = function () {
+      if (typeof(url) != 'undefined') {
+        window.location = url;
+      }
+    };
+    gtag('event', 'conversion', {
+        'send_to': 'AW-17887360187/JOixCLfehf4BELvprdPG',
+        'event_callback': callback
+    });
+    return false;
+  }
 </script>
 
-<!-- Event snippet for Tayangan halaman conversion page -->
-<script>
-  gtag('event', 'conversion', {'send_to': 'AW-17887360187/J0isCLfwhf4bELvprdPG'});
-</script>
+
 
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -169,7 +179,8 @@
                 <b id="hasil">Rp 0</b>
             </div>
             
-            <button class="btn-primary" onclick="nextStep(2)">Lanjut Sekarang 🚀</button>
+            <button class="btn-primary" onclick="gtag_report_conversion(); nextStep(2)">Lanjut Sekarang 🚀</button>
+
         </div>
 
         <span class="section-title" id="rate">Update Rate Hari Ini</span>
