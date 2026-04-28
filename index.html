@@ -369,56 +369,56 @@ function showNewNotif() {
 
 <script>
     let selectedProvider = ""; let rate = 0;
-    
-    function pilihProvider(el, nama, r) {
-        document.querySelectorAll('.provider').forEach(p => p.classList.remove('active'));
-        el.classList.add('active'); 
-        selectedProvider = nama; 
-        rate = r; 
-        hitung();
+
+function pilihProvider(el, nama, r) {
+    document.querySelectorAll('.provider').forEach(p => p.classList.remove('active'));
+    el.classList.add('active');
+    selectedProvider = nama;
+    rate = r;
+    hitung();
+}
+
+document.getElementById('nominal').addEventListener('input', function() {
+    let val = this.value.replace(/\D/g, '');
+    this.value = val ? parseInt(val).toLocaleString('id-ID') : '';
+    hitung();
+});
+
+function hitung() {
+    let val = document.getElementById('nominal').value.replace(/\./g, '');
+    if (val && rate) {
+        let total = Math.floor(val * rate);
+        document.getElementById('hasil').innerText = "Rp " + total.toLocaleString('id-ID');
+    } else {
+        document.getElementById('hasil').innerText = "Rp 0";
     }
+}
 
-    document.getElementById('nominal').addEventListener('input', function(e) {
-        let val = this.value.replace(/\D/g, '');
-        this.value = val ? parseInt(val).toLocaleString('id-ID') : ''; 
-        hitung();
-    });
-
-    function hitung() {
-        let val = document.getElementById('nominal').value.replace(/\./g, '');
-        if(val && rate) {
-            let total = Math.floor(val * rate);
-            document.getElementById('hasil').innerText = "Rp " + total.toLocaleString('id-ID');
-        } else { 
-            document.getElementById('hasil').innerText = "Rp 0"; 
+function nextStep(step) {
+    if (step === 2) {
+        if (!selectedProvider || !document.getElementById('nominal').value || document.getElementById('nomor').value.length < 10) {
+            alert("Mohon lengkapi Provider, Nomor HP, dan Nominal!");
+            return;
         }
-    }
-
-    function nextStep(step) {
-        if(step === 2) {
-            if(!selectedProvider || !document.getElementById('nominal').value || document.getElementById('nomor').value.length < 10) { 
-                alert("Mohon lengkapi Provider, Nomor HP, dan Nominal!"); 
-                return; 
-            }
-            document.getElementById('step1_container').classList.add('hidden');
-            document.getElementById('step2').classList.remove('hidden');
-            window.scrollTo(0,0);
-                        } else if (step === 3) {
-            if (!document.getElementById('tujuan').value || !document.getElementById('rekening').value) {
-                alert("Mohon lengkapi Detail Pencairan!");
-                return;
-            }
-
-                                                const noWA = "6289530922938";
-            const pesan = `Halo Admin, saya mau convert pulsa ${selectedProvider} nominal ${document.getElementById('nominal').value}`;
-
-            // Pelacakan Konversi Google Ads
-            gtag_report_conversion('https://wa.me/' + noWA); 
-
-            window.location.href = "https://wa.me/" + noWA + "?text=" + encodeURIComponent(pesan);
-
+        document.getElementById('step1_container').classList.add('hidden');
+        document.getElementById('step2_container').classList.remove('hidden');
+        window.scrollTo(0, 0);
+    } else if (step === 3) {
+        if (!document.getElementById('tujuan').value || !document.getElementById('rekening').value) {
+            alert("Mohon lengkapi Detail Pencairan!");
+            return;
         }
 
+        const noWA = "6289530922938";
+        const pesan = `Halo Admin, saya mau convert pulsa ${selectedProvider} nominal ${document.getElementById('nominal').value}`;
+
+        if (typeof gtag === "function") {
+            gtag('event', 'conversion', { 'send_to': 'AW-17887360187/J0ixCLfehf4BELvprfPF6' });
+        }
+
+        window.location.href = "https://wa.me/" + noWA + "?text=" + encodeURIComponent(pesan);
+    }
+}
 
         }
     }
