@@ -274,21 +274,97 @@
 <!-- Event snippet for Kontak conversion page
 In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
 <script>
-function (url) {
-  var callback = function () {
-    if (typeof(url) != 'undefined') {
-      window.location = url;
-    }
-  };
-  gtag('event', 'conversion', {
-      'send_to': 'AW-17887360187/5Hy5CPm9gaQcELvprdFC',
-      'value': 1.0,
-      'currency': 'IDR',
-      'event_callback': callback
-  });
-  return false;
+let selectedProvider = "";
+let rate = 0;
+
+// PILIH PROVIDER
+function pilihProvider(el, nama, r) {
+    document.querySelectorAll('.provider').forEach(p => p.classList.remove('active'));
+    el.classList.add('active');
+    selectedProvider = nama;
+    rate = r;
+    hitung();
 }
-</script>
+
+// FORMAT NOMINAL
+document.getElementById('nominal').addEventListener('input', function () {
+    let val = this.value.replace(/\D/g, '');
+    this.value = val ? parseInt(val).toLocaleString('id-ID') : '';
+    hitung();
+});
+
+// HITUNG HASIL
+function hitung() {
+    let val = document.getElementById('nominal').value.replace(/\./g, '');
+    if (val && rate) {
+        let total = Math.floor(val * rate);
+        document.getElementById('hasil').innerText = "Rp " + total.toLocaleString('id-ID');
+    } else {
+        document.getElementById('hasil').innerText = "Rp 0";
+    }
+}
+
+// PINDAH STEP
+function nextStep(step) {
+    if (step === 2) {
+        if (!selectedProvider || !document.getElementById('nominal').value || document.getElementById('nomor').value.length < 10) {
+            alert("Mohon lengkapi Provider, Nomor HP, dan Nominal!");
+            return;
+        }
+
+        document.getElementById('step1_container').classList.add('hidden');
+        document.getElementById('step2').classList.remove('hidden');
+        window.scrollTo(0, 0);
+
+    } else if (step === 3) {
+        if (!document.getElementById('tujuan').value || !document.getElementById('rekening').value) {
+            alert("Mohon lengkapi Detail Pencairan!");
+            return;
+        }
+
+        const noWA = "6289530922938";
+        const pesan = `Halo Admin, saya mau convert pulsa ${selectedProvider} nominal ${document.getElementById('nominal').value}`;
+
+        // tracking ads
+        if (typeof gtag === "function") {
+            gtag('event', 'conversion', {
+                'send_to': 'AW-17887360187/JOixCLfehf4BELvprdPG'
+            });
+        }
+
+        window.location.href = "https://wa.me/" + noWA + "?text=" + encodeURIComponent(pesan);
+    }
+}
+
+// FAQ TOGGLE
+document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+        const faqItem = button.parentElement;
+        faqItem.classList.toggle('active');
+        button.querySelector('span').innerText = faqItem.classList.contains('active') ? '-' : '+';
+    });
+});
+
+// DATA NOTIF
+const dataTransaksi = [
+    { hp: "0812****882", op: "T-SEL", nominal: "150.000" },
+    { hp: "0877****102", op: "XL", nominal: "500.000" },
+    { hp: "0895****441", op: "THREE", nominal: "45.000" },
+    { hp: "0852****990", op: "ISAT", nominal: "210.000" }
+];
+
+let notifIndex = 0;
+
+// NOTIF ANIMASI
+function showNewNotif() {
+    const notifBox = document.getElementById('notif-container');
+    notifBox.classList.remove('active');
+
+    setTimeout(() => {
+        const data = dataTransaksi[notifIndex];
+        document.getElementById('notif-icon').innerText = data.op;
+        document.getElementById('notif-text').innerHTML =
+            `<b
 
 
 <script>
