@@ -341,19 +341,30 @@ function hitung() {
     }
 }
 
-// 4. NAVIGASI STEP 1 KE STEP 2
 function nextStep(step) {
     if (step === 2) {
         const nominalVal = document.getElementById('nominal').value;
         const nomorVal = document.getElementById('nomor').value;
+
+        // Validasi input
         if (!selectedProvider || !nominalVal || nomorVal.length < 10) {
             alert("Mohon lengkapi Provider, Nomor HP, dan Nominal!");
             return;
         }
-        document.getElementById('step1_container').classList.add('hidden');
-        document.getElementById('step2').classList.remove('hidden');
-        window.scrollTo(0, 0);
-        } else if (step === 3) {
+
+        // Proses pindah halaman
+        const s1 = document.getElementById('step1_container');
+        const s2 = document.getElementById('step2');
+
+        if (s1 && s2) {
+            s1.classList.add('hidden');
+            s2.classList.remove('hidden');
+            window.scrollTo(0, 0);
+        } else {
+            alert("Terjadi kesalahan teknis. ID container tidak ditemukan.");
+        }
+
+    } else if (step === 3) {
         const tujuan = document.getElementById('tujuan').value;
         const rekening = document.getElementById('rekening').value;
         const nama = document.getElementById('nama').value;
@@ -366,8 +377,6 @@ function nextStep(step) {
         }
 
         const noWA = "6289530922938";
-        
-        // Format pesan rapi dengan baris baru (\n)
         const pesan = "Halo Admin, saya mau convert pulsa:\n\n" +
             "- Provider: " + selectedProvider + "\n" +
             "- Nominal: " + nominalValue + "\n" +
@@ -379,7 +388,6 @@ function nextStep(step) {
 
         window.location.href = "https://wa.me/" + noWA + "?text=" + encodeURIComponent(pesan);
     }
-
 }
 
 // 5. FAQ TOGGLE
