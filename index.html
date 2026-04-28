@@ -32,7 +32,7 @@
 
 
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -106,19 +106,24 @@
         .trust-logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; opacity: 0.6; margin-top: 20px; }
         .trust-logos img { height: 18px; filter: grayscale(100%); }
 
-        .floating-wa { position: fixed; bottom: 25px; right: 20px; background: #25d366; color: white; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1000; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); text-decoration: none; font-size: 26px; }
-        .hidden { display: none; }
+        .floating-wa { 
+    position: fixed; 
+    bottom: 25px; 
+    right: 20px; 
+    background: #25d366; 
+    color: white; 
+    width: 55px; 
+    height: 55px; 
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    z-index: 1000; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2); 
+    text-decoration: none; 
+    font-size: 28px; 
+}
 
-        #notif-container { position: fixed; bottom: 90px; left: 15px; width: 250px; background: white; border-radius: 12px; padding: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); display: flex; align-items: center; z-index: 1001; border-left: 4px solid var(--primary); transition: 0.5s; opacity: 0; transform: translateX(-20px); pointer-events: none; }
-        #notif-container.active { opacity: 1; transform: translateX(0); }
-        .notif-icon { width: 32px; height: 32px; background: #eff6ff; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-size: 9px; font-weight: 800; color: var(--primary); flex-shrink: 0; }
-        .notif-body { font-size: 10px; color: #334155; }
-        /* Warna kotak jadi biru saat diklik */
-.provider.active {
-    border: 2px solid #1d4ad8 !important;
-    background-color: #f0f7ff;
-    position: relative;
-    transform: scale(1.03);
 }
 
 /* Memunculkan tanda ceklis biru di pojok kanan atas */
