@@ -333,15 +333,14 @@ function (url) {
                 return;
             }
 
-                        const noWA = "6289530922938";
+                                                const noWA = "6289530922938";
             const pesan = `Halo Admin, saya mau convert pulsa ${selectedProvider} nominal ${document.getElementById('nominal').value}`;
-
-
 
             // Pelacakan Konversi Google Ads
             gtag_report_conversion('https://wa.me/' + noWA); 
 
             window.location.href = "https://wa.me/" + noWA + "?text=" + encodeURIComponent(pesan);
+
         }
 
 
