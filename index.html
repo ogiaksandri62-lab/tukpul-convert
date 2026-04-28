@@ -113,6 +113,34 @@
         #notif-container.active { opacity: 1; transform: translateX(0); }
         .notif-icon { width: 32px; height: 32px; background: #eff6ff; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-size: 9px; font-weight: 800; color: var(--primary); flex-shrink: 0; }
         .notif-body { font-size: 10px; color: #334155; }
+        /* Warna kotak jadi biru saat diklik */
+.provider.active {
+    border: 2px solid #1d4ad8 !important;
+    background-color: #f0f7ff;
+    position: relative;
+    transform: scale(1.03);
+}
+
+/* Memunculkan tanda ceklis biru di pojok kanan atas */
+.provider.active::after {
+    content: '✓';
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #1d4ad8;
+    color: white;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    border: 2px solid white;
+    z-index: 10;
+}
+
     </style>
 </head>
 <body>
