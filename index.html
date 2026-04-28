@@ -269,8 +269,27 @@
         </div>
     </footer>
 </div>
+<a href="https://wa.me/6289530922938" onclick="return gtag_report_conversion('https://wa.me/6289530922938');" class="floating-wa" target="_blank">
 
-<a href="https://wa.me/6289530922938" class="floating-wa" target="_blank">📲</a>
+<!-- Event snippet for Kontak conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function (url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17887360187/5Hy5CPm9gaQcELvprdFC',
+      'value': 1.0,
+      'currency': 'IDR',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+
 
 <script>
     let selectedProvider = ""; let rate = 0;
@@ -313,9 +332,13 @@
                 alert("Mohon lengkapi Detail Pencairan!");
                 return;
             }
-            const noWA = "6289530922938"; 
-            const pesan = `Halo Admin, saya mau convert pulsa ${selectedProvider} nominal ${document.getElementById('nominal').value}.\n\n*Detail Pencairan*\nBank/E-Wallet: ${document.getElementById('tujuan').value}\nNomor: ${document.getElementById('rekening').value}\nAtas Nama: ${document.getElementById('nama').value}`;
-            window.location.href = "https://wa.me/" + noWA + "?text=" + encodeURIComponent(pesan);
+            const pesan = `Halo Admin, saya mau convert pulsa ${selectedProvider} nominal ${document.getElementById('nominal').value}`;
+
+// Tambahkan baris ini untuk melacak klik ke Google Ads
+gtag_report_conversion('https://wa.me/' + noWA); 
+
+window.location.href = "https://wa.me/" + noWA + "?text=" + encodeURIComponent(pesan);
+
         }
     }
 
