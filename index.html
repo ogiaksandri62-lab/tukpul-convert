@@ -368,7 +368,8 @@ function showNewNotif() {
 
 
 <script>
-    let selectedProvider = ""; let rate = 0;
+let selectedProvider = ""; 
+let rate = 0;
 
 function pilihProvider(el, nama, r) {
     document.querySelectorAll('.provider').forEach(p => p.classList.remove('active'));
@@ -385,18 +386,24 @@ document.getElementById('nominal').addEventListener('input', function() {
 });
 
 function hitung() {
-    let val = document.getElementById('nominal').value.replace(/\./g, '');
+    const nominalInput = document.getElementById('nominal');
+    const hasilDisplay = document.getElementById('hasil');
+    if (!nominalInput || !hasilDisplay) return;
+
+    let val = nominalInput.value.replace(/\./g, '');
     if (val && rate) {
         let total = Math.floor(val * rate);
-        document.getElementById('hasil').innerText = "Rp " + total.toLocaleString('id-ID');
+        hasilDisplay.innerText = "Rp " + total.toLocaleString('id-ID');
     } else {
-        document.getElementById('hasil').innerText = "Rp 0";
+        hasilDisplay.innerText = "Rp 0";
     }
 }
 
 function nextStep(step) {
     if (step === 2) {
-        if (!selectedProvider || !document.getElementById('nominal').value || document.getElementById('nomor').value.length < 10) {
+        const nominalVal = document.getElementById('nominal').value;
+        const nomorVal = document.getElementById('nomor').value;
+        if (!selectedProvider || !nominalVal || nomorVal.length < 10) {
             alert("Mohon lengkapi Provider, Nomor HP, dan Nominal!");
             return;
         }
@@ -404,13 +411,16 @@ function nextStep(step) {
         document.getElementById('step2_container').classList.remove('hidden');
         window.scrollTo(0, 0);
     } else if (step === 3) {
-        if (!document.getElementById('tujuan').value || !document.getElementById('rekening').value) {
+        const tujuan = document.getElementById('tujuan').value;
+        const rekening = document.getElementById('rekening').value;
+        if (!tujuan || !rekening) {
             alert("Mohon lengkapi Detail Pencairan!");
             return;
         }
 
         const noWA = "6289530922938";
-        const pesan = `Halo Admin, saya mau convert pulsa ${selectedProvider} nominal ${document.getElementById('nominal').value}`;
+        const nominalValue = document.getElementById('nominal').value;
+        const pesan = `Halo Admin, saya mau convert pulsa ${selectedProvider} nominal ${nominalValue}`;
 
         if (typeof gtag === "function") {
             gtag('event', 'conversion', { 'send_to': 'AW-17887360187/J0ixCLfehf4BELvprfPF6' });
@@ -419,39 +429,6 @@ function nextStep(step) {
         window.location.href = "https://wa.me/" + noWA + "?text=" + encodeURIComponent(pesan);
     }
 }
-
-        }
-    }
-
-    document.querySelectorAll('.faq-question').forEach(button => {
-        button.addEventListener('click', () => {
-            const faqItem = button.parentElement;
-            faqItem.classList.toggle('active');
-            button.querySelector('span').innerText = faqItem.classList.contains('active') ? '-' : '+';
-        });
-    });
-
-    const dataTransaksi = [
-        { hp: "0812****882", op: "T-SEL", nominal: "150.000" },
-        { hp: "0877****102", op: "XL", nominal: "500.000" },
-        { hp: "0895****441", op: "THREE", nominal: "45.000" },
-        { hp: "0852****990", op: "ISAT", nominal: "210.000" }
-    ];
-
-    let notifIndex = 0;
-    function showNewNotif() {
-        const notifBox = document.getElementById('notif-container');
-        notifBox.classList.remove('active');
-        setTimeout(() => {
-            const data = dataTransaksi[notifIndex];
-            document.getElementById('notif-icon').innerText = data.op;
-            document.getElementById('notif-text').innerHTML = `<b>${data.hp}</b> Berhasil Convert Rp${data.nominal}`;
-            notifBox.classList.add('active');
-            notifIndex = (notifIndex + 1) % dataTransaksi.length;
-            setTimeout(() => notifBox.classList.remove('active'), 5000);
-        }, 1000);
-    }
-    setInterval(showNewNotif, 12000);
 </script>
 
 </body>
