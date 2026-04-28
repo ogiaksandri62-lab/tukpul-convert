@@ -212,7 +212,7 @@
                 <b id="hasil">Rp 0</b>
             </div>
             
-            <button class="btn-primary" onclick="gtag_report_conversion(); nextStep(2)">Lanjut Sekarang 🚀</button>
+            <button class="btn-primary" onclick="nextStep(2)">Lanjut Sekarang 🚀</button>
 
         </div>
 
@@ -352,13 +352,17 @@ function nextStep(step) {
             return;
         }
 
-        // Proses pindah halaman
+        // Proses pindah halaman (DIPERBAIKI)
         const s1 = document.getElementById('step1_container');
         const s2 = document.getElementById('step2');
 
         if (s1 && s2) {
-            s1.classList.add('hidden');
-            s2.classList.remove('hidden');
+            s1.classList.add('hidden');       // Sembunyikan Step 1
+            s1.style.display = 'none';        // Paksa hilang
+            
+            s2.classList.remove('hidden');    // Munculkan Step 2
+            s2.style.display = 'block';       // Paksa muncul
+            
             window.scrollTo(0, 0);
         } else {
             alert("Terjadi kesalahan teknis. ID container tidak ditemukan.");
@@ -389,6 +393,7 @@ function nextStep(step) {
         window.location.href = "https://wa.me/" + noWA + "?text=" + encodeURIComponent(pesan);
     }
 }
+
 
 // 5. FAQ TOGGLE
 document.querySelectorAll('.faq-question').forEach(button => {
