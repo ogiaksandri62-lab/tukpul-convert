@@ -327,17 +327,23 @@ function (url) {
             document.getElementById('step1_container').classList.add('hidden');
             document.getElementById('step2').classList.remove('hidden');
             window.scrollTo(0,0);
-        } else if(step === 3) {
-            if(!document.getElementById('tujuan').value || !document.getElementById('rekening').value || !document.getElementById('nama').value) {
+                        } else if (step === 3) {
+            if (!document.getElementById('tujuan').value || !document.getElementById('rekening').value) {
                 alert("Mohon lengkapi Detail Pencairan!");
                 return;
             }
+
+                        const noWA = "6289530922938";
             const pesan = `Halo Admin, saya mau convert pulsa ${selectedProvider} nominal ${document.getElementById('nominal').value}`;
 
-// Tambahkan baris ini untuk melacak klik ke Google Ads
-gtag_report_conversion('https://wa.me/' + noWA); 
 
-window.location.href = "https://wa.me/" + noWA + "?text=" + encodeURIComponent(pesan);
+
+            // Pelacakan Konversi Google Ads
+            gtag_report_conversion('https://wa.me/' + noWA); 
+
+            window.location.href = "https://wa.me/" + noWA + "?text=" + encodeURIComponent(pesan);
+        }
+
 
         }
     }
