@@ -274,35 +274,20 @@
 <!-- Event snippet for Kontak conversion page
 In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
 <script>
-let selectedProvider = "";
+let selectedProvider = ""; 
 let rate = 0;
 
-// PILIH PROVIDER
 function pilihProvider(el, nama, r) {
+    // Menghapus tanda biru di provider lain
     document.querySelectorAll('.provider').forEach(p => p.classList.remove('active'));
+    // Menambah tanda biru di yang kamu klik
     el.classList.add('active');
+    
     selectedProvider = nama;
     rate = r;
     hitung();
 }
 
-// FORMAT NOMINAL
-document.getElementById('nominal').addEventListener('input', function () {
-    let val = this.value.replace(/\D/g, '');
-    this.value = val ? parseInt(val).toLocaleString('id-ID') : '';
-    hitung();
-});
-
-// HITUNG HASIL
-function hitung() {
-    let val = document.getElementById('nominal').value.replace(/\./g, '');
-    if (val && rate) {
-        let total = Math.floor(val * rate);
-        document.getElementById('hasil').innerText = "Rp " + total.toLocaleString('id-ID');
-    } else {
-        document.getElementById('hasil').innerText = "Rp 0";
-    }
-}
 
 // PINDAH STEP
 function nextStep(step) {
