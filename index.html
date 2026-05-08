@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tukpul Convert - Tukar Pulsa Jadi Saldo</title>
+    <title>Tukpul Convert - Transaksi</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -11,28 +11,15 @@
             --primary-dark: #1d4ed8;
             --secondary: #64748b;
             --bg-body: #f8fafc;
-            --glass: rgba(255, 255, 255, 0.85);
-            --border-glass: rgba(255, 255, 255, 0.5);
+            --glass: rgba(255, 255, 255, 0.9);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-            -webkit-tap-highlight-color: transparent;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg-body); color: #1e293b; padding-bottom: 50px; }
 
-        body {
-            background-color: var(--bg-body);
-            color: #1e293b;
-            min-height: 100vh;
-        }
-
-        /* Hero Header */
         .hero-bg {
             background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-            height: 280px;
+            height: 200px;
             padding: 30px 20px;
             text-align: center;
             color: white;
@@ -40,329 +27,201 @@
             border-bottom-right-radius: 40px;
         }
 
-        .header-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-
-        .logo-text {
-            font-weight: 800;
-            font-size: 1.4rem;
-            letter-spacing: -1px;
-        }
-
-        .hero-content h1 {
-            font-size: 1.6rem;
-            font-weight: 800;
-            margin-bottom: 8px;
-        }
-
-        .hero-content p {
-            font-size: 0.85rem;
-            opacity: 0.9;
-        }
-
-        /* Container & Glass Card */
-        .container {
-            max-width: 450px;
-            margin: -80px auto 40px;
-            padding: 0 20px;
-        }
-
+        .container { max-width: 450px; margin: -60px auto 20px; padding: 0 20px; }
+        
         .glass-card {
             background: var(--glass);
             backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid var(--border-glass);
             border-radius: 30px;
             padding: 25px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border: 1px solid rgba(255,255,255,0.5);
         }
 
-        .section-title {
-            font-size: 0.9rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: #334155;
+        .section-title { font-size: 0.95rem; font-weight: 800; margin-bottom: 15px; }
+
+        /* Provider Grid dengan Logo */
+        .provider-grid { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 12px; 
+            margin-bottom: 20px; 
+        }
+        
+        .provider-btn {
+            background: white; 
+            border: 2px solid #f1f5f9; 
+            border-radius: 20px; 
+            padding: 15px;
+            text-align: center; 
+            cursor: pointer; 
+            transition: all 0.3s ease;
             display: flex;
+            flex-direction: column;
             align-items: center;
             gap: 8px;
         }
 
-        /* Provider Selector */
-        .provider-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin-bottom: 25px;
-        }
-
-        .provider-btn {
-            background: white;
-            border: 2px solid transparent;
-            border-radius: 18px;
-            padding: 15px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-        }
-
-        .provider-btn.active {
-            border-color: var(--primary);
-            background: #eff6ff;
+        .provider-btn img {
+            width: 50px;
+            height: 30px;
+            object-fit: contain;
         }
 
         .provider-btn span {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 700;
             color: #475569;
         }
 
-        /* Form Inputs */
-        .form-group {
-            margin-bottom: 15px;
+        .provider-btn.active { 
+            border-color: var(--primary); 
+            background: #eff6ff; 
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.1);
         }
 
-        .form-group label {
-            display: block;
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: var(--secondary);
-            margin-bottom: 6px;
-            padding-left: 4px;
+        .provider-btn.active span { color: var(--primary); }
+
+        /* Form & Input */
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-size: 0.75rem; font-weight: 700; color: var(--secondary); margin-bottom: 6px; }
+        
+        input, select {
+            width: 100%; padding: 14px; border-radius: 12px; border: 1.5px solid #e2e8f0;
+            background: #fff; font-size: 1rem; font-weight: 600; outline: none;
         }
 
-        input {
-            width: 100%;
-            padding: 14px 18px;
-            border-radius: 15px;
-            border: 1.5px solid #e2e8f0;
-            background: #f8fafc;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        input:focus {
-            outline: none;
-            border-color: var(--primary);
-            background: white;
-            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
-        }
-
-        /* Result Area */
         .result-panel {
-            background: #f1f5f9;
-            border-radius: 18px;
-            padding: 18px;
-            text-align: center;
-            margin: 20px 0;
+            background: #f1f5f9; border-radius: 15px; padding: 15px; text-align: center; margin: 15px 0;
+            border: 1px dashed #cbd5e1;
         }
-
-        .result-label {
-            font-size: 0.7rem;
-            font-weight: 700;
-            color: var(--secondary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .result-value {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--primary);
-        }
+        .result-value { font-size: 1.6rem; font-weight: 800; color: var(--primary); }
 
         .btn-main {
-            width: 100%;
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 18px;
-            border-radius: 18px;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: 0.3s;
-            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+            width: 100%; background: var(--primary); color: white; border: none; padding: 18px;
+            border-radius: 15px; font-weight: 700; font-size: 1rem; cursor: pointer;
         }
 
-        .btn-main:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-
-        /* Rate Table */
-        .rate-section {
-            margin-top: 30px;
-        }
-
-        .rate-item {
-            background: white;
-            border-radius: 15px;
-            padding: 12px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
-        }
-
-        .rate-name {
-            font-weight: 700;
-            font-size: 0.85rem;
-        }
-
-        .rate-val {
-            color: var(--primary);
-            font-weight: 800;
-        }
-
-        /* Steps Section */
-        .steps {
-            background: white;
-            padding: 40px 20px;
-            margin-top: 20px;
-            border-top-left-radius: 40px;
-            border-top-right-radius: 40px;
-        }
-
-        .step-box {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-
-        .step-num {
-            min-width: 35px;
-            height: 35px;
-            background: #eff6ff;
-            color: var(--primary);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-        }
-
-        .step-info h4 {
-            font-size: 0.95rem;
-            margin-bottom: 4px;
-        }
-
-        .step-info p {
-            font-size: 0.8rem;
-            color: var(--secondary);
-            line-height: 1.5;
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            font-size: 0.75rem;
-            color: var(--secondary);
-            background: white;
-        }
+        .hidden { display: none; }
     </style>
 </head>
 <body>
 
     <div class="hero-bg">
-        <div class="header-nav">
-            <div class="logo-text">TUKPUL</div>
-            <div style="font-size: 0.8rem; font-weight: 600; opacity: 0.8;">MENU ☰</div>
-        </div>
-        <div class="hero-content">
-            <h1>Tukar Pulsa Instant</h1>
-            <p>Terpercaya sejak 2024 • Rate Terbaik Setiap Hari</p>
-        </div>
+        <h1 style="font-size: 1.4rem;">Tukpul Convert</h1>
+        <p style="font-size: 0.8rem; opacity: 0.8;">Tukar pulsa jadi saldo instan</p>
     </div>
 
     <div class="container">
-        <div class="glass-card">
+        <div id="page1" class="glass-card">
             <h2 class="section-title">1. Pilih Provider</h2>
             <div class="provider-grid">
-                <div class="provider-btn active"><span>Telkomsel</span></div>
-                <div class="provider-btn"><span>Indosat</span></div>
-                <div class="provider-btn"><span>XL / Axis</span></div>
-                <div class="provider-btn"><span>Three</span></div>
+                <div class="provider-btn active" data-rate="0.87">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Telkomsel_2021_icon.svg" alt="Telkomsel">
+                    <span>Telkomsel</span>
+                </div>
+                <div class="provider-btn" data-rate="0.89">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Indosat_Ooredoo_Hutchison_logo.svg" alt="Indosat">
+                    <span>Indosat</span>
+                </div>
+                <div class="provider-btn" data-rate="0.90">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/5/55/XL_Axiata_logo_2016.svg" alt="XL">
+                    <span>XL Axiata</span>
+                </div>
+                <div class="provider-btn" data-rate="0.85">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Three_Logo.svg" alt="Three">
+                    <span>Three (3)</span>
+                </div>
             </div>
 
-            <h2 class="section-title">2. Detail Konversi</h2>
-            <div class="form-group">
-                <label>Nomor HP Pengirim</label>
-                <input type="tel" placeholder="08xxxxxxxxxx">
-            </div>
             <div class="form-group">
                 <label>Nominal Pulsa</label>
-                <input type="number" placeholder="Minimal 30.000">
+                <input type="number" id="inputNominal" placeholder="Contoh: 100000">
             </div>
 
             <div class="result-panel">
-                <p class="result-label">Saldo yang diterima</p>
-                <p class="result-value">Rp 0</p>
+                <p style="font-size: 0.7rem; font-weight: 700; color: var(--secondary);">SALDO DITERIMA</p>
+                <p class="result-value" id="tampilSaldo">Rp 0</p>
             </div>
 
-            <button class="btn-main">Lanjut Sekarang 🚀</button>
+            <button class="btn-main" onclick="nextPage()">Lanjut Isi Data Cair ➔</button>
         </div>
 
-        <div class="rate-section">
-            <h2 class="section-title">Update Rate Hari Ini</h2>
-            <div class="rate-item">
-                <span class="rate-name">Telkomsel</span>
-                <span class="rate-val">0.87</span>
+        <div id="page2" class="glass-card hidden">
+            <h2 class="section-title">2. Tujuan Pencairan Saldo</h2>
+            <div class="form-group">
+                <label>Pilih Bank / E-Wallet</label>
+                <select id="metodeCair">
+                    <option value="DANA">DANA</option>
+                    <option value="OVO">OVO</option>
+                    <option value="GOPAY">GOPAY</option>
+                    <option value="SHOPEEPAY">SHOPEEPAY</option>
+                    <option value="BCA">BANK BCA</option>
+                </select>
             </div>
-            <div class="rate-item">
-                <span class="rate-name">Indosat</span>
-                <span class="rate-val">0.89</span>
+            <div class="form-group">
+                <label>Nomor Rekening / HP</label>
+                <input type="tel" id="nomorTujuan" placeholder="Contoh: 0812xxx">
             </div>
-            <div class="rate-item">
-                <span class="rate-name">XL / Axis</span>
-                <span class="rate-val">0.90</span>
+            <div class="form-group">
+                <label>Nama Pemilik Rekening</label>
+                <input type="text" id="namaTujuan" placeholder="Nama sesuai akun">
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button class="btn-main" style="background: #e2e8f0; color: #475569;" onclick="prevPage()">Kembali</button>
+                <button class="btn-main" onclick="prosesWhatsApp()">Konfirmasi 🚀</button>
             </div>
         </div>
     </div>
-
-    <div class="steps">
-        <h2 class="section-title" style="justify-content: center; margin-bottom: 30px;">Cara Kerja</h2>
-        <div class="step-box">
-            <div class="step-num">1</div>
-            <div class="step-info">
-                <h4>Isi Form</h4>
-                <p>Masukkan nomor pengirim dan jumlah pulsa.</p>
-            </div>
-        </div>
-        <div class="step-box">
-            <div class="step-num">2</div>
-            <div class="step-info">
-                <h4>Kirim Pulsa</h4>
-                <p>Transfer pulsa Anda ke nomor admin.</p>
-            </div>
-        </div>
-        <div class="step-box">
-            <div class="step-num">3</div>
-            <div class="step-info">
-                <h4>Cairkan Dana</h4>
-                <p>Saldo dikirim ke e-wallet/rekening Anda.</p>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        &copy; 2026 Tukpul Convert. Digital Payment Solution.
-    </footer>
 
     <script>
-        const providers = document.querySelectorAll('.provider-btn');
-        providers.forEach(p => {
-            p.addEventListener('click', () => {
-                providers.forEach(btn => btn.classList.remove('active'));
-                p.classList.add('active');
+        let currentRate = 0.87;
+        const inputNominal = document.getElementById('inputNominal');
+        const tampilSaldo = document.getElementById('tampilSaldo');
+        const providerBtns = document.querySelectorAll('.provider-btn');
+
+        function hitungSaldo() {
+            const nominal = inputNominal.value || 0;
+            const hasil = Math.floor(nominal * currentRate);
+            tampilSaldo.innerText = "Rp " + hasil.toLocaleString('id-ID');
+        }
+
+        providerBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                providerBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentRate = parseFloat(btn.getAttribute('data-rate'));
+                hitungSaldo();
             });
         });
+
+        inputNominal.addEventListener('input', hitungSaldo);
+
+        function nextPage() {
+            if(inputNominal.value < 30000) { alert("Minimal convert 30.000"); return; }
+            document.getElementById('page1').classList.add('hidden');
+            document.getElementById('page2').classList.remove('hidden');
+        }
+
+        function prevPage() {
+            document.getElementById('page2').classList.add('hidden');
+            document.getElementById('page1').classList.remove('hidden');
+        }
+
+        function prosesWhatsApp() {
+            const nominal = inputNominal.value;
+            const saldo = tampilSaldo.innerText;
+            const metode = document.getElementById('metodeCair').value;
+            const nomor = document.getElementById('nomorTujuan').value;
+            const nama = document.getElementById('namaTujuan').value;
+
+            if(!nomor || !nama) { alert("Data belum lengkap!"); return; }
+
+            const pesan = `Halo Tukpul Convert!%0A%0ASaya ingin convert:%0A- Provider: ${document.querySelector('.provider-btn.active span').innerText}%0A- Nominal: ${nominal}%0A- Terima Saldo: ${saldo}%0A%0ATujuan:%0A- Metode: ${metode}%0A- Nomor: ${nomor}%0A- Nama: ${nama}`;
+            
+            window.location.href = `https://wa.me/628XXXXXXXXXX?text=${pesan}`; 
+        }
     </script>
 </body>
 </html>
