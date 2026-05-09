@@ -390,7 +390,9 @@ function nextStep(step) {
             "- No. Rekening: " + rekening + "\n" +
             "- Atas Nama: " + nama;
 
-        window.location.href = "https://wa.me/" + noWA + "?text=" + encodeURIComponent(pesan);
+        gtag_report_conversion(
+  "https://wa.me/" + noWA + "?text=" + encodeURIComponent(pesan)
+);
     }
 }
 
