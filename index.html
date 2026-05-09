@@ -3,407 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tukpul Convert - Jasa Convert Pulsa Rate Tinggi!</title>
-<link rel="icon" href="/favicon.png">
-    <meta name="google-site-verification" content="FCw9zkMfRO2UmQs-p4uL9Q6s6vL4PeAUZQXZRbEsHxQ" />
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17887360187"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17887360187');
-
-  // Fungsi tracking konversi
-  function gtag_report_conversion(url) {
-    var callback = function () {
-      if (typeof(url) != 'undefined') {
-        window.location = url;
-      }
-    };
-    gtag('event', 'conversion', {
-        'send_to': 'AW-17887360187/JOixCLfehf4BELvprdPG',
-        'event_callback': callback
-    });
-    return false;
-  }
-</script>
-
-
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <title>Convert Pulsa - YuConvert</title>
     <style>
-        :root { --primary: #1d4ed8; --secondary: #3b82f6; --success: #25d366; --bg: #f8fafc; }
-        body { font-family: 'Poppins', sans-serif; background: var(--bg); margin: 0; padding: 0; color: #334155; overflow-x: hidden; scroll-behavior: smooth; }
-        .container { max-width: 500px; margin: auto; padding-bottom: 20px; }
+        :root {
+            --primary-green: #008744;
+            --bg-dark: #101820;
+            --white: #ffffff;
+            --gray-text: #666;
+            --light-bg: #f5f7f9;
+        }
 
-        /* --- HEADER NAV --- */
-        .navbar { position: fixed; top: 0; left: 0; width: 100%; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .nav-container { max-width: 500px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; }
-        .nav-logo { font-weight: 800; font-size: 16px; color: var(--primary); text-decoration: none; }
-        .nav-logo span { color: #334155; }
-        .nav-menu { display: flex; gap: 12px; }
-        .nav-menu a { text-decoration: none; font-size: 11px; font-weight: 700; color: #64748b; transition: 0.3s; }
-        .nav-menu a:hover { color: var(--primary); }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark);
+            color: #333;
+        }
 
-        /* --- RUNNING TEXT --- */
-        .running-text { background: #ffffff; padding: 8px 0; font-size: 11px; font-weight: 600; color: var(--primary); border-bottom: 1px solid #e2e8f0; white-space: nowrap; overflow: hidden; margin-top: 50px; }
-        .marquee-content { display: inline-block; animation: marquee 25s linear infinite; }
-        @keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            background-color: var(--light-bg);
+            min-height: 100vh;
+            position: relative;
+        }
 
-        /* --- BRAND --- */
-        .brand { background: linear-gradient(180deg, #1d4ed8 0%, #3b82f6 100%); text-align: center; padding: 40px 20px 80px; color: white; border-radius: 0 0 50px 50px; margin-bottom: -50px; }
-        .badge-top { background: rgba(255, 255, 255, 0.2); display: inline-block; padding: 6px 16px; border-radius: 20px; font-size: 11px; font-weight: 600; margin-bottom: 15px; }
-        .brand h1 { font-size: 24px; font-weight: 800; line-height: 1.2; margin: 0 auto; max-width: 320px; }
-        .admin-status { font-size: 11px; margin-top: 10px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 5px; }
-        .dot { width: 8px; height: 8px; background: #25d366; border-radius: 50%; display: inline-block; box-shadow: 0 0 8px #25d366; animation: pulse 1.5s infinite; }
-        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
+        /* Header Section */
+        header {
+            background-color: var(--primary-green);
+            color: white;
+            padding: 30px 20px 80px 20px;
+            text-align: center;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+        }
 
-        /* --- CARD --- */
-        .card { background: #fff; border-radius: 24px; padding: 25px 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); margin: 0 15px 25px; position: relative; z-index: 10; }
-        .section-title { font-size: 15px; font-weight: 700; margin: 25px 20px 12px; display: block; color: #1e293b; padding-top: 20px; }
-        
-        .providers { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
-        .provider { padding: 15px; border-radius: 18px; border: 2px solid #f1f5f9; text-align: center; cursor: pointer; transition: 0.3s; background: #fff; position: relative; }
-        .provider img { height: 32px; margin-bottom: 8px; object-fit: contain; }
-        .provider span { font-size: 12px; font-weight: 700; display: block; }
-        .provider.active { border-color: var(--primary); background: #eff6ff; transform: scale(1.03); }
-        .provider.active::after { content: '✓'; position: absolute; top: 8px; right: 8px; background: var(--primary); color: white; width: 16px; height: 16px; border-radius: 50%; font-size: 10px; line-height: 16px; }
+        .logo {
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
 
-        /* --- INPUTS --- */
-        input, select { width: 100%; padding: 15px; border-radius: 15px; border: 1px solid #e2e8f0; margin-bottom: 15px; font-size: 14px; box-sizing: border-box; outline: none; background: #fcfcfc; transition: 0.3s; }
-        input:focus { border-color: var(--primary); background: #fff; }
-        .estimasi { background: #f1f5f9; padding: 15px; border-radius: 15px; text-align: center; margin-bottom: 20px; border: 1px dashed #cbd5e1; }
-        .estimasi b { color: var(--primary); font-size: 24px; }
-        .btn-primary { width: 100%; padding: 18px; border: none; border-radius: 18px; background: linear-gradient(135deg, #1d4ed8, #3b82f6); color: white; font-weight: 700; cursor: pointer; font-size: 16px; box-shadow: 0 8px 20px rgba(29, 78, 216, 0.3); transition: 0.3s; }
-        .btn-primary:active { transform: scale(0.98); }
+        header h1 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
 
-        /* --- TABLE RATE --- */
-        .rate-table { background: #fff; border-radius: 20px; padding: 15px; border: 1px solid #e2e8f0; margin: 0 15px; }
-        .rate-table table { width: 100%; border-collapse: collapse; font-size: 12px; }
-        .rate-table td { padding: 12px 0; border-bottom: 1px solid #f1f5f9; font-weight: 600; }
-        .rate-val { color: var(--primary); font-weight: 800; text-align: right; }
+        header p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
 
-        /* --- HOW TO --- */
-        .step-box { display: flex; align-items: center; gap: 15px; margin-bottom: 12px; background: #fff; padding: 15px; border-radius: 18px; border: 1px solid #f1f5f9; margin: 0 15px 12px; }
-        .step-num { background: var(--primary); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; flex-shrink: 0; font-size: 12px; }
-        .step-text b { font-size: 13px; display: block; margin-bottom: 2px; }
-        .step-text span { font-size: 11px; color: #64748b; }
+        /* Card Section - Operator Selection */
+        .card-container {
+            margin: -60px 15px 20px 15px;
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
 
-        /* --- FAQ --- */
-        .faq-item { background: #fff; border-radius: 15px; margin: 0 15px 10px; border: 1px solid #f1f5f9; overflow: hidden; }
-        .faq-question { width: 100%; padding: 15px; background: none; border: none; text-align: left; font-size: 13px; font-weight: 700; color: #1e293b; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-        .faq-answer { padding: 0 15px; max-height: 0; overflow: hidden; transition: 0.3s ease-out; font-size: 11px; color: #64748b; line-height: 1.6; }
-        .faq-item.active .faq-answer { max-height: 150px; padding-bottom: 15px; }
+        .section-title {
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
 
-        /* --- FOOTER --- */
-        footer { background: #fff; padding: 40px 20px; border-top: 1px solid #e2e8f0; text-align: center; margin-top: 40px; }
-        .footer-logo { font-size: 20px; font-weight: 800; color: var(--primary); margin-bottom: 10px; display: block; text-decoration: none; }
-        .footer-info { font-size: 11px; color: #94a3b8; line-height: 1.8; margin-bottom: 20px; }
-        .trust-logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; opacity: 0.6; margin-top: 20px; }
-        .trust-logos img { height: 18px; filter: grayscale(100%); }
+        .grid-operators {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            text-align: center;
+        }
 
-        .floating-wa { 
-    position: fixed; 
-    bottom: 25px; 
-    right: 20px; 
-    background: #25d366; 
-    color: white; 
-    width: 55px; 
-    height: 55px; 
-    border-radius: 50%; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    z-index: 1000; 
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2); 
-    text-decoration: none; 
-    font-size: 28px; 
-}
+        .op-item img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            margin-bottom: 5px;
+        }
 
-}
+        .op-item span {
+            display: block;
+            font-size: 0.7rem;
+            color: var(--gray-text);
+        }
 
-/* Memunculkan tanda ceklis biru di pojok kanan atas */
-.provider.active::after {
-    content: '✓';
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    background: #1d4ad8;
-    color: white;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    font-weight: bold;
-    border: 2px solid white;
-    z-index: 10;
-}
+        /* Rate Card */
+        .rate-card {
+            background: white;
+            margin: 15px;
+            padding: 20px;
+            border-radius: 20px;
+        }
+
+        .rate-grid {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .rate-label {
+            font-size: 0.7rem;
+            color: #999;
+            text-transform: uppercase;
+        }
+
+        .rate-value {
+            font-weight: bold;
+            color: #d32f2f; /* Red for Telkomsel */
+            font-size: 1.1rem;
+        }
+
+        .rate-number {
+            font-size: 1.5rem;
+            color: var(--primary-green);
+            font-weight: bold;
+        }
+
+        /* News Section */
+        .news-section {
+            padding: 15px;
+        }
+
+        .news-item {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* WhatsApp Button Sticky */
+        .wa-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            text-decoration: none;
+            z-index: 100;
+        }
 
     </style>
 </head>
 <body>
 
-<nav class="navbar">
-    <div class="nav-container">
-        <a href="#" class="nav-logo">TUKPUL<span>CONVERT</span></a>
-        <div class="nav-menu">
-            <a href="#rate">RATE</a>
-            <a href="#cara-kerja">TUTORIAL</a>
-            <a href="#faq">FAQ</a>
-        </div>
-    </div>
-</nav>
-
-<div id="notif-container">
-    <div class="notif-icon" id="notif-icon">PULSA</div>
-    <div class="notif-body">
-        <span id="notif-text">Menunggu data...</span>
-    </div>
-</div>
-
-<div class="running-text">
-    <div class="marquee-content">
-        ✨ Berhasil cair Rp 145.500 ke DANA (0812***) — ✨ Berhasil cair Rp 480.000 ke BCA (0895***) — ✨ Berhasil cair Rp 50.000 ke OVO (0877***) — ✨ Berhasil cair Rp 1.000.000 ke GOPAY (0813***)
-    </div>
-</div>
-
 <div class="container">
-    <div class="brand">
-        <div class="badge-top">⭐ TERPERCAYA SEJAK 2024</div>
-        <h1>Convert Pulsa Jadi Saldo Instant & Rate Tinggi</h1>
-        <div class="admin-status"><span class="dot"></span> Admin Online (08:00 - 03:45 WIB)</div>
-    </div>
+    <!-- Header -->
+    <header>
+        <div class="logo">🛒 Merubah Pulsa Jadi Uang</div>
+        <h1>Convert Pulsa Cepat Cair</h1>
+        <p>Merubah pulsa menjadi uang tunai rekening bank, e-wallet. Proses cepat hanya 3-5 menit saja.</p>
+    </header>
 
-    <div id="step1_container">
-        <div class="card" id="home">
-            <span style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 15px; display: block;">1. Pilih Provider</span>
-            <div class="providers">
-                <div class="provider" onclick="pilihProvider(this, 'Telkomsel', 0.87)">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Telkomsel_2021_icon.svg" alt="Tsel">
-                    <span>Telkomsel</span>
-                </div>
-                <div class="provider" onclick="pilihProvider(this, 'Indosat', 0.89)">
-                    <img src="im3-ooredoo-logo-png_seeklogo-326756.png" alt="Isat" style="height: 25px;">
-                    <span>Indosat</span>
-                </div>
-                <div class="provider" onclick="pilihProvider(this, 'XL/Axis', 0.90)">
-                    <img src="1771848312305.png" alt="XL">
-                    <span>XL / Axis</span>
-                </div>
-                <div class="provider" onclick="pilihProvider(this, 'Three', 0.89)">
-                    <img src="1771848121156.png" alt="3">
-                    <span>Three</span>
-                </div>
+    <!-- Pilih Operator -->
+    <div class="card-container">
+        <div class="section-title">Pilih Operator</div>
+        <div class="grid-operators">
+            <div class="op-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Telkomsel_2021_icon.svg" alt="Telkomsel">
+                <span>Telkomsel</span>
             </div>
-
-            <span style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 10px; display: block;">2. Isi Nominal</span>
-            <input type="number" id="nomor" placeholder="Nomor HP Pengirim (08...)">
-            <input type="text" id="nominal" placeholder="Nominal Pulsa (Minimal 30.000)">
-            
-            <div class="estimasi">
-                <span style="font-size: 11px; color: #64748b; font-weight: 600;">Saldo yang Anda terima:</span><br>
-                <b id="hasil">Rp 0</b>
+            <div class="op-item">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/be/Axis_logo.svg/1200px-Axis_logo.svg.png" alt="Axis">
+                <span>Axis</span>
             </div>
-            
-            <button class="btn-primary" onclick="nextStep(2)">Lanjut Sekarang 🚀</button>
-
-        </div>
-
-        <span class="section-title" id="rate">Update Rate Hari Ini</span>
-        <div class="rate-table">
-            <table>
-                <tr><td>📲 Telkomsel</td><td class="rate-val">0.87</td></tr>
-                <tr><td>📲 Indosat</td><td class="rate-val">0.89</td></tr>
-                <tr><td>📲 XL / Axis</td><td class="rate-val">0.90</td></tr>
-                <tr><td>📲 Three</td><td class="rate-val">0.89</td></tr>
-            </table>
-        </div>
-
-        <span class="section-title" id="cara-kerja">Cara Kerja</span>
-        <div class="step-box">
-            <div class="step-num">1</div>
-            <div class="step-text"><b>Isi Form & Hitung</b><span>Pilih provider & masukkan nominal.</span></div>
-        </div>
-        <div class="step-box">
-            <div class="step-num">2</div>
-            <div class="step-text"><b>Transfer Pulsa</b><span>Kirim pulsa ke nomor admin kami.</span></div>
-        </div>
-        <div class="step-box">
-            <div class="step-num">3</div>
-            <div class="step-text"><b>Cairkan Saldo</b><span>Uang cair ke rekening/e-wallet Anda!</span></div>
-        </div>
-
-        <span class="section-title" id="faq">Tanya Jawab (FAQ)</span>
-        <div class="faq-item">
-            <button class="faq-question">Berapa lama prosesnya? <span>+</span></button>
-            <div class="faq-answer">Proses cair rata-rata 1-5 menit setelah pulsa kami terima. Admin kami standby 24 jam untuk melayani Anda.</div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question">Berapa minimal convert? <span>+</span></button>
-            <div class="faq-answer">Minimal penukaran pulsa di Tukpul Convert adalah Rp 30.000.</div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question">Apakah ada biaya admin? <span>+</span></button>
-            <div class="faq-answer">Gratis biaya transfer untuk semua jenis E-Wallet (DANA, OVO, GoPay, dll)!</div>
+            <div class="op-item">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/53/XL_Axiata_logo_2016.svg/1200px-XL_Axiata_logo_2016.svg.png" alt="XL">
+                <span>XL</span>
+            </div>
+            <div class="op-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Tri_logo.svg" alt="Tri">
+                <span>Tri</span>
+            </div>
         </div>
     </div>
 
-    <div id="step2" class="card hidden" style="margin-top: 80px;">
-        <h3 style="margin-top:0; font-size:18px; color: var(--primary);">Detail Pencairan</h3>
-        <select id="tujuan">
-            <option value="">Pilih Bank / E-Wallet</option>
-            <option value="DANA">DANA</option>
-            <option value="OVO">OVO</option>
-            <option value="GOPAY">GOPAY</option>
-            <option value="LINK AJA">LINKAJA</option>
-            <option value="SAKUKU">SAKUKU</option>
-            <option value="SHOPEEPAY">SHOPEEPAY</option>
-            <option value="SEABANK">SEABANK</option>
-            <option value="BCA">Bank Central Asia</option>
-            <option value="BRI">Bank Rakyat Indonesia</option>
-            <option value="BNI">Bank Negara Indonesia</option>
-            <option value="BTN">Bank Tabungan Negara</option>
-            <option value="NOBU">Bank Nation Nobu</option>
-            <option value="MANDIRI">Bank Mandiri</option>
-        </select>
-        <input type="text" id="rekening" placeholder="Nomor Rekening / HP">
-        <input type="text" id="nama" placeholder="Atas Nama Pemilik">
-        <button class="btn-primary" onclick="nextStep(3)">Konfirmasi & Tukar</button>
-        <p style="text-align:center;"><a href="#" onclick="location.reload()" style="font-size:12px; color:#94a3b8;">← Batal & Ulangi</a></p>
+    <!-- Rate Info -->
+    <div class="rate-card">
+        <div class="rate-grid">
+            <div>
+                <div class="rate-label">OPERATOR KINI</div>
+                <div class="rate-value">Telkomsel</div>
+                <div class="rate-label" style="margin-top: 10px;">LIMIT TRANSAKSI</div>
+                <div style="font-size: 0.8rem; font-weight: bold;">5rb - 1jt+</div>
+            </div>
+            <div style="text-align: right;">
+                <div class="rate-label">RATE TUKAR</div>
+                <div class="rate-number">0.89</div>
+            </div>
+        </div>
     </div>
 
-    <div style="padding: 20px 15px;">
-        <h4 style="color: var(--primary); margin-bottom: 5px; font-size: 14px;">Tentang Kami</h4>
-        <p style="font-size: 11px; color: #666; line-height: 1.6;"> Tukpul Convert adalah layanan tukar pulsa dengan proses cepat dan transparan. Cek rate terbaru dan lakukan transaksi dengan mudah melalui website resmi kami..</p>
+    <!-- News & Edu -->
+    <div class="news-section">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+            <span class="section-title">Berita & Edukasi</span>
+            <a href="#" style="font-size: 0.8rem; color: var(--primary-green); text-decoration: none;">Lihat Semua &rarr;</a>
+        </div>
         
-        <h4 style="color: var(--primary); margin-top: 15px; margin-bottom: 5px; font-size: 14px;">Syarat & Ketentuan</h4>
-        <ul style="font-size: 10px; color: #666; padding-left: 15px; line-height: 1.5;">
-            <li>Hanya menerima pulsa legal (Bukan hasil Scam/Judi).</li>
-            <li>Pastikan nomor rekening sudah benar sebelum konfirmasi.</li>                       
-            <li>Segala bentuk penipuan akan dilaporkan ke pihak berwajib.</li>
-        </ul>
+        <a href="#" class="news-item">
+            <div>
+                <div style="font-size: 0.85rem; font-weight: bold;">Cara Convert Pulsa ke Dana Aman</div>
+                <div style="font-size: 0.7rem; color: #999;">19 April 2026</div>
+            </div>
+            <span>&rsaquo;</span>
+        </a>
     </div>
 
-    <footer>
-        <a href="#" class="footer-logo">TUKPUL<span>CONVERT</span></a>
-        <p class="footer-info">© 2026 Tukpul Convert. Seluruh Hak Cipta Dilindungi.</p>
-        <div class="trust-logos">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Logo_ovo_purple.svg">
-            <img src="unnamed.png">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Bank_Central_Asia.svg">
-        </div>
-    </footer>
+    <!-- Floating Help Button -->
+    <a href="#" class="wa-float">
+        <span>💬 Bantuan</span>
+    </a>
 </div>
-<a href="https://wa.me/6289530922938" class="floating-wa" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-</a>
-
-<script>
-let selectedProvider = ""; 
-let rate = 0;
-
-// 1. FUNGSI PILIH PROVIDER & CEKLIS
-function pilihProvider(el, nama, r) {
-    document.querySelectorAll('.provider').forEach(p => p.classList.remove('active'));
-    el.classList.add('active');
-    selectedProvider = nama;
-    rate = r;
-    hitung();
-}
-
-// 2. FORMAT RUPIAH OTOMATIS
-document.getElementById('nominal').addEventListener('input', function() {
-    let val = this.value.replace(/\D/g, '');
-    this.value = val ? parseInt(val).toLocaleString('id-ID') : '';
-    hitung();
-});
-
-// 3. MESIN HITUNG HASIL
-function hitung() {
-    const nominalInput = document.getElementById('nominal');
-    const hasilDisplay = document.getElementById('hasil');
-    if (!nominalInput || !hasilDisplay) return;
-
-    let val = nominalInput.value.replace(/\./g, '');
-    if (val && rate) {
-        let total = Math.floor(val * rate);
-        hasilDisplay.innerText = "Rp " + total.toLocaleString('id-ID');
-    } else {
-        hasilDisplay.innerText = "Rp 0";
-    }
-}
-
-function nextStep(step) {
-    if (step === 2) {
-        const nominalVal = document.getElementById('nominal').value;
-        const nomorVal = document.getElementById('nomor').value;
-
-        // Validasi input
-        if (!selectedProvider || !nominalVal || nomorVal.length < 10) {
-            alert("Mohon lengkapi Provider, Nomor HP, dan Nominal!");
-            return;
-        }
-
-        // Proses pindah halaman (DIPERBAIKI)
-        const s1 = document.getElementById('step1_container');
-        const s2 = document.getElementById('step2');
-
-        if (s1 && s2) {
-            s1.classList.add('hidden');       // Sembunyikan Step 1
-            s1.style.display = 'none';        // Paksa hilang
-            
-            s2.classList.remove('hidden');    // Munculkan Step 2
-            s2.style.display = 'block';       // Paksa muncul
-            
-            window.scrollTo(0, 0);
-        } else {
-            alert("Terjadi kesalahan teknis. ID container tidak ditemukan.");
-        }
-
-    } else if (step === 3) {
-        const tujuan = document.getElementById('tujuan').value;
-        const rekening = document.getElementById('rekening').value;
-        const nama = document.getElementById('nama').value;
-        const nomorPengirim = document.getElementById('nomor').value;
-        const nominalValue = document.getElementById('nominal').value;
-
-        if (!tujuan || !rekening || !nama) {
-            alert("Mohon lengkapi Detail Pencairan!");
-            return;
-        }
-
-        const noWA = "6289530922938";
-        const pesan = "Halo Admin, saya mau convert pulsa:\n\n" +
-            "- Provider: " + selectedProvider + "\n" +
-            "- Nominal: " + nominalValue + "\n" +
-            "- No. Pengirim: " + nomorPengirim + "\n\n" +
-            "Detail Pencairan:\n" +
-            "- Bank/E-Wallet: " + tujuan + "\n" +
-            "- No. Rekening: " + rekening + "\n" +
-            "- Atas Nama: " + nama;
-
-        window.location.href = "https://wa.me/" + noWA + "?text=" + encodeURIComponent(pesan);
-    }
-}
-
-
-// 5. FAQ TOGGLE
-document.querySelectorAll('.faq-question').forEach(button => {
-    button.addEventListener('click', () => {
-        const faqItem = button.parentElement;
-        faqItem.classList.toggle('active');
-        button.querySelector('span').innerText = faqItem.classList.contains('active') ? '-' : '+';
-    });
-});
-</script>
 
 </body>
-                </html>
+</html>
+
