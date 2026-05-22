@@ -68,7 +68,6 @@
         .provider span { font-size: 12px; font-weight: 700; display: block; }
         .provider.active { border-color: var(--primary); background: #eff6ff; transform: scale(1.03); }
         
-        /* Memunculkan tanda ceklis biru di pojok kanan atas */
         .provider.active::after {
             content: '✓';
             position: absolute;
@@ -96,11 +95,18 @@
         .btn-primary { width: 100%; padding: 18px; border: none; border-radius: 18px; background: linear-gradient(135deg, #1d4ed8, #3b82f6); color: white; font-weight: 700; cursor: pointer; font-size: 16px; box-shadow: 0 8px 20px rgba(29, 78, 216, 0.3); transition: 0.3s; }
         .btn-primary:active { transform: scale(0.98); }
 
-        /* --- TABLE RATE --- */
+        /* --- TABLE RATE (DENGAN LOGO) --- */
         .rate-table { background: #fff; border-radius: 20px; padding: 15px; border: 1px solid #e2e8f0; margin: 0 15px; }
         .rate-table table { width: 100%; border-collapse: collapse; font-size: 12px; }
-        .rate-table td { padding: 12px 0; border-bottom: 1px solid #f1f5f9; font-weight: 600; }
-        .rate-val { color: var(--primary); font-weight: 800; text-align: right; }
+        .rate-table td { padding: 12px 0; border-bottom: 1px solid #f1f5f9; font-weight: 600; vertical-align: middle; }
+        .rate-provider-info { display: flex; align-items: center; gap: 10px; }
+        .rate-provider-info img { height: 20px; width: 20px; object-fit: contain; }
+        .rate-val { color: var(--primary); font-weight: 800; text-align: right; font-size: 13px; }
+
+        /* --- RINGKASAN BOX (FITUR BARU) --- */
+        .ringkasan-box { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 16px; padding: 12px 15px; margin-bottom: 20px; font-size: 12px; color: #1e40af; }
+        .ringkasan-row { display: flex; justify-content: space-between; margin-bottom: 4px; }
+        .ringkasan-row:last-child { margin-bottom: 0; font-weight: 700; }
 
         /* --- HOW TO --- */
         .step-box { display: flex; align-items: center; gap: 15px; margin-bottom: 12px; background: #fff; padding: 15px; border-radius: 18px; border: 1px solid #f1f5f9; margin: 0 15px 12px; }
@@ -118,8 +124,8 @@
         footer { background: #fff; padding: 40px 20px; border-top: 1px solid #e2e8f0; text-align: center; margin-top: 40px; }
         .footer-logo { font-size: 20px; font-weight: 800; color: var(--primary); margin-bottom: 10px; display: block; text-decoration: none; }
         .footer-info { font-size: 11px; color: #94a3b8; line-height: 1.8; margin-bottom: 20px; }
-        .trust-logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; opacity: 0.6; margin-top: 20px; }
-        .trust-logos img { height: 18px; filter: grayscale(100%); }
+        .trust-logos { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 20px; opacity: 0.7; margin-top: 20px; }
+        .trust-logos img { height: 20px; object-fit: contain; }
 
         .floating-wa { 
             position: fixed; 
@@ -160,13 +166,13 @@
 </div>
 
 <div class="container">
-    <div class="brand">
+    <div class="brand" id="main-brand">
         <div class="badge-top">⭐ TERPERCAYA SEJAK 2024</div>
         <h1>Tukar Saldo Pulsa Jadi Saldo Digital Instan</h1>
         <div class="admin-status"><span class="dot"></span> Admin Online (08:00 - 03:45 WIB)</div>
     </div>
 
-    <div id="step1_container">
+    <div id="step1_container" style="margin-top: 0px;">
         <div class="card" id="home">
             <span style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 15px; display: block;">1. Pilih Provider</span>
             <div class="providers">
@@ -203,10 +209,42 @@
         <span class="section-title" id="rate">Update Rate Hari Ini</span>
         <div class="rate-table">
             <table>
-                <tr><td>📲 Telkomsel</td><td class="rate-val">0.88</td></tr>
-                <tr><td>📲 Indosat</td><td class="rate-val">0.90</td></tr>
-                <tr><td>📲 XL / Axis</td><td class="rate-val">0.91</td></tr>
-                <tr><td>📲 Three</td><td class="rate-val">0.89</td></tr>
+                <tr>
+                    <td>
+                        <div class="rate-provider-info">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Telkomsel_2021_icon.svg" alt="Tsel">
+                            <span>Telkomsel</span>
+                        </div>
+                    </td>
+                    <td class="rate-val">0.88</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="rate-provider-info">
+                            <img src="im3-ooredoo-logo-png_seeklogo-326756.png" alt="Isat">
+                            <span>Indosat</span>
+                        </div>
+                    </td>
+                    <td class="rate-val">0.90</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="rate-provider-info">
+                            <img src="1771848312305.png" alt="XL">
+                            <span>XL / Axis</span>
+                        </div>
+                    </td>
+                    <td class="rate-val">0.91</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="rate-provider-info">
+                            <img src="1771848121156.png" alt="3">
+                            <span>Three</span>
+                        </div>
+                    </td>
+                    <td class="rate-val">0.89</td>
+                </tr>
             </table>
         </div>
 
@@ -239,9 +277,25 @@
         </div>
     </div>
 
-    <div id="step2" style="display: none; margin-top: 30px;">
+    <div id="step2" style="display: none; margin-top: 20px;">
         <div class="card">
-            <h3 style="margin-top:0; font-size:18px; color: var(--primary);">Detail Pencairan</h3>
+            <h3 style="margin-top:0; font-size:18px; color: var(--primary); margin-bottom:15px;">Detail Pencairan</h3>
+            
+            <div class="ringkasan-box">
+                <div class="ringkasan-row">
+                    <span>Provider & No. HP:</span>
+                    <span id="summary-provider">-</span>
+                </div>
+                <div class="ringkasan-row">
+                    <span>Nominal Pulsa:</span>
+                    <span id="summary-nominal">Rp 0</span>
+                </div>
+                <div class="ringkasan-row">
+                    <span>Uang Tunai Diterima:</span>
+                    <span id="summary-terima" style="color:#1d4ed8;">Rp 0</span>
+                </div>
+            </div>
+
             <select id="tujuan">
                 <option value="">Pilih Bank / E-Wallet</option>
                 <option value="DANA">DANA</option>
@@ -261,7 +315,7 @@
             <input type="text" id="rekening" placeholder="Nomor Rekening / HP">
             <input type="text" id="nama" placeholder="Atas Nama Pemilik">
             <button class="btn-primary" onclick="nextStep(3)">Konfirmasi & Tukar</button>
-            <p style="text-align:center;"><a href="#" onclick="location.reload()" style="font-size:12px; color:#94a3b8; text-decoration:none;">← Batal & Ulangi</a></p>
+            <p style="text-align:center; margin-top: 15px;"><a href="#" onclick="location.reload()" style="font-size:13px; color:#ef4444; font-weight:600; text-decoration:none;">← Batal & Ulangi Transaksi</a></p>
         </div>
     </div>
 
@@ -282,10 +336,10 @@
             <a href="#" class="footer-logo">TUKAR<span>PULSA</span></a>
             <p class="footer-info">© 2026 Tukarpulsa ID. Seluruh Hak Cipta Dilindungi.</p>
             <div class="trust-logos">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Logo_ovo_purple.svg">
-                <img src="unnamed.png">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Bank_Central_Asia.svg">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg" alt="DANA">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Logo_ovo_purple.svg" alt="OVO">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Gojek_logo_2019.svg" alt="GOPAY">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Bank_Central_Asia.svg" alt="BCA">
             </div>
         </footer>
     </div>
@@ -330,7 +384,7 @@ function hitung() {
     }
 }
 
-// 4. LOGIKA PERPINDAHAN STEP (YANG DIPERBAIKI)
+// 4. LOGIKA PERPINDAHAN STEP
 function nextStep(step) {
     if (step === 2) {
         const nominalVal = document.getElementById('nominal').value;
@@ -344,11 +398,19 @@ function nextStep(step) {
 
         const s1 = document.getElementById('step1_container');
         const s2 = document.getElementById('step2');
+        const brand = document.getElementById('main-brand');
         const infofooter = document.getElementById('info_footer_container');
 
         if (s1 && s2) {
+            // SET TEXT RINGKASAN DATA KE HALAMAN KEDUA
+            document.getElementById('summary-provider').innerText = selectedProvider + " (" + nomorVal + ")";
+            document.getElementById('summary-nominal').innerText = "Rp " + nominalVal;
+            document.getElementById('summary-terima').innerText = document.getElementById('hasil').innerText;
+
+            // RESPONSIVE LAYOUT ACTION
+            brand.style.display = 'none';          // Sembunyikan banner utama biar form naik ke atas
             s1.style.display = 'none';             // Menyembunyikan seluruh isi Halaman Depan
-            infofooter.style.display = 'none';     // Menyembunyikan Info/Footer agar tidak nyempil di bawah form pencairan
+            infofooter.style.display = 'none';     // Menyembunyikan Info/Footer
             
             s2.style.display = 'block';            // Memunculkan Detail Pencairan langsung di atas
             
