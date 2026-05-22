@@ -4,36 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tukarpulsa - Tukar Saldo Pulsa Jadi Saldo Digital Instan!</title>
-<link rel="icon" href="/favicon.png">
+    <link rel="icon" href="/favicon.png">
     <meta name="google-site-verification" content="FCw9zkMfRO2UmQs-p4uL9Q6s6vL4PeAUZQXZRbEsHxQ" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17887360187"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'AW-17887360187');
+      gtag('config', 'AW-17887360187');
 
-  // Fungsi tracking konversi
-  function gtag_report_conversion(url) {
-    var callback = function () {
-      if (typeof(url) != 'undefined') {
-        window.location = url;
+      // Fungsi tracking konversi
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-17887360187/JOixCLfehf4BELvprdPG',
+            'event_callback': callback
+        });
+        return false;
       }
-    };
-    gtag('event', 'conversion', {
-        'send_to': 'AW-17887360187/JOixCLfehf4BELvprdPG',
-        'event_callback': callback
-    });
-    return false;
-  }
-</script>
+    </script>
 
-
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root { --primary: #1d4ed8; --secondary: #3b82f6; --success: #25d366; --bg: #f8fafc; }
@@ -71,7 +67,26 @@
         .provider img { height: 32px; margin-bottom: 8px; object-fit: contain; }
         .provider span { font-size: 12px; font-weight: 700; display: block; }
         .provider.active { border-color: var(--primary); background: #eff6ff; transform: scale(1.03); }
-        .provider.active::after { content: '✓'; position: absolute; top: 8px; right: 8px; background: var(--primary); color: white; width: 16px; height: 16px; border-radius: 50%; font-size: 10px; line-height: 16px; }
+        
+        /* Memunculkan tanda ceklis biru di pojok kanan atas */
+        .provider.active::after {
+            content: '✓';
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #1d4ed8;
+            color: white;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            border: 2px solid white;
+            z-index: 10;
+        }
 
         /* --- INPUTS --- */
         input, select { width: 100%; padding: 15px; border-radius: 15px; border: 1px solid #e2e8f0; margin-bottom: 15px; font-size: 14px; box-sizing: border-box; outline: none; background: #fcfcfc; transition: 0.3s; }
@@ -107,45 +122,22 @@
         .trust-logos img { height: 18px; filter: grayscale(100%); }
 
         .floating-wa { 
-    position: fixed; 
-    bottom: 25px; 
-    right: 20px; 
-    background: #25d366; 
-    color: white; 
-    width: 55px; 
-    height: 55px; 
-    border-radius: 50%; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    z-index: 1000; 
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2); 
-    text-decoration: none; 
-    font-size: 28px; 
-}
-
-}
-
-/* Memunculkan tanda ceklis biru di pojok kanan atas */
-.provider.active::after {
-    content: '✓';
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    background: #1d4ad8;
-    color: white;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    font-weight: bold;
-    border: 2px solid white;
-    z-index: 10;
-}
-
+            position: fixed; 
+            bottom: 25px; 
+            right: 20px; 
+            background: #25d366; 
+            color: white; 
+            width: 55px; 
+            height: 55px; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            z-index: 1000; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2); 
+            text-decoration: none; 
+            font-size: 28px; 
+        }
     </style>
 </head>
 <body>
@@ -160,13 +152,6 @@
         </div>
     </div>
 </nav>
-
-<div id="notif-container">
-    <div class="notif-icon" id="notif-icon">PULSA</div>
-    <div class="notif-body">
-        <span id="notif-text">Menunggu data...</span>
-    </div>
-</div>
 
 <div class="running-text">
     <div class="marquee-content">
@@ -213,7 +198,6 @@
             </div>
             
             <button class="btn-primary" onclick="nextStep(2)">Lanjut Sekarang 🚀</button>
-
         </div>
 
         <span class="section-title" id="rate">Update Rate Hari Ini</span>
@@ -255,53 +239,58 @@
         </div>
     </div>
 
-    <div id="step2" class="card hidden" style="margin-top: 80px;">
-        <h3 style="margin-top:0; font-size:18px; color: var(--primary);">Detail Pencairan</h3>
-        <select id="tujuan">
-            <option value="">Pilih Bank / E-Wallet</option>
-            <option value="DANA">DANA</option>
-            <option value="OVO">OVO</option>
-            <option value="GOPAY">GOPAY</option>
-            <option value="LINK AJA">LINKAJA</option>
-            <option value="SAKUKU">SAKUKU</option>
-            <option value="SHOPEEPAY">SHOPEEPAY</option>
-            <option value="SEABANK">SEABANK</option>
-            <option value="BCA">Bank Central Asia</option>
-            <option value="BRI">Bank Rakyat Indonesia</option>
-            <option value="BNI">Bank Negara Indonesia</option>
-            <option value="BTN">Bank Tabungan Negara</option>
-            <option value="NOBU">Bank Nation Nobu</option>
-            <option value="MANDIRI">Bank Mandiri</option>
-        </select>
-        <input type="text" id="rekening" placeholder="Nomor Rekening / HP">
-        <input type="text" id="nama" placeholder="Atas Nama Pemilik">
-        <button class="btn-primary" onclick="nextStep(3)">Konfirmasi & Tukar</button>
-        <p style="text-align:center;"><a href="#" onclick="location.reload()" style="font-size:12px; color:#94a3b8;">← Batal & Ulangi</a></p>
-    </div>
-
-    <div style="padding: 20px 15px;">
-        <h4 style="color: var(--primary); margin-bottom: 5px; font-size: 14px;">Tentang Kami</h4>
-        <p style="font-size: 11px; color: #666; line-height: 1.6;"> Tukpul Convert adalah layanan tukar pulsa dengan proses cepat dan transparan. Cek rate terbaru dan lakukan transaksi dengan mudah melalui website resmi kami..</p>
-        
-        <h4 style="color: var(--primary); margin-top: 15px; margin-bottom: 5px; font-size: 14px;">Syarat & Ketentuan</h4>
-        <ul style="font-size: 10px; color: #666; padding-left: 15px; line-height: 1.5;">
-            <li>Hanya menerima transfer saldo pulsa dari sumber yang sah dan resmi.</li>
-            <li>Pastikan nomor rekening sudah benar sebelum konfirmasi.</li>                       
-            <li>Segala bentuk penipuan akan dilaporkan ke pihak berwajib.</li>
-        </ul>
-    </div>
-
-    <footer>
-        <a href="#" class="footer-logo">TUKAR<span>PULSA</span></a>
-        <p class="footer-info">© 2026 Tukarpulsa ID. Seluruh Hak Cipta Dilindungi.</p>
-        <div class="trust-logos">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Logo_ovo_purple.svg">
-            <img src="unnamed.png">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Bank_Central_Asia.svg">
+    <div id="step2" style="display: none; margin-top: 30px;">
+        <div class="card">
+            <h3 style="margin-top:0; font-size:18px; color: var(--primary);">Detail Pencairan</h3>
+            <select id="tujuan">
+                <option value="">Pilih Bank / E-Wallet</option>
+                <option value="DANA">DANA</option>
+                <option value="OVO">OVO</option>
+                <option value="GOPAY">GOPAY</option>
+                <option value="LINK AJA">LINKAJA</option>
+                <option value="SAKUKU">SAKUKU</option>
+                <option value="SHOPEEPAY">SHOPEEPAY</option>
+                <option value="SEABANK">SEABANK</option>
+                <option value="BCA">Bank Central Asia</option>
+                <option value="BRI">Bank Rakyat Indonesia</option>
+                <option value="BNI">Bank Negara Indonesia</option>
+                <option value="BTN">Bank Tabungan Negara</option>
+                <option value="NOBU">Bank Nation Nobu</option>
+                <option value="MANDIRI">Bank Mandiri</option>
+            </select>
+            <input type="text" id="rekening" placeholder="Nomor Rekening / HP">
+            <input type="text" id="nama" placeholder="Atas Nama Pemilik">
+            <button class="btn-primary" onclick="nextStep(3)">Konfirmasi & Tukar</button>
+            <p style="text-align:center;"><a href="#" onclick="location.reload()" style="font-size:12px; color:#94a3b8; text-decoration:none;">← Batal & Ulangi</a></p>
         </div>
-    </footer>
+    </div>
+
+    <div id="info_footer_container">
+        <div style="padding: 20px 15px;">
+            <h4 style="color: var(--primary); margin-bottom: 5px; font-size: 14px;">Tentang Kami</h4>
+            <p style="font-size: 11px; color: #666; line-height: 1.6;"> Tukpul Convert adalah layanan tukar pulsa dengan proses cepat dan transparan. Cek rate terbaru dan lakukan transaksi dengan mudah melalui website resmi kami..</p>
+            
+            <h4 style="color: var(--primary); margin-top: 15px; margin-bottom: 5px; font-size: 14px;">Syarat & Ketentuan</h4>
+            <ul style="font-size: 10px; color: #666; padding-left: 15px; line-height: 1.5;">
+                <li>Hanya menerima transfer saldo pulsa dari sumber yang sah dan resmi.</li>
+                <li>Pastikan nomor rekening sudah benar sebelum konfirmasi.</li>                       
+                <li>Segala bentuk penipuan akan dilaporkan ke pihak berwajib.</li>
+            </ul>
+        </div>
+
+        <footer>
+            <a href="#" class="footer-logo">TUKAR<span>PULSA</span></a>
+            <p class="footer-info">© 2026 Tukarpulsa ID. Seluruh Hak Cipta Dilindungi.</p>
+            <div class="trust-logos">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Logo_ovo_purple.svg">
+                <img src="unnamed.png">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Bank_Central_Asia.svg">
+            </div>
+        </footer>
+    </div>
 </div>
+
 <a href="https://wa.me/6289530922938" class="floating-wa" target="_blank">
     <i class="fab fa-whatsapp"></i>
 </a>
@@ -341,6 +330,7 @@ function hitung() {
     }
 }
 
+// 4. LOGIKA PERPINDAHAN STEP (YANG DIPERBAIKI)
 function nextStep(step) {
     if (step === 2) {
         const nominalVal = document.getElementById('nominal').value;
@@ -352,18 +342,17 @@ function nextStep(step) {
             return;
         }
 
-        // Proses pindah halaman (DIPERBAIKI)
         const s1 = document.getElementById('step1_container');
         const s2 = document.getElementById('step2');
+        const infofooter = document.getElementById('info_footer_container');
 
         if (s1 && s2) {
-            s1.classList.add('hidden');       // Sembunyikan Step 1
-            s1.style.display = 'none';        // Paksa hilang
+            s1.style.display = 'none';             // Menyembunyikan seluruh isi Halaman Depan
+            infofooter.style.display = 'none';     // Menyembunyikan Info/Footer agar tidak nyempil di bawah form pencairan
             
-            s2.classList.remove('hidden');    // Munculkan Step 2
-            s2.style.display = 'block';       // Paksa muncul
+            s2.style.display = 'block';            // Memunculkan Detail Pencairan langsung di atas
             
-            window.scrollTo(0, 0);
+            window.scrollTo(0, 0);                 // Mengembalikan scroll layar otomatis ke paling atas
         } else {
             alert("Terjadi kesalahan teknis. ID container tidak ditemukan.");
         }
@@ -391,11 +380,10 @@ function nextStep(step) {
             "- Atas Nama: " + nama;
 
         gtag_report_conversion(
-  "https://wa.me/" + noWA + "?text=" + encodeURIComponent(pesan)
-);
+            "https://wa.me/" + noWA + "?text=" + encodeURIComponent(pesan)
+        );
     }
 }
-
 
 // 5. FAQ TOGGLE
 document.querySelectorAll('.faq-question').forEach(button => {
