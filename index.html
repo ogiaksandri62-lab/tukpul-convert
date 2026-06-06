@@ -317,7 +317,8 @@
             </select>
             <input type="text" id="rekening" placeholder="Nomor Rekening / HP">
             <input type="text" id="nama" placeholder="Atas Nama Pemilik">
-            <button class="btn-primary" onclick="nextStep(3)">Konfirmasi & Tukar</button>
+            <button class="btn-primary" onclick="return nextStep(3)">Konfirmasi & Tukar</button>
+
             <p style="text-align:center; margin-top: 15px;"><a href="#" onclick="location.reload()" style="font-size:13px; color:#ef4444; font-weight:600; text-decoration:none;">← Batal & Ulangi Transaksi</a></p>
         </div>
     </div>
@@ -445,9 +446,10 @@ function nextStep(step) {
             "- No. Rekening: " + rekening + "\n" +
             "- Atas Nama: " + nama;
 
-        gtag_report_conversion(
+                return gtag_report_conversion(
             "https://wa.me/" + noWA + "?text=" + encodeURIComponent(pesan)
         );
+
     }
 }
 
