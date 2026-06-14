@@ -14,14 +14,14 @@
 
       gtag('config', 'AW-17887360187');
 
-      // Fungsi tracking konversi
+      // Fungsi tracking konversions
       function gtag_report_conversion(url) {
         var callback = function () {
           if (typeof(url) != 'undefined') {
             window.location = url;
           }
         };
-        gtag('event', 'conversion', {
+        gtag_event('conversion', {
             'send_to': 'AW-17887360187/JOixCLfehf4BELvprdPG',
             'event_callback': callback
         });
@@ -184,11 +184,26 @@
             width: 24px;
             object-fit: contain;
         }
-        .provider-meta span {
+        
+        /* CSS TAMBAHAN UNTUK SUSUNAN NAMA DAN NOMINAL RATE */
+        .provider-meta-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .provider-name-premium {
             font-size: 13px;
             font-weight: 600;
             color: #334155;
+            line-height: 1.2;
         }
+        .rate-sub-text {
+            font-size: 10px;
+            color: #64748b;
+            font-weight: 500;
+            margin-top: 1px;
+        }
+
         .pill-badge {
             font-size: 13px;
             font-weight: 700;
@@ -319,7 +334,10 @@
                 <div class="rate-item">
                     <div class="provider-meta">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Telkomsel_2021_icon.svg" alt="Tsel">
-                        <span>Telkomsel</span>
+                        <div class="provider-meta-text">
+                            <span class="provider-name-premium">Telkomsel</span>
+                            <span class="rate-sub-text">Min 30k</span>
+                        </div>
                     </div>
                     <div class="pill-badge">0.88</div>
                 </div>
@@ -327,7 +345,10 @@
                 <div class="rate-item">
                     <div class="provider-meta">
                         <img src="im3-ooredoo-logo-png_seeklogo-326756.png" alt="Isat">
-                        <span>Indosat</span>
+                        <div class="provider-meta-text">
+                            <span class="provider-name-premium">Indosat</span>
+                            <span class="rate-sub-text">Min 30k</span>
+                        </div>
                     </div>
                     <div class="pill-badge">0.90</div>
                 </div>
@@ -335,7 +356,10 @@
                 <div class="rate-item">
                     <div class="provider-meta">
                         <img src="1771848312305.png" alt="XL">
-                        <span>XL / Axis</span>
+                        <div class="provider-meta-text">
+                            <span class="provider-name-premium">XL / Axis</span>
+                            <span class="rate-sub-text">Min 30k</span>
+                        </div>
                     </div>
                     <div class="pill-badge highest-tier">0.93</div>
                 </div>
@@ -343,7 +367,10 @@
                 <div class="rate-item">
                     <div class="provider-meta">
                         <img src="1771848121156.png" alt="3">
-                        <span>Three</span>
+                        <div class="provider-meta-text">
+                            <span class="provider-name-premium">Three</span>
+                            <span class="rate-sub-text">Min 30k</span>
+                        </div>
                     </div>
                     <div class="pill-badge">0.90</div>
                 </div>
@@ -562,4 +589,4 @@ document.querySelectorAll('.faq-question').forEach(button => {
 </script>
 
 </body>
-        </html>
+</html>
