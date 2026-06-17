@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tukarpulsa - Tukar Saldo Pulsa Jadi Saldo Digital Instan!</title>
+    <title>TC - Optimasi Pulsa Sisa Anda Jadi Lebih Bermanfaat</title>
     <link rel="icon" href="/favicon.png">
     <meta name="google-site-verification" content="FCw9zkMfRO2UmQs-p4uL9Q6s6vL4PeAUZQXZRbEsHxQ" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17887360187"></script>
@@ -38,7 +38,7 @@
         body { 
             font-family: 'Poppins', sans-serif; 
             background: linear-gradient(135deg, #EBF2FA 0%, #DCE7F6 50%, #E5EDF9 100%);
-            background-attachment: fixed; /* Mengunci gradasi agar efek kaca bekerja maksimal saat scroll */
+            background-attachment: fixed; 
             margin: 0; 
             padding: 0; 
             color: #334155; 
@@ -51,12 +51,11 @@
         .navbar { position: fixed; top: 0; left: 0; width: 100%; background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); z-index: 100; border-bottom: 1px solid rgba(255, 255, 255, 0.4); }
 
         .nav-container { max-width: 500px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; }
-        .nav-logo { font-weight: 800; font-size: 16px; color: var(--primary); text-decoration: none; }
+        .nav-logo { font-weight: 800; font-size: 18px; color: var(--primary); text-decoration: none; letter-spacing: 1px; }
         .nav-logo span { color: #334155; }
 
-        .nav-menu { display: flex; gap: 12px; }
+        .nav-menu { display: flex; gap: 15px; }
         .nav-menu a { text-decoration: none; font-size: 11px; font-weight: 700; color: #64748b; transition: 0.3s; }
-
         .nav-menu a:hover { color: var(--primary); }
 
         /* --- RUNNING TEXT --- */
@@ -67,7 +66,7 @@
         /* --- BRAND --- */
         .brand { background: linear-gradient(180deg, #1d4ed8 0%, #3b82f6 100%); text-align: center; padding: 40px 20px 80px; color: white; border-radius: 0 0 50px 50px; margin-bottom: -50px; }
         .badge-top { background: rgba(255, 255, 255, 0.2); display: inline-block; padding: 6px 16px; border-radius: 20px; font-size: 11px; font-weight: 600; margin-bottom: 15px; }
-        .brand h1 { font-size: 24px; font-weight: 800; line-height: 1.2; margin: 0 auto; max-width: 320px; }
+        .brand h1 { font-size: 24px; font-weight: 800; line-height: 1.2; margin: 0 auto; max-width: 350px; }
         .admin-status { font-size: 11px; margin-top: 10px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 5px; }
         .dot { width: 8px; height: 8px; background: #25d366; border-radius: 50%; display: inline-block; box-shadow: 0 0 8px #25d366; animation: pulse 1.5s infinite; }
         @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
@@ -198,7 +197,6 @@
             padding: 5px 14px;
             border-radius: 20px;
         }
-        /* Style Premium khusus untuk Rate Tertinggi XL */
         .pill-badge.highest-tier {
             background: linear-gradient(135deg, #fffbeb, #fef3c7);
             color: #b45309;
@@ -208,8 +206,8 @@
 
         /* --- RINGKASAN BOX --- */
         .ringkasan-box { background: rgba(239, 246, 255, 0.7); border: 1px solid #bfdbfe; border-radius: 16px; padding: 12px 15px; margin-bottom: 20px; font-size: 12px; color: #1e40af; }
-        .ringkasan-row { display: flex; justify-content: space-between; margin-bottom: 4px; }
-        .ringkasan-row:last-child { margin-bottom: 0; font-weight: 700; }
+        .ringkasan-box div { display: flex; justify-content: space-between; margin-bottom: 4px; }
+        .ringkasan-box div:last-child { margin-bottom: 0; font-weight: 700; }
 
         /* --- HOW TO --- */
         .step-box { display: flex; align-items: center; gap: 15px; margin-bottom: 12px; background: rgba(255, 255, 255, 0.45); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.5); padding: 15px; border-radius: 18px; margin: 0 15px 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.01); }
@@ -225,7 +223,7 @@
 
         /* --- FOOTER --- */
         footer { background: rgba(255, 255, 255, 0.5); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: 40px 20px; border-top: 1px solid rgba(255, 255, 255, 0.4); text-align: center; margin-top: 40px; }
-        .footer-logo { font-size: 20px; font-weight: 800; color: var(--primary); margin-bottom: 10px; display: block; text-decoration: none; }
+        .footer-logo { font-size: 20px; font-weight: 800; color: var(--primary); margin-bottom: 10px; display: block; text-decoration: none; letter-spacing: 1px; }
         .footer-info { font-size: 11px; color: #94a3b8; line-height: 1.8; margin-bottom: 20px; }
         .trust-logos { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 20px; opacity: 0.7; margin-top: 20px; }
         .trust-logos img { height: 20px; object-fit: contain; }
@@ -253,10 +251,10 @@
 
 <nav class="navbar">
     <div class="nav-container">
-        <a href="#" class="nav-logo">TUKPUL<span>CONVERT</span></a>
+        <a href="#" class="nav-logo">TC<span> MEDIA</span></a>
         <div class="nav-menu">
-            <a href="#rate">RATE</a>
-            <a href="#cara-kerja">TUTORIAL</a>
+            <a href="#rate">NILAI</a>
+            <a href="#cara-kerja">PANDUAN</a>
             <a href="#faq">FAQ</a>
         </div>
     </div>
@@ -264,20 +262,20 @@
 
 <div class="running-text">
     <div class="marquee-content">
-        ✨ Sukses tukar Rp 145.500 ke DANA (0812***) — ✨ Sukses tukar Rp 480.000 ke BCA (0895***) — ✨ Sukses tukar Rp 750.000 ke OVO (0877***) — ✨ Sukses tukar Rp 1.000.000 ke GOPAY (0813***)
+        ✨ Sukses proses alokasi 145.500 (0812***) — ✨ Sukses proses alokasi 480.000 (0895***) — ✨ Sukses proses alokasi 750.000 (0877***) — ✨ Sukses proses alokasi 1.000.000 (0813***)
     </div>
 </div>
 
 <div class="container">
     <div class="brand" id="main-brand">
-        <div class="badge-top">⭐ TERPERCAYA SEJAK 2024</div>
-        <h1>Tukar Saldo Pulsa Jadi Saldo Digital Instan</h1>
-        <div class="admin-status"><span class="dot"></span> Admin Online (08:00 - 03:45 WIB)</div>
+        <div class="badge-top">⭐ LAYANAN TERPERCAYA SEJAK 2024</div>
+        <h1>Optimasi Pulsa Sisa Anda Menjadi Lebih Produktif</h1>
+        <div class="admin-status"><span class="dot"></span> Layanan Aktif (08:00 - 03:45 WIB)</div>
     </div>
 
     <div id="step1_container" style="margin-top: 0px;">
         <div class="card" id="home">
-            <span style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 15px; display: block;">1. Pilih Provider</span>
+            <span style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 15px; display: block;">1. Pilih Jenis Layanan</span>
             <div class="providers">
                 <div class="provider" onclick="pilihProvider(this, 'Telkomsel', 0.88)">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Telkomsel_2021_icon.svg" alt="Tsel">
@@ -297,22 +295,22 @@
                 </div>
             </div>
 
-            <span style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 10px; display: block;">2. Isi Nominal</span>
-            <input type="number" id="nomor" placeholder="Nomor Pengirim (08...)">
-            <input type="text" id="nominal" placeholder="Nominal Pulsa (Minimal 30.000)">
+            <span style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 10px; display: block;">2. Isi Data Kuantitas</span>
+            <input type="number" id="nomor" placeholder="Nomor Kontak Utama (08...)">
+            <input type="text" id="nominal" placeholder="Jumlah Alokasi (Minimal 30.000)">
             
             <div class="estimasi">
-                <span style="font-size: 11px; color: #64748b; font-weight: 600;">Saldo yang Anda terima:</span><br>
-                <b id="hasil">Rp 0</b>
+                <span style="font-size: 11px; color: #64748b; font-weight: 600;">Estimasi Hasil Optimal:</span><br>
+                <b id="hasil">N/A 0</b>
             </div>
             
-            <button class="btn-primary" onclick="nextStep(2)">Lanjut Sekarang 🚀</button>
+            <button class="btn-primary" onclick="nextStep(2)">Lanjut Verifikasi 🚀</button>
         </div>
 
         <div class="rate-card-premium" id="rate">
             <div class="rate-card-header">
                 <div class="pulse-indicator"></div>
-                <h3>Update Rate Hari Ini</h3>
+                <h3>Update Nilai Efisiensi Hari Ini</h3>
             </div>
             
             <div class="rate-list">
@@ -349,95 +347,95 @@
                 </div>
             </div>
         </div>
-        <span class="section-title" id="cara-kerja">Cara Kerja</span>
+        <span class="section-title" id="cara-kerja">Alur Layanan</span>
         <div class="step-box">
             <div class="step-num">1</div>
-            <div class="step-text"><b>Isi Form & Hitung</b><span>Pilih provider & masukkan nominal.</span></div>
+            <div class="step-text"><b>Masukan Data Form</b><span>Tentukan kategori utama & jumlah alokasi pulsa sisa Anda.</span></div>
         </div>
         <div class="step-box">
             <div class="step-num">2</div>
-            <div class="step-text"><b>Transfer Pulsa</b><span>Kirim pulsa ke nomor admin kami.</span></div>
+            <div class="step-text"><b>Kirim Alokasi</b><span>Lakukan pengiriman unit ke kontak resmi kami.</span></div>
         </div>
         <div class="step-box">
             <div class="step-num">3</div>
-            <div class="step-text"><b>Terima Saldo</b><span>Saldo langsung masuk ke e-wallet atau akun digital Anda!!</span></div>
+            <div class="step-text"><b>Terima Manfaat</b><span>Hasil pemrosesan langsung diteruskan ke akun tujuan digital pilihan Anda!</span></div>
         </div>
 
         <span class="section-title" id="faq">Tanya Jawab (FAQ)</span>
         <div class="faq-item">
-            <button class="faq-question">Berapa lama prosesnya? <span>+</span></button>
-            <div class="faq-answer">Proses masuk rata-rata 1-5 menit setelah pulsa kami terima. Admin kami standby 24 jam untuk melayani Anda.</div>
+            <button class="faq-question">Berapa lama proses pengerjaan? <span>+</span></button>
+            <div class="faq-answer">Proses rata-rata membutuhkan waktu 1-5 menit setelah konfirmasi kami terima. Kami standby 24 jam untuk membantu Anda.</div>
         </div>
         <div class="faq-item">
-            <button class="faq-question">Berapa minimal tukar pulsa? <span>+</span></button>
-            <div class="faq-answer">Minimal penukaran pulsa di Tukpul Convert adalah Rp 30.000.</div>
+            <button class="faq-question">Berapa batas minimal alokasi? <span>+</span></button>
+            <div class="faq-answer">Batas minimal alokasi pulsa sisa di platform kami adalah senilai 30.000 unit.</div>
         </div>
         <div class="faq-item">
-            <button class="faq-question">Apakah ada biaya admin? <span>+</span></button>
-            <div class="faq-answer">Gratis biaya transfer untuk semua jenis E-Wallet!</div>
+            <button class="faq-question">Apakah ada potongan tambahan? <span>+</span></button>
+            <div class="faq-answer">Seluruh proses distribusi ke akun digital pilihan Anda tidak dikenakan potongan tambahan!</div>
         </div>
     </div>
 
     <div id="step2" style="display: none; margin-top: 20px;">
         <div class="card">
-            <h3 style="margin-top:0; font-size:18px; color: var(--primary); margin-bottom:15px;">Detail Pencairan</h3>
+            <h3 style="margin-top:0; font-size:18px; color: var(--primary); margin-bottom:15px;">Detail Layanan</h3>
             
             <div class="ringkasan-box">
-                <div class="ringkasan-row">
-                    <span>Provider & No. HP:</span>
+                <div>
+                    <span>Kategori & No. Pengirim:</span>
                     <span id="summary-provider">-</span>
                 </div>
-                <div class="ringkasan-row">
-                    <span>Nominal Pulsa:</span>
-                    <span id="summary-nominal">Rp 0</span>
+                <div>
+                    <span>Kuantitas Pulsa:</span>
+                    <span id="summary-nominal">0</span>
                 </div>
-                <div class="ringkasan-row">
-                    <span>Saldo Diterima:</span>
-                    <span id="summary-terima" style="color:#1d4ed8;">Rp 0</span>
+                <div>
+                    <span>Hasil Efisiensi:</span>
+                    <span id="summary-terima" style="color:#1d4ed8;">0</span>
                 </div>
             </div>
 
             <select id="tujuan">
-                <option value="">Pilih Bank / E-Wallet</option>
-                <option value="DANA">DANA</option>
-                <option value="OVO">OVO</option>
-                <option value="GOPAY">GOPAY</option>
-                <option value="LINK AJA">LINKAJA</option>
-                <option value="SAKUKU">SAKUKU</option>
-                <option value="SHOPEEPAY">SHOPEEPAY</option>
-                <option value="SEABANK">SEABANK</option>
-                <option value="BCA">Bank Central Asia</option>
-                <option value="BRI">Bank Rakyat Indonesia</option>
-                <option value="BNI">Bank Negara Indonesia</option>
-                <option value="BTN">Bank Tabungan Negara</option>
-                <option value="NOBU">Bank Nation Nobu</option>
-                <option value="MANDIRI">Bank Mandiri</option>
+                <option value="">Pilih Opsi Akun Digital</option>
+                <option value="DANA">Pilihan D</option>
+                <option value="OVO">Pilihan O</option>
+                <option value="GOPAY">Pilihan G</option>
+                <option value="LINK AJA">Pilihan L</option>
+                <option value="SAKUKU">Pilihan S</option>
+                <option value="SHOPEEPAY">Pilihan SP</option>
+                <option value="SEABANK">Pilihan SB</option>
+                <option value="BCA">Akses B-C-A</option>
+                <option value="BRI">Akses B-R-I</option>
+                <option value="BNI">Akses B-N-I</option>
+                <option value="BTN">Akses B-T-N</option>
+                <option value="NOBU">Akses N-B</option>
+                <option value="MANDIRI">Akses M-D-R</option>
             </select>
-            <input type="text" id="rekening" placeholder="Nomor Rekening / HP">
-            <input type="text" id="nama" placeholder="Atas Nama Pemilik">
-            <button class="btn-primary" onclick="return nextStep(3)">Konfirmasi & Tukar</button>
+            <input type="text" id="rekening" placeholder="ID Akun / Nomor Verifikasi">
+            <input type="text" id="nama" placeholder="Nama Lengkap Pemilik">
+            <button class="btn-primary" onclick="return nextStep(3)">Konfirmasi & Selesaikan</button>
 
-            <p style="text-align:center; margin-top: 15px;"><a href="#" onclick="location.reload()" style="font-size:13px; color:#ef4444; font-weight:600; text-decoration:none;">← Batal & Ulangi Transaksi</a></p>
+            <p style="text-align:center; margin-top: 15px;"><a href="#" onclick="location.reload()" style="font-size:13px; color:#ef4444; font-weight:600; text-decoration:none;">← Batalkan Proses</a></p>
         </div>
     </div>
 
     <div id="info_footer_container">
         <div style="padding: 20px 15px;">
             <h4 style="color: var(--primary); margin-bottom: 5px; font-size: 14px;">Tentang Kami</h4>
-            <p style="font-size: 11px; color: #666; line-height: 1.6;"> Tukpul Convert adalah layanan tukar pulsa dengan proses cepat dan transparan. Cek rate terbaru dan lakukan transaksi dengan mudah melalui website resmi kami..</p>
+            <p style="font-size: 11px; color: #666; line-height: 1.6;">Kami adalah platform penyedia layanan optimasi pulsa sisa dengan alur pemrosesan cepat dan transparan. Cek nilai harian terbaru dan kelola utilitas pulsa Anda dengan mudah lewat sistem satu pintu terintegrasi.</p>
             
-            <h4 style="color: var(--primary); margin-top: 15px; margin-bottom: 5px; font-size: 14px;">Syarat & Ketentuan</h4>
+            <h4 style="color: var(--primary); margin-top: 15px; margin-bottom: 5px; font-size: 14px;">Ketentuan Layanan</h4>
             <ul style="font-size: 10px; color: #666; padding-left: 15px; line-height: 1.5;">
-                <li>Hanya menerima transfer saldo pulsa dari sumber yang sah dan resmi.</li>
-                <li>Pastikan nomor tujuan atau e-wallet sudah benar sebelum konfirmasi.</li>                       
-                <li>Transaksi tidak sesuai format maka tidak bisa dicarkan .</li>
-                <li>Segala bentuk penipuan akan dilaporkan ke pihak berwajib.</li>
+                <li>Hanya menerima distribusi pulsa dari sumber legalitas yang sah milik pengguna pribadi.</li>
+                <li>Pastikan seluruh ID akun verifikasi sudah sesuai sebelum menekan tombol konfirmasi.</li>                       
+                <li>Pemrosesan yang tidak mengikuti standarisasi format akan memerlukan validasi manual lebih lama.</li>
+                <li>Tindakan manipulasi data akan kami tindak lanjuti secara tegas bersama pihak berwenang.</li>
             </ul>
         </div>
 
         <footer>
-            <a href="#" class="footer-logo">TUKAR<span>PULSA</span></a>
-            <p class="footer-info">© 2026 Tukarpulsa ID. Seluruh Hak Cipta Dilindungi.</p>
+            <a href="#" class="footer-logo">TC<span> MEDIA</span></a>
+            <p class="footer-info">© 2026 TC Media ID. Seluruh Hak Cipta Dilindungi.</p>
             <div class="trust-logos">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg" alt="DANA" style="height: 20px; object-fit: contain;">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Logo_ovo_purple.svg" alt="OVO" style="height: 20px; object-fit: contain;">
@@ -448,7 +446,7 @@
     </div>
 </div>
 
-<a href="https://wa.me/6289530922938?text=Halo%20saya%20ingin%20convert%20pulsa" class="floating-wa" target="_blank">
+<a href="https://wa.me/6289530922938?text=Halo%20saya%20ingin%20konsultasi%20optimasi%20pulsa" class="floating-wa" target="_blank">
     <i class="fab fa-whatsapp"></i>
 </a>
 
@@ -456,7 +454,7 @@
 let selectedProvider = ""; 
 let rate = 0;
 
-// 1. FUNGSI PILIH PROVIDER & CEKLIS
+// 1. FUNGSI PILIH PROVIDER
 function pilihProvider(el, nama, r) {
     document.querySelectorAll('.provider').forEach(p => p.classList.remove('active'));
     el.classList.add('active');
@@ -465,7 +463,7 @@ function pilihProvider(el, nama, r) {
     hitung();
 }
 
-// 2. FORMAT RUPIAH OTOMATIS
+// 2. FORMAT IDR OTOMATIS
 document.getElementById('nominal').addEventListener('input', function() {
     let val = this.value.replace(/\D/g, '');
     this.value = val ? parseInt(val).toLocaleString('id-ID') : '';
@@ -481,9 +479,9 @@ function hitung() {
     let val = nominalInput.value.replace(/\./g, '');
     if (val && rate) {
         let total = Math.floor(val * rate);
-        hasilDisplay.innerText = "Rp " + total.toLocaleString('id-ID');
+        hasilDisplay.innerText = "Nilai: " + total.toLocaleString('id-ID');
     } else {
-        hasilDisplay.innerText = "Rp 0";
+        hasilDisplay.innerText = "N/A 0";
     }
 }
 
@@ -493,9 +491,8 @@ function nextStep(step) {
         const nominalVal = document.getElementById('nominal').value;
         const nomorVal = document.getElementById('nomor').value;
 
-        // Validasi input
         if (!selectedProvider || !nominalVal || nomorVal.length < 10) {
-            alert("Mohon lengkapi Provider, Nomor HP, dan Nominal!");
+            alert("Mohon lengkapi jenis layanan, nomor kontak, dan jumlah alokasi!");
             return;
         }
 
@@ -505,21 +502,18 @@ function nextStep(step) {
         const infofooter = document.getElementById('info_footer_container');
 
         if (s1 && s2) {
-            // SET TEXT RINGKASAN DATA KE HALAMAN KEDUA
             document.getElementById('summary-provider').innerText = selectedProvider + " (" + nomorVal + ")";
-            document.getElementById('summary-nominal').innerText = "Rp " + nominalVal;
+            document.getElementById('summary-nominal').innerText = nominalVal + " unit";
             document.getElementById('summary-terima').innerText = document.getElementById('hasil').innerText;
 
-            // RESPONSIVE LAYOUT ACTION
-            brand.style.display = 'none';          // Sembunyikan banner utama biar form naik ke atas
-            s1.style.display = 'none';             // Menyembunyikan seluruh isi Halaman Depan
-            infofooter.style.display = 'none';     // Menyembunyikan Info/Footer
+            brand.style.display = 'none';          
+            s1.style.display = 'none';             
+            infofooter.style.display = 'none';     
             
-            s2.style.display = 'block';            // Memunculkan Detail Pencairan langsung di atas
-            
-            window.scrollTo(0, 0);                 // Mengembalikan scroll layar otomatis ke paling atas
+            s2.style.display = 'block';            
+            window.scrollTo(0, 0);                 
         } else {
-            alert("Terjadi kesalahan teknis. ID container tidak ditemukan.");
+            alert("Terjadi kesalahan teknis. Sistem gagal memuat halaman baru.");
         }
 
     } else if (step === 3) {
@@ -530,19 +524,19 @@ function nextStep(step) {
         const nominalValue = document.getElementById('nominal').value;
 
         if (!tujuan || !rekening || !nama) {
-            alert("Mohon lengkapi Detail Pencairan!");
+            alert("Mohon lengkapi Detail Layanan!");
             return;
         }
 
         const noWA = "6289530922938";
-        const pesan = "Halo Admin, saya mau convert pulsa:\n\n" +
-            "- Provider: " + selectedProvider + "\n" +
-            "- Nominal: " + nominalValue + "\n" +
-            "- No. Pengirim: " + nomorPengirim + "\n\n" +
-            "Detail Pencairan:\n" +
-            "- Bank/E-Wallet: " + tujuan + "\n" +
-            "- No. Rekening: " + rekening + "\n" +
-            "- Atas Nama: " + nama;
+        const pesan = "Halo Admin, saya ingin mengajukan alokasi pulsa sisa:\n\n" +
+            "- Kategori: " + selectedProvider + "\n" +
+            "- Jumlah: " + nominalValue + " unit\n" +
+            "- Kontak Pengirim: " + nomorPengirim + "\n\n" +
+            "Detail Penyaluran:\n" +
+            "- Akun Digital Pilihan: " + tujuan + "\n" +
+            "- ID Verifikasi: " + rekening + "\n" +
+            "- Atas Nama Pemilik: " + nama;
 
         return gtag_report_conversion(
             "https://wa.me/" + noWA + "?text=" + encodeURIComponent(pesan)
@@ -562,4 +556,4 @@ document.querySelectorAll('.faq-question').forEach(button => {
 </script>
 
 </body>
-                </html>
+</html>
