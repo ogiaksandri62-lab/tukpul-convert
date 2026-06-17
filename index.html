@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TC - Optimasi Pulsa Sisa Anda Jadi Lebih Bermanfaat</title>
+    <title>TC Media - Solusi Optimasi Pulsa Sisa Terpercaya</title>
     <link rel="icon" href="/favicon.png">
     <meta name="google-site-verification" content="FCw9zkMfRO2UmQs-p4uL9Q6s6vL4PeAUZQXZRbEsHxQ" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17887360187"></script>
@@ -262,7 +262,7 @@
 
 <div class="running-text">
     <div class="marquee-content">
-        ✨ Sukses proses alokasi 145.500 (0812***) — ✨ Sukses proses alokasi 480.000 (0895***) — ✨ Sukses proses alokasi 750.000 (0877***) — ✨ Sukses proses alokasi 1.000.000 (0813***)
+        ✨ Sukses proses transaksi Rp 145.500 (0812***) — ✨ Sukses proses transaksi Rp 480.000 (0895***) — ✨ Sukses proses transaksi Rp 750.000 (0877***) — ✨ Sukses proses transaksi Rp 1.000.000 (0813***)
     </div>
 </div>
 
@@ -275,14 +275,14 @@
 
     <div id="step1_container" style="margin-top: 0px;">
         <div class="card" id="home">
-            <span style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 15px; display: block;">1. Pilih Jenis Layanan</span>
+            <span style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 15px; display: block;">1. Pilih Operator</span>
             <div class="providers">
                 <div class="provider" onclick="pilihProvider(this, 'Telkomsel', 0.88)">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Telkomsel_2021_icon.svg" alt="Tsel">
                     <span>Telkomsel</span>
                 </div>
                 <div class="provider" onclick="pilihProvider(this, 'Indosat', 0.90)">
-                    <img src="im3-ooredoo-logo-png_seeklogo-326756.png" alt="Isat" style="height: 25px;">
+                    <img src="im3-ooredoo-logo-png_seeklogo-326756.png" alt="Isat" style="height: 32px;">
                     <span>Indosat</span>
                 </div>
                 <div class="provider" onclick="pilihProvider(this, 'XL/Axis', 0.91)">
@@ -295,13 +295,13 @@
                 </div>
             </div>
 
-            <span style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 10px; display: block;">2. Isi Data Kuantitas</span>
-            <input type="number" id="nomor" placeholder="Nomor Kontak Utama (08...)">
-            <input type="text" id="nominal" placeholder="Jumlah Alokasi (Minimal 30.000)">
+            <span style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 10px; display: block;">2. Tentukan Nominal</span>
+            <input type="number" id="nomor" placeholder="Nomor Kontak Pengirim (08...)">
+            <input type="text" id="nominal" placeholder="Jumlah Pulsa (Minimal 30.000)">
             
             <div class="estimasi">
-                <span style="font-size: 11px; color: #64748b; font-weight: 600;">Estimasi Hasil Optimal:</span><br>
-                <b id="hasil">N/A 0</b>
+                <span style="font-size: 11px; color: #64748b; font-weight: 600;">Total yang Anda terima:</span><br>
+                <b id="hasil">Rp 0</b>
             </div>
             
             <button class="btn-primary" onclick="nextStep(2)">Lanjut Verifikasi 🚀</button>
@@ -347,18 +347,19 @@
                 </div>
             </div>
         </div>
+        
         <span class="section-title" id="cara-kerja">Alur Layanan</span>
         <div class="step-box">
             <div class="step-num">1</div>
-            <div class="step-text"><b>Masukan Data Form</b><span>Tentukan kategori utama & jumlah alokasi pulsa sisa Anda.</span></div>
+            <div class="step-text"><b>Isi Data Form</b><span>Masukkan operator dan jumlah pulsa yang ingin Anda proses.</span></div>
         </div>
         <div class="step-box">
             <div class="step-num">2</div>
-            <div class="step-text"><b>Kirim Alokasi</b><span>Lakukan pengiriman unit ke kontak resmi kami.</span></div>
+            <div class="step-text"><b>Kirim Pulsa</b><span>Lakukan transfer pulsa ke nomor resmi yang diberikan oleh admin.</span></div>
         </div>
         <div class="step-box">
             <div class="step-num">3</div>
-            <div class="step-text"><b>Terima Manfaat</b><span>Hasil pemrosesan langsung diteruskan ke akun tujuan digital pilihan Anda!</span></div>
+            <div class="step-text"><b>Saldo Cair</b><span>Dana langsung diteruskan ke e-wallet atau rekening bank pilihan Anda!</span></div>
         </div>
 
         <span class="section-title" id="faq">Tanya Jawab (FAQ)</span>
@@ -367,51 +368,47 @@
             <div class="faq-answer">Proses rata-rata membutuhkan waktu 1-5 menit setelah konfirmasi kami terima. Kami standby 24 jam untuk membantu Anda.</div>
         </div>
         <div class="faq-item">
-            <button class="faq-question">Berapa batas minimal alokasi? <span>+</span></button>
-            <div class="faq-answer">Batas minimal alokasi pulsa sisa di platform kami adalah senilai 30.000 unit.</div>
+            <button class="faq-question">Berapa batas minimal pengiriman? <span>+</span></button>
+            <div class="faq-answer">Batas minimal pengiriman pulsa sisa di platform kami adalah senilai Rp 30.000.</div>
         </div>
         <div class="faq-item">
             <button class="faq-question">Apakah ada potongan tambahan? <span>+</span></button>
-            <div class="faq-answer">Seluruh proses distribusi ke akun digital pilihan Anda tidak dikenakan potongan tambahan!</div>
+            <div class="faq-answer">Seluruh proses distribusi ke tujuan pilihan Anda bebas dari biaya potongan tambahan!</div>
         </div>
     </div>
 
     <div id="step2" style="display: none; margin-top: 20px;">
         <div class="card">
-            <h3 style="margin-top:0; font-size:18px; color: var(--primary); margin-bottom:15px;">Detail Layanan</h3>
+            <h3 style="margin-top:0; font-size:18px; color: var(--primary); margin-bottom:15px;">Detail Penyaluran</h3>
             
             <div class="ringkasan-box">
                 <div>
-                    <span>Kategori & No. Pengirim:</span>
+                    <span>Operator & No. Pengirim:</span>
                     <span id="summary-provider">-</span>
                 </div>
                 <div>
-                    <span>Kuantitas Pulsa:</span>
-                    <span id="summary-nominal">0</span>
+                    <span>Total Pulsa:</span>
+                    <span id="summary-nominal">Rp 0</span>
                 </div>
                 <div>
-                    <span>Hasil Efisiensi:</span>
-                    <span id="summary-terima" style="color:#1d4ed8;">0</span>
+                    <span>Total Diterima:</span>
+                    <span id="summary-terima" style="color:#1d4ed8;">Rp 0</span>
                 </div>
             </div>
 
             <select id="tujuan">
                 <option value="">Pilih Opsi Akun Digital</option>
-                <option value="DANA">Pilihan D</option>
-                <option value="OVO">Pilihan O</option>
-                <option value="GOPAY">Pilihan G</option>
-                <option value="LINK AJA">Pilihan L</option>
-                <option value="SAKUKU">Pilihan S</option>
-                <option value="SHOPEEPAY">Pilihan SP</option>
-                <option value="SEABANK">Pilihan SB</option>
-                <option value="BCA">Akses B-C-A</option>
-                <option value="BRI">Akses B-R-I</option>
-                <option value="BNI">Akses B-N-I</option>
-                <option value="BTN">Akses B-T-N</option>
-                <option value="NOBU">Akses N-B</option>
-                <option value="MANDIRI">Akses M-D-R</option>
+                <option value="DANA">DANA (E-Wallet)</option>
+                <option value="OVO">OVO (E-Wallet)</option>
+                <option value="GOPAY">GOPAY (E-Wallet)</option>
+                <option value="LINK AJA">LINKAJA (E-Wallet)</option>
+                <option value="SHOPEEPAY">SHOPEEPAY (E-Wallet)</option>
+                <option value="BCA">Bank BCA</option>
+                <option value="BRI">Bank BRI</option>
+                <option value="BNI">Bank BNI</option>
+                <option value="MANDIRI">Bank Mandiri</option>
             </select>
-            <input type="text" id="rekening" placeholder="ID Akun / Nomor Verifikasi">
+            <input type="text" id="rekening" placeholder="ID Akun / Nomor Rekening Tujuan">
             <input type="text" id="nama" placeholder="Nama Lengkap Pemilik">
             <button class="btn-primary" onclick="return nextStep(3)">Konfirmasi & Selesaikan</button>
 
@@ -479,9 +476,9 @@ function hitung() {
     let val = nominalInput.value.replace(/\./g, '');
     if (val && rate) {
         let total = Math.floor(val * rate);
-        hasilDisplay.innerText = "Nilai: " + total.toLocaleString('id-ID');
+        hasilDisplay.innerText = "Rp " + total.toLocaleString('id-ID');
     } else {
-        hasilDisplay.innerText = "N/A 0";
+        hasilDisplay.innerText = "Rp 0";
     }
 }
 
@@ -492,7 +489,7 @@ function nextStep(step) {
         const nomorVal = document.getElementById('nomor').value;
 
         if (!selectedProvider || !nominalVal || nomorVal.length < 10) {
-            alert("Mohon lengkapi jenis layanan, nomor kontak, dan jumlah alokasi!");
+            alert("Mohon lengkapi jenis operator, nomor kontak, dan nominal!");
             return;
         }
 
@@ -503,7 +500,7 @@ function nextStep(step) {
 
         if (s1 && s2) {
             document.getElementById('summary-provider').innerText = selectedProvider + " (" + nomorVal + ")";
-            document.getElementById('summary-nominal').innerText = nominalVal + " unit";
+            document.getElementById('summary-nominal').innerText = "Rp " + nominalVal;
             document.getElementById('summary-terima').innerText = document.getElementById('hasil').innerText;
 
             brand.style.display = 'none';          
@@ -513,7 +510,7 @@ function nextStep(step) {
             s2.style.display = 'block';            
             window.scrollTo(0, 0);                 
         } else {
-            alert("Terjadi kesalahan teknis. Sistem gagal memuat halaman baru.");
+            alert("Terjadi kesalahan teknis. Sistem gagal memuat halaman.");
         }
 
     } else if (step === 3) {
@@ -529,14 +526,14 @@ function nextStep(step) {
         }
 
         const noWA = "6289530922938";
-        const pesan = "Halo Admin, saya ingin mengajukan alokasi pulsa sisa:\n\n" +
-            "- Kategori: " + selectedProvider + "\n" +
-            "- Jumlah: " + nominalValue + " unit\n" +
-            "- Kontak Pengirim: " + nomorPengirim + "\n\n" +
-            "Detail Penyaluran:\n" +
-            "- Akun Digital Pilihan: " + tujuan + "\n" +
-            "- ID Verifikasi: " + rekening + "\n" +
-            "- Atas Nama Pemilik: " + nama;
+        const pesan = "Halo Admin, saya ingin proses pulsa sisa:\n\n" +
+            "- Operator: " + selectedProvider + "\n" +
+            "- Jumlah Pulsa: Rp " + nominalValue + "\n" +
+            "- No. Pengirim: " + nomorPengirim + "\n\n" +
+            "Detail Tujuan:\n" +
+            "- Opsi Tujuan: " + tujuan + "\n" +
+            "- No. Rekening/E-Wallet: " + rekening + "\n" +
+            "- Atas Nama: " + nama;
 
         return gtag_report_conversion(
             "https://wa.me/" + noWA + "?text=" + encodeURIComponent(pesan)
