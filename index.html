@@ -245,6 +245,41 @@
             text-decoration: none; 
             font-size: 28px; 
         }
+
+        /* --- STYLE TAMBAHAN: STATISTIK & TESTIMONI --- */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 20px;
+            padding: 15px 10px;
+            margin: 25px 15px 15px;
+            box-shadow: 0 8px 24px rgba(31, 38, 135, 0.03);
+            text-align: center;
+        }
+        .stat-box h3 { font-size: 16px; font-weight: 800; color: var(--primary); margin: 0 0 2px 0; }
+        .stat-box p { font-size: 10px; color: #64748b; margin: 0; font-weight: 600; }
+        
+        .testi-card {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 20px;
+            padding: 15px;
+            margin: 0 15px 12px;
+            box-shadow: 0 8px 24px rgba(31, 38, 135, 0.03);
+        }
+        .testi-stars { color: #fbbf24; font-size: 12px; margin-bottom: 6px; }
+        .testi-text { font-size: 11px; color: #475569; line-height: 1.5; margin: 0 0 10px 0; font-style: italic; }
+        .testi-user { display: flex; align-items: center; gap: 10px; }
+        .user-avatar { width: 32px; height: 32px; background: rgba(217, 249, 157, 0.6); color: #4d7c0f; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: 700; font-size: 12px; }
+        .user-info h4 { font-size: 11px; color: #1e293b; margin: 0 0 1px 0; font-weight: 700; }
+        .user-info p { font-size: 9px; color: #94a3b8; margin: 0; }
     </style>
 </head>
 <body>
@@ -270,7 +305,7 @@
     <div class="brand" id="main-brand">
         <div class="badge-top">⭐ LAYANAN TERPERCAYA SEJAK 2024</div>
         <h1>Punya Pulsa Sisa Tak Terpakai? Cairkan Di Sini</h1>
-        <div class="admin-status"><span class="dot"></span> Layanan Aktif (08:00 - 05:45 WIB)</div>
+        <div class="admin-status"><span class="dot"></span> Layanan Active (08:00 - 05:45 WIB)</div>
     </div>
 
     <div id="step1_container" style="margin-top: 0px;">
@@ -360,6 +395,49 @@
         <div class="step-box">
             <div class="step-num">3</div>
             <div class="step-text"><b>Saldo Cair</b><span>Dana langsung diteruskan ke e-wallet atau rekening bank pilihan Anda!</span></div>
+        </div>
+
+        <!-- --- KOMPONEN BARU: STATISTIK TRANS-AKSI --- -->
+        <div class="stats-container">
+            <div class="stat-box">
+                <h3>15.4K+</h3>
+                <p>Transaksi</p>
+            </div>
+            <div class="stat-box">
+                <h3>99.8%</h3>
+                <p>Puas</p>
+            </div>
+            <div class="stat-box">
+                <h3>5 Menit</h3>
+                <p>Proses Rata²</p>
+            </div>
+        </div>
+
+        <!-- --- KOMPONEN BARU: TESTIMONI PELANGGAN --- -->
+        <span class="section-title">Testimoni Pelanggan</span>
+        
+        <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">"Awalnya ragu coba-coba, ternyata beneran secepat itu prosesnya. Gak sampai 5 menit saldo DANA langsung masuk. Rate Telkomsel mantap!"</p>
+            <div class="testi-user">
+                <div class="user-avatar" style="background:#dbeafe; color:#1e40af;">A</div>
+                <div class="user-info">
+                    <h4>Andi S.</h4>
+                    <p>Pelanggan Telkomsel</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">"Punya pulsa xl numpuk gak kepakai, untung nemu web ini. Respon admin lewat WA juga ramah banget pas dibimbing transfer pulsanya."</p>
+            <div class="testi-user">
+                <div class="user-avatar" style="background:#fef3c7; color:#92400e;">N</div>
+                <div class="user-info">
+                    <h4>Nadia R.</h4>
+                    <p>Pelanggan XL / Axis</p>
+                </div>
+            </div>
         </div>
 
         <span class="section-title" id="faq">Tanya Jawab (FAQ)</span>
