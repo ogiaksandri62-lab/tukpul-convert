@@ -264,6 +264,9 @@
         .stat-box h3 { font-size: 16px; font-weight: 800; color: var(--primary); margin: 0 0 2px 0; }
         .stat-box p { font-size: 10px; color: #64748b; margin: 0; font-weight: 600; }
         
+        /* Bintang pada Statistik */
+        .stat-stars { color: #fbbf24; font-size: 11px; margin-bottom: 3px; display: block; }
+
         .testi-card {
             background: rgba(255, 255, 255, 0.45);
             backdrop-filter: blur(16px);
@@ -305,7 +308,7 @@
     <div class="brand" id="main-brand">
         <div class="badge-top">⭐ LAYANAN TERPERCAYA SEJAK 2024</div>
         <h1>Punya Pulsa Sisa Tak Terpakai? Cairkan Di Sini</h1>
-        <div class="admin-status"><span class="dot"></span> Layanan Active (08:00 - 05:45 WIB)</div>
+        <div class="admin-status"><span class="dot"></span> Layanan Aktif (08:00 - 05:45 WIB)</div>
     </div>
 
     <div id="step1_container" style="margin-top: 0px;">
@@ -397,15 +400,16 @@
             <div class="step-text"><b>Saldo Cair</b><span>Dana langsung diteruskan ke e-wallet atau rekening bank pilihan Anda!</span></div>
         </div>
 
-        <!-- --- KOMPONEN BARU: STATISTIK TRANS-AKSI --- -->
+        <!-- --- MODIFIKASI: STATISTIK TRANSAKSI MENGGUNAKAN BINTANG --- -->
         <div class="stats-container">
             <div class="stat-box">
                 <h3>15.4K+</h3>
                 <p>Transaksi</p>
             </div>
             <div class="stat-box">
-                <h3>99.8%</h3>
-                <p>Puas</p>
+                <span class="stat-stars">★★★★★</span>
+                <h3>4.9 / 5.0</h3>
+                <p>Rating Puas</p>
             </div>
             <div class="stat-box">
                 <h3>5 Menit</h3>
@@ -413,9 +417,10 @@
             </div>
         </div>
 
-        <!-- --- KOMPONEN BARU: TESTIMONI PELANGGAN --- -->
+        <!-- --- TESTIMONI PELANGGAN (4 BUAH) --- -->
         <span class="section-title">Testimoni Pelanggan</span>
         
+        <!-- Testi 1 -->
         <div class="testi-card">
             <div class="testi-stars">★★★★★</div>
             <p class="testi-text">"Awalnya ragu coba-coba, ternyata beneran secepat itu prosesnya. Gak sampai 5 menit saldo DANA langsung masuk. Rate Telkomsel mantap!"</p>
@@ -428,6 +433,7 @@
             </div>
         </div>
 
+        <!-- Testi 2 -->
         <div class="testi-card">
             <div class="testi-stars">★★★★★</div>
             <p class="testi-text">"Punya pulsa xl numpuk gak kepakai, untung nemu web ini. Respon admin lewat WA juga ramah banget pas dibimbing transfer pulsanya."</p>
@@ -436,6 +442,32 @@
                 <div class="user-info">
                     <h4>Nadia R.</h4>
                     <p>Pelanggan XL / Axis</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testi 3 -->
+        <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">"Udah langganan convert pulsa Indosat di sini. Selalu puas sama pelayanannya yang amanah dan transparan tanpa ada biaya potongan tersembunyi."</p>
+            <div class="testi-user">
+                <div class="user-avatar" style="background:#f3e8ff; color:#6b21a8;">F</div>
+                <div class="user-info">
+                    <h4>Fahmi K.</h4>
+                    <p>Pelanggan Indosat</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testi 4 -->
+        <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">"Tampilan webnya simpel di HP jadi gampang banget buat hitung estimasi rate pulsa Three. Sistemnya beres cepet, top pokoknya!"</p>
+            <div class="testi-user">
+                <div class="user-avatar" style="background:#e0f2fe; color:#0369a1;">M</div>
+                <div class="user-info">
+                    <h4>Meilan D.</h4>
+                    <p>Pelanggan Three</p>
                 </div>
             </div>
         </div>
