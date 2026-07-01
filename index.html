@@ -86,26 +86,27 @@
         }
         .section-title { font-size: 15px; font-weight: 700; margin: 25px 20px 12px; display: block; color: #1e293b; padding-top: 20px; }
         
-        .providers { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
-        .provider { padding: 15px; border-radius: 18px; border: 1px solid rgba(255, 255, 255, 0.5); text-align: center; cursor: pointer; transition: 0.3s; background: rgba(255, 255, 255, 0.5); position: relative; }
-        .provider img { height: 32px; margin-bottom: 8px; object-fit: contain; }
-        .provider span { font-size: 12px; font-weight: 700; display: block; }
+        /* MODIFIKASI: Menjadi 3 kolom di mobile agar memuat 6 provider dengan rapi */
+        .providers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
+        .provider { padding: 12px 8px; border-radius: 18px; border: 1px solid rgba(255, 255, 255, 0.5); text-align: center; cursor: pointer; transition: 0.3s; background: rgba(255, 255, 255, 0.5); position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .provider img { height: 35px; width: 35px; margin-bottom: 6px; object-fit: contain; }
+        .provider span { font-size: 11px; font-weight: 700; display: block; line-height: 1.2; }
         .provider.active { border-color: var(--primary); background: rgba(239, 246, 255, 0.8); transform: scale(1.03); }
         
         .provider.active::after {
             content: '✓';
             position: absolute;
-            top: -8px;
-            right: -8px;
+            top: -5px;
+            right: -5px;
             background: #1d4ed8;
             color: white;
-            width: 22px;
-            height: 22px;
+            width: 18px;
+            height: 18px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
+            font-size: 10px;
             font-weight: bold;
             border: 2px solid white;
             z-index: 10;
@@ -316,17 +317,29 @@
                     <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Telkomsel_2021_icon.svg" alt="Tsel">
                     <span>Telkomsel</span>
                 </div>
-                <div class="provider" onclick="pilihProvider(this, 'Indosat', 0.90)">
-                    <img src="im3-ooredoo-logo-png_seeklogo-326756.png" alt="Isat" style="height: 32px;">
-                    <span>Indosat</span>
+                <div class="provider" onclick="pilihProvider(this, 'Axis', 0.93)">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Axis_logo_2014.svg/1200px-Axis_logo_2014.svg.png" alt="Axis">
+                    <span>Axis</span>
                 </div>
-                <div class="provider" onclick="pilihProvider(this, 'XL/Axis', 0.93)">
-                    <img src="1771848312305.png" alt="XL">
-                    <span>XL / Axis</span>
+                <div class="provider" onclick="pilihProvider(this, 'XL', 0.93)">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/XL_Axiata_logo_2016.svg/1200px-XL_Axiata_logo_2016.svg.png" alt="XL">
+                    <span>XL</span>
                 </div>
                 <div class="provider" onclick="pilihProvider(this, 'Three', 0.91)">
                     <img src="1771848121156.png" alt="3">
-                    <span>Three</span>
+                    <span>Tri</span>
+                </div>
+                <div class="provider" onclick="pilihProvider(this, 'Indosat', 0.90)">
+                    <img src="im3-ooredoo-logo-png_seeklogo-326756.png" alt="Isat">
+                    <span>Indosat</span>
+                </div>
+                <div class="provider" onclick="pilihProvider(this, 'Smartfren', 0.85)">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Smartfren_logo.svg/1200px-Smartfren_logo.svg.png" alt="Smartfren">
+                    <span>Smartfren</span>
+                </div>
+                <div class="provider" onclick="pilihProvider(this, 'by.U', 0.88)">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/By.U_logo.svg/1200px-By.U_logo.svg.png" alt="by.U">
+                    <span>by.U</span>
                 </div>
             </div>
 
@@ -359,6 +372,30 @@
 
                 <div class="rate-item">
                     <div class="provider-meta">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Axis_logo_2014.svg/1200px-Axis_logo_2014.svg.png" alt="Axis">
+                        <span>Axis</span>
+                    </div>
+                    <div class="pill-badge highest-tier">0.93</div>
+                </div>
+
+                <div class="rate-item">
+                    <div class="provider-meta">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/XL_Axiata_logo_2016.svg/1200px-XL_Axiata_logo_2016.svg.png" alt="XL">
+                        <span>XL</span>
+                    </div>
+                    <div class="pill-badge highest-tier">0.93</div>
+                </div>
+
+                <div class="rate-item">
+                    <div class="provider-meta">
+                        <img src="1771848121156.png" alt="3">
+                        <span>Tri</span>
+                    </div>
+                    <div class="pill-badge">0.91</div>
+                </div>
+
+                <div class="rate-item">
+                    <div class="provider-meta">
                         <img src="im3-ooredoo-logo-png_seeklogo-326756.png" alt="Isat">
                         <span>Indosat</span>
                     </div>
@@ -367,18 +404,18 @@
 
                 <div class="rate-item">
                     <div class="provider-meta">
-                        <img src="1771848312305.png" alt="XL">
-                        <span>XL / Axis</span>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Smartfren_logo.svg/1200px-Smartfren_logo.svg.png" alt="Smartfren">
+                        <span>Smartfren</span>
                     </div>
-                    <div class="pill-badge highest-tier">0.93</div>
+                    <div class="pill-badge">0.85</div>
                 </div>
 
                 <div class="rate-item">
                     <div class="provider-meta">
-                        <img src="1771848121156.png" alt="3">
-                        <span>Three</span>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/By.U_logo.svg/1200px-By.U_logo.svg.png" alt="by.U">
+                        <span>by.U</span>
                     </div>
-                    <div class="pill-badge">0.91</div>
+                    <div class="pill-badge">0.88</div>
                 </div>
             </div>
         </div>
@@ -397,7 +434,6 @@
             <div class="step-text"><b>Saldo Cair</b><span>Dana langsung diteruskan ke e-wallet atau rekening bank pilihan Anda!</span></div>
         </div>
 
-        <!-- --- KOMPONEN BARU: STATISTIK TRANSAKSI --- -->
         <div class="stats-container">
             <div class="stat-box">
                 <h3>15.4K+</h3>
@@ -413,10 +449,8 @@
             </div>
         </div>
 
-        <!-- --- KOMPONEN BARU: TESTIMONI PELANGGAN (4 BUAH) --- -->
         <span class="section-title">Testimoni Pelanggan</span>
         
-        <!-- Testi 1 -->
         <div class="testi-card">
             <div class="testi-stars">★★★★★</div>
             <p class="testi-text">"Awalnya ragu coba-coba, ternyata beneran secepat itu prosesnya. Gak sampai 5 menit saldo DANA langsung masuk. Rate Telkomsel mantap!"</p>
@@ -429,7 +463,6 @@
             </div>
         </div>
 
-        <!-- Testi 2 -->
         <div class="testi-card">
             <div class="testi-stars">★★★★★</div>
             <p class="testi-text">"Punya pulsa xl numpuk gak kepakai, untung nemu web ini. Respon admin lewat WA juga ramah banget pas dibimbing transfer pulsanya."</p>
@@ -442,7 +475,6 @@
             </div>
         </div>
 
-        <!-- Testi 3 -->
         <div class="testi-card">
             <div class="testi-stars">★★★★★</div>
             <p class="testi-text">"Udah langganan convert pulsa Indosat di sini. Selalu puas sama pelayanannya yang amanah dan transparan tanpa ada biaya potongan tersembunyi."</p>
@@ -455,7 +487,6 @@
             </div>
         </div>
 
-        <!-- Testi 4 -->
         <div class="testi-card">
             <div class="testi-stars">★★★★★</div>
             <p class="testi-text">"Tampilan webnya simpel di HP jadi gampang banget buat hitung estimasi rate pulsa Three. Sistemnya beres cepet, top pokoknya!"</p>
