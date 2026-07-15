@@ -32,73 +32,149 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #1d4ed8; --secondary: #3b82f6; --success: #25d366; }
+        :root { 
+            --primary: #3b82f6; 
+            --primary-glow: rgba(59, 130, 246, 0.35); 
+            --success: #10b981; 
+            --bg-dark: #0b0f19;
+            --card-bg: rgba(255, 255, 255, 0.04);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+        }
         
-        /* --- EFEK GLASSMORPHISM BACKGROUND UTAMA --- */
+        * {
+            box-sizing: border-box;
+        }
+
+        /* --- PREMIUM DARK BACKGROUND --- */
         body { 
             font-family: 'Poppins', sans-serif; 
-            background: linear-gradient(135deg, #EBF2FA 0%, #DCE7F6 50%, #E5EDF9 100%);
+            background: radial-gradient(circle at top right, #1e293b 0%, var(--bg-dark) 60%);
             background-attachment: fixed; 
             margin: 0; 
             padding: 0; 
-            color: #334155; 
+            color: var(--text-main); 
             overflow-x: hidden; 
             scroll-behavior: smooth; 
         }
         .container { max-width: 500px; margin: auto; padding-bottom: 20px; }
 
         /* --- HEADER NAV --- */
-        .navbar { position: fixed; top: 0; left: 0; width: 100%; background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); z-index: 100; border-bottom: 1px solid rgba(255, 255, 255, 0.4); }
+        .navbar { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            background: rgba(11, 15, 25, 0.7); 
+            backdrop-filter: blur(15px); 
+            -webkit-backdrop-filter: blur(15px); 
+            z-index: 100; 
+            border-bottom: 1px solid var(--card-border); 
+        }
 
         .nav-container { max-width: 500px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; }
-        .nav-logo { font-weight: 800; font-size: 18px; color: var(--primary); text-decoration: none; letter-spacing: 1px; }
-        .nav-logo span { color: #334155; }
+        .nav-logo { font-weight: 800; font-size: 18px; color: #ffffff; text-decoration: none; letter-spacing: 1px; }
+        .nav-logo span { color: var(--primary); }
 
         .nav-menu { display: flex; gap: 15px; }
-        .nav-menu a { text-decoration: none; font-size: 11px; font-weight: 700; color: #64748b; transition: 0.3s; }
+        .nav-menu a { text-decoration: none; font-size: 11px; font-weight: 700; color: var(--text-muted); transition: 0.3s; }
         .nav-menu a:hover { color: var(--primary); }
 
         /* --- RUNNING TEXT --- */
-        .running-text { background: rgba(255, 255, 255, 0.5); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: 8px 0; font-size: 11px; font-weight: 600; color: var(--primary); border-bottom: 1px solid rgba(255, 255, 255, 0.3); white-space: nowrap; overflow: hidden; margin-top: 50px; }
+        .running-text { 
+            background: rgba(15, 23, 42, 0.6); 
+            backdrop-filter: blur(10px); 
+            -webkit-backdrop-filter: blur(10px); 
+            padding: 8px 0; 
+            font-size: 11px; 
+            font-weight: 600; 
+            color: #60a5fa; 
+            border-bottom: 1px solid var(--card-border); 
+            white-space: nowrap; 
+            overflow: hidden; 
+            margin-top: 50px; 
+        }
         .marquee-content { display: inline-block; animation: marquee 25s linear infinite; }
         @keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
-        /* --- BRAND --- */
-        .brand { background: linear-gradient(180deg, #1d4ed8 0%, #3b82f6 100%); text-align: center; padding: 40px 20px 80px; color: white; border-radius: 0 0 50px 50px; margin-bottom: -50px; }
-        .badge-top { background: rgba(255, 255, 255, 0.2); display: inline-block; padding: 6px 16px; border-radius: 20px; font-size: 11px; font-weight: 600; margin-bottom: 15px; }
-        .brand h1 { font-size: 24px; font-weight: 800; line-height: 1.2; margin: 0 auto; max-width: 350px; }
-        .admin-status { font-size: 11px; margin-top: 10px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 5px; }
-        .dot { width: 8px; height: 8px; background: #25d366; border-radius: 50%; display: inline-block; box-shadow: 0 0 8px #25d366; animation: pulse 1.5s infinite; }
+        /* --- BRAND HERO --- */
+        .brand { 
+            background: linear-gradient(180deg, #1e293b 0%, var(--bg-dark) 100%); 
+            text-align: center; 
+            padding: 40px 20px 80px; 
+            color: white; 
+            border-radius: 0 0 50px 50px; 
+            margin-bottom: -50px; 
+            border-bottom: 1px solid var(--card-border);
+        }
+        .badge-top { 
+            background: rgba(59, 130, 246, 0.15); 
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: #60a5fa;
+            display: inline-block; 
+            padding: 6px 16px; 
+            border-radius: 20px; 
+            font-size: 11px; 
+            font-weight: 600; 
+            margin-bottom: 15px; 
+            letter-spacing: 0.5px;
+        }
+        .brand h1 { 
+            font-size: 24px; 
+            font-weight: 800; 
+            line-height: 1.3; 
+            margin: 0 auto; 
+            max-width: 350px; 
+            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .admin-status { font-size: 11px; margin-top: 10px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 5px; color: var(--text-muted); }
+        .dot { width: 8px; height: 8px; background: var(--success); border-radius: 50%; display: inline-block; box-shadow: 0 0 12px var(--success); animation: pulse 1.5s infinite; }
         @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
 
-        /* --- CARD GLASSMORPHISM --- */
+        /* --- PREMIUM CARD GLASSMORPHISM --- */
         .card { 
-            background: rgba(255, 255, 255, 0.45); 
-            backdrop-filter: blur(16px); 
-            -webkit-backdrop-filter: blur(16px); 
-            border: 1px solid rgba(255, 255, 255, 0.6); 
+            background: var(--card-bg); 
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px); 
+            border: 1px solid var(--card-border); 
             border-radius: 24px; 
             padding: 25px 20px; 
-            box-shadow: 0 12px 32px rgba(31, 38, 135, 0.05); 
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35); 
             margin: 0 15px 25px; 
             position: relative; 
             z-index: 10; 
         }
-        .section-title { font-size: 15px; font-weight: 700; margin: 25px 20px 12px; display: block; color: #1e293b; padding-top: 20px; }
+        .section-title { font-size: 15px; font-weight: 700; margin: 25px 20px 12px; display: block; color: var(--text-main); padding-top: 20px; }
         
-        /* MODIFIKASI: Menjadi 3 kolom di mobile agar memuat 6 provider dengan rapi */
+        /* --- PROVIDERS GRID --- */
         .providers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
-        .provider { padding: 12px 8px; border-radius: 18px; border: 1px solid rgba(255, 255, 255, 0.5); text-align: center; cursor: pointer; transition: 0.3s; background: rgba(255, 255, 255, 0.5); position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-        .provider img { height: 35px; width: 35px; margin-bottom: 6px; object-fit: contain; }
-        .provider span { font-size: 11px; font-weight: 700; display: block; line-height: 1.2; }
-        .provider.active { border-color: var(--primary); background: rgba(239, 246, 255, 0.8); transform: scale(1.03); }
+        .provider { 
+            padding: 14px 8px; 
+            border-radius: 18px; 
+            border: 1px solid var(--card-border); 
+            text-align: center; 
+            cursor: pointer; 
+            transition: 0.3s; 
+            background: rgba(255, 255, 255, 0.02); 
+            position: relative; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+        }
+        .provider img { height: 32px; width: 32px; margin-bottom: 6px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); }
+        .provider span { font-size: 11px; font-weight: 700; display: block; line-height: 1.2; color: #e2e8f0; }
+        .provider.active { border-color: var(--primary); background: rgba(59, 130, 246, 0.12); transform: scale(1.03); box-shadow: 0 0 15px var(--primary-glow); }
         
         .provider.active::after {
             content: '✓';
             position: absolute;
             top: -5px;
             right: -5px;
-            background: #1d4ed8;
+            background: var(--primary);
             color: white;
             width: 18px;
             height: 18px;
@@ -108,28 +184,76 @@
             justify-content: center;
             font-size: 10px;
             font-weight: bold;
-            border: 2px solid white;
+            border: 2px solid var(--bg-dark);
             z-index: 10;
         }
 
-        /* --- INPUTS --- */
-        input, select { width: 100%; padding: 15px; border-radius: 15px; border: 1px solid rgba(226, 232, 240, 0.8); margin-bottom: 15px; font-size: 14px; box-sizing: border-box; outline: none; background: rgba(255, 255, 255, 0.7); transition: 0.3s; color: #334155; }
-        input:focus, select:focus { border-color: var(--primary); background: rgba(255, 255, 255, 0.95); }
-        .estimasi { background: rgba(255, 255, 255, 0.5); padding: 15px; border-radius: 15px; text-align: center; margin-bottom: 20px; border: 1px dashed rgba(29, 78, 216, 0.3); }
-        .estimasi b { color: var(--primary); font-size: 24px; }
-        .btn-primary { width: 100%; padding: 18px; border: none; border-radius: 18px; background: linear-gradient(135deg, #1d4ed8, #3b82f6); color: white; font-weight: 700; cursor: pointer; font-size: 16px; box-shadow: 0 8px 20px rgba(29, 78, 216, 0.25); transition: 0.3s; }
+        /* --- INPUTS PILL STYLE --- */
+        input, select { 
+            width: 100%; 
+            padding: 15px 18px; 
+            border-radius: 15px; 
+            border: 1px solid var(--card-border); 
+            margin-bottom: 15px; 
+            font-size: 14px; 
+            box-sizing: border-box; 
+            outline: none; 
+            background: rgba(15, 23, 42, 0.6); 
+            transition: 0.3s; 
+            color: var(--text-main); 
+            font-family: inherit;
+        }
+        input:focus, select:focus { 
+            border-color: var(--primary); 
+            background: rgba(15, 23, 42, 0.85); 
+            box-shadow: 0 0 10px var(--primary-glow);
+        }
+        
+        /* Modifikasi Dropdown agar opsi teks terbaca di dark mode */
+        select option {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+        }
+
+        /* --- ESTIMASI / TOTAL DISPLAY --- */
+        .estimasi { 
+            background: rgba(59, 130, 246, 0.05); 
+            padding: 18px; 
+            border-radius: 16px; 
+            text-align: center; 
+            margin-bottom: 20px; 
+            border: 1px dashed rgba(59, 130, 246, 0.35); 
+        }
+        .estimasi span { font-size: 11px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+        .estimasi b { color: #60a5fa; font-size: 26px; font-weight: 800; text-shadow: 0 0 15px rgba(59, 130, 246, 0.3); display: block; margin-top: 4px; }
+        
+        /* --- PREMIUM BUTTONS --- */
+        .btn-primary { 
+            width: 100%; 
+            padding: 18px; 
+            border: none; 
+            border-radius: 18px; 
+            background: linear-gradient(135deg, #2563eb, #1d4ed8); 
+            color: white; 
+            font-weight: 700; 
+            cursor: pointer; 
+            font-size: 16px; 
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.35); 
+            transition: 0.3s; 
+            letter-spacing: 0.5px;
+        }
         .btn-primary:active { transform: scale(0.98); }
 
-        /* --- PREMIUM GLASSMORPHISM RATE COMPONENT --- */
+        /* --- RATE CARD COMPONENT --- */
         .rate-card-premium {
-            background: rgba(255, 255, 255, 0.45);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--card-border);
             border-radius: 24px;
             padding: 20px;
             margin: 0 15px 25px;
-            box-shadow: 0 12px 32px rgba(31, 38, 135, 0.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
         .rate-card-header {
             display: flex;
@@ -139,14 +263,14 @@
         }
         .rate-card-header h3 {
             font-size: 15px;
-            color: #1e293b;
+            color: var(--text-main);
             font-weight: 700;
             margin: 0;
         }
         .pulse-indicator {
             width: 8px;
             height: 8px;
-            background-color: #10b981;
+            background-color: var(--success);
             border-radius: 50%;
             animation: dotGlow 1.8s infinite;
         }
@@ -164,15 +288,15 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(255, 255, 255, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--card-border);
             padding: 12px 16px;
             border-radius: 16px;
             transition: all 0.2s ease;
         }
         .rate-item:active {
             transform: scale(0.98);
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.05);
         }
         .provider-meta {
             display: flex;
@@ -187,47 +311,86 @@
         .provider-meta span {
             font-size: 13px;
             font-weight: 600;
-            color: #334155;
+            color: #f1f5f9;
         }
         .pill-badge {
             font-size: 13px;
             font-weight: 700;
-            color: var(--primary);
-            background: rgba(239, 246, 255, 0.8);
-            border: 1px solid #bfdbfe;
+            color: #60a5fa;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
             padding: 5px 14px;
             border-radius: 20px;
         }
         .pill-badge.highest-tier {
-            background: linear-gradient(135deg, #fffbeb, #fef3c7);
-            color: #b45309;
-            border-color: #fde68a;
-            box-shadow: 0 2px 8px rgba(217, 119, 6, 0.1);
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(245, 158, 11, 0.15));
+            color: #f59e0b;
+            border-color: rgba(245, 158, 11, 0.4);
+            box-shadow: 0 2px 8px rgba(245, 158, 11, 0.1);
         }
 
-        /* --- RINGKASAN BOX --- */
-        .ringkasan-box { background: rgba(239, 246, 255, 0.7); border: 1px solid #bfdbfe; border-radius: 16px; padding: 12px 15px; margin-bottom: 20px; font-size: 12px; color: #1e40af; }
-        .ringkasan-box div { display: flex; justify-content: space-between; margin-bottom: 4px; }
-        .ringkasan-box div:last-child { margin-bottom: 0; font-weight: 700; }
+        /* --- DETAIL TRANSAKSI BOX --- */
+        .ringkasan-box { 
+            background: rgba(30, 41, 59, 0.7); 
+            border: 1px solid var(--card-border); 
+            border-radius: 16px; 
+            padding: 14px 18px; 
+            margin-bottom: 20px; 
+            font-size: 12px; 
+            color: #94a3b8; 
+        }
+        .ringkasan-box div { display: flex; justify-content: space-between; margin-bottom: 6px; }
+        .ringkasan-box div:last-child { margin-bottom: 0; font-weight: 700; color: var(--text-main); }
 
-        /* --- HOW TO --- */
-        .step-box { display: flex; align-items: center; gap: 15px; margin-bottom: 12px; background: rgba(255, 255, 255, 0.45); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.5); padding: 15px; border-radius: 18px; margin: 0 15px 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.01); }
+        /* --- HOW TO LAYANAN --- */
+        .step-box { 
+            display: flex; 
+            align-items: center; 
+            gap: 15px; 
+            margin-bottom: 12px; 
+            background: var(--card-bg); 
+            backdrop-filter: blur(10px); 
+            -webkit-backdrop-filter: blur(10px); 
+            border: 1px solid var(--card-border); 
+            padding: 15px; 
+            border-radius: 18px; 
+            margin: 0 15px 12px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
+        }
         .step-num { background: var(--primary); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; flex-shrink: 0; font-size: 12px; }
-        .step-text b { font-size: 13px; display: block; margin-bottom: 2px; color: #1e293b; }
-        .step-text span { font-size: 11px; color: #64748b; }
+        .step-text b { font-size: 13px; display: block; margin-bottom: 2px; color: var(--text-main); }
+        .step-text span { font-size: 11px; color: var(--text-muted); }
 
         /* --- FAQ --- */
-        .faq-item { background: rgba(255, 255, 255, 0.45); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.5); border-radius: 15px; margin: 0 15px 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.01); }
-        .faq-question { width: 100%; padding: 15px; background: none; border: none; text-align: left; font-size: 13px; font-weight: 700; color: #1e293b; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-        .faq-answer { padding: 0 15px; max-height: 0; overflow: hidden; transition: 0.3s ease-out; font-size: 11px; color: #64748b; line-height: 1.6; }
+        .faq-item { 
+            background: var(--card-bg); 
+            backdrop-filter: blur(10px); 
+            -webkit-backdrop-filter: blur(10px); 
+            border: 1px solid var(--card-border); 
+            border-radius: 15px; 
+            margin: 0 15px 10px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
+        }
+        .faq-question { width: 100%; padding: 15px; background: none; border: none; text-align: left; font-size: 13px; font-weight: 700; color: var(--text-main); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-answer { padding: 0 15px; max-height: 0; overflow: hidden; transition: 0.3s ease-out; font-size: 11px; color: var(--text-muted); line-height: 1.6; }
         .faq-item.active .faq-answer { max-height: 150px; padding-bottom: 15px; }
 
         /* --- FOOTER --- */
-        footer { background: rgba(255, 255, 255, 0.5); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: 40px 20px; border-top: 1px solid rgba(255, 255, 255, 0.4); text-align: center; margin-top: 40px; }
-        .footer-logo { font-size: 20px; font-weight: 800; color: var(--primary); margin-bottom: 10px; display: block; text-decoration: none; letter-spacing: 1px; }
-        .footer-info { font-size: 11px; color: #94a3b8; line-height: 1.8; margin-bottom: 20px; }
-        .trust-logos { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 20px; opacity: 0.7; margin-top: 20px; }
-        .trust-logos img { height: 20px; object-fit: contain; }
+        footer { 
+            background: rgba(11, 15, 25, 0.8); 
+            backdrop-filter: blur(10px); 
+            -webkit-backdrop-filter: blur(10px); 
+            padding: 40px 20px; 
+            border-top: 1px solid var(--card-border); 
+            text-align: center; 
+            margin-top: 40px; 
+        }
+        .footer-logo { font-size: 20px; font-weight: 800; color: #ffffff; margin-bottom: 10px; display: block; text-decoration: none; letter-spacing: 1px; }
+        .footer-logo span { color: var(--primary); }
+        .footer-info { font-size: 11px; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px; }
+        .trust-logos { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 20px; opacity: 0.8; margin-top: 20px; }
+        .trust-logos img { height: 18px; object-fit: contain; filter: grayscale(20%) brightness(95%); }
 
         .floating-wa { 
             position: fixed; 
@@ -242,45 +405,47 @@
             align-items: center; 
             justify-content: center; 
             z-index: 1000; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2); 
+            box-shadow: 0 6px 16px rgba(0,0,0,0.3); 
             text-decoration: none; 
             font-size: 28px; 
+            transition: 0.3s;
         }
+        .floating-wa:hover { transform: scale(1.05); }
 
-        /* --- STYLE TAMBAHAN: STATISTIK & TESTIMONI --- */
+        /* --- STATISTIK & TESTIMONI --- */
         .stats-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 10px;
-            background: rgba(255, 255, 255, 0.45);
+            background: var(--card-bg);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
+            border: 1px solid var(--card-border);
             border-radius: 20px;
             padding: 15px 10px;
             margin: 25px 15px 15px;
-            box-shadow: 0 8px 24px rgba(31, 38, 135, 0.03);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
             text-align: center;
         }
-        .stat-box h3 { font-size: 16px; font-weight: 800; color: var(--primary); margin: 0 0 2px 0; }
-        .stat-box p { font-size: 10px; color: #64748b; margin: 0; font-weight: 600; }
+        .stat-box h3 { font-size: 16px; font-weight: 800; color: #60a5fa; margin: 0 0 2px 0; }
+        .stat-box p { font-size: 10px; color: var(--text-muted); margin: 0; font-weight: 600; }
         
         .testi-card {
-            background: rgba(255, 255, 255, 0.45);
+            background: var(--card-bg);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
+            border: 1px solid var(--card-border);
             border-radius: 20px;
             padding: 15px;
             margin: 0 15px 12px;
-            box-shadow: 0 8px 24px rgba(31, 38, 135, 0.03);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
         }
         .testi-stars { color: #fbbf24; font-size: 12px; margin-bottom: 6px; }
-        .testi-text { font-size: 11px; color: #475569; line-height: 1.5; margin: 0 0 10px 0; font-style: italic; }
+        .testi-text { font-size: 11px; color: #cbd5e1; line-height: 1.5; margin: 0 0 10px 0; font-style: italic; }
         .testi-user { display: flex; align-items: center; gap: 10px; }
-        .user-avatar { width: 32px; height: 32px; background: rgba(217, 249, 157, 0.6); color: #4d7c0f; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: 700; font-size: 12px; }
-        .user-info h4 { font-size: 11px; color: #1e293b; margin: 0 0 1px 0; font-weight: 700; }
-        .user-info p { font-size: 9px; color: #94a3b8; margin: 0; }
+        .user-avatar { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: 700; font-size: 12px; }
+        .user-info h4 { font-size: 11px; color: var(--text-main); margin: 0 0 1px 0; font-weight: 700; }
+        .user-info p { font-size: 9px; color: var(--text-muted); margin: 0; }
     </style>
 </head>
 <body>
@@ -311,7 +476,7 @@
 
     <div id="step1_container" style="margin-top: 0px;">
         <div class="card" id="home">
-            <span style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 15px; display: block;">1. Pilih Operator</span>
+            <span style="font-size: 13px; font-weight: 700; color: var(--text-main); margin-bottom: 15px; display: block;">1. Pilih Operator</span>
             <div class="providers">
                 <div class="provider" onclick="pilihProvider(this, 'Telkomsel', 0.88)">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Telkomsel_2021_icon.svg" alt="Tsel">
@@ -343,12 +508,12 @@
                 </div>
             </div>
 
-            <span style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 10px; display: block;">2. Tentukan Nominal</span>
+            <span style="font-size: 13px; font-weight: 700; color: var(--text-main); margin-bottom: 10px; display: block;">2. Tentukan Nominal</span>
             <input type="number" id="nomor" placeholder="Nomor Kontak Pengirim (08...)">
             <input type="text" id="nominal" placeholder="Jumlah Pulsa (Minimal 30.000)">
             
             <div class="estimasi">
-                <span style="font-size: 11px; color: #64748b; font-weight: 600;">Total yang Anda terima:</span><br>
+                <span>Total yang Anda terima:</span>
                 <b id="hasil">Rp 0</b>
             </div>
             
@@ -455,7 +620,7 @@
             <div class="testi-stars">★★★★★</div>
             <p class="testi-text">"Awalnya ragu coba-coba, ternyata beneran secepat itu prosesnya. Gak sampai 5 menit saldo DANA langsung masuk. Rate Telkomsel mantap!"</p>
             <div class="testi-user">
-                <div class="user-avatar" style="background:#dbeafe; color:#1e40af;">A</div>
+                <div class="user-avatar" style="background:#1e40af; color:#dbeafe;">A</div>
                 <div class="user-info">
                     <h4>Andi S.</h4>
                     <p>Pelanggan Telkomsel</p>
@@ -467,7 +632,7 @@
             <div class="testi-stars">★★★★★</div>
             <p class="testi-text">"Punya pulsa xl numpuk gak kepakai, untung nemu web ini. Respon admin lewat WA juga ramah banget pas dibimbing transfer pulsanya."</p>
             <div class="testi-user">
-                <div class="user-avatar" style="background:#fef3c7; color:#92400e;">N</div>
+                <div class="user-avatar" style="background:#92400e; color:#fef3c7;">N</div>
                 <div class="user-info">
                     <h4>Nadia R.</h4>
                     <p>Pelanggan XL / Axis</p>
@@ -479,7 +644,7 @@
             <div class="testi-stars">★★★★★</div>
             <p class="testi-text">"Udah langganan convert pulsa Indosat di sini. Selalu puas sama pelayanannya yang amanah dan transparan tanpa ada biaya potongan tersembunyi."</p>
             <div class="testi-user">
-                <div class="user-avatar" style="background:#f3e8ff; color:#6b21a8;">F</div>
+                <div class="user-avatar" style="background:#6b21a8; color:#f3e8ff;">F</div>
                 <div class="user-info">
                     <h4>Fahmi K.</h4>
                     <p>Pelanggan Indosat</p>
@@ -491,7 +656,7 @@
             <div class="testi-stars">★★★★★</div>
             <p class="testi-text">"Tampilan webnya simpel di HP jadi gampang banget buat hitung estimasi rate pulsa Three. Sistemnya beres cepet, top pokoknya!"</p>
             <div class="testi-user">
-                <div class="user-avatar" style="background:#e0f2fe; color:#0369a1;">M</div>
+                <div class="user-avatar" style="background:#0369a1; color:#e0f2fe;">M</div>
                 <div class="user-info">
                     <h4>Meilan D.</h4>
                     <p>Pelanggan Three</p>
@@ -516,20 +681,20 @@
 
     <div id="step2" style="display: none; margin-top: 20px;">
         <div class="card">
-            <h3 style="margin-top:0; font-size:18px; color: var(--primary); margin-bottom:15px;">Detail Penyaluran</h3>
+            <h3 style="margin-top:0; font-size:18px; color: #60a5fa; margin-bottom:15px;">Detail Penyaluran</h3>
             
             <div class="ringkasan-box">
                 <div>
                     <span>Operator & No. Pengirim:</span>
-                    <span id="summary-provider">-</span>
+                    <span id="summary-provider" style="color: #f1f5f9;">-</span>
                 </div>
                 <div>
                     <span>Total Pulsa:</span>
-                    <span id="summary-nominal">Rp 0</span>
+                    <span id="summary-nominal" style="color: #f1f5f9;">Rp 0</span>
                 </div>
                 <div>
                     <span>Total Diterima:</span>
-                    <span id="summary-terima" style="color:#1d4ed8;">Rp 0</span>
+                    <span id="summary-terima" style="color:#60a5fa;">Rp 0</span>
                 </div>
             </div>
 
@@ -559,11 +724,11 @@
 
     <div id="info_footer_container">
         <div style="padding: 20px 15px;">
-            <h4 style="color: var(--primary); margin-bottom: 5px; font-size: 14px;">Tentang Kami</h4>
-            <p style="font-size: 11px; color: #666; line-height: 1.6;">Kami adalah platform penyedia layanan optimasi pulsa sisa dengan alur pemrosesan cepat dan transparan. Cek nilai harian terbaru dan kelola utilitas pulsa Anda dengan mudah lewat sistem satu pintu terintegrasi.</p>
+            <h4 style="color: #60a5fa; margin-bottom: 5px; font-size: 14px;">Tentang Kami</h4>
+            <p style="font-size: 11px; color: var(--text-muted); line-height: 1.6;">Kami adalah platform penyedia layanan optimasi pulsa sisa dengan alur pemrosesan cepat dan transparan. Cek nilai harian terbaru dan kelola utilitas pulsa Anda dengan mudah lewat sistem satu pintu terintegrasi.</p>
             
-            <h4 style="color: var(--primary); margin-top: 15px; margin-bottom: 5px; font-size: 14px;">Ketentuan Layanan</h4>
-            <ul style="font-size: 10px; color: #666; padding-left: 15px; line-height: 1.5;">
+            <h4 style="color: #60a5fa; margin-top: 15px; margin-bottom: 5px; font-size: 14px;">Ketentuan Layanan</h4>
+            <ul style="font-size: 10px; color: var(--text-muted); padding-left: 15px; line-height: 1.5;">
                 <li>Hanya menerima distribusi pulsa dari sumber legalitas yang sah milik pengguna pribadi.</li>
                 <li>Pastikan seluruh ID akun verifikasi sudah sesuai sebelum menekan tombol konfirmasi.</li>                       
                 <li>Pemrosesan yang tidak mengikuti standarisasi format tidak akan diproses oleh cs boss.</li>
