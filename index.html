@@ -28,7 +28,7 @@
     </script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght=400;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         :root { 
@@ -883,13 +883,13 @@
                     <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Telkomsel_2021_icon.svg" alt="Tsel">
                     <span>Telkomsel</span>
                 </div>
-                <div class="provider" onclick="pilihProvider(this, 'Axis', 0.91)">
-                    <img src="Axis_logo_2015.svg.png" alt="Axis">
-                    <span>Axis</span>
-                </div>
-                <div class="provider" onclick="pilihProvider(this, 'XL', 0.91)">
-                    <img src="XL.png" alt="XL">
-                    <span>XL</span>
+                <!-- XL & Axis digabung menjadi satu item -->
+                <div class="provider" onclick="pilihProvider(this, 'XL / Axis', 0.91)">
+                    <div style="display: flex; gap: 4px; align-items: center; justify-content: center; margin-bottom: 6px;">
+                        <img src="XL.png" alt="XL" style="margin-bottom: 0; width: 24px; height: 24px;">
+                        <img src="Axis_logo_2015.svg.png" alt="Axis" style="margin-bottom: 0; width: 24px; height: 24px;">
+                    </div>
+                    <span>XL / Axis</span>
                 </div>
                 <div class="provider" onclick="pilihProvider(this, 'Three', 0.90)">
                     <img src="1771848121156.png" alt="3">
@@ -936,18 +936,14 @@
                     <div class="pill-badge">0.88</div>
                 </div>
 
+                <!-- XL / Axis disatukan di Rate List -->
                 <div class="rate-item">
                     <div class="provider-meta">
-                        <img src="Axis_logo_2015.svg.png" alt="Axis">
-                        <span>Axis</span>
-                    </div>
-                    <div class="pill-badge highest-tier">0.91</div>
-                </div>
-
-                <div class="rate-item">
-                    <div class="provider-meta">
-                        <img src="XL.png" alt="XL">
-                        <span>XL</span>
+                        <div style="display: flex; gap: 5px; align-items: center;">
+                            <img src="XL.png" alt="XL" style="width: 20px; height: 20px;">
+                            <img src="Axis_logo_2015.svg.png" alt="Axis" style="width: 20px; height: 20px;">
+                        </div>
+                        <span>XL / Axis</span>
                     </div>
                     <div class="pill-badge highest-tier">0.91</div>
                 </div>
