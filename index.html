@@ -1,3 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boss Convert - Punya Pulsa Sisa Tak Terpakai? Yuk Cairkan Di Sini</title>
+    <link rel="icon" href="/favicon.png">
+    <meta name="google-site-verification" content="GAff8z7ESbVLCIfYCAfTEgA0EFlQPyX_3g9RHKeHBDs" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17887360187"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17887360187');
+
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-17887360187/JOixCLfehf4BELvprdPG',
+            'event_callback': callback
+        });
+        return false;
+      }
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { 
+            --primary: #3b82f6; 
+            --primary-glow: rgba(59, 130, 246, 0.35); 
+            --success: #10b981; 
+            --bg-dark: #0b0f19;
+            --card-bg: rgba(255, 255, 255, 0.04);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background: radial-gradient(circle at top right, #1e293b 0%, var(--bg-dark) 60%);
+            background-attachment: fixed; 
+            margin: 0; 
+            padding: 0; 
+            color: var(--text-main); 
+            overflow-x: hidden; 
+            scroll-behavior: smooth; 
+        }
+        
+        .container { 
+            max-width: 500px; 
+            margin: auto; 
+            padding-bottom: 20px; 
+        }
+
+        .navbar { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            background: rgba(11, 15, 25, 0.7); 
+            backdrop-filter: blur(15px); 
+            -webkit-backdrop-filter: blur(15px); 
+            z-index: 100; 
+            border-bottom: 1px solid var(--card-border); 
+        }
+
+        .nav-container { 
+            max-width: 500px; 
+            margin: auto; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 10px 15px; 
+        }
+        
+        .nav-logo-wrapper { 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+            text-decoration: none; 
+        }
+        
+        .nav-logo-svg { 
+            width: 28px; 
+            height: 28px; 
+        }
+        
+        .nav-logo { 
+            font-weight: 800; 
+            font-size: 16px; 
+            color: #ffffff; 
+            letter-spacing: 0.5px; 
+        }
+        
+        .nav-logo span { 
+            color: var(--primary); 
+        }
+
+        .nav-menu { 
+            display: flex; 
+            gap: 12px; 
+        }
+        
+        .nav-menu a { 
+            text-decoration: none; 
+            font-size: 11px; 
+            font-weight: 700; 
+            color: var(--text-muted); 
+            transition: 0.3s; 
+        }
+        
+        .nav-menu a:hover { 
+            color: var(--primary); 
+        }
+
+        .running-text { 
+            background: rgba(15, 23, 42, 0.6); 
+            backdrop-filter: blur(10px); 
+            -webkit-backdrop-filter: blur(10px); 
+            padding: 8px 0; 
+            font-size: 11px; 
+            font-weight: 600; 
+            color: #60a5fa; 
+            border-bottom: 1px solid var(--card-border); 
+            white-space: nowrap; 
+            overflow: hidden; 
+            margin-top: 49px; 
+        }
+        
+        .marquee-content { 
+            display: inline-block; 
+            animation: marquee 25s linear infinite; 
+        }
+        
+        @keyframes marquee { 
+            0% { transform: translateX(100%); } 
+            100% { transform: translateX(-100%); } 
+        }
+
+        .brand { 
+            background: linear-gradient(180deg, #1e293b 0%, var(--bg-dark) 100%); 
+            text-align: center; 
+            padding: 40px 20px 80px; 
+            color: white; 
+            border-radius: 0 0 50px 50px; 
+            margin-bottom: -50px; 
+            border-bottom: 1px solid var(--card-border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .hero-logo-svg {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.5));
+        }
+
         .badge-top { 
             background: rgba(59, 130, 246, 0.15); 
             border: 1px solid rgba(59, 130, 246, 0.3);
@@ -10,6 +180,7 @@
             margin-bottom: 15px; 
             letter-spacing: 0.5px;
         }
+        
         .brand h1 { 
             font-size: 24px; 
             font-weight: 800; 
@@ -20,11 +191,115 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .admin-status { font-size: 11px; margin-top: 10px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 5px; color: var(--text-muted); }
-        .dot { width: 8px; height: 8px; background: var(--success); border-radius: 50%; display: inline-block; box-shadow: 0 0 12px var(--success); animation: pulse 1.5s infinite; }
-        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
+        
+        .admin-status { 
+            font-size: 11px; 
+            margin-top: 10px; 
+            font-weight: 600; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 5px; 
+            color: var(--text-muted); 
+        }
+        
+        .dot { 
+            width: 8px; 
+            height: 8px; 
+            background: var(--success); 
+            border-radius: 50%; 
+            display: inline-block; 
+            box-shadow: 0 0 12px var(--success); 
+            animation: pulse 1.5s infinite; 
+        }
+        
+        @keyframes pulse { 
+            0% { opacity: 1; } 
+            50% { opacity: 0.4; } 
+            100% { opacity: 1; } 
+        }
 
-        /* --- PREMIUM CARD GLASSMORPHISM --- */
+        .poster-container {
+            margin: 0 15px 20px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .promo-poster {
+            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 24px;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .poster-badge {
+            background: #ef4444;
+            color: white;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 30px;
+            display: inline-block;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+            text-transform: uppercase;
+        }
+        
+        .promo-poster h2 {
+            font-size: 18px;
+            font-weight: 800;
+            margin: 0 0 10px 0;
+            line-height: 1.4;
+            background: linear-gradient(135deg, #ffffff 0%, #93c5fd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .promo-poster p {
+            font-size: 11px;
+            color: #cbd5e1;
+            margin: 0 0 15px 0;
+            line-height: 1.6;
+        }
+        
+        .poster-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 12px;
+        }
+        
+        .poster-footer span {
+            font-size: 11px;
+            color: var(--success);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .btn-poster {
+            background: #3b82f6;
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+            transition: 0.3s;
+        }
+        
+        .btn-poster:active {
+            transform: scale(0.95);
+        }
+
         .card { 
             background: var(--card-bg); 
             backdrop-filter: blur(20px); 
@@ -37,10 +312,23 @@
             position: relative; 
             z-index: 10; 
         }
-        .section-title { font-size: 15px; font-weight: 700; margin: 25px 20px 12px; display: block; color: var(--text-main); padding-top: 20px; }
         
-        /* --- PROVIDERS GRID --- */
-        .providers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
+        .section-title { 
+            font-size: 15px; 
+            font-weight: 700; 
+            margin: 25px 20px 12px; 
+            display: block; 
+            color: var(--text-main); 
+            padding-top: 20px; 
+        }
+        
+        .providers { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 10px; 
+            margin-bottom: 20px; 
+        }
+        
         .provider { 
             padding: 14px 8px; 
             border-radius: 18px; 
@@ -55,9 +343,29 @@
             align-items: center; 
             justify-content: center; 
         }
-        .provider img { height: 32px; width: 32px; margin-bottom: 6px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); }
-        .provider span { font-size: 11px; font-weight: 700; display: block; line-height: 1.2; color: #e2e8f0; }
-        .provider.active { border-color: var(--primary); background: rgba(59, 130, 246, 0.12); transform: scale(1.03); box-shadow: 0 0 15px var(--primary-glow); }
+        
+        .provider img { 
+            height: 32px; 
+            width: 32px; 
+            margin-bottom: 6px; 
+            object-fit: contain; 
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); 
+        }
+        
+        .provider span { 
+            font-size: 11px; 
+            font-weight: 700; 
+            display: block; 
+            line-height: 1.2; 
+            color: #e2e8f0; 
+        }
+        
+        .provider.active { 
+            border-color: var(--primary); 
+            background: rgba(59, 130, 246, 0.12); 
+            transform: scale(1.03); 
+            box-shadow: 0 0 15px var(--primary-glow); 
+        }
         
         .provider.active::after {
             content: '✓';
@@ -78,7 +386,6 @@
             z-index: 10;
         }
 
-        /* --- INPUTS PILL STYLE --- */
         input, select { 
             width: 100%; 
             padding: 15px 18px; 
@@ -93,19 +400,18 @@
             color: var(--text-main); 
             font-family: inherit;
         }
+        
         input:focus, select:focus { 
             border-color: var(--primary); 
             background: rgba(15, 23, 42, 0.85); 
             box-shadow: 0 0 10px var(--primary-glow);
         }
         
-        /* Modifikasi Dropdown agar opsi teks terbaca di dark mode */
         select option {
             background-color: var(--bg-dark);
             color: var(--text-main);
         }
 
-        /* --- ESTIMASI / TOTAL DISPLAY --- */
         .estimasi { 
             background: rgba(59, 130, 246, 0.05); 
             padding: 18px; 
@@ -114,10 +420,24 @@
             margin-bottom: 20px; 
             border: 1px dashed rgba(59, 130, 246, 0.35); 
         }
-        .estimasi span { font-size: 11px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
-        .estimasi b { color: #60a5fa; font-size: 26px; font-weight: 800; text-shadow: 0 0 15px rgba(59, 130, 246, 0.3); display: block; margin-top: 4px; }
         
-        /* --- PREMIUM BUTTONS --- */
+        .estimasi span { 
+            font-size: 11px; 
+            color: var(--text-muted); 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px; 
+        }
+        
+        .estimasi b { 
+            color: #60a5fa; 
+            font-size: 26px; 
+            font-weight: 800; 
+            text-shadow: 0 0 15px rgba(59, 130, 246, 0.3); 
+            display: block; 
+            margin-top: 4px; 
+        }
+        
         .btn-primary { 
             width: 100%; 
             padding: 18px; 
@@ -132,9 +452,11 @@
             transition: 0.3s; 
             letter-spacing: 0.5px;
         }
-        .btn-primary:active { transform: scale(0.98); }
+        
+        .btn-primary:active { 
+            transform: scale(0.98); 
+        }
 
-        /* --- RATE CARD COMPONENT --- */
         .rate-card-premium {
             background: var(--card-bg);
             backdrop-filter: blur(20px);
@@ -145,18 +467,21 @@
             margin: 0 15px 25px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
+        
         .rate-card-header {
             display: flex;
             align-items: center;
             gap: 10px;
             margin-bottom: 18px;
         }
+        
         .rate-card-header h3 {
             font-size: 15px;
             color: var(--text-main);
             font-weight: 700;
             margin: 0;
         }
+        
         .pulse-indicator {
             width: 8px;
             height: 8px;
@@ -164,16 +489,19 @@
             border-radius: 50%;
             animation: dotGlow 1.8s infinite;
         }
+        
         @keyframes dotGlow {
             0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
             70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
         }
+        
         .rate-list {
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
+        
         .rate-item {
             display: flex;
             justify-content: space-between;
@@ -184,25 +512,30 @@
             border-radius: 16px;
             transition: all 0.2s ease;
         }
+        
         .rate-item:active {
             transform: scale(0.98);
             background: rgba(255, 255, 255, 0.05);
         }
+        
         .provider-meta {
             display: flex;
             align-items: center;
             gap: 12px;
         }
+        
         .provider-meta img {
             height: 24px;
             width: 24px;
             object-fit: contain;
         }
+        
         .provider-meta span {
             font-size: 13px;
             font-weight: 600;
             color: #f1f5f9;
         }
+        
         .pill-badge {
             font-size: 13px;
             font-weight: 700;
@@ -212,6 +545,7 @@
             padding: 5px 14px;
             border-radius: 20px;
         }
+        
         .pill-badge.highest-tier {
             background: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(245, 158, 11, 0.15));
             color: #f59e0b;
@@ -219,7 +553,6 @@
             box-shadow: 0 2px 8px rgba(245, 158, 11, 0.1);
         }
 
-        /* --- DETAIL TRANSAKSI BOX --- */
         .ringkasan-box { 
             background: rgba(30, 41, 59, 0.7); 
             border: 1px solid var(--card-border); 
@@ -229,10 +562,19 @@
             font-size: 12px; 
             color: #94a3b8; 
         }
-        .ringkasan-box div { display: flex; justify-content: space-between; margin-bottom: 6px; }
-        .ringkasan-box div:last-child { margin-bottom: 0; font-weight: 700; color: var(--text-main); }
+        
+        .ringkasan-box div { 
+            display: flex; 
+            justify-content: space-between; 
+            margin-bottom: 6px; 
+        }
+        
+        .ringkasan-box div:last-child { 
+            margin-bottom: 0; 
+            font-weight: 700; 
+            color: var(--text-main); 
+        }
 
-        /* --- HOW TO LAYANAN --- */
         .step-box { 
             display: flex; 
             align-items: center; 
@@ -247,11 +589,33 @@
             margin: 0 15px 12px; 
             box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
         }
-        .step-num { background: var(--primary); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; flex-shrink: 0; font-size: 12px; }
-        .step-text b { font-size: 13px; display: block; margin-bottom: 2px; color: var(--text-main); }
-        .step-text span { font-size: 11px; color: var(--text-muted); }
+        
+        .step-num { 
+            background: var(--primary); 
+            color: white; 
+            width: 28px; 
+            height: 28px; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-weight: 800; 
+            flex-shrink: 0; 
+            font-size: 12px; 
+        }
+        
+        .step-text b { 
+            font-size: 13px; 
+            display: block; 
+            margin-bottom: 2px; 
+            color: var(--text-main); 
+        }
+        
+        .step-text span { 
+            font-size: 11px; 
+            color: var(--text-muted); 
+        }
 
-        /* --- FAQ --- */
         .faq-item { 
             background: var(--card-bg); 
             backdrop-filter: blur(10px); 
@@ -262,11 +626,37 @@
             overflow: hidden; 
             box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
         }
-        .faq-question { width: 100%; padding: 15px; background: none; border: none; text-align: left; font-size: 13px; font-weight: 700; color: var(--text-main); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-        .faq-answer { padding: 0 15px; max-height: 0; overflow: hidden; transition: 0.3s ease-out; font-size: 11px; color: var(--text-muted); line-height: 1.6; }
-        .faq-item.active .faq-answer { max-height: 150px; padding-bottom: 15px; }
+        
+        .faq-question { 
+            width: 100%; 
+            padding: 15px; 
+            background: none; 
+            border: none; 
+            text-align: left; 
+            font-size: 13px; 
+            font-weight: 700; 
+            color: var(--text-main); 
+            cursor: pointer; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        
+        .faq-answer { 
+            padding: 0 15px; 
+            max-height: 0; 
+            overflow: hidden; 
+            transition: 0.3s ease-out; 
+            font-size: 11px; 
+            color: var(--text-muted); 
+            line-height: 1.6; 
+        }
+        
+        .faq-item.active .faq-answer { 
+            max-height: 150px; 
+            padding-bottom: 15px; 
+        }
 
-        /* --- FOOTER --- */
         footer { 
             background: rgba(11, 15, 25, 0.8); 
             backdrop-filter: blur(10px); 
@@ -276,11 +666,42 @@
             text-align: center; 
             margin-top: 40px; 
         }
-        .footer-logo { font-size: 20px; font-weight: 800; color: #ffffff; margin-bottom: 10px; display: block; text-decoration: none; letter-spacing: 1px; }
-        .footer-logo span { color: var(--primary); }
-        .footer-info { font-size: 11px; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px; }
-        .trust-logos { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 20px; opacity: 0.8; margin-top: 20px; }
-        .trust-logos img { height: 18px; object-fit: contain; filter: grayscale(20%) brightness(95%); }
+        
+        .footer-logo { 
+            font-size: 20px; 
+            font-weight: 800; 
+            color: #ffffff; 
+            margin-bottom: 10px; 
+            display: block; 
+            text-decoration: none; 
+            letter-spacing: 1px; 
+        }
+        
+        .footer-logo span { 
+            color: var(--primary); 
+        }
+        
+        .footer-info { 
+            font-size: 11px; 
+            color: var(--text-muted); 
+            line-height: 1.8; 
+            margin-bottom: 20px; 
+        }
+        
+        .trust-logos { 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 20px; 
+            opacity: 0.8; 
+            margin-top: 20px; 
+        }
+        
+        .trust-logos img { 
+            height: 18px; 
+            object-fit: contain; 
+        }
 
         .floating-wa { 
             position: fixed; 
@@ -300,9 +721,11 @@
             font-size: 28px; 
             transition: 0.3s;
         }
-        .floating-wa:hover { transform: scale(1.05); }
+        
+        .floating-wa:hover { 
+            transform: scale(1.05); 
+        }
 
-        /* --- STATISTIK & TESTIMONI --- */
         .stats-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -317,8 +740,20 @@
             box-shadow: 0 8px 24px rgba(0,0,0,0.2);
             text-align: center;
         }
-        .stat-box h3 { font-size: 16px; font-weight: 800; color: #60a5fa; margin: 0 0 2px 0; }
-        .stat-box p { font-size: 10px; color: var(--text-muted); margin: 0; font-weight: 600; }
+        
+        .stat-box h3 { 
+            font-size: 16px; 
+            font-weight: 800; 
+            color: #60a5fa; 
+            margin: 0 0 2px 0; 
+        }
+        
+        .stat-box p { 
+            font-size: 10px; 
+            color: var(--text-muted); 
+            margin: 0; 
+            font-weight: 600; 
+        }
         
         .testi-card {
             background: var(--card-bg);
@@ -330,19 +765,70 @@
             margin: 0 15px 12px;
             box-shadow: 0 8px 24px rgba(0,0,0,0.15);
         }
-        .testi-stars { color: #fbbf24; font-size: 12px; margin-bottom: 6px; }
-        .testi-text { font-size: 11px; color: #cbd5e1; line-height: 1.5; margin: 0 0 10px 0; font-style: italic; }
-        .testi-user { display: flex; align-items: center; gap: 10px; }
-        .user-avatar { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: 700; font-size: 12px; }
-        .user-info h4 { font-size: 11px; color: var(--text-main); margin: 0 0 1px 0; font-weight: 700; }
-        .user-info p { font-size: 9px; color: var(--text-muted); margin: 0; }
+        
+        .testi-stars { 
+            color: #fbbf24; 
+            font-size: 12px; 
+            margin-bottom: 6px; 
+        }
+        
+        .testi-text { 
+            font-size: 11px; 
+            color: #cbd5e1; 
+            line-height: 1.5; 
+            margin: 0 0 10px 0; 
+            font-style: italic; 
+        }
+        
+        .testi-user { 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+        }
+        
+        .user-avatar { 
+            width: 32px; 
+            height: 32px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            border-radius: 50%; 
+            font-weight: 700; 
+            font-size: 12px; 
+        }
+        
+        .user-info h4 { 
+            font-size: 11px; 
+            color: var(--text-main); 
+            margin: 0 0 1px 0; 
+            font-weight: 700; 
+        }
+        
+        .user-info p { 
+            font-size: 9px; 
+            color: var(--text-muted); 
+            margin: 0; 
+        }
     </style>
 </head>
 <body>
 
 <nav class="navbar">
     <div class="nav-container">
-        <a href="#" class="nav-logo">BOSS<span> CONVERT</span></a>
+        <a href="#" class="nav-logo-wrapper">
+            <svg class="nav-logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="nav-logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#60a5fa" />
+                        <stop offset="100%" stop-color="#1d4ed8" />
+                    </linearGradient>
+                </defs>
+                <circle cx="50" cy="50" r="42" fill="none" stroke="url(#nav-logo-grad)" stroke-width="12" />
+                <circle cx="50" cy="50" r="28" fill="rgba(59, 130, 246, 0.2)" />
+                <text x="50%" y="57%" dominant-baseline="middle" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="900" font-size="28" fill="#ffffff">BC</text>
+            </svg>
+            <div class="nav-logo">BOSS<span> CONVERT</span></div>
+        </a>
         <div class="nav-menu">
             <a href="#rate">NILAI</a>
             <a href="#cara-kerja">PANDUAN</a>
@@ -359,12 +845,37 @@
 
 <div class="container">
     <div class="brand" id="main-brand">
+        <svg class="hero-logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="hero-logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#60a5fa" />
+                    <stop offset="100%" stop-color="#1d4ed8" />
+                </linearGradient>
+            </defs>
+            <circle cx="50" cy="50" r="42" fill="none" stroke="url(#hero-logo-grad)" stroke-width="10" />
+            <circle cx="50" cy="50" r="30" fill="rgba(59, 130, 246, 0.15)" />
+            <text x="50%" y="56%" dominant-baseline="middle" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="900" font-size="28" fill="#ffffff" letter-spacing="0.5px">BC</text>
+        </svg>
+
         <div class="badge-top">⭐ LAYANAN TERPERCAYA SEJAK 2024</div>
         <h1>Punya Pulsa Sisa Tak Terpakai? Cairkan Di Sini</h1>
         <div class="admin-status"><span class="dot"></span> Layanan Aktif (08:00 - 05:45 WIB)</div>
     </div>
 
-    <div id="step1_container" style="margin-top: 0px;">
+    <!-- POSTER PROMO UTAMA -->
+    <div class="poster-container">
+        <div class="promo-poster">
+            <div class="poster-badge">PROMO UTAMA HARI INI</div>
+            <h2>Gak Pake Lama, Rate XL & Axis Tembus 0.91! ⚡</h2>
+            <p>Konversikan sisa pulsa legal Anda menjadi uang tunai langsung cair ke Rekening Bank atau E-Wallet favorit Anda hanya dalam hitungan menit.</p>
+            <div class="poster-footer">
+                <span><i class="fab fa-whatsapp"></i> Pasti Cair & Aman</span>
+                <a href="#home" class="btn-poster">Mulai Cairkan</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="step1_container">
         <div class="card" id="home">
             <span style="font-size: 13px; font-weight: 700; color: var(--text-main); margin-bottom: 15px; display: block;">1. Pilih Operator</span>
             <div class="providers">
@@ -627,7 +1138,7 @@
         </div>
 
         <footer>
-            <a href="#" class="footer-logo">TC<span> MEDIA</span></a>
+            <a href="#" class="footer-logo">BC<span> CONVERT</span></a>
             <p class="footer-info">© 2026 BOSS CONVERT. Seluruh Hak Cipta Dilindungi.</p>
             <div class="trust-logos">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg" alt="DANA" style="height: 20px; object-fit: contain;">
@@ -647,7 +1158,6 @@
 let selectedProvider = ""; 
 let rate = 0;
 
-// 1. FUNGSI PILIH PROVIDER
 function pilihProvider(el, nama, r) {
     document.querySelectorAll('.provider').forEach(p => p.classList.remove('active'));
     el.classList.add('active');
@@ -656,14 +1166,12 @@ function pilihProvider(el, nama, r) {
     hitung();
 }
 
-// 2. FORMAT IDR OTOMATIS
 document.getElementById('nominal').addEventListener('input', function() {
     let val = this.value.replace(/\D/g, '');
     this.value = val ? parseInt(val).toLocaleString('id-ID') : '';
     hitung();
 });
 
-// 3. MESIN HITUNG HASIL
 function hitung() {
     const nominalInput = document.getElementById('nominal');
     const hasilDisplay = document.getElementById('hasil');
@@ -678,7 +1186,6 @@ function hitung() {
     }
 }
 
-// 4. LOGIKA PERPINDAHAN STEP
 function nextStep(step) {
     if (step === 2) {
         const nominalVal = document.getElementById('nominal').value;
@@ -734,11 +1241,9 @@ function nextStep(step) {
         return gtag_report_conversion(
             "https://wa.me/" + noWA + "?text=" + encodeURIComponent(pesan)
         );
-
     }
 }
 
-// 5. FAQ TOGGLE
 document.querySelectorAll('.faq-question').forEach(button => {
     button.addEventListener('click', () => {
         const faqItem = button.parentElement;
