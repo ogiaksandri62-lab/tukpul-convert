@@ -22,11 +22,17 @@
   gtag('config', 'AW-18347323010');
 
   function gtag_report_conversion(url) {
+    var callback = function () {
+        if (typeof(url) != 'undefined') {
+            window.location = url;
+        }
+    };
+
     gtag('event', 'conversion', {
-      'send_to': 'AW-17887360187/JOixCLfehf4BELvprdPG'
+        'send_to': 'AW-18347323010/sz6jConFxIsEdL16xE',
+        'event_callback': callback
     });
 
-    window.location.href = url;
     return false;
   }
 </script>
