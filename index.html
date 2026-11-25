@@ -284,7 +284,8 @@ function populateRateUI(){
  operator.value=providerData[Number(prevIdx)]?prevIdx:'0';
  buildOperatorPicker();
  document.getElementById('rateRows').innerHTML=providerData.map((p,i)=>`<article class="rate-item"><div class="rate-logo-wrap"><img class="rate-logo" src="${rateLogos[i]}" alt="Logo ${p.name}" loading="lazy"></div><div><div class="rate-provider">${p.name}</div><small class="rate-sub">30.000 - 1.000.000
-</small></div><div class="rate-values"><span class="rate-pill">${(rates[i]*100).toFixed(1).replace('.0','')}%</span><small class="rate-amount">${money(100000*rates[i])}</small></div></article>`).join('');
+</small></div><div class="rate-values"><span class="rate-pill">${(rates[i]*100).toFixed(1).replace('.0','')}%</span><small class="rate-amount">Min 30.000</small>
+</div></article>`).join('');
  document.getElementById('rateUpdated').textContent='Rate simulasi · Terakhir diperbarui: '+new Date().toLocaleString('id-ID');
  update();
 }
