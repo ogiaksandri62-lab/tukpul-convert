@@ -1,669 +1,467 @@
 <!DOCTYPE html>
+<!-- BOS CONVERT: file tunggal -->
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boss Convert - Layanan Convert Pulsa</title>
-    <meta name="description" content="Boss Convert adalah layanan independen untuk membantu menukarkan pulsa menjadi saldo e-wallet atau dana ke rekening bank. Cek rate dan estimasi penerimaan sebelum transaksi.">
-    <link rel="icon" href="/favicon.png">
-    <meta name="google-site-verification" content="GAff8z7ESbVLCIfYCAfTEgA0EFlQPyX_3g9RHKeHBDs" />
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="BOS CONVERT - layanan convert pulsa dengan kalkulator estimasi dan konfirmasi WhatsApp.">
+<title>BOS CONVERT | Jasa Convert Pulsa</title>
+<style>
+:root{--green:#19c65a;--lime:#a5f45e;--dark:#062d23;--ink:#10251d;--muted:#6a7c72;--pale:#f1faf3;--line:#dcebe0;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f6faf7;color:var(--ink);font-family:Inter,Arial,sans-serif;line-height:1.55}
+a{text-decoration:none;color:inherit}.container{width:min(1160px,92%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:#062d23ed;backdrop-filter:blur(12px);border-bottom:1px solid #ffffff20}
+nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand{display:flex;align-items:center;gap:9px;font-size:1.25rem;font-weight:950;line-height:.9;letter-spacing:-.7px;color:#fff;flex:none}.brand-mark{width:39px;height:32px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,#8af34d,#00a93e);clip-path:polygon(25% 0,100% 0,68% 100%,0 100%);font-weight:1000;font-size:1.3rem}.brand small{display:block;color:#9df16b;font-size:.78rem;letter-spacing:1.3px;margin-top:4px}
+.links{display:flex;align-items:center;gap:25px;font-size:.9rem;font-weight:700;color:#e4f5e9}.links a:hover{color:#9df16b}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 20px;border:0;border-radius:50px;background:linear-gradient(110deg,#15b94b,#74e93e);color:#fff;font-weight:850;cursor:pointer;box-shadow:0 7px 18px #18b84a2a;transition:.2s}.btn:hover{transform:translateY(-2px);filter:brightness(1.04)}.btn.outline{background:#fff;color:var(--dark);border:1.5px solid var(--green);box-shadow:none}
+nav .btn{background:linear-gradient(110deg,#8be84b,#19c65a);color:#073522;padding:10px 16px;gap:8px;white-space:nowrap}
+.btn-cs-avatar{width:26px;height:26px;border-radius:50%;object-fit:cover;object-position:top center;background:#fff;flex:none}
+.hero{padding:76px 0 70px;overflow:hidden;background:radial-gradient(ellipse at 80% 45%,#176b47 0,transparent 39%),linear-gradient(115deg,#052d23 0%,#07583b 58%,#0b7044 100%);color:#fff}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:38px;align-items:center}
+.tag{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:30px;background:#ffffff19;color:#b4f58b;border:1px solid #ffffff25;font-size:.82rem;font-weight:850}
+h1{font-size:clamp(2.8rem,5.5vw,4.7rem);line-height:.99;letter-spacing:-3px;margin:19px 0 12px;font-weight:950}.green,.hero h1 .green,.hero h2 .green{color:#a5f45e}.hero h2{font-size:clamp(1.4rem,2.5vw,2.1rem);line-height:1.15;margin:0 0 16px;letter-spacing:-1px}.hero p{max-width:560px;color:#d0e9d8;font-size:1.06rem}.checks{display:flex;gap:17px;flex-wrap:wrap;margin:23px 0;color:#e4f5e9;font-size:.88rem;font-weight:750}.checks span:before{content:"✓";display:inline-grid;place-items:center;background:#a5f45e;color:#073522;width:21px;height:21px;border-radius:50%;margin-right:6px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}.hero .btn.outline{background:transparent;border-color:#a5f45e;color:#fff}
+.visual.visual-phone-art{min-height:0;display:flex;align-items:center;justify-content:center;overflow:visible}
+.visual-phone-art img{display:block;width:100%;max-width:570px;height:auto;max-height:590px;object-fit:contain;border-radius:24px;filter:drop-shadow(0 24px 38px #001b1280)}
+.calc-section{padding:0 0 55px;background:linear-gradient(#07583b 0 52px,#f6faf7 52px)}.calc-card{display:grid;grid-template-columns:1.25fr .75fr;gap:30px;padding:30px;border-radius:24px;background:#fff;color:var(--ink);box-shadow:0 20px 55px #063b2420;border:1px solid #e1eee5}
+.calc-left{padding-right:30px;border-right:1px solid #e3eee6}.calc-card h2{margin:0 0 13px;font-size:1.5rem;color:#103d2b}.field{margin:12px 0}.field label{display:block;font-weight:750;font-size:.88rem;margin-bottom:7px;color:#294638}.field input,.field select{width:100%;padding:13px 14px;border:1px solid #dcebe1;border-radius:11px;background:#f9fcfa;color:#14271d;font:inherit;outline:none}.field input:focus,.field select:focus{box-shadow:0 0 0 3px #19c65a20;border-color:#19c65a}.calc-row-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.op-picker{position:relative}
+.op-picker-btn{width:100%;padding:12px 14px;border:1px solid #dcebe1;border-radius:11px;background:#f9fcfa;color:#14271d;font:inherit;font-weight:750;display:flex;align-items:center;justify-content:space-between;gap:10px;cursor:pointer;text-align:left}
+.op-picker-btn:focus{outline:none;box-shadow:0 0 0 3px #19c65a20;border-color:#19c65a}
+.op-picker-current{display:flex;align-items:center;gap:10px;min-width:0}
+.op-picker-logo{width:28px;height:22px;object-fit:contain;flex:none;background:#fff;border-radius:6px;padding:2px}
+.op-picker-menu{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:20;background:#fff;border:1px solid #dcebe1;border-radius:14px;box-shadow:0 14px 30px #063b2422;padding:6px;display:grid;gap:4px}
+.op-picker-menu[hidden]{display:none}
+.op-picker-item{width:100%;border:0;background:transparent;border-radius:10px;padding:10px 12px;display:flex;align-items:center;gap:10px;font:inherit;font-weight:750;color:#14271d;cursor:pointer;text-align:left}
+.op-picker-item:hover,.op-picker-item.active{background:#e9f8ed;color:#16813d}
+.estimate{font-size:2.25rem;font-weight:950;color:#16ad50;letter-spacing:-1px;margin:0 0 10px}.calc-card .btn{width:100%;background:linear-gradient(110deg,#19b955,#8de94d);color:#073522;box-shadow:none}.calc-card .calc-left>p{color:#718178;font-size:.78rem;margin:10px 0 0}
+.operators{display:flex;flex-direction:column;justify-content:center;padding:10px 0}.operator-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:15px}.operator{background:#f8fcf9;color:#18382a;border:1px solid #e1eee5;border-radius:14px;min-height:88px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:7px;text-align:center;font-weight:900;padding:12px 10px;box-shadow:0 4px 12px #143d2008}.operator img{display:block;width:100%;max-width:118px;height:42px;object-fit:contain}.operator small{font-size:.82rem;font-weight:800;color:#294638}
+.benefits{padding:8px 0 65px}.benefit-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.benefit{display:flex;align-items:center;gap:12px;padding:16px;border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:0 7px 20px #163d1b08}.benefit i{font-style:normal;width:47px;height:47px;border-radius:50%;display:grid;place-items:center;background:#e3fae9;color:#0aaa43;font-size:1.4rem;flex:none}.benefit strong{display:block;font-size:.94rem}.benefit small{color:var(--muted)}
+section.content{padding:65px 0;background:#fff}section.content.alt-bg{background:#f2f8f4}.section-head{text-align:center;max-width:650px;margin:0 auto 32px}.section-head h2{font-size:clamp(1.8rem,4vw,2.5rem);letter-spacing:-1.2px;margin:0 0 8px}.section-head h2 .green{color:#16a84c}.section-head p{margin:0;color:var(--muted)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.step{border:1px solid var(--line);border-radius:18px;padding:24px;background:linear-gradient(145deg,#fff,#f6fff8);box-shadow:0 8px 22px #163d1b08}.number{width:43px;height:43px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-size:1.2rem;font-weight:950}.step h3{margin:14px 0 5px}.step p{margin:0;color:var(--muted);font-size:.93rem}
+.cta{margin:30px auto 0;padding:35px;border-radius:22px;background:linear-gradient(110deg,#062d23,#087a48);color:white;display:flex;align-items:center;justify-content:space-between;gap:20px;box-shadow:0 14px 32px #06472a22}.cta h2{margin:0 0 5px}.cta p{margin:0;color:#d4f3dc}
+.faq{max-width:780px;margin:auto}.faq details{padding:17px 20px;border:1px solid var(--line);border-radius:13px;margin:10px 0;background:#fff}.faq summary{font-weight:800;cursor:pointer}.faq p{color:var(--muted);margin-bottom:0}
+.rate-premium,.status-box,.privacy-card,.admin-card,.trx-box{background:#fff;border:1px solid var(--line);border-radius:24px;padding:22px 24px;box-shadow:0 12px 32px #123d220c}
+.rate-list{display:grid;grid-template-columns:1fr;gap:0}.rate-item{display:grid;grid-template-columns:62px minmax(0,1fr) auto;align-items:center;gap:16px;padding:17px 4px;border-bottom:1px solid #edf2ee}.rate-item:last-child{border-bottom:0}.rate-logo-wrap{width:54px;height:54px;border-radius:16px;background:#f4faf6;display:grid;place-items:center;padding:8px}.rate-logo{display:block;width:100%;height:100%;object-fit:contain}.rate-provider{font-size:1.04rem;font-weight:850;color:#173b2a;line-height:1.25}.rate-sub{display:block;margin-top:5px;color:#849188;font-size:.83rem;font-weight:500}.rate-values{text-align:right;min-width:108px}.rate-pill{display:inline-flex;align-items:center;justify-content:center;min-width:78px;padding:8px 13px;border-radius:999px;background:#e9f8ed;color:#16813d;font-size:1.05rem;font-weight:950}.rate-amount{display:block;margin-top:5px;color:#53675b;font-size:.82rem;font-weight:700}.rate-note{font-size:.82rem;color:var(--muted);text-align:center;margin-top:15px}
+.status-box{max-width:600px;margin:auto}.status-box .btn{width:100%}.track-result{margin-top:16px;padding:14px;border-radius:12px;background:#f1faf3;color:#355244;font-weight:700}.track-result strong{color:#087a34}
 
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18347323010"></script>
+/* Riwayat Transaksi */
+.trx-box{max-width:640px;margin:auto;padding:16px 20px}
+.trx-handle{width:46px;height:4px;border-radius:999px;background:#cbd5e1;margin:0 auto 14px}
+.trx-feed{display:grid;grid-template-columns:1fr;gap:10px;max-height:540px;overflow-y:auto;padding-right:4px}
+.trx-item{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid #e5efe8;border-radius:12px;background:#fff;box-shadow:0 2px 8px #143d2006;animation:trxFade .35s ease}
+@keyframes trxFade{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+.trx-logo-wrap{width:38px;height:38px;border-radius:10px;background:#f4faf6;border:1px solid #e6f0e9;display:grid;place-items:center;padding:6px;flex:none}
+.trx-logo-wrap img{display:block;width:100%;height:100%;object-fit:contain}
+.trx-meta{min-width:0}
+.trx-text{font-size:.9rem;font-weight:750;color:#10251d;line-height:1.35}
+.trx-ago{font-size:.78rem;color:#6a7c72;margin-top:2px}
 
-<script>
-  window.dataLayer = window.dataLayer || [];
-
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-
-  gtag('js', new Date());
-  gtag('config', 'AW-18347323010');
-
-  function gtag_report_conversion(url) {
-    var callback = function () {
-        if (typeof(url) != 'undefined') {
-            window.location = url;
-        }
-    };
-
-    gtag('event', 'conversion', {
-        'send_to': 'AW-18347323010/sz6jConFxIsEdL16xE',
-        'event_callback': callback
-    });
-
-    return false;
-  }
-</script>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --primary: #3b82f6;
-            --primary-glow: rgba(59, 130, 246, 0.35);
-            --success: #10b981;
-            --bg-dark: #0b0f19;
-            --card-bg: rgba(255, 255, 255, 0.04);
-            --card-border: rgba(255, 255, 255, 0.08);
-            --text-main: #ffffff;
-            --text-muted: #94a3b8;
-        }
-
-        * { box-sizing: border-box; }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: radial-gradient(circle at top right, #1e293b 0%, var(--bg-dark) 60%);
-            background-attachment: fixed;
-            margin: 0;
-            padding: 0;
-            color: var(--text-main);
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-
-        .container { max-width: 500px; margin: auto; padding-bottom: 20px; }
-
-        .navbar {
-            position: fixed; top: 0; left: 0; width: 100%;
-            background: rgba(11, 15, 25, 0.85);
-            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
-            z-index: 100; border-bottom: 1px solid var(--card-border);
-        }
-
-        .nav-container {
-            max-width: 500px; margin: auto; display: flex;
-            justify-content: space-between; align-items: center; padding: 10px 15px;
-        }
-
-        .nav-logo-wrapper { display: flex; align-items: center; gap: 8px; text-decoration: none; }
-        .nav-logo-svg { width: 28px; height: 28px; }
-        .nav-logo { font-weight: 800; font-size: 16px; color: #ffffff; letter-spacing: 0.5px; }
-        .nav-logo span { color: var(--primary); }
-
-        .nav-menu { display: flex; gap: 10px; }
-        .nav-menu a { text-decoration: none; font-size: 10px; font-weight: 700; color: var(--text-muted); transition: 0.3s; }
-        .nav-menu a:hover { color: var(--primary); }
-
-        .running-text {
-            background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(10px);
-            padding: 8px 0; font-size: 11px; font-weight: 600; color: #60a5fa;
-            border-bottom: 1px solid var(--card-border); white-space: nowrap; overflow: hidden; margin-top: 49px;
-        }
-        .marquee-content { display: inline-block; animation: marquee 25s linear infinite; }
-        @keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
-
-        .brand {
-            background: linear-gradient(180deg, #1e293b 0%, var(--bg-dark) 100%);
-            text-align: center; padding: 40px 20px 80px; color: white;
-            border-radius: 0 0 50px 50px; margin-bottom: -50px;
-            border-bottom: 1px solid var(--card-border); display: flex; flex-direction: column; align-items: center;
-        }
-
-        .brand-logo-container { margin-bottom: 15px; display: flex; justify-content: center; align-items: center; }
-        .brand-logo-img { width: 220px; height: auto; display: block; filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.35)); }
-
-        .badge-top {
-            background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.3);
-            color: #60a5fa; display: inline-block; padding: 6px 16px; border-radius: 20px;
-            font-size: 11px; font-weight: 600; margin-bottom: 15px; letter-spacing: 0.5px;
-        }
-
-        .brand h1 {
-            font-size: 24px; font-weight: 800; line-height: 1.3; margin: 0 auto; max-width: 350px;
-            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-
-        .admin-status {
-            font-size: 11px; margin-top: 10px; font-weight: 600;
-            display: flex; align-items: center; justify-content: center; gap: 5px; color: var(--text-muted);
-        }
-        .dot { width: 8px; height: 8px; background: var(--success); border-radius: 50%; display: inline-block; box-shadow: 0 0 12px var(--success); animation: pulse 1.5s infinite; }
-        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
-
-        .poster-container { margin: 0 15px 20px; position: relative; z-index: 10; }
-        .promo-poster {
-            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
-            border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 24px; padding: 25px 20px;
-            text-align: center; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); position: relative; overflow: hidden;
-        }
-        .poster-badge {
-            background: #2563eb; color: white; font-size: 10px; font-weight: 800;
-            padding: 4px 10px; border-radius: 30px; display: inline-block; margin-bottom: 12px;
-            letter-spacing: 1px; text-transform: uppercase;
-        }
-        .promo-poster h2 {
-            font-size: 18px; font-weight: 800; margin: 0 0 10px 0; line-height: 1.4;
-            background: linear-gradient(135deg, #ffffff 0%, #93c5fd 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-        .promo-poster p { font-size: 11px; color: #cbd5e1; margin: 0 0 15px 0; line-height: 1.6; }
-        .poster-footer { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 12px; }
-        .poster-footer span { font-size: 11px; color: var(--success); font-weight: 700; display: flex; align-items: center; gap: 5px; }
-        .btn-poster { background: #3b82f6; color: white; font-size: 11px; font-weight: 700; text-decoration: none; padding: 8px 14px; border-radius: 12px; transition: 0.3s; }
-
-        .card {
-            background: var(--card-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--card-border); border-radius: 24px; padding: 25px 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35); margin: 0 15px 25px; position: relative; z-index: 10;
-        }
-
-        .section-title { font-size: 15px; font-weight: 700; margin: 25px 20px 12px; display: block; color: var(--text-main); padding-top: 10px; }
-
-        .providers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
-        .provider {
-            padding: 14px 8px; border-radius: 18px; border: 1px solid var(--card-border);
-            text-align: center; cursor: pointer; transition: 0.3s; background: rgba(255, 255, 255, 0.02);
-            display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;
-        }
-        .provider img { height: 32px; width: 32px; margin-bottom: 6px; object-fit: contain; }
-        .provider span { font-size: 11px; font-weight: 700; color: #e2e8f0; }
-        .provider.active { border-color: var(--primary); background: rgba(59, 130, 246, 0.12); transform: scale(1.03); box-shadow: 0 0 15px var(--primary-glow); }
-
-        input, select {
-            width: 100%; padding: 15px 18px; border-radius: 15px; border: 1px solid var(--card-border);
-            margin-bottom: 15px; font-size: 14px; outline: none; background: rgba(15, 23, 42, 0.6);
-            transition: 0.3s; color: var(--text-main); font-family: inherit;
-        }
-        input:focus, select:focus { border-color: var(--primary); background: rgba(15, 23, 42, 0.85); box-shadow: 0 0 10px var(--primary-glow); }
-        select option { background-color: var(--bg-dark); color: var(--text-main); }
-
-        .estimasi { background: rgba(59, 130, 246, 0.05); padding: 18px; border-radius: 16px; text-align: center; margin-bottom: 20px; border: 1px dashed rgba(59, 130, 246, 0.35); }
-        .estimasi span { font-size: 11px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; }
-        .estimasi b { color: #60a5fa; font-size: 26px; font-weight: 800; display: block; margin-top: 4px; }
-
-        .btn-primary {
-            width: 100%; padding: 18px; border: none; border-radius: 18px;
-            background: linear-gradient(135deg, #2563eb, #1d4ed8); color: white;
-            font-weight: 700; cursor: pointer; font-size: 16px; box-shadow: 0 8px 25px rgba(37, 99, 235, 0.35); transition: 0.3s;
-        }
-        .btn-primary:active { transform: scale(0.98); }
-
-        .rate-card-premium {
-            background: var(--card-bg); backdrop-filter: blur(20px);
-            border: 1px solid var(--card-border); border-radius: 24px; padding: 20px; margin: 0 15px 25px;
-        }
-        .rate-card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
-        .rate-card-header h3 { font-size: 15px; color: var(--text-main); font-weight: 700; margin: 0; }
-        .pulse-indicator { width: 8px; height: 8px; background-color: var(--success); border-radius: 50%; }
-
-        .rate-list { display: flex; flex-direction: column; gap: 10px; }
-        .rate-item { display: flex; justify-content: space-between; align-items: center; background: rgba(255, 255, 255, 0.02); border: 1px solid var(--card-border); padding: 12px 16px; border-radius: 16px; }
-        .provider-meta { display: flex; align-items: center; gap: 12px; }
-        .provider-meta img { height: 24px; width: 24px; object-fit: contain; }
-        .provider-meta span { font-size: 13px; font-weight: 600; color: #f1f5f9; }
-        .pill-badge { font-size: 13px; font-weight: 700; color: #60a5fa; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); padding: 5px 14px; border-radius: 20px; }
-        .pill-badge.highest-tier { background: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(245, 158, 11, 0.15)); color: #f59e0b; border-color: rgba(245, 158, 11, 0.4); }
-
-        .ringkasan-box { background: rgba(30, 41, 59, 0.7); border: 1px solid var(--card-border); border-radius: 16px; padding: 14px 18px; margin-bottom: 20px; font-size: 12px; color: #94a3b8; }
-        .ringkasan-box div { display: flex; justify-content: space-between; margin-bottom: 6px; }
-        .ringkasan-box div:last-child { margin-bottom: 0; font-weight: 700; color: var(--text-main); }
-
-        .step-box {
-            display: flex; align-items: center; gap: 15px; background: var(--card-bg);
-            border: 1px solid var(--card-border); padding: 15px; border-radius: 18px; margin: 0 15px 12px;
-        }
-        .step-num { background: var(--primary); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 12px; flex-shrink: 0; }
-        .step-text b { font-size: 13px; display: block; margin-bottom: 2px; color: var(--text-main); }
-        .step-text span { font-size: 11px; color: var(--text-muted); }
-
-        .info-card {
-            background: var(--card-bg); border: 1px solid var(--card-border);
-            border-radius: 20px; padding: 20px; margin: 25px 15px 15px;
-            line-height: 1.7;
-        }
-        .info-card h3 { margin: 0 0 12px; font-size: 15px; color: #60a5fa; }
-        .info-card p { margin: 7px 0; font-size: 11px; color: var(--text-muted); }
-        .info-card strong { color: var(--text-main); }
-
-        .faq-item { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 15px; margin: 0 15px 10px; overflow: hidden; }
-        .faq-question { width: 100%; padding: 15px; background: none; border: none; text-align: left; font-size: 13px; font-weight: 700; color: var(--text-main); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-        .faq-answer { padding: 0 15px; max-height: 0; overflow: hidden; transition: 0.3s ease-out; font-size: 11px; color: var(--text-muted); line-height: 1.6; }
-        .faq-item.active .faq-answer { max-height: 180px; padding-bottom: 15px; }
-
-        .testi-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 20px; padding: 15px; margin: 0 15px 12px; }
-        .testi-note { font-size: 11px; color: var(--text-muted); line-height: 1.6; margin: 0; }
-
-        footer { background: rgba(11, 15, 25, 0.9); padding: 30px 20px; border-top: 1px solid var(--card-border); text-align: center; margin-top: 40px; }
-        .footer-logo { font-size: 20px; font-weight: 800; color: #ffffff; margin-bottom: 10px; display: block; text-decoration: none; letter-spacing: 1px; }
-        .footer-logo span { color: var(--primary); }
-        .footer-links { margin-bottom: 15px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-        .footer-links a { font-size: 11px; color: #60a5fa; text-decoration: none; font-weight: 600; }
-        .footer-links a:hover { text-decoration: underline; }
-        .footer-info { font-size: 11px; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px; }
-
-        .trust-logos { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 20px; opacity: 0.8; margin-top: 20px; }
-        .trust-logos img { height: 18px; object-fit: contain; }
-
-        .floating-wa {
-            position: fixed; bottom: 25px; right: 20px; background: #25d366; color: white;
-            width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center;
-            justify-content: center; z-index: 1000; box-shadow: 0 6px 16px rgba(0,0,0,0.3); text-decoration: none; font-size: 28px;
-        }
-
-        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(5px); }
-        .modal-content { background-color: #0f172a; margin: 10% auto; padding: 25px; border: 1px solid var(--card-border); width: 90%; max-width: 450px; border-radius: 20px; color: #cbd5e1; font-size: 12px; line-height: 1.7; position: relative; }
-        .modal-content h3 { color:#60a5fa; margin-top:0; }
-        .modal-content p { margin: 10px 0; }
-        .close-btn { color: #aaa; position: absolute; right: 20px; top: 15px; font-size: 24px; font-weight: bold; cursor: pointer; }
-        .close-btn:hover { color: #fff; }
-    </style>
+.testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.testimonial{background:#fff;border:1px solid var(--line);border-radius:17px;padding:22px;box-shadow:0 7px 20px #163d1b08}.testimonial p{color:#52645a}.testimonial strong,.testimonial small{display:block}.testimonial small{color:var(--muted)}.stars{color:#efa900;letter-spacing:2px}
+.privacy-card{max-width:850px;margin:auto}.privacy-card h3{margin:18px 0 5px;color:#0b7041}.privacy-card h3:first-child{margin-top:0}.privacy-card p{margin:0;color:#52645a}
+.admin-lock{max-width:520px;margin:auto;background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}.admin-lock>p:first-child{color:var(--muted);font-size:.9rem}.admin-message{color:#b42318}.admin-card h3{margin:0 0 14px}.rate-edit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}.rate-edit{padding:12px;background:#f5fbf6;border-radius:12px}.rate-edit label{display:block;font-weight:800;margin-bottom:6px}.rate-edit input{width:100%;padding:10px;border:1px solid var(--line);border-radius:9px}.admin-orders{display:grid;gap:10px;margin:12px 0 20px}.admin-order{border:1px solid var(--line);border-radius:12px;padding:13px;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}.admin-order select{padding:8px;border:1px solid var(--line);border-radius:8px}.admin-order small{display:block;color:var(--muted)}
+footer{background:#05271e;color:#e8f6eb;padding:35px 0 20px}.foot{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:25px}.foot p,.foot a{color:#c3d9ca;font-size:.9rem}.copyright{border-top:1px solid #ffffff25;margin-top:25px;padding-top:16px;color:#b7d0c0;font-size:.82rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.float{position:fixed;bottom:18px;right:18px;z-index:9;background:linear-gradient(110deg,#16b951,#8be84b);color:#063522;padding:14px 19px;border-radius:50px;font-weight:900;box-shadow:0 8px 25px #0002;display:inline-flex;align-items:center;gap:8px}
+@media(min-width:851px){header .container{position:relative}header .links{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}}
+@media(min-width:700px){.rate-list{grid-template-columns:1fr 1fr;column-gap:26px}.rate-item:nth-last-child(2){border-bottom:0}}
+@media(max-width:850px){.links{display:flex;overflow-x:auto;white-space:nowrap;gap:16px;padding:8px 0 11px;border-top:1px solid #ffffff14;font-size:.82rem;scrollbar-width:none}.links::-webkit-scrollbar{display:none}.hero-grid{grid-template-columns:1fr}.visual.visual-phone-art{margin:8px auto 0;width:min(100%,560px)}.visual-phone-art img{max-height:520px}.calc-card{grid-template-columns:1fr}.calc-left{border-right:0;border-bottom:1px solid #e3eee6;padding:0 0 24px}.benefit-grid{grid-template-columns:1fr 1fr}.operator-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.testimonial-grid{grid-template-columns:1fr}.rate-edit-grid{grid-template-columns:repeat(2,1fr)}.admin-order{grid-template-columns:1fr}}
+@media(max-width:560px){nav{height:66px}nav .btn{font-size:.76rem;padding:8px 12px;gap:7px}.btn-cs-avatar{width:22px;height:22px}.hero{padding:48px 0 58px}.hero h1{letter-spacing:-2px}.visual.visual-phone-art{margin:4px auto 0;width:100%}.visual-phone-art img{width:100%;max-height:none;border-radius:18px}.calc-section{padding:0 0 36px}.calc-card{padding:16px;gap:18px;border-radius:18px}.calc-left{padding-bottom:16px}.calc-card h2{font-size:1.25rem;margin:0 0 8px}.field{margin:7px 0}.field label{font-size:.82rem;margin-bottom:4px}.field input,.field select,.op-picker-btn{padding:9px 11px;font-size:.9rem;border-radius:9px}.calc-row-2{gap:8px}.estimate{font-size:1.65rem;margin:2px 0 8px}.calc-card .btn{padding:11px 16px;font-size:.92rem}.operator-grid{grid-template-columns:repeat(2,1fr)}.operator{min-height:78px;padding:9px}.operator img{height:36px;max-width:105px}.benefit-grid,.steps,.foot{grid-template-columns:1fr}.cta{align-items:flex-start;flex-direction:column}.rate-premium{padding:12px 16px;border-radius:20px}.rate-item{grid-template-columns:50px minmax(0,1fr) auto;gap:11px;padding:15px 0}.rate-logo-wrap{width:46px;height:46px;border-radius:13px}.rate-provider{font-size:.98rem}.rate-sub{font-size:.76rem}.rate-values{min-width:82px}.rate-pill{min-width:70px;padding:7px 10px;font-size:.98rem}.rate-amount{font-size:.74rem}.trx-box{padding:12px 14px;border-radius:20px}.trx-text{font-size:.84rem}}
+</style>
 </head>
 <body>
-
-<nav class="navbar">
-    <div class="nav-container">
-        <a href="#" class="nav-logo-wrapper">
-            <svg class="nav-logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="nav-logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="#60a5fa" />
-                        <stop offset="100%" stop-color="#1d4ed8" />
-                    </linearGradient>
-                </defs>
-                <circle cx="50" cy="50" r="42" fill="none" stroke="url(#nav-logo-grad)" stroke-width="12" />
-                <circle cx="50" cy="50" r="28" fill="rgba(59, 130, 246, 0.2)" />
-                <text x="50%" y="57%" dominant-baseline="middle" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="900" font-size="28" fill="#ffffff">BC</text>
-            </svg>
-            <div class="nav-logo">BOSS<span> Convert</span></div>
-        </a>
-        <div class="nav-menu">
-            <a href="#rate">RATE</a>
-            <a href="#cara-kerja">PANDUAN</a>
-            <a href="#tentang-kami">TENTANG</a>
-            <a href="#faq">FAQ</a>
-        </div>
-    </div>
-</nav>
-
-<div class="running-text">
-    <div class="marquee-content">
-        ✨ Rate dan informasi transaksi ditampilkan secara terbuka — ✨ Cek estimasi penerimaan sebelum melanjutkan transaksi — ✨ Hubungi admin melalui WhatsApp untuk proses selanjutnya
-    </div>
+<header><div class="container"><nav>
+<a class="brand" href="#"><span class="brand-mark">B</span><span>BOS<small>CONVERT</small></span></a>
+<a class="btn" id="csBtn" href="https://wa.me/628984814123?text=Halo%20Admin%20Bos%20Convert%2C%20saya%20ingin%20meminta%20bantuan%20customer%20service." target="_blank" rel="noopener"><img class="btn-cs-avatar" src="pngtree-admin-and-customer-service-job-vacancies-png-image_9041264.png" alt="Bantuan Customer Service" loading="eager"> Bantuan Customer Service</a>
+</nav><div class="links"><a href="#beranda">Beranda</a><a href="#cara">Cara Order</a><a href="#rate">Rate</a><a href="#status">Status</a><a href="#riwayat">Riwayat</a><a href="#testimoni">Testimoni</a><a href="#faq">FAQ</a><a href="#kontak">Kontak</a></div></div></header>
+<main>
+<section class="hero" id="beranda"><div class="container hero-grid">
+<div><span class="tag">⚡ Convert Pulsa · Aman · Cepat</span><h1>BOS <span class="green">CONVERT</span></h1><h2>Solusi Convert Pulsa <span class="green">Terbaik!</span></h2>
+<p>Tukar pulsa Anda menjadi saldo e-wallet atau transfer dengan proses yang mudah. Cek estimasi dan konsultasikan transaksi langsung dengan admin kami.</p>
+<div class="checks"><span>Proses mudah</span><span>Info rate jelas</span><span>Konfirmasi admin</span></div>
+<div class="hero-actions"><a class="btn" href="#kalkulator">➤ Convert Sekarang　›</a><a class="btn outline" href="#rate">Lihat Rate</a></div></div>
+<div class="visual visual-phone-art">
+<img src="file_000000000e248211a01e892ddd06a175.png" alt="Ilustrasi tangan memegang smartphone BOS CONVERT dengan logo provider Telkomsel, XL Axiata, AXIS, Indosat, Tri, dan Smartfren" loading="eager" fetchpriority="high">
 </div>
-
-<div class="container">
-    <div class="brand" id="main-brand">
-        <div class="brand-logo-container">
-            <img class="brand-logo-img" src="1784114788267.png" alt="Logo Boss Convert">
-        </div>
-
-        <div class="badge-top">LAYANAN CONVERT PULSA</div>
-        <h1>Punya Pulsa Sisa Tak Terpakai? Cek Estimasi Konversinya</h1>
-        <div class="admin-status"><span class="dot"></span> Layanan aktif sesuai jam operasional</div>
-    </div>
-
-    <div class="poster-container">
-        <div class="promo-poster">
-            <div class="poster-badge">RATE HARI INI</div>
-            <h2>XL / Axis 0.91 ⚡</h2>
-            <p>Gunakan kalkulator untuk melihat estimasi nilai yang diterima berdasarkan rate yang ditampilkan. Proses selanjutnya dilakukan melalui verifikasi admin.</p>
-            <div class="poster-footer">
-                <span><i class="fab fa-whatsapp"></i> Proses Transparan</span>
-                <a href="#home" class="btn-poster">Cek Rate</a>
-            </div>
-        </div>
-    </div>
-
-    <div id="step1_container">
-        <div class="card" id="home">
-            <span style="font-size: 13px; font-weight: 700; color: var(--text-main); margin-bottom: 15px; display: block;">1. Pilih Operator</span>
-            <div class="providers">
-                <div class="provider" onclick="pilihProvider(this, 'Telkomsel', 0.86)">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Telkomsel_2021_icon.svg" alt="Telkomsel">
-                    <span>Telkomsel</span>
-                </div>
-                <div class="provider" onclick="pilihProvider(this, 'XL / Axis', 0.91)">
-                    <div style="display: flex; gap: 4px; align-items: center; justify-content: center; margin-bottom: 6px;">
-                        <img src="XL.png" alt="XL" style="margin-bottom: 0; width: 24px; height: 24px;">
-                        <img src="Axis_logo_2015.svg.png" alt="Axis" style="margin-bottom: 0; width: 24px; height: 24px;">
-                    </div>
-                    <span>XL / Axis</span>
-                </div>
-                <div class="provider" onclick="pilihProvider(this, 'Three', 0.88)">
-                    <img src="1771848121156.png" alt="Tri">
-                    <span>Tri</span>
-                </div>
-                <div class="provider" onclick="pilihProvider(this, 'Indosat', 0.89)">
-                    <img src="im3-ooredoo-logo-png_seeklogo-326756.png" alt="Indosat">
-                    <span>Indosat</span>
-                </div>
-                <div class="provider" onclick="pilihProvider(this, 'Smartfren', 0.85)">
-                    <img src="d48d6f57-7273-416a-9aab-49625e21f03f.png" alt="Smartfren">
-                    <span>Smartfren</span>
-                </div>
-                <div class="provider" onclick="pilihProvider(this, 'by.U', 0.86)">
-                    <img src="Byu-logo-blue.svg.png" alt="by.U">
-                    <span>by.U</span>
-                </div>
-            </div>
-
-            <span style="font-size: 13px; font-weight: 700; color: var(--text-main); margin-bottom: 10px; display: block;">2. Tentukan Nominal</span>
-            <input type="tel" id="nomor" inputmode="numeric" placeholder="Nomor Kontak Pengirim (08...)">
-            <input type="text" id="nominal" inputmode="numeric" placeholder="Jumlah Pulsa (Minimal 30.000)">
-
-            <div class="estimasi">
-                <span>Estimasi nilai yang Anda terima</span>
-                <b id="hasil">Rp 0</b>
-            </div>
-
-            <button class="btn-primary" onclick="nextStep(2)">Lanjut Verifikasi 🚀</button>
-        </div>
-
-        <div class="rate-card-premium" id="rate">
-            <div class="rate-card-header">
-                <div class="pulse-indicator"></div>
-                <h3>Rate Pulsa Hari Ini (ditampilkan sebelum transaksi)</h3>
-            </div>
-
-            <div class="rate-list">
-                <div class="rate-item">
-                    <div class="provider-meta"><img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Telkomsel_2021_icon.svg" alt="Telkomsel"><span>Telkomsel</span></div>
-                    <div class="pill-badge">0.86</div>
-                </div>
-                <div class="rate-item">
-                    <div class="provider-meta">
-                        <div style="display: flex; gap: 5px; align-items: center;"><img src="XL.png" alt="XL" style="width: 20px; height: 20px;"><img src="Axis_logo_2015.svg.png" alt="Axis" style="width: 20px; height: 20px;"></div>
-                        <span>XL / Axis</span>
-                    </div>
-                    <div class="pill-badge highest-tier">0.91</div>
-                </div>
-                <div class="rate-item">
-                    <div class="provider-meta"><img src="1771848121156.png" alt="Tri"><span>Tri</span></div>
-                    <div class="pill-badge">0.88</div>
-                </div>
-                <div class="rate-item">
-                    <div class="provider-meta"><img src="im3-ooredoo-logo-png_seeklogo-326756.png" alt="Indosat"><span>Indosat</span></div>
-                    <div class="pill-badge">0.89</div>
-                </div>
-                <div class="rate-item">
-                    <div class="provider-meta"><img src="d48d6f57-7273-416a-9aab-49625e21f03f.png" alt="Smartfren"><span>Smartfren</span></div>
-                    <div class="pill-badge">0.85</div>
-                </div>
-                <div class="rate-item">
-                    <div class="provider-meta"><img src="Byu-logo-blue.svg.png" alt="by.U"><span>by.U</span></div>
-                    <div class="pill-badge">0.86</div>
-                </div>
-            </div>
-            <p style="font-size:11px;color:var(--text-muted);line-height:1.6;margin:15px 0 0;">
-                Rate dapat berubah. Nilai akhir mengikuti rate yang dikonfirmasi sebelum transaksi diproses.
-            </p>
-        </div>
-
-        <span class="section-title" id="cara-kerja">Alur Transaksi & Panduan</span>
-        <div class="step-box">
-            <div class="step-num">1</div>
-            <div class="step-text"><b>Isi Data Form</b><span>Masukkan operator, nomor pengirim, dan nominal pulsa dengan data yang benar.</span></div>
-        </div>
-        <div class="step-box">
-            <div class="step-num">2</div>
-            <div class="step-text"><b>Verifikasi Melalui WhatsApp</b><span>Setelah formulir dikirim, admin memberikan instruksi dan melakukan verifikasi transaksi melalui WhatsApp.</span></div>
-        </div>
-        <div class="step-box">
-            <div class="step-num">3</div>
-            <div class="step-text"><b>Penyaluran Saldo</b><span>Setelah transaksi dan data tujuan diverifikasi, saldo disalurkan sesuai nilai yang telah dikonfirmasi.</span></div>
-        </div>
-
-        <div class="info-card" id="tentang-kami">
-            <h3>Tentang Boss Convert</h3>
-            <p>Boss Convert adalah layanan independen yang membantu pengguna menukarkan pulsa yang dimiliki menjadi saldo e-wallet atau dana ke rekening bank melalui proses yang diinformasikan secara transparan.</p>
-            <p>Kami menampilkan rate konversi yang dapat diperiksa sebelum transaksi dilakukan. Setiap transaksi diproses setelah data dan pulsa yang dikirimkan telah diverifikasi sesuai dengan ketentuan layanan.</p>
-            <p><strong>Informasi Pengelola</strong></p>
-            <p>Boss Convert dikelola secara mandiri dan tidak berafiliasi dengan operator telekomunikasi, bank, maupun penyedia e-wallet yang logonya tercantum di website.</p>
-            <p><strong>Layanan:</strong> Convert pulsa menjadi saldo e-wallet atau rekening bank.</p>
-            <p><strong>Email:</strong> support@bossconvert.com</p>
-            <p><strong>WhatsApp:</strong> 0813 7175 8870</p>
-            <p><strong>Jam layanan:</strong> 08.00–04.30 WIB</p>
-            <p><strong>Alamat operasional:</strong> Depan Toko Budianto (100 Mtr dari BRI, Jl. Pemuda Kranji No.111, RT.001/RW.14, Kranji, Kec. Bekasi Bar., Kota Bks, Jawa Barat 17135        </div>
-
-        <span class="section-title">Informasi</span>
-        <div class="testi-card">
-            <p class="testi-note">
-
-Mohon diperhatikan sebelum melakukan transaksi di Boss Convert:
-
-1. Tidak ada konfirmasi nominal di awal. Pastikan nominal pulsa yang dikirim sudah sesuai dengan ketentuan dan format transaksi yang berlaku.
-2. Jika format transaksi sudah turun, transaksi wajib mengikuti rules Boss Convert. Ketentuan yang berlaku harus dipatuhi dan tidak dapat diubah sepihak setelah format turun.
-3. Pastikan Anda sudah memahami dan menyetujui ketentuan transaksi sebelum melanjutkan proses convert pulsa.
-
-Dengan melakukan transaksi, pelanggan dianggap telah memahami dan menyetujui SOP yang berlaku di Boss Convert.
-
-Terima kasih atas kepercayaan Anda kepada Boss Convert — Aman, Cepat, dan Terpercaya..</p>
-        </div>
-
-        <span class="section-title" id="faq">Tanya Jawab (FAQ)</span>
-        <div class="faq-item">
-            <button class="faq-question">Bagaimana proses transaksi? <span>+</span></button>
-            <div class="faq-answer">Pilih operator dan nominal, lihat estimasi nilai, lalu lanjutkan verifikasi. Admin akan memberikan instruksi melalui WhatsApp. Jangan mengirim pulsa sebelum instruksi transaksi dikonfirmasi.</div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question">Berapa batas minimal pengiriman pulsa? <span>+</span></button>
-            <div class="faq-answer">Batas minimal pengiriman pulsa pada formulir adalah Rp 30.000. Ketentuan dapat berubah dan akan diinformasikan sebelum transaksi.</div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question">Apakah rate dapat berubah? <span>+</span></button>
-            <div class="faq-answer">Ya. Rate dapat berubah sesuai kondisi layanan. Pastikan memeriksa rate dan nilai yang dikonfirmasi sebelum mengirim pulsa.</div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question">Apakah ada biaya tambahan? <span>+</span></button>
-            <div class="faq-answer">Rate dan estimasi nilai penerimaan ditampilkan sebelum transaksi. Jika terdapat biaya atau penyesuaian yang berlaku pada transaksi tertentu, informasi tersebut harus dikonfirmasi sebelum transaksi dilanjutkan.</div>
-        </div>
-    </div>
-
-    <!-- STEP 2 / FORM TUJUAN -->
-    <div id="step2" style="display: none; margin-top: 20px;">
-        <div class="card">
-            <h3 style="margin-top:0; font-size:18px; color: #60a5fa; margin-bottom:15px;">Detail Penyaluran Saldo</h3>
-
-            <div class="ringkasan-box">
-                <div><span>Operator & No. Pengirim:</span><span id="summary-provider" style="color: #f1f5f9;">-</span></div>
-                <div><span>Total Pulsa:</span><span id="summary-nominal" style="color: #f1f5f9;">Rp 0</span></div>
-                <div><span>Estimasi Diterima:</span><span id="summary-terima" style="color:#60a5fa;">Rp 0</span></div>
-            </div>
-
-            <select id="tujuan">
-                <option value="">Pilih Opsi Akun Digital / Bank</option>
-                <option value="DANA">DANA (E-Wallet)</option>
-                <option value="OVO">OVO (E-Wallet)</option>
-                <option value="GOPAY">GOPAY (E-Wallet)</option>
-                <option value="LINK AJA">LINKAJA (E-Wallet)</option>
-                <option value="SHOPEEPAY">SHOPEEPAY (E-Wallet)</option>
-                <option value="BCA">Bank BCA</option>
-                <option value="SEABANK">SEABANK</option>
-                <option value="BRI">Bank BRI</option>
-                <option value="BNI">Bank BNI</option>
-                <option value="MANDIRI">Bank Mandiri</option>
-                <option value="JAGO">Bank JAGO</option>
-                <option value="NOBU">Bank NATION NOBU</option>
-                <option value="DANAMON">Bank DANAMON</option>
-                <option value="CIMB NIAGA">Bank CIMB NIAGA</option>
-                <option value="ALLO ">Bank ALLO BANK</option>
-                <option value="NEO">Bank NEO COMMERCE</option>
-                <option value="BLU ">Bank BLU BY BCA</option>
-                <option value="BSI">Bank SYARIAH INDONESIA</option>
-                <option value="SINARMAS">Bank SINARMAS</option>
-                
-            </select>
-            <input type="text" id="rekening" placeholder="ID Akun / Nomor Rekening Tujuan">
-            <input type="text" id="nama" placeholder="Nama Lengkap Pemilik Sesuai Akun">
-            <button class="btn-primary" onclick="return nextStep(3)">Konfirmasi & Lanjutkan ke WhatsApp 🚀</button>
-
-            <p style="text-align:center; margin-top: 15px;"><a href="#" onclick="location.reload(); return false;" style="font-size:13px; color:#ef4444; font-weight:600; text-decoration:none;">← Batalkan Proses</a></p>
-        </div>
-    </div>
-
-    <footer>
-        <a href="#" class="footer-logo">BOSS<span> CONVERT</span></a>
-        <div class="footer-links">
-            <a href="javascript:void(0)" onclick="openModal('privacyModal')">Kebijakan Privasi</a>
-            <a href="javascript:void(0)" onclick="openModal('termsModal')">Syarat & Ketentuan</a>
-        </div>
-        <p class="footer-info">
-            ©️ 2026 BOSS CONVERT. Informasi di website ini ditujukan untuk menjelaskan layanan dan ketentuan transaksi.
-        </p>
-        <p class="footer-info" style="margin-bottom:0;">
-            Boss Convert merupakan layanan independen dan tidak berafiliasi dengan operator telekomunikasi, bank, atau penyedia e-wallet yang tercantum.
-        </p>
-        <div class="trust-logos">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg" alt="DANA">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Logo_ovo_purple.svg" alt="OVO">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Logo_Gopay.svg" alt="GOPAY">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg" alt="BCA">
-        </div>
-    </footer>
+</div></section>
+<section class="calc-section" id="kalkulator"><div class="container"><div class="calc-card">
+<div class="calc-left"><h2>▦ Form Convert Pulsa</h2><div class="field"><label for="nominal">Masukkan nominal pulsa Anda</label><input id="nominal" type="number" min="30000" step="1000" value=""></div><div class="field"><label for="operator">Pilih operator</label><div class="op-picker" id="opPicker"><select id="operator"></select></div></div>
+<div class="field"><label for="sender">Nomor HP pengirim pulsa</label><input id="sender" type="tel" inputmode="tel" placeholder="Contoh: 081234567890"></div>
+<div class="field"><label for="payout">Metode pencairan</label><select id="payout"><option value="bank">Transfer Bank</option><option value="ewallet">E-Wallet</option></select></div>
+<div id="bankFields">
+<div class="field"><label for="bankName">Nama bank</label><select id="bankName"><option value="">Pilih bank</option><option>BCA</option><option>BRI</option><option>BNI</option><option>Mandiri</option><option>BSI</option><option>Bank Jago</option><option>SeaBank</option><option>Bank lainnya</option></select></div>
+<div class="calc-row-2">
+<div class="field"><label for="bankAccount">Nomor rekening</label><input id="bankAccount" inputmode="numeric" placeholder="No. rekening"></div>
+<div class="field"><label for="bankHolder">Nama pemilik</label><input id="bankHolder" placeholder="Sesuai rekening"></div>
 </div>
-
-<!-- MODAL PRIVACY POLICY -->
-<div id="privacyModal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closeModal('privacyModal')">&times;</span>
-        <h3>Kebijakan Privasi</h3>
-        <p>Boss Convert menghargai privasi pengguna. Kebijakan ini menjelaskan informasi yang dapat diberikan pengguna saat menggunakan formulir atau menghubungi admin.</p>
-        <p><strong>Informasi yang dapat diproses:</strong> nomor kontak pengirim, nominal pulsa, pilihan operator, tujuan penyaluran, nomor rekening atau ID e-wallet, dan nama pemilik akun yang diberikan pengguna untuk keperluan transaksi.</p>
-        <p><strong>Tujuan penggunaan:</strong> data digunakan untuk memproses, memverifikasi, menghubungi pengguna terkait transaksi, dan menangani pertanyaan atau kendala layanan.</p>
-        <p><strong>Penyimpanan:</strong> informasi transaksi hanya disimpan selama diperlukan untuk tujuan operasional, pencatatan, keamanan, dan penyelesaian sengketa sesuai kebutuhan.</p>
-        <p><strong>Perlindungan:</strong> Boss Convert berupaya menjaga informasi transaksi dan membatasi akses hanya untuk keperluan operasional. Namun, tidak ada metode transmisi atau penyimpanan data melalui internet yang dapat dijamin 100% aman.</p>
-        <p><strong>Pihak ketiga:</strong> data tidak dijual untuk kepentingan pemasaran. Data dapat diproses oleh penyedia layanan yang diperlukan untuk menjalankan komunikasi atau layanan transaksi sesuai kebutuhan.</p>
-        <p><strong>Hubungi kami:</strong> Jika memiliki pertanyaan mengenai privasi atau ingin meminta informasi mengenai data yang diberikan, hubungi support@bossconvert.com.</p>
-    </div>
 </div>
-
-<!-- MODAL TERMS & CONDITIONS -->
-<div id="termsModal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closeModal('termsModal')">&times;</span>
-        <h3>Syarat & Ketentuan</h3>
-        <p>Dengan menggunakan layanan Boss Convert, pengguna menyatakan telah membaca dan memahami ketentuan berikut.</p>
-        <p><strong>1. Data pengguna:</strong> Pengguna wajib memberikan informasi yang benar, lengkap, dan dapat dihubungi untuk keperluan verifikasi transaksi.</p>
-        <p><strong>2. Kepemilikan pulsa:</strong> Pengguna hanya boleh mengirim pulsa yang diperoleh secara sah dan berhak untuk ditransaksikan. Boss Convert dapat menolak transaksi yang menimbulkan keraguan mengenai sumber atau kepemilikannya.</p>
-        <p><strong>3. Verifikasi:</strong> Pengguna tidak boleh mengirim pulsa sebelum menerima instruksi dan konfirmasi transaksi dari admin melalui saluran resmi Boss Convert.</p>
-        <p><strong>4. Rate:</strong> Rate yang ditampilkan di website merupakan informasi yang dapat berubah. Nilai transaksi mengikuti rate yang dikonfirmasi sebelum transaksi diproses.</p>
-        <p><strong>5. Data tujuan:</strong> Nama pemilik dan nomor rekening atau ID e-wallet harus sesuai dan aktif. Kesalahan data yang diberikan pengguna dapat memengaruhi proses penyaluran.</p>
-        <p><strong>6. Penolakan transaksi:</strong> Boss Convert dapat menolak atau menunda transaksi untuk keperluan verifikasi, keamanan, data yang tidak sesuai, atau kondisi operasional tertentu.</p>
-        <p><strong>7. Perubahan ketentuan:</strong> Ketentuan dapat diperbarui apabila terdapat perubahan layanan atau kebutuhan operasional. Ketentuan yang berlaku akan diinformasikan melalui website.</p>
-        <p><strong>8. Kontak:</strong> Pertanyaan mengenai transaksi dapat disampaikan melalui WhatsApp atau email resmi yang tercantum pada website.</p>
-    </div>
+<div id="ewalletFields" hidden>
+<div class="field"><label for="walletName">Pilih E-Wallet</label><select id="walletName"><option value="">Pilih E-Wallet</option><option>DANA</option><option>OVO</option><option>GoPay</option><option>ShopeePay</option><option>LinkAja</option><option>Lainnya</option></select></div>
+<div class="calc-row-2">
+<div class="field"><label for="walletNumber">Nomor akun</label><input id="walletNumber" type="tel" inputmode="tel" placeholder="08xxxxxxxxxx"></div>
+<div class="field"><label for="walletHolder">Nama pemilik</label><input id="walletHolder" placeholder="Nama akun"></div>
 </div>
+</div>
+<div style="font-size:.88rem">Estimasi saldo diterima:</div><div class="estimate" id="hasil">Rp 80.000</div><button class="btn" id="order" type="button">➤ Convert Sekarang　›</button><p>Rate hanya simulasi. Konfirmasi rate final kepada admin sebelum mengirim pulsa.</p></div>
+<div class="operators"><h2>✦ Provider Tersedia</h2><p style="color:#718178;margin:0;font-size:.9rem">Operator yang tersedia untuk transaksi convert</p><div class="operator-grid">
+<div class="operator"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Telkomsel_(2021).svg" alt="Logo Telkomsel" loading="lazy"><small>Telkomsel</small></div>
+<div class="operator"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/XL_Axiata_2014.svg" alt="Logo XL Axiata" loading="lazy"><small>XL</small></div>
+<div class="operator"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Axis_logo.svg" alt="Logo AXIS" loading="lazy"><small>AXIS</small></div>
+<div class="operator"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Indosat_Ooredoo_Hutchison.svg" alt="Logo Indosat" loading="lazy"><small>Indosat</small></div>
+<div class="operator"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Three_logo.svg" alt="Logo Tri" loading="lazy"><small>Tri</small></div>
+<div class="operator"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Smartfren_logo.svg" alt="Logo Smartfren" loading="lazy"><small>Smartfren</small></div>
+</div></div>
+</div></div></section>
 
-<a href="https://wa.me/6281371758870?text=Halo%20Boss%20Convert%20saya%20ingin%20tanya%20tentang%20convert%20pulsa" class="floating-wa" target="_blank" rel="noopener noreferrer" aria-label="Hubungi Boss Convert melalui WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-</a>
+<section class="content alt-bg" id="rate">
+ <div class="container">
+  <div class="section-head"><h2>Daftar <span class="green">Rate Pulsa</span></h2><p>Rate berikut adalah simulasi awal. Pastikan rate final dikonfirmasi admin sebelum mengirim pulsa.</p></div>
+  <div class="rate-premium"><div class="rate-list" id="rateRows" aria-live="polite"></div></div>
+  <p class="rate-note" id="rateUpdated">Rate dapat berubah sewaktu-waktu.</p>
+ </div>
+</section>
+<section class="benefits"><div class="container benefit-grid"><div class="benefit"><i>⚡</i><div><strong>Proses Praktis</strong><small>Alur mudah dipahami</small></div></div><div class="benefit"><i>✓</i><div><strong>Konfirmasi Admin</strong><small>Detail dicek lebih dulu</small></div></div><div class="benefit"><i>◆</i><div><strong>Info Rate</strong><small>Tanyakan rate terbaru</small></div></div><div class="benefit"><i>☏</i><div><strong>Layanan WhatsApp</strong><small>Hubungi admin langsung</small></div></div></div></section>
+<section class="content" id="cara"><div class="container"><div class="section-head"><h2>Cara Order di <span class="green">BOS CONVERT</span></h2><p>Ikuti langkah berikut dan pastikan detail transaksi sudah dikonfirmasi admin.</p></div><div class="steps"><div class="step"><div class="number">1</div><h3>Isi Detail</h3><p>Pilih operator dan masukkan nominal pulsa pada kalkulator.</p></div><div class="step"><div class="number">2</div><h3>Konfirmasi Admin</h3><p>Kirim detail melalui WhatsApp. Tunggu konfirmasi rate dan nomor tujuan resmi.</p></div><div class="step"><div class="number">3</div><h3>Ikuti Instruksi</h3><p>Kirim pulsa hanya setelah mendapat persetujuan dan instruksi dari admin.</p></div></div>
+<div class="cta"><div><h2>Yuk, Convert Pulsa Anda Sekarang!</h2><p>Hubungi BOS CONVERT untuk cek rate dan ketersediaan layanan.</p></div><a class="btn" href="https://wa.me/628984814123?text=Halo%20BOS%20CONVERT%2C%20saya%20ingin%20bertanya%20tentang%20convert%20pulsa." target="_blank" rel="noopener">Chat Sekarang　↗</a></div>
+</div></section>
 
+<section class="content" id="status">
+ <div class="container">
+  <div class="section-head"><h2>Cek <span class="green">Status Transaksi</span></h2><p>Masukkan kode pesanan yang muncul setelah Anda mengirim permintaan order.</p></div>
+  <div class="status-box">
+   <div class="field"><label for="trackCode">Kode pesanan</label><input id="trackCode" placeholder="Contoh: BC-20261125-1234"></div>
+   <button class="btn" id="trackBtn" type="button">Cek Status</button>
+   <div id="trackResult" class="track-result" aria-live="polite">Status transaksi akan ditampilkan di sini.</div>
+  </div>
+ </div>
+</section>
+
+<section class="content alt-bg" id="riwayat">
+ <div class="container">
+  <div class="section-head"><h2>Riwayat <span class="green">Transaksi</span></h2><p>Aktivitas transaksi terbaru pada layanan convert pulsa (nomor disensor demi privasi).</p></div>
+  <div class="trx-box">
+   <div class="trx-handle" aria-hidden="true"></div>
+   <div id="trxFeed" class="trx-feed" aria-live="polite"></div>
+  </div>
+ </div>
+</section>
+
+<section class="content" id="testimoni">
+ <div class="container">
+  <div class="section-head"><h2>Kata Mereka tentang <span class="green">BOS CONVERT</span></h2><p>Contoh tampilan ulasan. Ganti dengan testimoni pelanggan asli setelah mendapat izin mereka.</p></div>
+  <div class="testimonial-grid">
+   <article class="testimonial"><div class="stars">★★★★★</div><p>“Proses pemesanan mudah dan admin menjelaskan tahapan transaksi dengan jelas.”</p><strong>Pelanggan BOS Nadira</strong><small></small></article>
+   <article class="testimonial"><div class="stars">★★★★★</div><p>“Informasi rate dan estimasi saldo mudah dipahami sebelum konfirmasi.”</p><strong>Pelanggan BOS Ilham</strong><small></small></article>
+   <article class="testimonial"><div class="stars">★★★★★</div><p>“Form pencairan membantu saya mengirim detail rekening dengan lebih rapi.”</p><strong>Pelanggan BOS Ridho</strong><small></small></article>
+  </div>
+ </div>
+</section>
+<section class="content alt-bg" id="faq"><div class="container"><div class="section-head"><h2>Pertanyaan Umum</h2><p>Informasi sebelum memulai transaksi.</p></div><div class="faq">
+<details><summary>Apakah rate di kalkulator selalu berlaku?</summary><p>Tidak. Rate di kalkulator adalah contoh simulasi dan dapat berubah. Konfirmasi rate kepada admin sebelum transaksi.</p></details>
+<details><summary>Kapan saya harus mengirim pulsa?</summary><p>Jangan mengirim pulsa sebelum admin mengonfirmasi rate, nominal, nomor tujuan, dan instruksi transaksi.</p></details>
+<details><summary>Operator apa saja yang tersedia?</summary><p>Silakan tanyakan ketersediaan operator kepada admin karena layanan dapat berubah sewaktu-waktu.</p></details>
+<details><summary>Berapa lama proses pencairan?</summary><p>Waktu proses bergantung pada verifikasi dan metode pencairan. Minta estimasi waktu kepada admin.</p></details>
+</div></div></section>
+
+<section class="content" id="privasi">
+ <div class="container">
+  <div class="section-head"><h2>Privasi & <span class="green">Ketentuan Layanan</span></h2><p>Ringkasan informasi yang perlu diketahui sebelum mengirim data transaksi.</p></div>
+  <div class="privacy-card">
+   <h3>Data yang Anda kirim</h3><p>Form order dapat memuat nomor pengirim, nominal pulsa, serta informasi rekening bank atau E-Wallet. Data tersebut dimasukkan ke pesan WhatsApp agar admin dapat memeriksa permintaan Anda.</p>
+   <h3>Penggunaan data</h3><p>Gunakan data hanya untuk verifikasi dan pemrosesan permintaan convert pulsa. Jangan kirim PIN, password, OTP, atau kode keamanan kepada siapa pun.</p>
+   <h3>Persetujuan dan keamanan transaksi</h3><p>Periksa nama penerima dan nomor tujuan resmi bersama admin. Jangan mengirim pulsa sebelum menerima konfirmasi dan instruksi transaksi yang jelas. Estimasi rate di situs bukan penawaran final.</p>
+   <h3>Pembaruan ketentuan</h3><p>Hubungi admin melalui WhatsApp 08984814123 jika ingin bertanya tentang penggunaan data atau ketentuan layanan.</p>
+  </div>
+ </div>
+</section>
+<section class="content alt-bg" id="admin">
+ <div class="container">
+  <div class="section-head"><h2>Panel <span class="green">Admin</span></h2><p>Kelola rate dan status pesanan pada perangkat/browser ini.</p></div>
+  <div class="admin-lock" id="adminLock">
+   <p></p>
+   <div class="field"><label for="adminPass">Kata sandi admin</label><input id="adminPass" type="password" placeholder="Masukkan kata sandi"></div>
+   <button class="btn" id="adminLogin" type="button">Masuk Panel Admin</button>
+   <p id="adminMessage" class="admin-message" aria-live="polite"></p>
+  </div>
+  <div id="adminPanel" hidden>
+   <div class="admin-card">
+    <h3>Ubah rate provider (%)</h3>
+    <div class="rate-edit-grid" id="rateEditors"></div>
+    <button class="btn" id="saveRates" type="button">Simpan Rate</button>
+    <h3 style="margin-top:28px">Kelola status transaksi di browser ini</h3>
+    <div id="adminOrders" class="admin-orders">Belum ada pesanan tersimpan pada browser ini.</div>
+    <button class="btn outline" id="adminLogout" type="button">Keluar Panel</button>
+   </div>
+  </div>
+ </div>
+</section>
+</main>
+<footer id="kontak"><div class="container"><div class="foot"><div><a class="brand" href="#"><span class="brand-mark">B</span><span>BOS<small>CONVERT</small></span></a><p>Jasa convert pulsa dengan alur transaksi yang mudah dan konfirmasi melalui WhatsApp.</p></div><div><strong>Kontak Kami</strong><p>WhatsApp: <a href="https://wa.me/628984814123">08984814123</a><br>Website: <a href="https://bossconvert.com">bossconvert.com</a></p></div><div><strong>Navigasi</strong><p><a href="#beranda">Beranda</a>　·　<a href="#cara">Cara Order</a><br><a href="#kalkulator">Kalkulator</a>　·　<a href="#faq">FAQ</a><br><a href="#privasi">Privasi</a>　·　<a href="#admin">Admin</a></p></div></div><div class="copyright"><span>© <span id="year"></span> BOS CONVERT. All Rights Reserved.</span><span>Convert Pulsa Jadi Lebih Mudah Bersama BOS CONVERT</span></div></div></footer>
+<a class="float" href="https://wa.me/628984814123" target="_blank" rel="noopener" aria-label="Chat WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.82 11.82 0 0 0 12.04 0C5.46 0 .1 5.36.1 11.94c0 2.1.55 4.16 1.6 5.97L0 24l6.26-1.64a11.9 11.9 0 0 0 5.78 1.48h.01c6.58 0 11.94-5.36 11.94-11.94 0-3.19-1.24-6.19-3.47-8.42ZM12.05 21.82h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.71.97 1-3.62-.24-.37a9.84 9.84 0 0 1-1.51-5.26c0-5.45 4.44-9.89 9.9-9.89 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.9 7c0 5.45-4.44 9.89-9.9 9.89Zm5.43-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.5s1.07 2.9 1.22 3.1c.15.2 2.11 3.22 5.11 4.52.71.31 1.27.49 1.7.63.72.23 1.37.2 1.89.12.58-.09 1.76-.72 2.01-1.41.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/></svg> WhatsApp</a>
 <script>
-let selectedProvider = "";
-let rate = 0;
+const money=n=>'Rp '+Math.round(n).toLocaleString('id-ID');
+const ADMIN_PASSWORD='BosAdmin123';
+const providerData=[
+ {name:'Telkomsel',rate:.80},{name:'XL',rate:.82},{name:'AXIS',rate:.82},
+ {name:'Indosat',rate:.80},{name:'Tri',rate:.80},{name:'Smartfren',rate:.75}
+];
+const rateLogos=[
+ 'https://commons.wikimedia.org/wiki/Special:FilePath/Telkomsel_(2021).svg',
+ 'https://commons.wikimedia.org/wiki/Special:FilePath/XL_Axiata_2014.svg',
+ 'https://commons.wikimedia.org/wiki/Special:FilePath/Axis_logo.svg',
+ 'https://commons.wikimedia.org/wiki/Special:FilePath/Indosat_Ooredoo_Hutchison.svg',
+ 'https://commons.wikimedia.org/wiki/Special:FilePath/Three_logo.svg',
+ 'https://commons.wikimedia.org/wiki/Special:FilePath/Smartfren_logo.svg'
+];
+const RATE_KEY='bos_rates_v1',ORDER_KEY='bos_orders_v1',TRX_FEED_KEY='bos_trx_feed_v1';
+const normalizeRates=raw=>{
+ if(!Array.isArray(raw)||raw.length!==providerData.length)return providerData.map(x=>x.rate);
+ return raw.map((val,idx)=>{
+  const num=Number(val);
+  return Number.isFinite(num)&&num>0&&num<=1?num:providerData[idx].rate;
+ });
+};
+const loadRates=()=>{try{return normalizeRates(JSON.parse(localStorage.getItem(RATE_KEY)))}catch{return providerData.map(x=>x.rate)}};
+const saveRates=r=>localStorage.setItem(RATE_KEY,JSON.stringify(r));
+const loadOrders=()=>{try{const d=JSON.parse(localStorage.getItem(ORDER_KEY));return Array.isArray(d)?d:[]}catch{return []}};
+const saveOrders=o=>localStorage.setItem(ORDER_KEY,JSON.stringify(o));
+let rates=loadRates();
+const nominal=document.getElementById('nominal'),operator=document.getElementById('operator'),payout=document.getElementById('payout');
+function getSelectedRate(){
+ const idx=Number(operator.value);
+ return Number.isFinite(rates[idx])?rates[idx]:providerData[0].rate;
+}
+function syncOperatorPicker(){
+ const idx=Number(operator.value)||0;
+ const prov=providerData[idx]||providerData[0];
+ const logo=rateLogos[idx]||rateLogos[0];
+ const labelEl=document.getElementById('opPickerLabel');
+ const logoEl=document.getElementById('opPickerLogo');
+ if(labelEl)labelEl.textContent=prov.name;
+ if(logoEl){logoEl.src=logo;logoEl.alt='Logo '+prov.name;}
+ document.querySelectorAll('#opPickerMenu .op-picker-item').forEach((btn,i)=>{
+  btn.classList.toggle('active',i===idx);
+ });
+}
+function buildOperatorPicker(){
+ const wrap=document.getElementById('opPicker');
+ if(!wrap)return;
+ operator.hidden=true;
+ wrap.innerHTML=`
+  <button class="op-picker-btn" id="opPickerBtn" type="button" aria-expanded="false">
+   <span class="op-picker-current"><img class="op-picker-logo" id="opPickerLogo" src="${rateLogos[0]}" alt="Logo ${providerData[0].name}"><span id="opPickerLabel">${providerData[0].name}</span></span>
+   <span>▾</span>
+  </button>
+  <div class="op-picker-menu" id="opPickerMenu" hidden>
+   ${providerData.map((p,i)=>`<button class="op-picker-item" type="button" data-idx="${i}"><img class="op-picker-logo" src="${rateLogos[i]}" alt="Logo ${p.name}"><span>${p.name}</span></button>`).join('')}
+  </div>`;
+ const btn=document.getElementById('opPickerBtn');
+ const menu=document.getElementById('opPickerMenu');
+ btn.addEventListener('click',e=>{
+  e.stopPropagation();
+  const open=menu.hidden;
+  menu.hidden=!open;
+  btn.setAttribute('aria-expanded',String(open));
+ });
+ menu.querySelectorAll('.op-picker-item').forEach(item=>{
+  item.addEventListener('click',()=>{
+   operator.value=item.dataset.idx;
+   operator.dispatchEvent(new Event('change'));
+   syncOperatorPicker();
+   menu.hidden=true;
+   btn.setAttribute('aria-expanded','false');
+  });
+ });
+ document.addEventListener('click',()=>{
+  menu.hidden=true;
+  btn.setAttribute('aria-expanded','false');
+ });
+ syncOperatorPicker();
+}
+function populateRateUI(){
+ const prevIdx=operator.value||'0';
+ operator.innerHTML=providerData.map((p,i)=>`<option value="${i}">${p.name}</option>`).join('');
+ operator.value=providerData[Number(prevIdx)]?prevIdx:'0';
+ buildOperatorPicker();
+ document.getElementById('rateRows').innerHTML=providerData.map((p,i)=>`<article class="rate-item"><div class="rate-logo-wrap"><img class="rate-logo" src="${rateLogos[i]}" alt="Logo ${p.name}" loading="lazy"></div><div><div class="rate-provider">${p.name}</div><small class="rate-sub">Estimasi per Rp100.000</small></div><div class="rate-values"><span class="rate-pill">${(rates[i]*100).toFixed(1).replace('.0','')}%</span><small class="rate-amount">${money(100000*rates[i])}</small></div></article>`).join('');
+ document.getElementById('rateUpdated').textContent='Rate simulasi · Terakhir diperbarui: '+new Date().toLocaleString('id-ID');
+ update();
+}
+function update(){const n=Math.max(0,Number(nominal.value)||0),r=getSelectedRate();document.getElementById('hasil').textContent=money(n*r)}
+function togglePayout(){const bank=payout.value==='bank';document.getElementById('bankFields').hidden=!bank;document.getElementById('ewalletFields').hidden=bank}
+nominal.addEventListener('input',update);operator.addEventListener('change',update);payout.addEventListener('change',togglePayout);
+function makeOrderCode(){const d=new Date(),date=d.getFullYear()+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0');return 'BC-'+date+'-'+Math.floor(1000+Math.random()*9000)}
 
-function pilihProvider(el, nama, r) {
-    document.querySelectorAll('.provider').forEach(p => p.classList.remove('active'));
-    el.classList.add('active');
-    selectedProvider = nama;
-    rate = r;
-    hitung();
+/* Riwayat Transaksi (30 transaksi, Rp30.000 - Rp4.250.000, awalan realistis per provider) */
+const providerPrefixes={
+ Telkomsel:['0811','0812','0813','0821','0822','0823','0851','0852','0853'],
+ XL:['0817','0818','0819','0859','0877','0878'],
+ AXIS:['0831','0832','0833','0838'],
+ Indosat:['0814','0815','0816','0855','0856','0857','0858'],
+ Tri:['0895','0896','0897','0898','0899'],
+ Smartfren:['0881','0882','0883','0884','0885','0886','0887','0888','0889']
+};
+const trxNominals=[
+ 30000,35000,40000,45000,50000,60000,75000,85000,90000,100000,
+ 125000,150000,175000,200000,250000,300000,350000,400000,450000,500000,
+ 600000,750000,850000,1000000,1200000,1500000,1750000,2000000,2350000,
+ 2500000,2800000,3000000,3250000,3500000,3850000,4000000,4250000
+];
+function detectProviderByPhone(rawPhone){
+ const clean=String(rawPhone||'').replace(/\D/g,'');
+ const norm=clean.startsWith('62')?'0'+clean.slice(2):clean;
+ for(const [opName,prefixes] of Object.entries(providerPrefixes)){
+  if(prefixes.some(p=>norm.startsWith(p)))return opName;
+ }
+ return null;
+}
+function generatePhoneForProvider(opName){
+ const list=providerPrefixes[opName]||providerPrefixes.Telkomsel;
+ const pre=list[Math.floor(Math.random()*list.length)];
+ const d5=Math.floor(Math.random()*10);
+ const last2=String(Math.floor(Math.random()*100)).padStart(2,'0');
+ return `${pre}${d5}****${last2}`;
+}
+function maskPhone(raw,opName){
+ const clean=String(raw||'').replace(/\D/g,'');
+ const norm=clean.startsWith('62')?'0'+clean.slice(2):clean;
+ if(norm.length>=7)return norm.slice(0,5)+'****'+norm.slice(-2);
+ return generatePhoneForProvider(opName);
+}
+function getProviderLogo(opName){
+ const idx=providerData.findIndex(p=>p.name.toLowerCase()===String(opName||'').toLowerCase());
+ return rateLogos[idx>=0?idx:0];
+}
+function formatAgo(mins){
+ if(mins<1)return 'baru saja';
+ if(mins<60)return `${mins} menit yang lalu`;
+ const hrs=Math.floor(mins/60);
+ return hrs===1?'sejam yang lalu':`${hrs} jam yang lalu`;
+}
+function createSampleTrx(mins){
+ const idx=Math.floor(Math.random()*providerData.length);
+ const prov=providerData[idx];
+ const amt=trxNominals[Math.floor(Math.random()*trxNominals.length)];
+ return {phone:generatePhoneForProvider(prov.name),operator:prov.name,logo:rateLogos[idx],amount:amt,mins,ts:Date.now()-mins*60000};
+}
+function createLiveTrxEntry({phone,operator,amount,mins=0}){
+ const detected=detectProviderByPhone(phone);
+ const finalOp=detected||operator||'Telkomsel';
+ return {phone:maskPhone(phone,finalOp),operator:finalOp,logo:getProviderLogo(finalOp),amount:Number(amount)||0,mins:Number(mins)||0,ts:Date.now()-(Number(mins)||0)*60000};
+}
+const initialTrxMinutes=[
+ 2,5,9,14,19,24,31,38,44,52,
+ 60,68,75,84,95,110,125,138,150,165,
+ 185,205,230,255,280,310,340,375,415,460
+];
+const loadSavedTrxFeed=()=>{
+ try{
+  const raw=JSON.parse(localStorage.getItem(TRX_FEED_KEY));
+  return Array.isArray(raw)&&raw.length?raw:null;
+ }catch{return null}
+};
+const saveTrxFeed=list=>{
+ try{localStorage.setItem(TRX_FEED_KEY,JSON.stringify(list.slice(0,35)))}catch{}
+};
+let trxFeedData=loadSavedTrxFeed()||initialTrxMinutes.map(m=>createSampleTrx(m));
+function renderTrxFeed(){
+ const box=document.getElementById('trxFeed');
+ if(!box)return;
+ const now=Date.now();
+ box.innerHTML=trxFeedData.map(t=>{
+  const elapsed=typeof t.ts==='number'?Math.max(0,Math.floor((now-t.ts)/60000)):(Number(t.mins)||0);
+  return `<div class="trx-item"><div class="trx-logo-wrap"><img src="${t.logo}" alt="Logo ${t.operator}" loading="lazy"></div><div class="trx-meta"><div class="trx-text">${t.phone} Berhasil Convert ${t.operator} ${money(t.amount).replace(' ','')}</div><div class="trx-ago">${formatAgo(elapsed)}</div></div></div>`;
+ }).join('');
+}
+function pushLiveTransaction(payload){
+ const entry=createLiveTrxEntry(payload);
+ trxFeedData.unshift(entry);
+ if(trxFeedData.length>35)trxFeedData.pop();
+ saveTrxFeed(trxFeedData);
+ renderTrxFeed();
+}
+renderTrxFeed();
+setInterval(()=>{renderTrxFeed()},30000);
+setInterval(()=>{
+ trxFeedData.unshift(createSampleTrx(0));
+ if(trxFeedData.length>35)trxFeedData.pop();
+ saveTrxFeed(trxFeedData);
+ renderTrxFeed();
+},45000);
+
+const csBtn=document.getElementById('csBtn');
+function getLatestOrderCode(){
+ const fromInput=document.getElementById('trackCode')?.value.trim().toUpperCase();
+ if(fromInput)return fromInput;
+ const saved=loadOrders();
+ return saved[0]?.code||'Belum ada';
+}
+function updateCsLink(){
+ if(!csBtn)return;
+ const code=getLatestOrderCode();
+ const msg=`Halo Admin Bos Convert, saya ingin meminta bantuan customer service.\n\n• Kode Transaksi: ${code}\n\nMohon bantuannya ya min.`;
+ csBtn.href='https://wa.me/628984814123?text='+encodeURIComponent(msg);
 }
 
-document.getElementById('nominal').addEventListener('input', function() {
-    let val = this.value.replace(/\D/g, '');
-    this.value = val ? parseInt(val, 10).toLocaleString('id-ID') : '';
-    hitung();
+document.getElementById('order').addEventListener('click',()=>{
+ const n=Math.max(0,Number(nominal.value)||0),r=getSelectedRate();
+ if(n<30000){alert('Masukkan nominal minimal Rp30.000.');return}
+ const sender=document.getElementById('sender').value.trim();
+ if(!sender){alert('Isi nomor HP pengirim pulsa terlebih dahulu.');document.getElementById('sender').focus();return}
+ let payoutOption='',payoutAccount='',payoutHolder='';
+ if(payout.value==='bank'){
+  const bank=document.getElementById('bankName').value,account=document.getElementById('bankAccount').value.trim(),holder=document.getElementById('bankHolder').value.trim();
+  if(!bank||!account||!holder){alert('Lengkapi nama bank, nomor rekening, dan nama pemilik rekening.');return}
+  payoutOption=bank;
+  payoutAccount=account;
+  payoutHolder=holder;
+ }else{
+  const wallet=document.getElementById('walletName').value,number=document.getElementById('walletNumber').value.trim(),holder=document.getElementById('walletHolder').value.trim();
+  if(!wallet||!number||!holder){alert('Lengkapi E-Wallet, nomor akun, dan nama pemilik akun.');return}
+  payoutOption=wallet;
+  payoutAccount=number;
+  payoutHolder=holder;
+ }
+ const op=providerData[Number(operator.value)]?.name||'Telkomsel',code=makeOrderCode();
+ const order={code,operator:op,sender,nominal:n,estimate:Math.round(n*r),created:new Date().toISOString(),status:'Menunggu konfirmasi admin'};
+ const orders=loadOrders();orders.unshift(order);saveOrders(orders);
+ pushLiveTransaction({phone:sender,operator:op,amount:n,mins:0});
+ updateCsLink();
+ const message=`Halo Admin Bos Convert, saya ingin menanyakan proses convert pulsa:\n\n• Kode Transaksi: ${code}\n• Operator: ${op}\n• Jumlah Pulsa: ${money(n)}\n• No. Pengirim: ${sender}\n\nDetail Tujuan:\n• Opsi Tujuan: ${payoutOption}\n• No. Rekening/E-Wallet: ${payoutAccount}\n• Atas Nama: ${payoutHolder}\n\nMohon konfirmasi rate dan instruksi transaksi sebelum saya mengirim pulsa.`;
+ document.getElementById('trackCode').value=code;
+ document.getElementById('trackResult').innerHTML=`Kode pesanan Anda: <strong>${code}</strong><br>Status awal: Menunggu konfirmasi admin. Simpan kode ini untuk pengecekan pada browser yang sama.`;
+ window.open('https://wa.me/628984814123?text='+encodeURIComponent(message),'_blank','noopener');
+});
+document.getElementById('trackCode').addEventListener('input',updateCsLink);
+document.getElementById('trackBtn').addEventListener('click',()=>{
+ const code=document.getElementById('trackCode').value.trim().toUpperCase(),o=loadOrders().find(x=>x.code===code);
+ document.getElementById('trackResult').innerHTML=o?`Kode: <strong>${o.code}</strong><br>Provider: ${o.operator}<br>Nominal: ${money(o.nominal)}<br>Status: <strong>${o.status}</strong><br><small>Dibuat: ${new Date(o.created).toLocaleString('id-ID')}</small>`:'Kode tidak ditemukan di penyimpanan browser ini. Jika berganti perangkat/browser, hubungi admin melalui WhatsApp.';
 });
 
-function hitung() {
-    const nominalInput = document.getElementById('nominal');
-    const hasilDisplay = document.getElementById('hasil');
-    if (!nominalInput || !hasilDisplay) return;
-
-    let val = nominalInput.value.replace(/\./g, '').replace(/,/g, '');
-    if (val && rate) {
-        let total = Math.floor(Number(val) * rate);
-        hasilDisplay.innerText = "Rp " + total.toLocaleString('id-ID');
-    } else {
-        hasilDisplay.innerText = "Rp 0";
-    }
+function renderRateEditors(){
+ document.getElementById('rateEditors').innerHTML=providerData.map((p,i)=>`<div class="rate-edit"><label for="rate-${i}">${p.name} (%)</label><input id="rate-${i}" type="number" min="1" max="100" step=".1" value="${(rates[i]*100).toFixed(1)}"></div>`).join('');
 }
-
-function nextStep(step) {
-    if (step === 2) {
-        const nominalVal = document.getElementById('nominal').value;
-        const nomorVal = document.getElementById('nomor').value.replace(/\D/g, '');
-
-        if (!selectedProvider || !nominalVal || nomorVal.length < 10) {
-            alert("Mohon lengkapi operator, nomor kontak pengirim, dan nominal pulsa.");
-            return;
-        }
-
-        const numericNominal = Number(nominalVal.replace(/\./g, '').replace(/,/g, ''));
-        if (numericNominal < 30000) {
-            alert("Nominal minimal adalah Rp 30.000.");
-            return;
-        }
-
-        const s1 = document.getElementById('step1_container');
-        const s2 = document.getElementById('step2');
-        const brand = document.getElementById('main-brand');
-
-        if (s1 && s2) {
-            document.getElementById('summary-provider').innerText = selectedProvider + " (" + nomorVal + ")";
-            document.getElementById('summary-nominal').innerText = "Rp " + numericNominal.toLocaleString('id-ID');
-            document.getElementById('summary-terima').innerText = document.getElementById('hasil').innerText;
-
-            brand.style.display = 'none';
-            s1.style.display = 'none';
-            s2.style.display = 'block';
-            window.scrollTo(0, 0);
-        }
-    } else if (step === 3) {
-        const tujuan = document.getElementById('tujuan').value;
-        const rekening = document.getElementById('rekening').value.trim();
-        const nama = document.getElementById('nama').value.trim();
-        const nomorPengirim = document.getElementById('nomor').value.replace(/\D/g, '');
-        const nominalValue = document.getElementById('nominal').value;
-
-        if (!tujuan || !rekening || !nama) {
-            alert("Mohon lengkapi seluruh detail tujuan penyaluran.");
-            return false;
-        }
-
-        const noWA = "6281371758870";
-        const pesan = "Halo Admin Boss Convert, saya ingin menanyakan proses convert pulsa:\n\n" +
-            "- Operator: " + selectedProvider + "\n" +
-            "- Jumlah Pulsa: Rp " + nominalValue + "\n" +
-            "- No. Pengirim: " + nomorPengirim + "\n\n" +
-            "Detail Tujuan:\n" +
-            "- Opsi Tujuan: " + tujuan + "\n" +
-            "- No. Rekening/E-Wallet: " + rekening + "\n" +
-            "- Atas Nama: " + nama + "\n\n" +
-            "Mohon konfirmasi rate dan instruksi transaksi sebelum saya mengirim pulsa.";
-
-        return gtag_report_conversion(
-            "https://wa.me/" + noWA + "?text=" + encodeURIComponent(pesan)
-        );
-    }
+function renderAdminOrders(){
+ const orders=loadOrders(),box=document.getElementById('adminOrders');
+ if(!orders.length){box.textContent='Belum ada pesanan tersimpan pada browser ini.';return}
+ box.innerHTML=orders.map(o=>`<div class="admin-order"><div><strong>${o.code}</strong><small>${o.operator} · ${money(o.nominal)} · ${new Date(o.created).toLocaleString('id-ID')}</small></div><select data-code="${o.code}" aria-label="Status ${o.code}"><option ${o.status==='Menunggu konfirmasi admin'?'selected':''}>Menunggu konfirmasi admin</option><option ${o.status==='Sedang diproses'?'selected':''}>Sedang diproses</option><option ${o.status==='Berhasil'?'selected':''}>Berhasil</option><option ${o.status==='Ditolak / dibatalkan'?'selected':''}>Ditolak / dibatalkan</option></select></div>`).join('');
+ box.querySelectorAll('select').forEach(sel=>sel.addEventListener('change',()=>{const list=loadOrders(),item=list.find(x=>x.code===sel.dataset.code);if(item){item.status=sel.value;saveOrders(list);}}));
 }
-
-document.querySelectorAll('.faq-question').forEach(button => {
-    button.addEventListener('click', () => {
-        const faqItem = button.parentElement;
-        faqItem.classList.toggle('active');
-        button.querySelector('span').innerText = faqItem.classList.contains('active') ? '-' : '+';
-    });
+document.getElementById('adminLogin').addEventListener('click',()=>{
+ if(document.getElementById('adminPass').value===ADMIN_PASSWORD){
+  document.getElementById('adminLock').hidden=true;document.getElementById('adminPanel').hidden=false;
+  renderRateEditors();renderAdminOrders();document.getElementById('adminMessage').textContent='';
+ }else{document.getElementById('adminMessage').textContent='Kata sandi salah. Periksa kembali.'}
 });
-
-function openModal(modalId) {
-    document.getElementById(modalId).style.display = "block";
-}
-function closeModal(modalId) {
-    document.getElementById(modalId).style.display = "none";
-}
-window.onclick = function(event) {
-    if (event.target.classList.contains('modal')) {
-        event.target.style.display = "none";
-    }
-}
+document.getElementById('saveRates').addEventListener('click',()=>{
+ const next=providerData.map((p,i)=>Number(document.getElementById('rate-'+i).value)/100);
+ if(next.some(x=>!Number.isFinite(x)||x<=0||x>1)){alert('Rate harus lebih dari 0% dan maksimal 100%.');return}
+ rates=next;saveRates(rates);populateRateUI();alert('Rate tersimpan di browser ini.');
+});
+document.getElementById('adminLogout').addEventListener('click',()=>{
+ document.getElementById('adminPanel').hidden=true;document.getElementById('adminLock').hidden=false;document.getElementById('adminPass').value='';
+});
+document.getElementById('year').textContent=new Date().getFullYear();
+togglePayout();populateRateUI();updateCsLink();
 </script>
-
-</body>
-</html>
+</body></html>
